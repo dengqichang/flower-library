@@ -1,0 +1,8 @@
+# 以下文件将被 Git 忽略
+unpackage/cache
+unpackage/debug
+unpackage/dist
+node_modules
+dist
+.hbuilderx
+.vite
