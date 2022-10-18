@@ -11,7 +11,7 @@
 	export default {
 		data() {
 			return {
-				title: '测试同步'
+				title: '测试一下镜像'
 			}
 		},
 		onLoad() {
