@@ -11,7 +11,7 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: '测试同步'
 			}
 		},
 		onLoad() {
