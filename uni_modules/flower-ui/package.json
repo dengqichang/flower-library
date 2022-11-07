@@ -1,0 +1,84 @@
+{
+	"id": "flower-ui",
+	"displayName": "flower-ui",
+	"version": "1.0.0",
+	"description": "多平台 uni-app 生态 ui 组件库 ，孤之有 “ 孔明 ” ，犹鱼之有水也 。",
+	"keywords": [
+		"flower-ui"
+	],
+	"type": "module",
+	"main": "./api/index.js",
+	"types": "./api/index.d.ts",
+	"repository": "https://github.com/dengqichang/flower-ui",
+	"engines": {
+		"HBuilderX": "^3.1.0"
+	},
+	"dcloudext": {
+		"type": "component-vue",
+		"sale": {
+			"regular": {
+				"price": "0.00"
+			},
+			"sourcecode": {
+				"price": "0.00"
+			}
+		},
+		"contact": {
+			"qq": ""
+		},
+		"declaration": {
+			"ads": "",
+			"data": "",
+			"permissions": ""
+		},
+		"npmurl": ""
+	},
+	"uni_modules": {
+		"dependencies": [],
+		"encrypt": [],
+		"platforms": {
+			"cloud": {
+				"tcb": "u",
+				"aliyun": "u"
+			},
+			"client": {
+				"Vue": {
+					"vue2": "u",
+					"vue3": "u"
+				},
+				"App": {
+					"app-vue": "u",
+					"app-nvue": "u"
+				},
+				"H5-mobile": {
+					"Safari": "u",
+					"Android Browser": "u",
+					"微信浏览器(Android)": "u",
+					"QQ浏览器(Android)": "u"
+				},
+				"H5-pc": {
+					"Chrome": "u",
+					"IE": "u",
+					"Edge": "u",
+					"Firefox": "u",
+					"Safari": "u"
+				},
+				"小程序": {
+					"微信": "u",
+					"阿里": "u",
+					"百度": "u",
+					"字节跳动": "u",
+					"QQ": "u",
+					"钉钉": "u",
+					"快手": "u",
+					"飞书": "u",
+					"京东": "u"
+				},
+				"快应用": {
+					"华为": "u",
+					"联盟": "u"
+				}
+			}
+		}
+	}
+}
