@@ -1,9 +1,5 @@
-declare function getBuiltInColor(): string;
-declare function layoutBottomLogo(): string;
-declare function getIsCustomNav(): boolean;
+declare function test(): string;
 
 export {
-	getBuiltInColor,
-	layoutBottomLogo,
-	getIsCustomNav
+	test
 }

@@ -1,13 +1,7 @@
-import {
-	getBuiltInColor,
-	layoutBottomLogo
-} from "../core/color.js"
-import {
-	getIsCustomNav
-} from "../core/pages.js"
+const test = () => {
+	console.log("测试函数")
+}
 
 export {
-	layoutBottomLogo,
-	getBuiltInColor,
-	getIsCustomNav
+	test
 }
