@@ -19,10 +19,10 @@
 #### 官方文档
 > [文档地址：https://flowerui.com](https://flowerui.com)
 #### 兼容性
-##### flower-ui
+##### [flower-ui](https://github.com/dengqichang/flower-ui/tree/main/uni_modules/flower-ui)
 全端兼容：APP-VUE、H5、快应用、各端小程序均支持。  
 > 温馨提醒：不支持 APP-NVUE
-##### flower-icons
+##### [flower-icons](https://github.com/dengqichang/flower-ui/tree/main/uni_modules/flower-icons)
 全端兼容：APP（ vue | nvue ）、H5、快应用、各端小程序均支持
 #### 适用领域
 基于 `uni-app` 生态开发的组件库，`uni-app` 是一个使用 [Vue.js](https://vuejs.org/) 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/飞书/QQ/快手/钉钉/淘宝）、快应用等多个平台。
