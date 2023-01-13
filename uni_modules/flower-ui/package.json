@@ -43,7 +43,7 @@
 			},
 			"client": {
 				"Vue": {
-					"vue2": "y",
+					"vue2": "n",
 					"vue3": "y"
 				},
 				"App": {
