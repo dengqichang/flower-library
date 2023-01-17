@@ -14,11 +14,9 @@
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8",
-		"flowerThemeColor": "#296BEF",
-		"flowerLayoutBottomLogo": "/static/logo.png"
+		"navigationBarTextStyle": "@navigationBarTextStyle",
+		"navigationBarTitleText": "FLOWER UI",
+		"navigationBarBackgroundColor": "@navigationBarBackgroundColor",
+		"backgroundColor": "@backgroundColor"
 	}
 }

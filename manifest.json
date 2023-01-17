@@ -1,5 +1,5 @@
 {
-    "name" : "flower-ui",
+    "name" : "FLOWER",
     "appid" : "__UNI__E843058",
     "description" : "多平台 uni-app 生态 ui 组件库 ，孤之有 “ 孔明 ” ，犹鱼之有水也 。",
     "versionName" : "1.0.0",
@@ -16,6 +16,7 @@
             "autoclose" : true,
             "delay" : 0
         },
+        "darkmode" : true,
         /* 模块配置 */
         "modules" : {},
         /* 应用发布信息 */
@@ -55,13 +56,26 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wx6304b4c0fa232011",
+        "darkmode" : true,
         "setting" : {
             "urlCheck" : false,
             "postcss" : true,
             "minified" : true
         },
         "usingComponents" : true
+    },
+    "h5" : {
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : true
+            }
+        },
+        "darkmode" : true,
+        "router" : {
+            "mode" : "history"
+        },
+        "title" : "FLOWER UI"
     },
     "mp-alipay" : {
         "usingComponents" : true
