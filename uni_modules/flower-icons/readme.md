@@ -9,7 +9,7 @@
 - 丰富的可视化交互，方便同学们快速操作图标，复制使用
 
 #### 官方文档
-> [文档地址：https://flowerui.com](https://flowerui.com)  
+> [文档地址：https://flowerui.com/icon](https://flowerui.com/icon)  
 
 #### 源码
 [![stars](https://img.shields.io/github/stars/dengqichang/flower-ui?style=social)](https://github.com/dengqichang/flower-ui)
