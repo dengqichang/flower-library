@@ -12,18 +12,19 @@
 
 </div>
 
-#### 自述
+#### 简述
 关于框架命名，`flower` 翻译成中文为 "花"，发音 `/ˈflaʊə(r)/`。`logo` 从设计上看似花环形状，每片花瓣均不同色彩且似人欢呼动作，环环相扣形成花环。
 寓于：五湖四海的同学们在这里相遇，互帮互助，携手进步；赠人玫瑰，手有余香。" 一花独放不是春，百花齐放春满园。" 
 希望能在百花齐放、百花争艳的 [uni-app插件市场](https://ext.dcloud.net.cn/) 潮流中能占一席之地。  
 #### 官方文档
-> [文档地址：https://flowerui.com](https://flowerui.com)
-#### 兼容性
+官网地址：<a target="_blank" href="https://www.flowerui.com">https://www.flowerui.com</a>  
+#### 反馈与交流
+官方QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_a2CXouL0H2OvaJ8vPalp3S6DABKIoCH&jump_from=webapi&authKey=riLWFXQamGAWrXQnBW0NCCFVeodvRvAEAooJNxuNybHBCOs9w0V9yR2F1NhVsZS/">654105306</a>  
+#### 插件列表
 ##### [flower-ui](https://github.com/dengqichang/flower-ui/tree/main/uni_modules/flower-ui)
-全端兼容：APP-VUE、H5、快应用、各端小程序均支持。  
-> 温馨提醒：不支持 APP-NVUE
+全端兼容：APP-VUE、H5、快应用、各端小程序均支持。
 ##### [flower-icons](https://github.com/dengqichang/flower-ui/tree/main/uni_modules/flower-icons)
-全端兼容：APP（ vue | nvue ）、H5、快应用、各端小程序均支持
+全端兼容：APP（ vue | nvue ）、H5、快应用、各端小程序均支持。
 #### 适用领域
 基于 `uni-app` 生态开发的组件库，`uni-app` 是一个使用 [Vue.js](https://vuejs.org/) 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/飞书/QQ/快手/钉钉/淘宝）、快应用等多个平台。
 #### 版权信息
