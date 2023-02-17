@@ -7,8 +7,9 @@
 寓于：五湖四海的同学们在这里相遇，互帮互助，携手进步；赠人玫瑰，手有余香。" 一花独放不是春，百花齐放春满园。" 
 希望能在百花齐放、百花争艳的 [uni-app插件市场](https://ext.dcloud.net.cn/) 潮流中能占一席之地。  
 #### 官方文档
-> [文档地址：https://flowerui.com](https://flowerui.com)
-  
+官网地址：<a target="_blank" href="https://www.flowerui.com">https://www.flowerui.com</a>  
+#### 反馈与交流
+官方QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_a2CXouL0H2OvaJ8vPalp3S6DABKIoCH&jump_from=webapi&authKey=riLWFXQamGAWrXQnBW0NCCFVeodvRvAEAooJNxuNybHBCOs9w0V9yR2F1NhVsZS/">654105306</a>  
 #### 源码
 [![stars](https://img.shields.io/github/stars/dengqichang/flower-ui?style=social)](https://github.com/dengqichang/flower-ui)
 [![forks](https://img.shields.io/github/forks/dengqichang/flower-ui?style=social)](https://github.com/dengqichang/flower-ui)

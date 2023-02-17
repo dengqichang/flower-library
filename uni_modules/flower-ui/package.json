@@ -11,7 +11,7 @@
 	"types": "./api/index.d.ts",
 	"repository": "https://github.com/dengqichang/flower-ui",
 	"engines": {
-		"HBuilderX": "^3.6.15"
+		"HBuilderX": "^3.6.9"
 	},
 	"dcloudext": {
 		"type": "component-vue",
