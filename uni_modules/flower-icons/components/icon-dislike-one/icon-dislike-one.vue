@@ -1,7 +1,7 @@
 <template><text :class="['flower-icons',customClass]" :style="[iconStyle]">{{showIcon}}</text></template>
 <script>
 	// #ifdef APP-NVUE
-	import iconUrl from './iconfont.ttf';const domModule = weex.requireModule('dom');domModule.addRule('fontFace', {'fontFamily': "flower-icon-dislike-two",'src': "url('" + iconUrl + "')"});
+	import iconUrl from './iconfont.ttf';const domModule = weex.requireModule('dom');domModule.addRule('fontFace', {'fontFamily': "flower-icon-dislike-one",'src': "url('" + iconUrl + "')"});
 	// #endif
 	export default {
 		props: {isFill: Boolean,color: String,isBold: Boolean,size: [String, Number],lineHeight: [String, Number],customStyle: Object,customClass: Object},
@@ -19,6 +19,6 @@
 	@font-face {font-family: flower-icons;src: url('iconfont.ttf') format('truetype');}.flower-icons {font-family: flower-icons;font-size: 28rpx;}
 	/* #endif */
 	/* #ifdef APP-NVUE */
-	.flower-icons {font-family: flower-icon-dislike-two;font-size: 28rpx;}
+	.flower-icons {font-family: flower-icon-dislike-one;font-size: 28rpx;}
 	/* #endif */
 </style>
