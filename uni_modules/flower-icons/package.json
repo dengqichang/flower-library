@@ -6,7 +6,7 @@
 	"keywords": [
         "字体图标"
     ],
-	"repository": "https://github.com/dengqichang/flower-ui",
+	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-icons",
 	"engines": {
 		"HBuilderX": "^3.6.9"
 	},
