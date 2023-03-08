@@ -9,7 +9,7 @@
 	"type": "module",
 	"main": "./api/index.js",
 	"types": "./api/index.d.ts",
-	"repository": "https://github.com/dengqichang/flower-ui",
+	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-ui",
 	"engines": {
 		"HBuilderX": "^3.6.9"
 	},
