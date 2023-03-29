@@ -1,7 +1,8 @@
-const test = () => {
-	console.log("测试函数")
-}
+// flower-ui内置主题
+import {setFlowerTheme,restoreFlowerTheme,getFlowerColor} from "../core/colors.js";
 
 export {
-	test
+	setFlowerTheme,
+	restoreFlowerTheme,
+	getFlowerColor
 }

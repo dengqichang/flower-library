@@ -1,5 +1,9 @@
-declare function test(): string;
+declare function setFlowerTheme(color : string) : string;
+declare function restoreFlowerTheme() : void;
+declare function getFlowerColor(color : string) : string;
 
 export {
-	test
+	setFlowerTheme,
+	restoreFlowerTheme,
+	getFlowerColor
 }
