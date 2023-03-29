@@ -11,12 +11,12 @@
 #### 反馈与交流
 官方QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_a2CXouL0H2OvaJ8vPalp3S6DABKIoCH&jump_from=webapi&authKey=riLWFXQamGAWrXQnBW0NCCFVeodvRvAEAooJNxuNybHBCOs9w0V9yR2F1NhVsZS/">654105306</a>  
 #### 源码
-[![stars](https://img.shields.io/github/stars/dengqichang/flower-ui?style=social)](https://github.com/dengqichang/flower-ui)
-[![forks](https://img.shields.io/github/forks/dengqichang/flower-ui?style=social)](https://github.com/dengqichang/flower-ui)
-[![watchers](https://img.shields.io/github/watchers/dengqichang/flower-ui?style=social)](https://github.com/dengqichang/flower-ui)
-[![license](https://img.shields.io/github/license/dengqichang/flower-ui?style=social)](https://github.com/dengqichang/flower-ui)
-[![star](https://gitee.com/dengqichang/flower-ui/badge/star.svg?theme=white)](https://gitee.com/dengqichang/flower-ui)
-[![fork](https://gitee.com/dengqichang/flower-ui/badge/fork.svg?theme=white)](https://gitee.com/dengqichang/flower-ui)
+[![stars](https://img.shields.io/github/stars/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-ui)
+[![forks](https://img.shields.io/github/forks/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-ui)
+[![watchers](https://img.shields.io/github/watchers/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-ui)
+[![license](https://img.shields.io/github/license/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-ui)
+[![star](https://gitee.com/dengqichang/flower-library/badge/star.svg?theme=white)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-ui)
+[![fork](https://gitee.com/dengqichang/flower-library/badge/fork.svg?theme=white)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-ui)
 #### 兼容性
 全端兼容：APP-VUE、H5、快应用、各端小程序均支持。  
 > 温馨提醒：不支持 APP-NVUE
