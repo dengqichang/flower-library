@@ -1,8 +1,5 @@
-// flower-ui内置主题
-import {setFlowerTheme,restoreFlowerTheme,getFlowerColor} from "../core/colors.js";
-
+import {getCurrentPageRoute,getCurrentPageTitle,getIsCustomNav,globalStyle,getCurrentPageBackground} from "../core/pages.js"
 export {
-	setFlowerTheme,
-	restoreFlowerTheme,
-	getFlowerColor
+	// pages.js
+	getCurrentPageRoute,getCurrentPageTitle,getIsCustomNav,globalStyle,getCurrentPageBackground
 }

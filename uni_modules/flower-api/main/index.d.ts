@@ -1,9 +1,10 @@
-declare function setFlowerTheme(color : string) : string;
-declare function restoreFlowerTheme() : void;
-declare function getFlowerColor(color : string) : string;
+// pages.js
+declare function getCurrentPageRoute() : void;
+declare function getCurrentPageTitle() : void;
+declare function getIsCustomNav() : void;
+declare const globalStyle : object;
 
 export {
-	setFlowerTheme,
-	restoreFlowerTheme,
-	getFlowerColor
+	// pages.js
+	getCurrentPageRoute,getCurrentPageTitle,getIsCustomNav,globalStyle,
 }

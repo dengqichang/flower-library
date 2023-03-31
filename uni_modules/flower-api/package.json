@@ -6,7 +6,6 @@
 	"keywords": [
         "api"
     ],
-	"type": "module",
 	"main": "./main/index.js",
 	"types": "./main/index.d.ts",
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-api",
