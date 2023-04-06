@@ -9,6 +9,7 @@ const svgToUrl = (svgData, primaryColor, clothingColor, otherColor) => {
 		.replace(/<!--(.*)-->/g, "")
 		.replace(/[\r\n]/g, " ")
 		.replace(/#5792f0/g, primary[5])
+		.replace(/#8ab4f7/g, primary[4])
 		.replace(/#bfd4fa/g, primary[2])
 		.replace(/#cfdffa/g, primary[2])
 		.replace(/#ccdcf6/g, primary[1])
