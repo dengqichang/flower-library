@@ -1,11 +1,8 @@
-import {
-	generate
-} from "@/uni_modules/flower-config";
+import {generate} from "@/uni_modules/flower-config";
 const svgToUrl = (svgData, primaryColor, clothingColor, otherColor) => {
-	const primary = generate(primaryColor)
-	const clothing = generate(clothingColor)
-
-	var encoded = svgData
+	const primary = generate(primaryColor);
+	const clothing = generate(clothingColor);
+	const encoded = svgData
 		.replace(/<!--(.*)-->/g, "")
 		.replace(/[\r\n]/g, " ")
 		.replace(/#5792f0/g, primary[5])
@@ -26,8 +23,5 @@ const svgToUrl = (svgData, primaryColor, clothingColor, otherColor) => {
 		.replace(/</g, "%3C")
 		.replace(/>/g, "%3E");
 	return '"' + `data:image/svg+xml,${encoded}` + '"';
-}
-
-export {
-	svgToUrl
-}
+};
+export {svgToUrl}
