@@ -1,5 +1,6 @@
-import {getCurrentPageRoute,getCurrentPageTitle,getIsCustomNav,globalStyle,getCurrentPageBackground} from "../core/pages.js"
+import {getNetworkType} from "../core/network.js";
+
 export {
-	// pages.js
-	getCurrentPageRoute,getCurrentPageTitle,getIsCustomNav,globalStyle,getCurrentPageBackground
+	// network.js
+	getNetworkType
 }
