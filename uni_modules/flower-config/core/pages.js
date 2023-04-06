@@ -1,19 +1,16 @@
-const pageJson = import.meta.globEager('/pages.json')['/pages.json'].default;
-
+import pagesJson from "/pages.json";
 // 全局配置
-const globalStyle = pageJson.globalStyle;
-
+const globalStyle = pagesJson.globalStyle;
 // 页面配置
 let pages = {};
-
 // 未分包
-for (let i in pageJson.pages) {
-	pages[pageJson.pages[i].path] = pageJson.pages[i].style;
+for (let i in pagesJson.pages) {
+	pages[pagesJson.pages[i].path] = pagesJson.pages[i].style;
 }
 // 分包
-for (let i in pageJson.subPackages) {
-	for (let ii in pageJson.subPackages[i].pages) {
-		pages[`${pageJson.subPackages[i].root}/${pageJson.subPackages[i].pages[ii].path}`] = pageJson.subPackages[i].pages[ii].style;
+for (let i in pagesJson.subPackages) {
+	for (let ii in pagesJson.subPackages[i].pages) {
+		pages[`${pagesJson.subPackages[i].root}/${pagesJson.subPackages[i].pages[ii].path}`] = pagesJson.subPackages[i].pages[ii].style;
 	}
 };
 
