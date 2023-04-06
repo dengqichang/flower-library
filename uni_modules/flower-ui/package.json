@@ -6,8 +6,6 @@
 	"keywords": [
         "组件库"
     ],
-	"main": "./main/index.js",
-	"types": "./main/index.d.ts",
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-ui",
 	"engines": {
 		"HBuilderX": "^3.6.9"
