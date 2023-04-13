@@ -33,9 +33,18 @@ const isBuiltColor = (c) => {return colors[c] ? colors[c] : c};
 /**
  * 获取内置颜色
  */
-const getColor = (c) => {return isBuiltColor(c)};
+const getColors = (c) => {return isBuiltColor(c)};
+
+/**
+ * 单位转化
+ */
+const unitConversion = (e) => {
+	if (typeof e == "number") {return `${e}rpx`} else if (typeof e == "string") {if (e.indexOf('px') != -1) {return `${e}`} else {return `${e}rpx`};};
+};
+
 export {
 	setTheme,
 	restoreTheme,
-	getColor
+	getColors,
+	unitConversion
 }

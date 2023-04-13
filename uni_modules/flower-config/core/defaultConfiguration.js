@@ -8,11 +8,11 @@ import {reactive} from "vue"
 
 const config = reactive({
 	colors: {
-		primary: '#296BEF',
-		success: '#07C160',
-		warning: '#EDA20C',
-		danger: '#D9514C',
-		info: '#909399'
+		primary: "#296BEF",
+		success: "#07C160",
+		warning: "#EDA20C",
+		danger: "#D9514C",
+		info: "#909399"
 	},
 	presets: {
 		"gray-1": "#ffffff",

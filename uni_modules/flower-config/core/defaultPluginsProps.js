@@ -3,9 +3,9 @@ import {
 } from "./config.js";
 
 const uiLayout = defaultPlugins['ui-layout'];
-const uiDefault = defaultPlugins['ui-default'];
+const uiEmpty = defaultPlugins['ui-empty'];
 
 export {
 	uiLayout,
-	uiDefault
+	uiEmpty
 }

@@ -1,17 +1,13 @@
 import pagesJson from "/pages.json";
+	
 // 全局配置
-const globalStyle = pagesJson.globalStyle;
+const globalStyle = __uniConfig.globalStyle;
+const uniRoutes = __uniRoutes;
 // 页面配置
 let pages = {};
-// 未分包
-for (let i in pagesJson.pages) {
-	pages[pagesJson.pages[i].path] = pagesJson.pages[i].style;
-}
-// 分包
-for (let i in pagesJson.subPackages) {
-	for (let ii in pagesJson.subPackages[i].pages) {
-		pages[`${pagesJson.subPackages[i].root}/${pagesJson.subPackages[i].pages[ii].path}`] = pagesJson.subPackages[i].pages[ii].style;
-	}
+
+for (let i in __uniRoutes) {
+	pages[__uniRoutes[i].meta.route] = __uniRoutes[i];
 };
 
 /**
@@ -27,23 +23,23 @@ const getCurrentPageRoute = () => {
  * 获取当前页面标题
  */
 const getCurrentPageTitle = () => {
-	return pages[getCurrentPageRoute()].navigationBarTitleText;
+	return pages[getCurrentPageRoute()].meta.navigationBar.titleText || globalStyle.navigationBar.titleText || uni.getSystemInfoSync().appName;
 }
 
 /**
  * 获取当前页面背景色
  */
 const getCurrentPageBackground = () => {
-	return {backgroundColor:pages[getCurrentPageRoute()].backgroundColor || globalStyle.backgroundColor || "#f8f8f8"}
+	return {backgroundColor:pages[getCurrentPageRoute()].meta.backgroundColor || globalStyle.backgroundColor || "#f8f8f8"}
 }
 
 /**
  * 判断是否为自定义导航
  */
 const getIsCustomNav = () => {
-	if (pages[getCurrentPageRoute()].navigationStyle == 'custom') {
+	if (pages[getCurrentPageRoute()].meta.navigationBar.style == 'custom') {
 		return true;
-	} else if (globalStyle.navigationStyle == 'custom') {
+	} else if (globalStyle.navigationBar.style == 'custom') {
 		return true;
 	} else {
 		return false;
