@@ -2,52 +2,38 @@ import {
 	reactive
 } from "vue";
 const network = reactive({
-	networkText: '',
-	networkType: '',
+	networkText: "",
+	networkType: "",
 	networkConnected: false
 });
 
-uni.onNetworkStatusChange((res) => {
-	network.networkType = res.networkType;
-	switch (res.networkType) {
-		case 'none':
-			network.networkConnected = false;
-			network.networkText = '无网络状态,请检查您的网络设置';
-			break;
-		case '2g':
-			network.networkConnected = false;
-			network.networkText = '网络连接不可用,请检查您的网络状态';
-			break;
-		default:
-			network.networkConnected = true;
-			network.networkText = `当前网络:${res.networkType}`;
-			break;
+const networkTypeArray = ['none', '2g', 'offline'];
+
+const networkRecombination = (e) => {
+	if(networkTypeArray.includes(e.networkType)){
+		network.networkConnected = false;
+		network.networkText = `当前网络不可用,请检查你的网络设置`;
+	}else{
+		network.networkConnected = true;
+		network.networkText = `网络连接正常：${e.networkType}`;
 	};
+	network.networkType = e.networkType;
+}
+
+uni.onNetworkStatusChange((res) => {
+	networkRecombination(res)
 });
 
-const getNetworkType = () => {
-	uni.getNetworkType({
-		success: (res) => {
-			network.networkType = res.networkType;
-			switch (res.networkType) {
-				case 'none':
-					network.networkConnected = false;
-					network.networkText = '无网络状态,请检查您的网络设置';
-					break;
-				case '2g':
-					network.networkConnected = false;
-					network.networkText = '网络连接不可用,请检查您的网络状态';
-					break;
-				default:
-					network.networkConnected = true;
-					network.networkText = `当前网络:${res.networkType}`;
-					break;
-			};
-		}
-	});
+uni.getNetworkType({
+	success: (res) => {
+		networkRecombination(res)
+	}
+});
+
+const getNetwork = ()=>{
 	return network;
 }
 
 export {
-	getNetworkType
+	getNetwork
 }
