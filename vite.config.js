@@ -5,7 +5,7 @@ import {
 import uni from '@dcloudio/vite-plugin-uni';
 
 
-// 引入vite-plugin-uniapp-pages插件
+// 引入vite-plugin-uni-pages插件
 import vitePluginUniPages from './uni_modules/flower-api/plug-in/vite-plugin-uni-pages';
 
 // https://vitejs.dev/config/
