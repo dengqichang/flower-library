@@ -18,7 +18,7 @@ export default {
 		record: "暂无记录",
 		slow: "网络不给力",
 		message: "暂无消息",
-		directionless: "暂无方向",
+		direction: "暂无方向",
 		html: "404"
 	},
 	primaryColor: "primary",
