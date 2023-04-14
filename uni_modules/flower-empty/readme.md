@@ -15,6 +15,9 @@
 | otherColor	| String			| #141414	|  其它颜色		|
 | offsetTop		| String / Number	| 0			|  向上偏移位置	|
 | offsetBottom	| String / Number	| 0			|  向下偏移位置	|
+
+> 温馨说明：Props 属性 offsetTop、offsetBottom类型为Number时，单位默认为rpx；类型为String时，需自带单位，例如24px、24rpx、24vh。
+
 #### 官方文档
 官网地址：<a target="_blank" href="https://www.flowerui.com">https://www.flowerui.com</a>  
 #### 反馈与交流
