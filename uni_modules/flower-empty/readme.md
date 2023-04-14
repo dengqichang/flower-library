@@ -10,11 +10,11 @@
 | 属性			| 类型				| 默认值		| 说明			|
 | :------:		| :------:			| :-------:	| :------:		|
 | description	| String			| -			|  缺省文本描述	|
-| primaryColor	| String			| -			|  主颜色		|
-| clothingColor	| String			| -			|  人物颜色		|
-| otherColor	| String			| -			|  其它颜色		|
-| offsetTop		| String / Number	| -			|  向上偏移位置	|
-| offsetBottom	| String / Number	| -			|  向下偏移位置	|
+| primaryColor	| String			| #296BEF	|  主颜色		|
+| clothingColor	| String			| #EDA20C	|  人物颜色		|
+| otherColor	| String			| #141414	|  其它颜色		|
+| offsetTop		| String / Number	| 0			|  向上偏移位置	|
+| offsetBottom	| String / Number	| 0			|  向下偏移位置	|
 #### 官方文档
 官网地址：<a target="_blank" href="https://www.flowerui.com">https://www.flowerui.com</a>  
 #### 反馈与交流
