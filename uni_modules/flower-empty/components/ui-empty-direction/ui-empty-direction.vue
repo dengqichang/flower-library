@@ -1,7 +1,7 @@
 <template>
 	<ui-custom-empty 
 		:svg="svg" 
-		:description="uiEmpty.description.directionless"
+		:description="uiEmpty.description.direction"
 		:primaryColor="uiEmpty.primaryColor" 
 		:clothingColor="uiEmpty.clothingColor"
 		:otherColor="uiEmpty.otherColor">

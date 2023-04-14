@@ -1,2 +1,21 @@
-## 1.0.0（2023-04-03）
-- 创建项目
+## 1.0.0（2023-04-14）
+- 缺省页 `<ui-empty-shopping />` - 购物车空空如也
+- 缺省页 `<ui-empty-fail />` - 加载失败
+- 缺省页 `<ui-empty-loading />` - 加载中
+- 缺省页 `<ui-empty-null />` - 空数据
+- 缺省页 `<ui-empty-permission />` - 无权限
+- 缺省页 `<ui-empty-agenda />` - 暂无日程
+- 缺省页 `<ui-empty-page />` - 页面不见了
+- 缺省页 `<ui-empty-coupon />` - 暂无优惠券
+- 缺省页 `<ui-empty-data />` - 暂无数据
+- 缺省页 `<ui-empty-card />` - 暂无银行卡
+- 缺省页 `<ui-empty-signal />` - 暂无信号
+- 缺省页 `<ui-empty-collection />` - 暂无收藏
+- 缺省页 `<ui-empty-network />` - 无网络
+- 缺省页 `<ui-empty-folder />` - 文件夹空空如也
+- 缺省页 `<ui-empty-search />` - 暂无搜索结果
+- 缺省页 `<ui-empty-record />` - 暂无记录
+- 缺省页 `<ui-empty-slow />` - 网络不给力
+- 缺省页 `<ui-empty-message />` - 暂无消息
+- 缺省页 `<ui-empty-direction />` - 暂无方向
+- 缺省页 `<ui-empty-html />` - 404

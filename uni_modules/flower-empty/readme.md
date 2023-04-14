@@ -1,6 +1,6 @@
 <p align="center"><img alt="logo" src="https://www.flowerui.com/logo.png" width="123"></p>
 <h3 align="center">FLOWER EMPTY</h3>
-<p align="center">多平台 uni-app 生态缺省页组件库 ，孤之有 “ 孔明 ” ，犹鱼之有水也 。</p>
+<p align="center">多平台 uni-app 生态缺省页 ，根据异常的场景给予相关元素的缺省页。</p>
 
 #### 简述
 缺省页是页面无内容或者异常的状态时展示的页面。

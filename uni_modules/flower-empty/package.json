@@ -2,7 +2,7 @@
 	"id": "flower-empty",
 	"displayName": "flower-empty",
 	"version": "1.0.0",
-	"description": "flower-empty",
+	"description": "多平台 uni-app 生态缺省页 ，根据异常的场景给予相关元素的缺省页。",
 	"keywords": [
 		"缺省页"
 	],
