@@ -6,6 +6,15 @@
 缺省页是页面无内容或者异常的状态时展示的页面。
 设计缺省页作用是设计更好的用户体验，即在异常状态下的给予用户友好提示及安抚用户情绪。
 根据异常的场景给予相关元素的缺省页，在产品页面相对应的场景特点来设计页面内容。
+#### Props
+| 属性			| 类型				| 默认值		| 说明			|
+| :------:		| :------:			| :-------:	| :------:		|
+| description	| String			| -			|  缺省文本描述	|
+| primaryColor	| String			| -			|  主颜色		|
+| clothingColor	| String			| -			|  人物颜色		|
+| otherColor	| String			| -			|  其它颜色		|
+| offsetTop		| String / Number	| -			|  向上偏移位置	|
+| offsetBottom	| String / Number	| -			|  向下偏移位置	|
 #### 官方文档
 官网地址：<a target="_blank" href="https://www.flowerui.com">https://www.flowerui.com</a>  
 #### 反馈与交流
