@@ -12,7 +12,7 @@ export default {
 		card: "暂无银行卡",
 		signal: "暂无信号",
 		collection: "暂无收藏",
-		network: "无网络",
+		network: "无网络连接",
 		folder: "文件夹空空如也",
 		search: "暂无搜索结果",
 		record: "暂无记录",
@@ -24,4 +24,6 @@ export default {
 	primaryColor: "primary",
 	clothingColor: "warning",
 	otherColor: "#141414",
+	offsetTop: 0,
+	offsetBottom: 0
 }
