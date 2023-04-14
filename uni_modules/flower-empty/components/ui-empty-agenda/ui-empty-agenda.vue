@@ -4,7 +4,9 @@
 		:description="uiEmpty.description.agenda"
 		:primaryColor="uiEmpty.primaryColor" 
 		:clothingColor="uiEmpty.clothingColor"
-		:otherColor="uiEmpty.otherColor">
+		:otherColor="uiEmpty.otherColor"
+		:offsetTop="uiEmpty.offsetTop"
+		:offsetBottom="uiEmpty.offsetBottom">
 		<slot />
 	</ui-custom-empty>
 </template>
