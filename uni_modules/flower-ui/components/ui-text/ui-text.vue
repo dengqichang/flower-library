@@ -1,6 +1,8 @@
 <!-- 文本 -->
 <template>
-	<view :style="styles">{{props.text}}</view>
+	<view :style="styles">{{props.text}}
+		<slot />
+	</view>
 </template>
 
 <script setup>
@@ -8,7 +10,7 @@
 		computed
 	} from "vue";
 	import {
-		getColor,
+		getColors,
 		unitConversion
 	} from "@/uni_modules/flower-config";
 
@@ -38,7 +40,7 @@
 			...props.customStyle
 		};
 		if (!!props.color) {
-			style.color = getColor(props.color)
+			style.color = getColors(props.color)
 		};
 		if (!!props.lineHeight) {
 			style.lineHeight = unitConversion(props.lineHeight)

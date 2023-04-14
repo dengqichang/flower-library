@@ -1,36 +1,60 @@
 <!-- 加载更多 -->
 <template>
-	<view>
-		<view :style="{borderTopColor:getColor('primary')}" class="_ui-load-more__icon" />
-		<view>加载中...</view>
+	<view class="_ui-load-more">
+		<view class="_ui-load-more__content" v-if="props.status != 'none'">
+			<view v-if="props.status != 'loading'" class="_ui-load-more__line" />
+			<ui-spinner v-if="props.status == 'loading'" />
+			<text class="_ui-load-more__text">{{props[props.status]}}</text>
+			<view v-if="props.status != 'loading'" class="_ui-load-more__line" />
+		</view>
 	</view>
 </template>
 
 <script setup>
-	import {getColor} from "@/uni_modules/flower-config";
+	import {
+		getColors
+	} from "@/uni_modules/flower-config";
+	const props = defineProps({
+		status: {
+			type: String,
+			default: "loadmore"
+		},
+		loadmore: {
+			type: String,
+			default: "拉上加载更多"
+		},
+		loading: {
+			type: String,
+			default: "努力加载中..."
+		},
+		nomore: {
+			type: String,
+			default: "已加载全部内容"
+		}
+	});
 </script>
 
 <style scoped>
-	._ui-load-more__icon {
-		width: 28rpx;
-		height: 28rpx;
-		border-style: solid;
-		border-width: 2px;
-		border-bottom-color: rgba(0, 0, 0, 0.1);
-		border-right-color: rgba(0, 0, 0, 0.1);
-		border-left-color: rgba(0, 0, 0, 0.1);
-		border-radius: 100%;
-		animation: _ui-load-more__circle 1s linear infinite;
-		margin-right: 12rpx;
+	._ui-load-more {
+		height: 96rpx;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	._ui-load-more__content{
+		display: flex;
+		align-items: center;
 	}
 
-	@keyframes _ui-load-more__circle {
-		0% {
-			transform: rotate(0);
-		}
-
-		100% {
-			transform: rotate(360deg);
-		}
+	._ui-load-more__line {
+		width: 96rpx;
+		border-top: 1px solid #d9d9d9;
+		margin: 0rpx 24rpx;
+	}
+	._ui-load-more__text{
+		color: #8c8c8c;
+		font-size: 28rpx;
+		line-height: 28rpx;
+		margin-left: 16rpx;
 	}
 </style>
