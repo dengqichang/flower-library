@@ -14,7 +14,7 @@
 - 每个图标组件均小于3.5KB，图标库的实际大小取决于项目中使用到多少个图标组件。
 
 #### 官方文档
-官网地址：<a target="_blank" href="https://www.flowerui.com/icon">https://www.flowerui.com/icon</a>  
+官网地址：<a target="_blank" href="https://www.flowerui.com/icons">https://www.flowerui.com/icons</a>  
 #### 反馈与交流
 官方QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_a2CXouL0H2OvaJ8vPalp3S6DABKIoCH&jump_from=webapi&authKey=riLWFXQamGAWrXQnBW0NCCFVeodvRvAEAooJNxuNybHBCOs9w0V9yR2F1NhVsZS/">654105306</a>  
 #### 源码
