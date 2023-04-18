@@ -4,7 +4,7 @@ import {
 const network = reactive({
 	networkText: "",
 	networkType: "",
-	networkConnected: false
+	networkConnected: true
 });
 
 const networkTypeArray = ['none', '2g', 'offline'];
