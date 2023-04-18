@@ -1,5 +1,5 @@
 <template><text :class="['flower-icons',customClass]" :style="[iconStyle]">{{showIcon}}</text></template>
-<script>
+<script setup>
 	// #ifdef APP-NVUE
 	import iconUrl from './iconfont.ttf';const domModule = weex.requireModule('dom');domModule.addRule('fontFace', {'fontFamily': "flower-demo",'src': "url('" + iconUrl + "')"});
 	// #endif

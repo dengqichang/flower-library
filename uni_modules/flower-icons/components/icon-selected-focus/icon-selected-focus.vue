@@ -1,18 +1,13 @@
 <template><text :class="['flower-icons',customClass]" :style="[iconStyle]">{{showIcon}}</text></template>
-<script>
+<script setup>
 	// #ifdef APP-NVUE
 	import iconUrl from './iconfont.ttf';const domModule = weex.requireModule('dom');domModule.addRule('fontFace', {'fontFamily': "flower-icon-selected-focus",'src': "url('" + iconUrl + "')"});
 	// #endif
-	export default {
-		props: {isFill: Boolean,color: String,isBold: Boolean,size: [String, Number],lineHeight: [String, Number],customStyle: Object,customClass: Object},
-		computed:{
-			iconStyle(){let style = {...this.customStyle};if (!!this.size) {style.fontSize = this.typeUnit(this.size);};if (!!this.color) {style.color = this.color;};if (this.isBold) {style.fontWeight = 'bold';};if (!!this.lineHeight) {style.lineHeight = this.typeUnit(this.lineHeight);};return style;},
-			showIcon(){if (this.isFill) {return '\ue9de'} else {return '\ue8d0'};}
-		},
-		methods:{
-			typeUnit(e){if (typeof e == "number") {return `${e}rpx`} else if (typeof e == "string") {if (e.indexOf('px') != -1) {return `${e}`} else {return `${e}rpx`};};}
-		}
-	}
+	import {unitConversion,getColors} from "@/uni_modules/flower-config";
+	import {computed} from "vue";
+	const props = defineProps({isFill: Boolean,color: String,isBold: Boolean,size: [String, Number],lineHeight: [String, Number],customStyle: Object,customClass: Object});
+	const iconStyle = computed(() => {let style = {...props.customStyle};if (!!props.size) {style.fontSize = unitConversion(props.size);};if (!!props.color) {style.color = getColors(props.color);};if (props.isBold) {style.fontWeight = 'bold';};if (!!props.lineHeight) {style.lineHeight = unitConversion(props.lineHeight);};return style;});
+	const showIcon = computed(() => {if (props.isFill) {return '\ue9de'} else {return '\ue8d0'};});
 </script>
 <style scoped>
 	/* #ifndef APP-NVUE */
