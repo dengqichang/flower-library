@@ -56,10 +56,10 @@ const getColors = (c) => {
  * 单位转化，number时为rpx，string自带单位
  */
 const unitConversion = (e) => {
-	if (typeof e == "number") {
-		return `${e}rpx`
-	} else if (typeof e == "string") {
+	if (isNaN(Number(e, 8))) {
 		return `${e}`
+	} else {
+		return `${e}rpx`
 	};
 };
 

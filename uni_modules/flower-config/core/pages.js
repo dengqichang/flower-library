@@ -1,7 +1,7 @@
 import pagesJson from "/pages.json";
 const pagesJs = import.meta.globEager('/pages.js')['/pages.js'];
 if (!!pagesJs) {
-	Object.assign(pagesJson,pagesJs.default)
+	Object.assign(pagesJson, pagesJs.default)
 };
 // 全局配置
 const globalStyle = pagesJson.globalStyle;
@@ -14,7 +14,8 @@ for (let i in pagesJson.pages) {
 // 分包
 for (let i in pagesJson.subPackages) {
 	for (let ii in pagesJson.subPackages[i].pages) {
-		pages[`${pagesJson.subPackages[i].root}/${pagesJson.subPackages[i].pages[ii].path}`] = pagesJson.subPackages[i].pages[ii].style;
+		pages[`${pagesJson.subPackages[i].root}/${pagesJson.subPackages[i].pages[ii].path}`] = pagesJson.subPackages[i]
+			.pages[ii].style;
 	}
 };
 /**
@@ -30,7 +31,8 @@ const getCurrentPageRoute = () => {
  * 获取当前页面标题
  */
 const getCurrentPageTitle = () => {
-	return pages[getCurrentPageRoute()].navigationBarTitleText || globalStyle.navigationBarTitleText || uni.getSystemInfoSync().appName;
+	return pages[getCurrentPageRoute()].navigationBarTitleText || globalStyle.navigationBarTitleText || uni
+		.getSystemInfoSync().appName;
 }
 
 /**
@@ -55,10 +57,18 @@ const getIsCustomNav = () => {
 	}
 }
 
+/**
+ * 判断是否为开启了下拉刷新
+ */
+const getIsPullDownRefresh = () => {
+	return pages[getCurrentPageRoute()].enablePullDownRefresh ? true : false
+}
+
 export {
 	getCurrentPageRoute,
 	getCurrentPageTitle,
 	getIsCustomNav,
 	globalStyle,
-	getCurrentPageBackground
+	getCurrentPageBackground,
+	getIsPullDownRefresh
 }

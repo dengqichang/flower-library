@@ -1,4 +1,4 @@
-import {getCurrentPageRoute,getCurrentPageTitle,getIsCustomNav,globalStyle,getCurrentPageBackground} from "../core/pages.js";
+import {getCurrentPageRoute,getCurrentPageTitle,getIsCustomNav,globalStyle,getCurrentPageBackground,getIsPullDownRefresh} from "../core/pages.js";
 import {setTheme,restoreTheme,getColors,unitConversion} from "../core/colors.js";
 import {defaultConfig,developerConfig,defaultColors,defaultPlugins,defaultPresets,defaultPrimary} from "../core/config.js";
 import {generate} from '../plug-in/design-colors';
@@ -6,7 +6,7 @@ import {uiLayout,uiEmpty} from "../core/defaultPluginsProps.js"
 
 export {
 	// pages
-	getCurrentPageRoute,getCurrentPageTitle,getIsCustomNav,globalStyle,getCurrentPageBackground,
+	getCurrentPageRoute,getCurrentPageTitle,getIsCustomNav,globalStyle,getCurrentPageBackground,getIsPullDownRefresh,
 	// config
 	defaultConfig,developerConfig,defaultColors,defaultPlugins,defaultPresets,defaultPrimary,
 	// colors

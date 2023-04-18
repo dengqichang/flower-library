@@ -2,7 +2,7 @@
 	"id": "flower-config",
 	"displayName": "flower-config",
 	"version": "1.0.0",
-	"description": "flower-library 配置文件，用于配置 flower-library 下所有插件。",
+	"description": "flower-library 配置文件",
 	"keywords": [
 		"flower-library 配置文件"
 	],
