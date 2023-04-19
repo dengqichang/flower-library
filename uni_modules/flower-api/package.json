@@ -1,7 +1,7 @@
 {
 	"id": "flower-api",
 	"displayName": "flower-api 工具库",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "温馨提示：组件库目前处于前期准备阶段，当前空项目，请勿下载！！！",
 	"keywords": [
         "api"
@@ -42,7 +42,7 @@
 			},
 			"client": {
 				"Vue": {
-					"vue2": "u",
+					"vue2": "n",
 					"vue3": "y"
 				},
 				"App": {
