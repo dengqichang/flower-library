@@ -52,20 +52,10 @@ const getColors = (c) => {
 	return isBuiltColor(c)
 };
 
-/**
- * 单位转化，number时为rpx，string自带单位
- */
-const unitConversion = (e) => {
-	if (isNaN(Number(e, 8))) {
-		return `${e}`
-	} else {
-		return `${e}rpx`
-	};
-};
+
 
 export {
 	setTheme,
 	restoreTheme,
-	getColors,
-	unitConversion
+	getColors
 }
