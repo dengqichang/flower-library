@@ -1,5 +1,5 @@
 import {
-	getNetwork
+	network
 } from "../core/network.js";
 
 // <a href="https://ext.dcloud.net.cn/plugin?id=392">luch-request</a>
@@ -8,7 +8,7 @@ const request = new luchRequest();
 
 export {
 	// network.js
-	getNetwork,
+	network,
 	// luch-request
 	request
 }
