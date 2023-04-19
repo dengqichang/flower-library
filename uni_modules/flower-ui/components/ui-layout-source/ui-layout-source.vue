@@ -15,7 +15,7 @@
 			<!-- 不存在数据时网络状态 -->
 			<ui-empty-network :offsetTop="props.emptyOffset" :offsetBottom="props.emptyOffset" v-if="networkPage">
 				<!-- 跳转解决网络问题页面，待实现 -->
-				
+
 			</ui-empty-network>
 			<!-- 页面加载中 -->
 			<ui-layout-source-loading offsetTop="30vh" v-else-if="loadingState" />
@@ -33,7 +33,8 @@
 		<!-- 自定义标识牌 -->
 		<slot name="signboard" />
 		<!-- 默认标识牌 -->
-		<image v-if="slotSignboard && props.signboard" class="_ui-layout__signboard" mode="widthFix" :src="props.signboard" />
+		<image v-if="slotSignboard && props.signboard" class="_ui-layout__signboard" mode="widthFix"
+			:src="props.signboard" />
 		<!-- 弹出层容器 -->
 		<slot name="popup" />
 		<!-- 底部容器 -->
@@ -46,10 +47,25 @@
 </template>
 
 <script setup>
-	import {useSlots,ref,computed,watch} from "vue";
-	import {onReachBottom,onPullDownRefresh} from "@dcloudio/uni-app";
-	import {getColors,getIsCustomNav,getCurrentPageBackground,getIsPullDownRefresh} from "@/uni_modules/flower-config";
-	import {getNetwork} from "@/uni_modules/flower-api";
+	import {
+		useSlots,
+		ref,
+		computed,
+		watch
+	} from "vue";
+	import {
+		onReachBottom,
+		onPullDownRefresh
+	} from "@dcloudio/uni-app";
+	import {
+		getColors,
+		getIsCustomNav,
+		getCurrentPageBackground,
+		getIsPullDownRefresh
+	} from "@/uni_modules/flower-config";
+	import {
+		network
+	} from "@/uni_modules/flower-api";
 	import uiLayoutSourceNetwork from "./ui-layout-source-network.vue";
 	import uiLayoutSourceLoading from "./ui-layout-source-loading.vue";
 	// 判断插槽是否存在内容
@@ -75,8 +91,8 @@
 			type: Boolean,
 			default: false
 		},
-		emptyOffset:{
-			type: [String,Number],
+		emptyOffset: {
+			type: [String, Number],
 			default: '20vh'
 		},
 		source: {
@@ -126,27 +142,75 @@
 		};
 	});
 	// 全屏加载状态
-	const loadingState = computed(() => {return sourceWorkers.value.loading && props.loading});
-	// 网络状态
-	const network = getNetwork();
+	const loadingState = computed(() => {
+		return sourceWorkers.value.loading && props.loading
+	});
 	// 当不存在数据时显示页面网络状态
-	const networkPage = computed(() => {return !sourceWorkers.value.isData && !network.networkConnected});
-	watch(() => networkPage.value, (newVal) => {if(!newVal){sourceWorkers.value.loading = true;onPullDownRefresh();};});
+	const networkPage = computed(() => {
+		return !sourceWorkers.value.isData && !network.networkConnected
+	});
+	watch(() => networkPage.value, (newVal) => {
+		if (!newVal) {
+			sourceWorkers.value.loading = true;
+			sourceWorkers.value.loadmoreNumber = 1;
+			emits("sourceMethod", {
+				"onPullDownRefresh": true,
+				"onReachBottom": false,
+				"loadmoreNumber": sourceWorkers.value.loadmoreNumber
+			});
+		};
+	});
 	// 存在已渲染数据时显示行网络状态
-	const rowNetworkState = computed(() => {return sourceWorkers.value.isData && !network.networkConnected});
+	const rowNetworkState = computed(() => {
+		return sourceWorkers.value.isData && !network.networkConnected
+	});
 	// 为空页面
-	const emptyState = computed(() => {return !sourceWorkers.value.isData && sourceWorkers.value.isLoaded});
+	const emptyState = computed(() => {
+		return !sourceWorkers.value.isData && sourceWorkers.value.isLoaded
+	});
 	// 触发上拉加载
-	onReachBottom(() => {sourceWorkers.value.loadMoreStatus = "loading";emits("sourceMethod", {"onPullDownRefresh": false,"onReachBottom": true,"loadmoreNumber": sourceWorkers.value.loadmoreNumber});});
+	onReachBottom(() => {
+		sourceWorkers.value.loadMoreStatus = "loading";
+		emits("sourceMethod", {
+			"onPullDownRefresh": false,
+			"onReachBottom": true,
+			"loadmoreNumber": sourceWorkers.value.loadmoreNumber
+		});
+	});
 	// 下拉刷新
-	onPullDownRefresh(() => {sourceWorkers.value.loadmoreNumber = 1;emits("sourceMethod", {"onPullDownRefresh": true,"onReachBottom": false,"loadmoreNumber": sourceWorkers.value.loadmoreNumber});});
+	onPullDownRefresh(() => {
+		sourceWorkers.value.loadmoreNumber = 1;
+		emits("sourceMethod", {
+			"onPullDownRefresh": true,
+			"onReachBottom": false,
+			"loadmoreNumber": sourceWorkers.value.loadmoreNumber
+		});
+	});
 </script>
 
 <style scoped>
-	._ui-layout__backdrop {position: fixed;width: 100vw;height: 100vh;}
-	._ui-layout__main {flex: 1;z-index: 1;position: relative;}
-	._ui-layout__signboard {width: 100vw;}
-	._ui-layout__footer {position: sticky;bottom: 0;z-index: 2;}
+	._ui-layout__backdrop {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	._ui-layout__main {
+		flex: 1;
+		z-index: 1;
+		position: relative;
+	}
+
+	._ui-layout__signboard {
+		width: 100vw;
+	}
+
+	._ui-layout__footer {
+		position: sticky;
+		bottom: 0;
+		z-index: 2;
+	}
+
 	._ui-layout {
 		/* #ifndef H5 */
 		min-height: 100vh;
@@ -158,6 +222,7 @@
 		flex-direction: column;
 		position: relative;
 	}
+
 	._ui-layout__header {
 		position: sticky;
 		z-index: 2;

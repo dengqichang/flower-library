@@ -7,8 +7,7 @@
 
 <script setup>
 	import {getColors} from "@/uni_modules/flower-config";
-	import {getNetwork} from "@/uni_modules/flower-api";
-	const network = getNetwork();
+	import {network} from "@/uni_modules/flower-api";
 </script>
 
 <style scoped>
