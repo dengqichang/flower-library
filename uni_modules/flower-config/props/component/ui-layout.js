@@ -1,4 +1,7 @@
 export default {
 	backdrop: '',
-	signboard: ''
+	signboard: '',
+	loading: false,
+	loadmore: false,
+	source: []
 }

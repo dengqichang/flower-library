@@ -16,6 +16,17 @@ const colorGenerate = (e) => {
 		colors[`${e}-${Number(t)+1}`] = temp[t];
 	};
 	colors[e] = temp[5];
+	
+	// 修改原生下拉刷新APP平台统一样式，下拉刷新默认为主色
+	if (e == 'primary') {
+		// #ifdef APP-PLUS
+		if (!__uniConfig.globalStyle.pullToRefresh) {
+			__uniConfig.globalStyle.pullToRefresh = {
+				color: defaultConfig.colors.primary
+			};
+		};
+		// #endif
+	};
 };
 // 初始化全局颜色
 let colors = reactive({});
@@ -51,8 +62,6 @@ const isBuiltColor = (c) => {
 const getColors = (c) => {
 	return isBuiltColor(c)
 };
-
-
 
 export {
 	setTheme,
