@@ -1,6 +1,6 @@
 <!-- 文本 -->
 <template>
-	<view :style="styles">{{props.text}}
+	<view :style="styles" :class="[customClass]">{{props.text}}
 		<slot />
 	</view>
 </template>
@@ -11,27 +11,39 @@
 	} from "vue";
 	import {
 		getColors,
-		unitConversion
+		unitConversion,
+		uiText
 	} from "@/uni_modules/flower-config";
 
 	const props = defineProps({
 		text: {
 			type: String,
-			default: ''
+			default: uiText.text
 		},
 		size: {
 			type: [Number, String],
-			default: 28
+			default: uiText.size
 		},
 		color: {
 			type: String,
-			default: ''
+			default: uiText.color
 		},
 		lineHeight: {
 			type: [Number, String],
-			default: ''
+			default: uiText.lineHeight
 		},
-		customStyle: Object
+		customStyle: {
+			type: Object,
+			default: () => {
+				return uiText.customStyle
+			}
+		},
+		customClass: {
+			type: Object,
+			default: () => {
+				return uiText.customClass
+			}
+		}
 	});
 
 	const styles = computed(() => {

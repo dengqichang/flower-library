@@ -12,24 +12,25 @@
 
 <script setup>
 	import {
-		getColors
+		getColors,
+		uiLoadMore
 	} from "@/uni_modules/flower-config";
 	const props = defineProps({
 		status: {
 			type: String,
-			default: "loadmore"
+			default: uiLoadMore.status
 		},
 		loadmore: {
 			type: String,
-			default: "拉上加载更多"
+			default: uiLoadMore.loadmore
 		},
 		loading: {
 			type: String,
-			default: "努力加载中..."
+			default: uiLoadMore.loading
 		},
 		nomore: {
 			type: String,
-			default: "已加载全部内容"
+			default: uiLoadMore.nomore
 		}
 	});
 </script>
@@ -41,7 +42,8 @@
 		justify-content: center;
 		align-items: center;
 	}
-	._ui-load-more__content{
+
+	._ui-load-more__content {
 		display: flex;
 		align-items: center;
 	}
@@ -51,7 +53,8 @@
 		border-top: 1px solid #d9d9d9;
 		margin: 0rpx 24rpx;
 	}
-	._ui-load-more__text{
+
+	._ui-load-more__text {
 		color: #8c8c8c;
 		font-size: 28rpx;
 		line-height: 28rpx;

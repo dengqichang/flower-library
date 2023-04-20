@@ -13,18 +13,18 @@
 		<!-- 内容容器 -->
 		<view class="_ui-layout__main">
 			<!-- 不存在数据时网络状态 -->
-			<ui-empty-network :offsetTop="props.emptyOffset" :offsetBottom="props.emptyOffset" v-if="networkPage">
+			<ui-empty-network offsetTop="20vh" offsetBottom="20vh" v-if="networkPage">
 				<!-- 跳转解决网络问题页面，待实现 -->
 
 			</ui-empty-network>
 			<!-- 页面加载中 -->
-			<ui-layout-source-loading offsetTop="30vh" v-else-if="loadingState" />
+			<ui-loading-logo offsetTop="30vh" v-else-if="loadingState" />
 			<!-- 内容容器 -->
 			<view v-else>
 				<slot />
 				<!-- 为空状态页面 -->
 				<view v-if="emptyState">
-					<ui-empty-data :offsetTop="props.emptyOffset" :offsetBottom="props.emptyOffset" v-if="slotEmpty" />
+					<ui-empty-data offsetTop="20vh" offsetBottom="20vh" v-if="slotEmpty" />
 					<slot v-else name="empty" />
 				</view>
 				<ui-load-more v-else-if="loadmore && network.networkConnected" :status="sourceWorkers.loadMoreStatus" />
@@ -40,7 +40,7 @@
 		<!-- 底部容器 -->
 		<view class="_ui-layout__footer">
 			<!-- 存在数据时网络状态 -->
-			<ui-layout-source-network v-if="rowNetworkState" />
+			<ui-network v-if="rowNetworkState" />
 			<slot name="footer" />
 		</view>
 	</view>
@@ -58,6 +58,7 @@
 		onPullDownRefresh
 	} from "@dcloudio/uni-app";
 	import {
+		uiLayout,
 		getColors,
 		getIsCustomNav,
 		getCurrentPageBackground,
@@ -66,8 +67,6 @@
 	import {
 		network
 	} from "@/uni_modules/flower-api";
-	import uiLayoutSourceNetwork from "./ui-layout-source-network.vue";
-	import uiLayoutSourceLoading from "./ui-layout-source-loading.vue";
 	// 判断插槽是否存在内容
 	const slotSignboard = !useSlots().signboard;
 	const slotEmpty = !useSlots().empty;
@@ -77,28 +76,24 @@
 	const props = defineProps({
 		backdrop: {
 			type: String,
-			default: ''
+			default: uiLayout.backdrop
 		},
 		signboard: {
 			type: String,
-			default: ''
-		},
-		loadmore: {
-			type: Boolean,
-			default: false
+			default: uiLayout.signboard
 		},
 		loading: {
 			type: Boolean,
-			default: false
+			default: uiLayout.loading
 		},
-		emptyOffset: {
-			type: [String, Number],
-			default: '20vh'
+		loadmore: {
+			type: Boolean,
+			default: uiLayout.loadmore
 		},
 		source: {
 			type: [Array, Object, String],
 			default: () => {
-				return []
+				return uiLayout.source
 			}
 		}
 	});

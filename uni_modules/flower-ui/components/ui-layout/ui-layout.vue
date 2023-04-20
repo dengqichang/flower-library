@@ -17,7 +17,8 @@
 		<!-- 自定义标识牌 -->
 		<slot name="signboard" />
 		<!-- 默认标识牌 -->
-		<image v-if="slotSignboard && props.signboard" class="_ui-layout__signboard" mode="widthFix" :src="props.signboard" />
+		<image v-if="slotSignboard && props.signboard" class="_ui-layout__signboard" mode="widthFix"
+			:src="props.signboard" />
 		<!-- 弹出层容器 -->
 		<slot name="popup" />
 		<!-- 底部容器 -->
@@ -28,8 +29,14 @@
 </template>
 
 <script setup>
-	import {useSlots} from "vue";
-	import {getIsCustomNav,getCurrentPageBackground} from "@/uni_modules/flower-config";
+	import {
+		useSlots
+	} from "vue";
+	import {
+		uiLayout,
+		getIsCustomNav,
+		getCurrentPageBackground
+	} from "@/uni_modules/flower-config";
 	// 判断插槽是否存在内容
 	const slotSignboard = !useSlots().signboard;
 	// 处理H5端兼容nav、header的slot内容高度
@@ -38,20 +45,38 @@
 	const props = defineProps({
 		backdrop: {
 			type: String,
-			default: ''
+			default: uiLayout.backdrop
 		},
 		signboard: {
 			type: String,
-			default: ''
+			default: uiLayout.signboard
 		}
 	});
 </script>
 
 <style scoped>
-	._ui-layout__backdrop {position: fixed;width: 100vw;height: 100vh;}
-	._ui-layout__main {flex: 1;z-index: 1;position: relative;}
-	._ui-layout__signboard {width: 100vw;}
-	._ui-layout__footer {position: sticky;bottom: 0;z-index: 2;}
+	._ui-layout__backdrop {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+	}
+
+	._ui-layout__main {
+		flex: 1;
+		z-index: 1;
+		position: relative;
+	}
+
+	._ui-layout__signboard {
+		width: 100vw;
+	}
+
+	._ui-layout__footer {
+		position: sticky;
+		bottom: 0;
+		z-index: 2;
+	}
+
 	._ui-layout {
 		/* #ifndef H5 */
 		min-height: 100vh;
@@ -63,6 +88,7 @@
 		flex-direction: column;
 		position: relative;
 	}
+
 	._ui-layout__header {
 		position: sticky;
 		z-index: 2;
