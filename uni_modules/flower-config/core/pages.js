@@ -22,9 +22,9 @@ for (let i in pagesJson.subPackages) {
 /**
  * 获取当前页面路由
  */
-const getCurrentPageRoute = () => {
+const getCurrentPageRoute = (pages = 1) => {
 	let routes = getCurrentPages();
-	let curRoute = routes[routes.length - 1].route;
+	let curRoute = routes[routes.length - pages].route;
 	return curRoute;
 }
 
