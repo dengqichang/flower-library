@@ -6,8 +6,6 @@
 // 读取开发者配置文件
 import defaultConfig from "./defaultConfiguration.js";
 import pagesJson from "@/pages.json";
-console.log(pagesJson)
-
 
 const deepJsonAssign = (j1, j2) => {for (let i in j2) {if (typeof j2[i] == "object" && j1[i]) {deepJsonAssign(j1[i], j2[i])} else {j1[i] = j2[i];}}};
 if(!!pagesJson.flowerConfig){
