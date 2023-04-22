@@ -7,17 +7,16 @@ import {
 	reLaunch,
 	switchTab,
 	navigateBack
-} from "../core/jump.js"
+} from "../core/jump.js";
 
-// <a href="https://ext.dcloud.net.cn/plugin?id=392">luch-request</a>
-import luchRequest from "../plug-in/luch-request";
-const request = new luchRequest();
+import {getCurrentPageParams,setPreviousPageParams,setTempStorage,getTempStorage} from "../core/store.js"
+
 
 export {
 	// network.js
 	network,
-	// luch-request
-	request,
 	// jump
-	navigateTo,redirectTo,reLaunch,switchTab,navigateBack
+	navigateTo,redirectTo,reLaunch,switchTab,navigateBack,
+	// store
+	getCurrentPageParams,setPreviousPageParams,setTempStorage,getTempStorage,
 }
