@@ -19,8 +19,8 @@
 		<!-- 默认标识牌 -->
 		<image v-if="slotSignboard && props.signboard" class="_ui-layout__signboard" mode="widthFix"
 			:src="props.signboard" />
-		<!-- 弹出层容器 -->
-		<slot name="popup" />
+		<!-- 其它容器 -->
+		<slot name="other" />
 		<!-- 底部容器 -->
 		<view class="_ui-layout__footer">
 			<slot name="footer" />
