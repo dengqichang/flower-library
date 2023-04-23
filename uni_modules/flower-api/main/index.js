@@ -9,7 +9,7 @@ import {
 	navigateBack
 } from "../core/jump.js";
 
-import {getCurrentPageParams,setPreviousPageParams,setTempStorage,getTempStorage} from "../core/store.js"
+import {getCurrentPageParams,setPreviousPageParams,cleanCurrentPageParams,setTempStorage,getTempStorage} from "../core/store.js"
 
 
 export {
@@ -18,5 +18,5 @@ export {
 	// jump
 	navigateTo,redirectTo,reLaunch,switchTab,navigateBack,
 	// store
-	getCurrentPageParams,setPreviousPageParams,setTempStorage,getTempStorage,
+	getCurrentPageParams,setPreviousPageParams,cleanCurrentPageParams,setTempStorage,getTempStorage
 }
