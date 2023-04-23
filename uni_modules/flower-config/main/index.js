@@ -9,13 +9,11 @@ import {
 import {
 	setTheme,
 	restoreTheme,
-	getColors
-} from "../core/colors.js";
-import {
+	getColors,
 	unitConversion,
 	uniMargin,
 	uniPadding
-} from "../core/tools.js"
+} from "../core/colors.js";
 import {
 	defaultConfig,
 	developerConfig,
