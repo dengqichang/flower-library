@@ -1,5 +1,5 @@
 import pagesJson from "@/pages.json";
-const pagesJs = import.meta.globEager('@/pages.js')['/pages.js'];
+const pagesJs = import.meta.globEager('/pages.js')['/pages.js'];
 
 if (!!pagesJs) {
 	Object.assign(pagesJson, pagesJs.default)
