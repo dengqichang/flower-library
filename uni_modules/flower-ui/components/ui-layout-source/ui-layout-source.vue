@@ -99,6 +99,8 @@
 	});
 
 	const emits = defineEmits(['sourceMethod']);
+	// 组件加载即执行
+	emits("sourceMethod", {"onPullDownRefresh": true,"onReachBottom": false,"loadmorePage": sourceWorkers.value.loadmorePage});
 
 	// 数据状态
 	const sourceWorkers = ref({
@@ -106,7 +108,7 @@
 		isData: false,
 		loading: props.source.length ? false : true,
 		loadMoreStatus: "none",
-		loadmoreNumber: 1
+		loadmorePage: 1
 	});
 
 	// 验证是否开启下拉刷新
@@ -129,7 +131,7 @@
 		};
 		// 上拉加载页数
 		if (newVal.length > 0) {
-			sourceWorkers.value.loadmoreNumber += 1;
+			sourceWorkers.value.loadmorePage += 1;
 		};
 		// 关闭下拉刷新
 		if (isPullDownRefresh) {
@@ -147,12 +149,8 @@
 	watch(() => networkPage.value, (newVal) => {
 		if (!newVal) {
 			sourceWorkers.value.loading = true;
-			sourceWorkers.value.loadmoreNumber = 1;
-			emits("sourceMethod", {
-				"onPullDownRefresh": true,
-				"onReachBottom": false,
-				"loadmoreNumber": sourceWorkers.value.loadmoreNumber
-			});
+			sourceWorkers.value.loadmorePage = 1;
+			emits("sourceMethod", {"onPullDownRefresh": true,"onReachBottom": false,"loadmorePage": sourceWorkers.value.loadmorePage});
 		};
 	});
 	// 存在已渲染数据时显示行网络状态
@@ -166,46 +164,20 @@
 	// 触发上拉加载
 	onReachBottom(() => {
 		sourceWorkers.value.loadMoreStatus = "loading";
-		emits("sourceMethod", {
-			"onPullDownRefresh": false,
-			"onReachBottom": true,
-			"loadmoreNumber": sourceWorkers.value.loadmoreNumber
-		});
+		emits("sourceMethod", {"onPullDownRefresh": false,"onReachBottom": true,"loadmorePage": sourceWorkers.value.loadmorePage});
 	});
 	// 下拉刷新
 	onPullDownRefresh(() => {
-		sourceWorkers.value.loadmoreNumber = 1;
-		emits("sourceMethod", {
-			"onPullDownRefresh": true,
-			"onReachBottom": false,
-			"loadmoreNumber": sourceWorkers.value.loadmoreNumber
-		});
+		sourceWorkers.value.loadmorePage = 1;
+		emits("sourceMethod", {"onPullDownRefresh": true,"onReachBottom": false,"loadmorePage": sourceWorkers.value.loadmorePage});
 	});
 </script>
 
 <style scoped>
-	._ui-layout__backdrop {
-		position: fixed;
-		width: 100vw;
-		height: 100vh;
-	}
-
-	._ui-layout__main {
-		flex: 1;
-		z-index: 1;
-		position: relative;
-	}
-
-	._ui-layout__signboard {
-		width: 100vw;
-	}
-
-	._ui-layout__footer {
-		position: sticky;
-		bottom: 0;
-		z-index: 2;
-	}
-
+	._ui-layout__backdrop {position: fixed;width: 100vw;height: 100vh;}
+	._ui-layout__main {flex: 1;z-index: 1;position: relative;}
+	._ui-layout__signboard {width: 100vw;}
+	._ui-layout__footer {position: sticky;bottom: 0;z-index: 2;}
 	._ui-layout {
 		/* #ifndef H5 */
 		min-height: 100vh;
