@@ -99,8 +99,6 @@
 	});
 
 	const emits = defineEmits(['sourceMethod']);
-	// 组件加载即执行
-	emits("sourceMethod", {"onPullDownRefresh": true,"onReachBottom": false,"loadmorePage": sourceWorkers.value.loadmorePage});
 
 	// 数据状态
 	const sourceWorkers = ref({
@@ -110,7 +108,10 @@
 		loadMoreStatus: "none",
 		loadmorePage: 1
 	});
-
+	
+	// 组件加载即执行
+	emits("sourceMethod", {"onPullDownRefresh": true,"onReachBottom": false,"loadmorePage": sourceWorkers.value.loadmorePage});
+	
 	// 验证是否开启下拉刷新
 	const isPullDownRefresh = getIsPullDownRefresh();
 
