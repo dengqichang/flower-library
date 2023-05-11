@@ -1,10 +1,10 @@
 {
 	"id": "flower-icons",
 	"displayName": "flower-icons 图标库",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "多平台 uni-app 生态 iconfont 字体图标库 ，5000+ 统一化高质量的图标资源。",
 	"keywords": [
-        "字体图标"
+        "字体图标,vue3"
     ],
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-icons",
 	"engines": {
