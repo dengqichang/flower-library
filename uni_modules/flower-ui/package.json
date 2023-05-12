@@ -1,10 +1,10 @@
 {
 	"id": "flower-ui",
 	"displayName": "flower-ui 组件库",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "温馨提示：组件库目前处于前期准备阶段，当前空项目，请勿下载！！！",
 	"keywords": [
-        "组件库"
+        "组件库，vue3"
     ],
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-ui",
 	"engines": {

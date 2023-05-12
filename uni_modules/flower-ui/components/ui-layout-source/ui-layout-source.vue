@@ -106,7 +106,8 @@
 		isData: false,
 		loading: props.source.length ? false : true,
 		loadMoreStatus: "none",
-		loadmorePage: 1
+		loadmorePage: 1,
+		isRefresh: false
 	});
 	
 	// 组件加载即执行
@@ -131,8 +132,13 @@
 			};
 		};
 		// 上拉加载页数
-		if (newVal.length > 0) {
+		if (newVal.length > oldVal.length) {
 			sourceWorkers.value.loadmorePage += 1;
+		};
+		// 拉下刷新重置页数
+		if(sourceWorkers.value.isRefresh){
+			sourceWorkers.value.loadmorePage += 1;
+			sourceWorkers.value.isRefresh = !sourceWorkers.value.isRefresh;
 		};
 		// 关闭下拉刷新
 		if (isPullDownRefresh) {
@@ -169,6 +175,7 @@
 	});
 	// 下拉刷新
 	onPullDownRefresh(() => {
+		sourceWorkers.value.isRefresh = true;
 		sourceWorkers.value.loadmorePage = 1;
 		emits("sourceMethod", {"onPullDownRefresh": true,"onReachBottom": false,"loadmorePage": sourceWorkers.value.loadmorePage});
 	});
