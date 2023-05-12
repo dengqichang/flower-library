@@ -18,7 +18,7 @@ const networkRecombination = (e) => {
 		network.networkText = `网络连接正常：${e.networkType}`;
 	};
 	network.networkType = e.networkType;
-}
+};
 
 uni.onNetworkStatusChange((res) => {
 	networkRecombination(res)
@@ -29,10 +29,6 @@ uni.getNetworkType({
 		networkRecombination(res)
 	}
 });
-
-const getNetwork = ()=>{
-	return network;
-}
 
 export {
 	network

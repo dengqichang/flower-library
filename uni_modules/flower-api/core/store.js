@@ -20,11 +20,11 @@ const getCurrentPageRoute = (pages = 1) => {
 
 // 当前页面获取获取参数
 const getCurrentPageParams = () => {
-	return store[getCurrentPageRoute()];
+	return store[getCurrentPageRoute()] || {};
 };
 // 传递参数至上一页
 const setPreviousPageParams = (params) => {
-	store[getCurrentPageRoute(2)] = Object.assign(params, store[getCurrentPageRoute(2)]);
+	store[getCurrentPageRoute(2)] = Object.assign(store[getCurrentPageRoute(2)]||{},params);
 };
 // 清空当前页面参数
 const cleanCurrentPageParams = () => {
