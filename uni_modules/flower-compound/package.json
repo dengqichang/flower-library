@@ -1,0 +1,81 @@
+{
+	"id": "flower-compound",
+	"displayName": "flower-compound 复合型组件库",
+	"version": "1.0.0",
+	"description": "耦合 flower-ui 组件库、flower-icons 图标库及 flower-empty 缺省页库的复合型组件库",
+	"keywords": [
+        "复合型组件库，vue3"
+    ],
+	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-compound",
+	"engines": {
+		"HBuilderX": "^3.6.9"
+	},
+	"dcloudext": {
+		"type": "component-vue",
+		"sale": {
+			"regular": {
+				"price": "0.00"
+			},
+			"sourcecode": {
+				"price": "0.00"
+			}
+		},
+		"contact": {
+			"qq": ""
+		},
+		"declaration": {
+			"ads": "无",
+			"data": "插件不采集任何数据",
+			"permissions": "无"
+		},
+		"npmurl": ""
+	},
+	"uni_modules": {
+		"dependencies": ["flower-empty", "flower-ui"],
+		"encrypt": [],
+		"platforms": {
+			"cloud": {
+				"tcb": "y",
+				"aliyun": "y"
+			},
+			"client": {
+				"Vue": {
+					"vue2": "n",
+					"vue3": "y"
+				},
+				"App": {
+					"app-vue": "y",
+					"app-nvue": "n"
+				},
+				"H5-mobile": {
+					"Safari": "y",
+					"Android Browser": "y",
+					"微信浏览器(Android)": "y",
+					"QQ浏览器(Android)": "y"
+				},
+				"H5-pc": {
+					"Chrome": "y",
+					"IE": "y",
+					"Edge": "y",
+					"Firefox": "y",
+					"Safari": "y"
+				},
+				"小程序": {
+					"微信": "y",
+					"阿里": "y",
+					"百度": "y",
+					"字节跳动": "y",
+					"QQ": "y",
+					"钉钉": "y",
+					"快手": "y",
+					"飞书": "y",
+					"京东": "y"
+				},
+				"快应用": {
+					"华为": "y",
+					"联盟": "y"
+				}
+			}
+		}
+	}
+}

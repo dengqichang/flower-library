@@ -1,0 +1,241 @@
+<template>
+	<ui-layout :backdrop="props.backdrop" :signboard="props.signboard">
+		<!-- 导航容器 -->
+		<template #nav>
+			<slot name="nav" />
+		</template>
+		<!-- 顶部容器 -->
+		<template #header>
+			<slot name="header" />
+		</template>
+		<!-- 无网络状态 -->
+		<ui-empty-network v-if="pageNetworkStatus" :offset="emptyOffset">
+			<!-- 跳转解决网络问题页面，待实现 -->
+			<view class="_ui-layout-sourec_network">当前网络不可用,请检查<text @tap="navigateTo"
+					:style="{color:getColors('primary')}">网络设置</text></view>
+		</ui-empty-network>
+		<view v-else>
+			<!-- 缺省页状态 -->
+			<ui-empty-loading v-if="!sourceWorkers.isReady" :offset="emptyOffset" />
+			<view v-else-if="!sourceWorkers.isData && sourceWorkers.isReady">
+				<view v-if="status== 200">
+					<ui-empty-data v-if="slotEmpty" :offset="emptyOffset" />
+					<view v-else :style="emptyStyle">
+						<slot name="empty" />
+					</view>
+				</view>
+				<!-- 403 -->
+				<ui-empty-permission v-else-if="status == 403" :offset="emptyOffset" />
+				<!-- 404 -->
+				<ui-empty-html v-else-if="status == 404" :offset="emptyOffset" />
+				<!-- 500 -->
+				<ui-empty-fail v-else-if="status == 500" :offset="emptyOffset" />
+			</view>
+			<!-- 正常数据渲染 -->
+			<view v-else>
+				<slot />
+				<ui-load-more v-if="isLoadmore && network.networkConnected" :status="sourceWorkers.loadMoreStatus" />
+			</view>
+		</view>
+		<!-- 其它容器 -->
+		<template #other>
+			<slot name="other" />
+		</template>
+		<!-- 底部容器 -->
+		<template #footer>
+			<ui-network :router="props.networkRouter" v-if="rowNetworkState" />
+			<slot name="footer" />
+		</template>
+	</ui-layout>
+</template>
+
+<script setup>
+	import {
+		useSlots,
+		ref,
+		computed,
+		watch
+	} from "vue";
+	import {
+		onReachBottom,
+		onPullDownRefresh,
+		onShow
+	} from "@dcloudio/uni-app";
+	import {
+		getIsPullDownRefresh,
+		unitConversion,
+		getColors,
+		uiLayoutSource,
+		uiNetwork
+	} from "@/uni_modules/flower-config";
+	import {
+		network
+	} from "@/uni_modules/flower-api";
+
+	// 判断插槽是否存在内容
+	const slotEmpty = !useSlots().empty;
+	// 属性
+	const props = defineProps({
+		backdrop: {
+			type: String,
+			default: uiLayoutSource.backdrop
+		},
+		signboard: {
+			type: String,
+			default: uiLayoutSource.signboard
+		},
+		isLoadmore: {
+			type: Boolean,
+			default: uiLayoutSource.isLoadmore
+		},
+		emptyOffset: {
+			type: [String, Number],
+			default: uiLayoutSource.emptyOffset
+		},
+		networkRouter: {
+			type: String,
+			default: uiLayoutSource.networkRouter || uiNetwork.router
+		},
+		period: {
+			type: String,
+			default: uiLayoutSource.period
+		},
+		status: {
+			type: [String, Number],
+			default: 200
+		},
+		source: {
+			type: [Array, Object, String],
+			default: () => {
+				return []
+			}
+		}
+	});
+
+	const emits = defineEmits(['sourceMethod']);
+	// 数据状态
+	const sourceWorkers = ref({
+		isReady: false,
+		isData: false,
+		loadMoreStatus: "none",
+		loadmorePage: 1,
+		isRefresh: false
+	});
+
+	// 验证是否开启下拉刷新
+	const isPullDownRefresh = getIsPullDownRefresh();
+	// 存在已渲染数据时显示行网络状态
+	const rowNetworkState = computed(() => {
+		return sourceWorkers.value.isData && !network.networkConnected
+	});
+	// 当不存在数据时显示页面网络状态
+	const pageNetworkStatus = computed(() => {
+		return !sourceWorkers.value.isData && !network.networkConnected
+	});
+	// 监听函数状态
+	watch(() => props.status, () => {
+		uni.stopPullDownRefresh();
+	});
+	watch(() => pageNetworkStatus.value, (newVal) => {
+		if (!newVal) {
+			sourceWorkers.value.loading = true;
+			sourceWorkers.value.loadmorePage = 1;
+			emits("sourceMethod", {
+				"onPullDownRefresh": true,
+				"onReachBottom": false,
+				"loadmorePage": sourceWorkers.value.loadmorePage
+			});
+		};
+	});
+	// 自定义为空
+	const emptyStyle = computed(() => {
+		return {
+			marginTop: unitConversion(props.emptyOffset),
+			marginBottom: unitConversion(props.emptyOffset)
+		}
+	});
+	// 网络设置跳转路由
+	const navigateTo = () => {
+		if (!!props.networkRouter) {
+			uni.navigateTo({
+				url: props.networkRouter
+			})
+		} else {
+			console.error("未配置检查网络设置跳转路由");
+		}
+	}
+
+	watch(() => props.source, (newVal, oldVal) => {
+		// 是否已加载
+		sourceWorkers.value.isReady = true;
+		// true ：存在数据，false：无数据
+		sourceWorkers.value.isData = newVal.length ? true : false;
+		// 上拉加载更多
+		if (sourceWorkers.value.loadMoreStatus != "none") {
+			if (newVal.length >= oldVal.length) {
+				sourceWorkers.value.loadMoreStatus = "nomore"
+			} else {
+				sourceWorkers.value.loadMoreStatus = "loadmore"
+			};
+		};
+		// 上拉加载页数
+		if (newVal.length > oldVal.length) {
+			sourceWorkers.value.loadmorePage += 1;
+		};
+		// 拉下刷新重置页数
+		if (sourceWorkers.value.isRefresh) {
+			sourceWorkers.value.loadmorePage += 1;
+			sourceWorkers.value.isRefresh = !sourceWorkers.value.isRefresh;
+		};
+		// 关闭下拉刷新
+		if (isPullDownRefresh) {
+			uni.stopPullDownRefresh();
+		};
+	});
+
+	const refresh = () => {
+		sourceWorkers.value.isRefresh = true;
+		sourceWorkers.value.loadmorePage = 1;
+		emits("sourceMethod", {
+			"onPullDownRefresh": true,
+			"onReachBottom": false,
+			"loadmorePage": sourceWorkers.value.loadmorePage
+		});
+	};
+
+	// 触发上拉加载
+	onReachBottom(() => {
+		sourceWorkers.value.loadMoreStatus = "loading";
+		emits("sourceMethod", {
+			"onPullDownRefresh": false,
+			"onReachBottom": true,
+			"loadmorePage": sourceWorkers.value.loadmorePage
+		});
+	});
+	// 下拉刷新
+	onPullDownRefresh(() => {
+		refresh();
+	});
+
+	// 页面加载调用
+	if (props.period == "onReady") {
+		refresh();
+	};
+	// 页面显示即调用
+	onShow(() => {
+		if (props.period == "onShow") {
+			refresh();
+		};
+	});
+	// 暴露方法
+	defineExpose({
+		refresh
+	})
+</script>
+
+<style scoped>
+	._ui-layout-sourec_network {
+		font-size: 28rpx;
+		color: #8c8c8c;
+	}
+</style>
