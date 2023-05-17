@@ -1,7 +1,7 @@
 {
 	"id": "flower-ui",
 	"displayName": "flower-ui 组件库",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "温馨提示：组件库目前处于前期准备阶段，当前空项目，请勿下载！！！",
 	"keywords": [
         "组件库，vue3"
@@ -31,7 +31,7 @@
 		"npmurl": ""
 	},
 	"uni_modules": {
-		"dependencies": ["flower-icons", "flower-api", "flower-empty", "flower-config"],
+		"dependencies": ["flower-api", "flower-config"],
 		"encrypt": [],
 		"platforms": {
 			"cloud": {
