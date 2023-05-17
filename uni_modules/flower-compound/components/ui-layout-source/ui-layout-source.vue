@@ -73,7 +73,7 @@
 	import {
 		network
 	} from "@/uni_modules/flower-api";
-	
+
 	// 判断插槽是否存在内容
 	const slotEmpty = !useSlots().empty;
 	// 属性
@@ -188,6 +188,7 @@
 		if (sourceWorkers.isRefresh) {
 			sourceWorkers.loadmorePage += 1;
 			sourceWorkers.isRefresh = false;
+			uni.pageScrollTo({scrollTop: 0,duration: 300});
 		};
 		// 关闭下拉刷新
 		if (isPullDownRefresh) {
@@ -196,6 +197,7 @@
 	});
 
 	const refresh = () => {
+		sourceWorkers.isReady = false;
 		sourceWorkers.isRefresh = true;
 		sourceWorkers.loadmorePage = 1;
 		emits("change", {
@@ -236,8 +238,5 @@
 </script>
 
 <style scoped>
-	._ui-layout-sourec_network {
-		font-size: 28rpx;
-		color: #8c8c8c;
-	}
+._ui-layout-sourec_network {font-size: 28rpx;color: #8c8c8c;}
 </style>
