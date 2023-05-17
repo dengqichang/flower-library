@@ -26,14 +26,16 @@ import {
 	generate
 } from '../plug-in/design-colors';
 import {
-	uiLayout,
-	uiEmpty,
-	uiLoadingLogo,
-	uiLoadMore,
-	uiNetwork,
-	uiSpinner,
-	uiText
+	uiLayoutProps,
+	uiLayoutSourceProps,
+	uiEmptyProps,
+	uiLoadingLogoProps,
+	uiLoadMoreProps,
+	uiNetworkProps,
+	uiSpinnerProps,
+	uiTextProps,
 } from "../core/defaultPluginsProps.js"
+
 
 export {
 	// pages
@@ -61,11 +63,12 @@ export {
 	// design-colors
 	generate,
 	// defaultPluginsProps
-	uiLayout,
-	uiEmpty,
-	uiLoadingLogo,
-	uiLoadMore,
-	uiNetwork,
-	uiSpinner,
-	uiText
+	uiLayoutProps,
+	uiLayoutSourceProps,
+	uiEmptyProps,
+	uiLoadingLogoProps,
+	uiLoadMoreProps,
+	uiNetworkProps,
+	uiSpinnerProps,
+	uiTextProps,
 }

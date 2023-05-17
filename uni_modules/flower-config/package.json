@@ -1,7 +1,7 @@
 {
 	"id": "flower-config",
 	"displayName": "flower-config 配置文件",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "flower-library 项目下所有插件的配置文件。",
 	"keywords": [
         "flower-library",

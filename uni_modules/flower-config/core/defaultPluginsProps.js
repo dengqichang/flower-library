@@ -2,20 +2,22 @@ import {
 	defaultPlugins
 } from "./config.js";
 
-const uiLayout = defaultPlugins['ui-layout'];
-const uiEmpty = defaultPlugins['ui-empty'];
-const uiLoadingLogo = defaultPlugins['ui-loading-logo'];
-const uiLoadMore = defaultPlugins['ui-load-more'];
-const uiNetwork = defaultPlugins['ui-network'];
-const uiSpinner = defaultPlugins['ui-spinner'];
-const uiText = defaultPlugins['ui-text'];
+const uiLayoutProps = defaultPlugins['ui-layout'];
+const uiLayoutSourceProps = defaultPlugins['ui-layout-source'];
+const uiEmptyProps = defaultPlugins['ui-empty'];
+const uiLoadingLogoProps = defaultPlugins['ui-loading-logo'];
+const uiLoadMoreProps = defaultPlugins['ui-load-more'];
+const uiNetworkProps = defaultPlugins['ui-network'];
+const uiSpinnerProps = defaultPlugins['ui-spinner'];
+const uiTextProps = defaultPlugins['ui-text'];
 
 export {
-	uiLayout,
-	uiEmpty,
-	uiLoadingLogo,
-	uiLoadMore,
-	uiNetwork,
-	uiSpinner,
-	uiText
+	uiLayoutProps,
+	uiLayoutSourceProps,
+	uiEmptyProps,
+	uiLoadingLogoProps,
+	uiLoadMoreProps,
+	uiNetworkProps,
+	uiSpinnerProps,
+	uiTextProps,
 }

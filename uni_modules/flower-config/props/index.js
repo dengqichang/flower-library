@@ -1,4 +1,5 @@
 import layout from "./component/ui-layout.js";
+import layoutSource from "./component/ui-layout-source.js";
 import empty from "./component/ui-empty.js";
 import loadingLogo from "./component/ui-loading-logo.js";
 import loadMore from "./component/ui-load-more.js";
@@ -8,6 +9,7 @@ import text from "./component/ui-text.js";
 
 const props = {
 	"ui-layout": layout,
+	"ui-layout-source": layoutSource,
 	"ui-empty": empty,
 	"ui-loading-logo": loadingLogo,
 	"ui-load-more": loadMore,

@@ -2,7 +2,7 @@ export default {
 	description: {
 		shopping: "购物车空空如也",
 		fail: "加载失败",
-		loading: "加载中",
+		loading: "加载中...",
 		null: "空数据",
 		permission: "无权限",
 		agenda: "暂无日程",
@@ -24,6 +24,5 @@ export default {
 	primaryColor: "primary",
 	clothingColor: "warning",
 	otherColor: "#141414",
-	offsetTop: 0,
-	offsetBottom: 0
+	offset: 0
 }
