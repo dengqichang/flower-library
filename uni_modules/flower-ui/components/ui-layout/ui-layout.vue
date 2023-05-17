@@ -17,8 +17,7 @@
 		<!-- 自定义标识牌 -->
 		<slot name="signboard" />
 		<!-- 默认标识牌 -->
-		<image v-if="slotSignboard && props.signboard" class="_ui-layout__signboard" mode="widthFix"
-			:src="props.signboard" />
+		<image v-if="props.signboard" class="_ui-layout__signboard" mode="widthFix" :src="props.signboard" />
 		<!-- 其它容器 -->
 		<slot name="other" />
 		<!-- 底部容器 -->
@@ -33,23 +32,21 @@
 		useSlots
 	} from "vue";
 	import {
-		uiLayout,
+		uiLayoutProps,
 		getIsCustomNav,
 		getCurrentPageBackground
 	} from "@/uni_modules/flower-config";
-	// 判断插槽是否存在内容
-	const slotSignboard = !useSlots().signboard;
 	// 处理H5端兼容nav、header的slot内容高度
 	const isNavTop = getIsCustomNav() ? '44px' : '0px';
 	// 属性
 	const props = defineProps({
 		backdrop: {
 			type: String,
-			default: uiLayout.backdrop
+			default: uiLayoutProps.backdrop
 		},
 		signboard: {
 			type: String,
-			default: uiLayout.signboard
+			default: uiLayoutProps.signboard
 		}
 	});
 </script>

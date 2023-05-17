@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "flower-icons-network";
+  src: url('iconfont.ttf') format('truetype');
+}
+
+.flower-icons-network {
+  font-family: "flower-icons-network" !important;
+  font-size: 36rpx;
+  padding: 24rpx 40rpx;
+}
+
+.icon-right:before {
+  content: "\e73f";
+}
+
+.icon-attention-fill:before {
+  content: "\e6f8";
+}
+

@@ -15,16 +15,16 @@
 </template>
 
 <script setup>
-	import {unitConversion,uiLoadingLogo} from "@/uni_modules/flower-config";
+	import {unitConversion,uiLoadingLogoProps} from "@/uni_modules/flower-config";
 	import {computed} from "vue";
 	const props = defineProps({
 		logo: {
 			type: String,
-			default: uiLoadingLogo.logo
+			default: uiLoadingLogoProps.logo
 		},
 		title: {
 			type: String,
-			default: uiLoadingLogo.title
+			default: uiLoadingLogoProps.title
 		},
 		offsetTop: {
 			type: String,

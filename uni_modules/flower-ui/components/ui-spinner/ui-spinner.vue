@@ -6,7 +6,7 @@
 	import {
 		getColors,
 		unitConversion,
-		uiSpinner
+		uiSpinnerProps
 	} from "@/uni_modules/flower-config";
 	import {
 		computed
@@ -14,15 +14,15 @@
 	const props = defineProps({
 		size: {
 			type: [Number, String],
-			default: uiSpinner.size
+			default: uiSpinnerProps.size
 		},
 		color: {
 			type: String,
-			default: uiSpinner.color
+			default: uiSpinnerProps.color
 		},
 		thickness: {
 			type: [String, Number],
-			default: uiSpinner.thickness
+			default: uiSpinnerProps.thickness
 		}
 	});
 	const styles = computed(() => {

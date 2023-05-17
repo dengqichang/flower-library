@@ -13,24 +13,24 @@
 <script setup>
 	import {
 		getColors,
-		uiLoadMore
+		uiLoadMoreProps
 	} from "@/uni_modules/flower-config";
 	const props = defineProps({
 		status: {
 			type: String,
-			default: uiLoadMore.status
+			default: uiLoadMoreProps.status
 		},
 		loadmore: {
 			type: String,
-			default: uiLoadMore.loadmore
+			default: uiLoadMoreProps.loadmore
 		},
 		loading: {
 			type: String,
-			default: uiLoadMore.loading
+			default: uiLoadMoreProps.loading
 		},
 		nomore: {
 			type: String,
-			default: uiLoadMore.nomore
+			default: uiLoadMoreProps.nomore
 		}
 	});
 </script>
