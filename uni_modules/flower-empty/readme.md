@@ -1,6 +1,6 @@
 <p align="center"><img alt="logo" src="https://www.flowerui.com/logo.png" width="123"></p>
 <h3 align="center">FLOWER EMPTY</h3>
-<p align="center">多平台 uni-app 生态缺省页 ，根据异常的场景给予相关元素的缺省页。</p>
+<p align="center">多平台 uni-app 生态缺省页组件库 ，根据异常的场景给予相关元素的缺省页。</p>
 
 #### 简述
 缺省页是页面无内容或者异常的状态时展示的页面。
@@ -13,14 +13,13 @@
 | primaryColor	| String			| #296BEF	|  主颜色		|
 | clothingColor	| String			| #EDA20C	|  人物颜色		|
 | otherColor	| String			| #141414	|  其它颜色		|
-| offsetTop		| String / Number	| 0			|  向上偏移位置	|
-| offsetBottom	| String / Number	| 0			|  向下偏移位置	|
+| offset		| String / Number	| 0			|  偏移位置		|
 
-> 温馨说明：Props 属性 offsetTop、offsetBottom类型为 Number 时，单位默认为 rpx ；类型为 String 时，需自带单位，例如 24px、24rpx、24vh。
+> 温馨说明：Props 属性 offset 类型为 Number 时，单位默认为 rpx ；类型为 String 时，需自带单位，例如 24px、24rpx、24vh。
 
 #### 官方文档
 官网地址：<a target="_blank" href="https://www.flowerui.com">https://www.flowerui.com</a>  
-#### 反馈与交流
+#### 交流反馈
 官方QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_a2CXouL0H2OvaJ8vPalp3S6DABKIoCH&jump_from=webapi&authKey=riLWFXQamGAWrXQnBW0NCCFVeodvRvAEAooJNxuNybHBCOs9w0V9yR2F1NhVsZS/">654105306</a>  
 #### 源码
 [![stars](https://img.shields.io/github/stars/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-empty)

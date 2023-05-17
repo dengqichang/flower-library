@@ -1,7 +1,7 @@
 {
 	"id": "flower-empty",
 	"displayName": "flower-empty 缺省页",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "多平台 uni-app 生态缺省页 ，根据异常的场景给予相关元素的缺省页。",
 	"keywords": [
         "缺省页"
