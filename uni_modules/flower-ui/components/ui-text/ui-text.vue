@@ -59,7 +59,7 @@
 		customClass: {
 			type: Object,
 			default: () => {
-				return uiText.customClass
+				return uiTextProps.customClass
 			}
 		}
 	});
