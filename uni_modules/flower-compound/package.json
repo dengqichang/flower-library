@@ -2,7 +2,7 @@
 	"id": "flower-compound",
 	"displayName": "flower-compound 复合型组件库",
 	"version": "1.0.0",
-	"description": "耦合 flower-ui 组件库、flower-icons 图标库及 flower-empty 缺省页库的复合型组件库",
+	"description": "温馨提示：组件库目前处于前期准备阶段，当前空项目，请勿下载！！！",
 	"keywords": [
         "复合型组件库，vue3"
     ],

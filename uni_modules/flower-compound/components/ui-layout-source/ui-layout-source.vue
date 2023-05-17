@@ -52,8 +52,9 @@
 <script setup>
 	import {
 		useSlots,
-		ref,
+		reactive,
 		computed,
+		ref,
 		watch
 	} from "vue";
 	import {
@@ -65,56 +66,57 @@
 		getIsPullDownRefresh,
 		unitConversion,
 		getColors,
-		uiLayoutSource,
-		uiNetwork
+		uiLayoutSourceProps,
+		uiNetworkProps,
+		uiLayoutProps
 	} from "@/uni_modules/flower-config";
 	import {
 		network
 	} from "@/uni_modules/flower-api";
-
+	
 	// 判断插槽是否存在内容
 	const slotEmpty = !useSlots().empty;
 	// 属性
 	const props = defineProps({
 		backdrop: {
 			type: String,
-			default: uiLayoutSource.backdrop
+			default: uiLayoutSourceProps.backdrop || uiLayoutProps.backdrop
 		},
 		signboard: {
 			type: String,
-			default: uiLayoutSource.signboard
+			default: uiLayoutSourceProps.signboard || uiLayoutProps.signboard
 		},
 		isLoadmore: {
 			type: Boolean,
-			default: uiLayoutSource.isLoadmore
+			default: uiLayoutSourceProps.isLoadmore
 		},
 		emptyOffset: {
 			type: [String, Number],
-			default: uiLayoutSource.emptyOffset
+			default: uiLayoutSourceProps.emptyOffset
 		},
 		networkRouter: {
 			type: String,
-			default: uiLayoutSource.networkRouter || uiNetwork.router
+			default: uiLayoutSourceProps.networkRouter || uiNetworkProps.router
 		},
 		period: {
 			type: String,
-			default: uiLayoutSource.period
+			default: uiLayoutSourceProps.period
 		},
 		status: {
 			type: [String, Number],
 			default: 200
 		},
 		source: {
-			type: [Array, Object, String],
+			type: [Array, Object],
 			default: () => {
 				return []
 			}
 		}
 	});
 
-	const emits = defineEmits(['sourceMethod']);
+	const emits = defineEmits(['change']);
 	// 数据状态
-	const sourceWorkers = ref({
+	const sourceWorkers = reactive({
 		isReady: false,
 		isData: false,
 		loadMoreStatus: "none",
@@ -126,11 +128,11 @@
 	const isPullDownRefresh = getIsPullDownRefresh();
 	// 存在已渲染数据时显示行网络状态
 	const rowNetworkState = computed(() => {
-		return sourceWorkers.value.isData && !network.networkConnected
+		return sourceWorkers.isData && !network.networkConnected
 	});
 	// 当不存在数据时显示页面网络状态
 	const pageNetworkStatus = computed(() => {
-		return !sourceWorkers.value.isData && !network.networkConnected
+		return !sourceWorkers.isData && !network.networkConnected
 	});
 	// 监听函数状态
 	watch(() => props.status, () => {
@@ -138,12 +140,12 @@
 	});
 	watch(() => pageNetworkStatus.value, (newVal) => {
 		if (!newVal) {
-			sourceWorkers.value.loading = true;
-			sourceWorkers.value.loadmorePage = 1;
-			emits("sourceMethod", {
+			sourceWorkers.loading = true;
+			sourceWorkers.loadmorePage = 1;
+			emits("change", {
 				"onPullDownRefresh": true,
 				"onReachBottom": false,
-				"loadmorePage": sourceWorkers.value.loadmorePage
+				"loadmorePage": sourceWorkers.loadmorePage
 			});
 		};
 	});
@@ -167,25 +169,25 @@
 
 	watch(() => props.source, (newVal, oldVal) => {
 		// 是否已加载
-		sourceWorkers.value.isReady = true;
+		sourceWorkers.isReady = true;
 		// true ：存在数据，false：无数据
-		sourceWorkers.value.isData = newVal.length ? true : false;
+		sourceWorkers.isData = newVal.length ? true : false;
 		// 上拉加载更多
-		if (sourceWorkers.value.loadMoreStatus != "none") {
+		if (sourceWorkers.loadMoreStatus != "none") {
 			if (newVal.length >= oldVal.length) {
-				sourceWorkers.value.loadMoreStatus = "nomore"
+				sourceWorkers.loadMoreStatus = "nomore"
 			} else {
-				sourceWorkers.value.loadMoreStatus = "loadmore"
+				sourceWorkers.loadMoreStatus = "loadmore"
 			};
 		};
 		// 上拉加载页数
-		if (newVal.length > oldVal.length) {
-			sourceWorkers.value.loadmorePage += 1;
+		if (newVal.length > oldVal.length && !sourceWorkers.isRefresh) {
+			sourceWorkers.loadmorePage += 1;
 		};
 		// 拉下刷新重置页数
-		if (sourceWorkers.value.isRefresh) {
-			sourceWorkers.value.loadmorePage += 1;
-			sourceWorkers.value.isRefresh = !sourceWorkers.value.isRefresh;
+		if (sourceWorkers.isRefresh) {
+			sourceWorkers.loadmorePage += 1;
+			sourceWorkers.isRefresh = false;
 		};
 		// 关闭下拉刷新
 		if (isPullDownRefresh) {
@@ -194,22 +196,22 @@
 	});
 
 	const refresh = () => {
-		sourceWorkers.value.isRefresh = true;
-		sourceWorkers.value.loadmorePage = 1;
-		emits("sourceMethod", {
+		sourceWorkers.isRefresh = true;
+		sourceWorkers.loadmorePage = 1;
+		emits("change", {
 			"onPullDownRefresh": true,
 			"onReachBottom": false,
-			"loadmorePage": sourceWorkers.value.loadmorePage
+			"loadmorePage": sourceWorkers.loadmorePage
 		});
 	};
 
 	// 触发上拉加载
 	onReachBottom(() => {
-		sourceWorkers.value.loadMoreStatus = "loading";
-		emits("sourceMethod", {
+		sourceWorkers.loadMoreStatus = "loading";
+		emits("change", {
 			"onPullDownRefresh": false,
 			"onReachBottom": true,
-			"loadmorePage": sourceWorkers.value.loadmorePage
+			"loadmorePage": sourceWorkers.loadmorePage
 		});
 	});
 	// 下拉刷新
