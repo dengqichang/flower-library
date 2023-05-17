@@ -5,38 +5,46 @@
  * @param {*} animationDuration 窗口动画持续时间，单位为 ms
  */
 function navigateTo(url, animationType = 'pop-in', animationDuration = 300) {
-	uni.navigateTo({
-		url: url,
-		animationType: animationType,
-		animationDuration: animationDuration
-	})
+	if (!!url) {
+		uni.navigateTo({
+			url: url,
+			animationType: animationType,
+			animationDuration: animationDuration
+		})
+	}
 }
 /**
  * 关闭当前页面，跳转到应用内的某个页面
  * @param {String} url 需要跳转的应用内非 tabBar 的页面的路径，路径后可以带参数。
  */
 function redirectTo(url) {
-	uni.redirectTo({
-		url: url
-	})
+	if (!!url) {
+		uni.redirectTo({
+			url: url
+		})
+	}
 }
 /**
  * 关闭所有页面，打开到应用内的某个页面
  * @param {String} url 需要跳转的应用内页面路径 , 路径后可以带参数。如果跳转的页面路径是 tabBar 页面则不能带参数。
  */
 function reLaunch(url) {
-	uni.reLaunch({
-		url: url
-	})
+	if (!!url) {
+		uni.reLaunch({
+			url: url
+		})
+	}
 }
 /**
  * 跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面。
  * @param {String} url 需要跳转的 tabBar 页面的路径（需在 pages.json 的 tabBar 字段定义的页面），路径后不能带参数
  */
 function switchTab(url) {
-	uni.switchTab({
-		url: url
-	})
+	if (!!url) {
+		uni.switchTab({
+			url: url
+		})
+	}
 }
 /**
  * 关闭当前页面，返回上一页面或多级页面。

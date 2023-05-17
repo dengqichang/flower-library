@@ -1,3 +1,4 @@
+import "../../core/emptyChunk.js";
 // 默认错误信息
 const defaultErrorMsg = {
 	regex: ':attribute不符合验证规则',
@@ -373,6 +374,7 @@ function formValidator(formData, param) {
 		errorMessage: error
 	};
 };
+
 
 
 export {

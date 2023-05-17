@@ -3,10 +3,10 @@
 <p align="center">多平台 uni-app 生态 api 工具库 ，孤之有 “ 孔明 ” ，犹鱼之有水也 。</p>
 
 #### 简述
-同时支持 [JavaScript](https://baike.baidu.com/item/JavaScript/321142?fr=aladdin) 与 [TypeScript](https://baike.baidu.com/item/typescript/4314718?fr=aladdin) 。简化 `API` 操作，同时提供丰富常用的函数方法，大幅度提高您的开发效率。
+简化 `API` 操作，同时提供丰富常用的函数方法，大幅度提高您的开发效率。
 #### 官方文档
 官网地址：<a target="_blank" href="https://www.flowerui.com/api">https://www.flowerui.com/api</a>  
-#### 反馈与交流
+#### 交流反馈
 官方QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_a2CXouL0H2OvaJ8vPalp3S6DABKIoCH&jump_from=webapi&authKey=riLWFXQamGAWrXQnBW0NCCFVeodvRvAEAooJNxuNybHBCOs9w0V9yR2F1NhVsZS/">654105306</a>  
 #### 源码
 [![stars](https://img.shields.io/github/stars/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-api)
