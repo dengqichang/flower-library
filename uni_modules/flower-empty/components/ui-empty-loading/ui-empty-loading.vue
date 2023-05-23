@@ -1,6 +1,7 @@
 <template>
 	<view class="_ui-empty" :style="styles">
 		<view class="_ui-empty__svg" :style="{'backgroundImage':'url('+ changeSvg +')'}" />
+		<ui-empty-loading-spinner :color="props.primaryColor" />
 		<view class="_ui-empty__description">{{props.description}}</view>
 		<slot />
 	</view>
@@ -10,6 +11,7 @@
 	import {svgToUrl} from "../../core";
 	import {getColors,defaultColors,unitConversion,uiEmptyProps} from "@/uni_modules/flower-config";
 	import {watch,ref,computed} from "vue";
+	import uiEmptyLoadingSpinner from "./ui-empty-loading-spinner";
 	
 	const changeSvg = ref("");
 	
@@ -38,5 +40,5 @@
 <style scoped>
 ._ui-empty{display: flex;justify-content: center;align-items: center;flex-direction: column;}
 ._ui-empty__svg {background-size: cover;height: 500rpx;width: 500rpx;}
-._ui-empty__description{font-size: 28rpx;max-width: 456rpx;margin-bottom: 24rpx;color: #8c8c8c;}
+._ui-empty__description{font-size: 28rpx;max-width: 456rpx;margin: 24rpx 0rpx;color: #8c8c8c;}
 </style>
