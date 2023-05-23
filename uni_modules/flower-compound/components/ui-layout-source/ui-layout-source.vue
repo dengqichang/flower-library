@@ -60,7 +60,8 @@
 	import {
 		onReachBottom,
 		onPullDownRefresh,
-		onShow
+		onShow,
+		onLoad
 	} from "@dcloudio/uni-app";
 	import {
 		getIsPullDownRefresh,
@@ -121,7 +122,9 @@
 		isData: false,
 		loadMoreStatus: "none",
 		loadmorePage: 1,
-		isRefresh: false
+		isRefresh: false,
+		isReachBottom: true,
+		onLoadValue: {}
 	});
 
 	// 验证是否开启下拉刷新
@@ -140,13 +143,7 @@
 	});
 	watch(() => pageNetworkStatus.value, (newVal) => {
 		if (!newVal) {
-			sourceWorkers.loading = true;
-			sourceWorkers.loadmorePage = 1;
-			emits("change", {
-				"onPullDownRefresh": true,
-				"onReachBottom": false,
-				"loadmorePage": sourceWorkers.loadmorePage
-			});
+			refresh();
 		};
 	});
 	// 自定义为空
@@ -188,8 +185,13 @@
 		if (sourceWorkers.isRefresh) {
 			sourceWorkers.loadmorePage += 1;
 			sourceWorkers.isRefresh = false;
-			uni.pageScrollTo({scrollTop: 0,duration: 300});
+			uni.pageScrollTo({
+				scrollTop: 0,
+				duration: 300
+			});
 		};
+		// 解锁上拉加载
+		sourceWorkers.isReachBottom = true;
 		// 关闭下拉刷新
 		if (isPullDownRefresh) {
 			uni.stopPullDownRefresh();
@@ -203,18 +205,24 @@
 		emits("change", {
 			"onPullDownRefresh": true,
 			"onReachBottom": false,
-			"loadmorePage": sourceWorkers.loadmorePage
+			"loadmorePage": sourceWorkers.loadmorePage,
+			"onLoadValue": sourceWorkers.onLoadValue
 		});
 	};
 
 	// 触发上拉加载
 	onReachBottom(() => {
 		sourceWorkers.loadMoreStatus = "loading";
-		emits("change", {
-			"onPullDownRefresh": false,
-			"onReachBottom": true,
-			"loadmorePage": sourceWorkers.loadmorePage
-		});
+		if(sourceWorkers.isReachBottom){
+			emits("change", {
+				"onPullDownRefresh": false,
+				"onReachBottom": true,
+				"loadmorePage": sourceWorkers.loadmorePage,
+				"onLoadValue": sourceWorkers.onLoadValue
+			});
+		};
+		// 锁定上拉加载
+		sourceWorkers.isReachBottom = false;
 	});
 	// 下拉刷新
 	onPullDownRefresh(() => {
@@ -231,6 +239,12 @@
 			refresh();
 		};
 	});
+	onLoad((e) => {
+		sourceWorkers.onLoadValue = e;
+		if (props.period == "onLoad") {
+			refresh();
+		};
+	});
 	// 暴露方法
 	defineExpose({
 		refresh
@@ -238,5 +252,8 @@
 </script>
 
 <style scoped>
-._ui-layout-sourec_network {font-size: 28rpx;color: #8c8c8c;}
+	._ui-layout-sourec_network {
+		font-size: 28rpx;
+		color: #8c8c8c;
+	}
 </style>
