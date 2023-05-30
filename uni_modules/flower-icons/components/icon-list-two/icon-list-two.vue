@@ -11,7 +11,7 @@
 </script>
 <style scoped>
 	/* #ifndef APP-NVUE */
-	@font-face {font-family: flower-icons;src: url('iconfont.ttf') format('truetype');}.flower-icons {font-family: flower-icons;font-size: 28rpx;}
+	@font-face {font-family: flower-icon-list-two;src: url('iconfont.ttf') format('truetype');}.flower-icons {font-family: flower-icon-list-two;font-size: 28rpx;}
 	/* #endif */
 	/* #ifdef APP-NVUE */
 	.flower-icons {font-family: flower-icon-list-two;font-size: 28rpx;}
