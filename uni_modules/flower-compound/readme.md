@@ -3,7 +3,7 @@
 <p align="center">多平台 uni-app 生态复合型组件库组件库 ，孤之有 “ 孔明 ” ，犹鱼之有水也 。</p>
 
 #### 简述
-耦合 flower-ui 组件库、flower-icons 图标库及 flower-empty 缺省页库的复合型组件库
+`flower-library` 下所有库共同构建的综合组件。
 #### 官方文档
 官网地址：<a target="_blank" href="https://www.flowerui.com">https://www.flowerui.com</a>  
 #### 交流反馈
@@ -23,7 +23,7 @@
 基于 `uni-app` 生态开发的组件库，`uni-app` 是一个使用 [Vue.js](https://vuejs.org/) 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/飞书/QQ/快手/钉钉/淘宝）、快应用等多个平台。
 #### 版权信息
 - 遵循 `MIT` 开源协议，无需支付任何费用，也无需授权，即可将框架应用到产品中。
-- 开发扩展与插件时，请注明基于 [FLOWER COMPOUND](https://flowerui.com/) 开发。
+- 开发扩展与插件时，请注明基于 [FLOWER LIBRARY](https://flowerui.com/) 开发。
 - 仅供学习交流，如作它用所承受的法律责任一概与作者无关。
 
 #### 致谢

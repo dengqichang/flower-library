@@ -6,16 +6,6 @@
 缺省页是页面无内容或者异常的状态时展示的页面。
 设计缺省页作用是设计更好的用户体验，即在异常状态下的给予用户友好提示及安抚用户情绪。
 根据异常的场景给予相关元素的缺省页，在产品页面相对应的场景特点来设计页面内容。
-#### Props
-| 属性			| 类型				| 默认值		| 说明			|
-| :------:		| :------:			| :-------:	| :------:		|
-| description	| String			| -			|  缺省文本描述	|
-| primaryColor	| String			| #296BEF	|  主颜色		|
-| clothingColor	| String			| #EDA20C	|  人物颜色		|
-| otherColor	| String			| #141414	|  其它颜色		|
-| offset		| String / Number	| 0			|  偏移位置		|
-
-> 温馨说明：Props 属性 offset 类型为 Number 时，单位默认为 rpx ；类型为 String 时，需自带单位，例如 24px、24rpx、24vh。
 
 #### 官方文档
 官网地址：<a target="_blank" href="https://www.flowerui.com">https://www.flowerui.com</a>  
@@ -37,7 +27,7 @@
 基于 `uni-app` 生态开发的缺省页，`uni-app` 是一个使用 [Vue.js](https://vuejs.org/) 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/飞书/QQ/快手/钉钉/淘宝）、快应用等多个平台。
 #### 版权信息
 - 遵循 `MIT` 开源协议，无需支付任何费用，也无需授权，即可将框架应用到产品中。
-- 开发扩展与插件时，请注明基于 [FLOWER EMPTY](https://flowerui.com/) 开发。
+- 开发扩展与插件时，请注明基于 [FLOWER LIBRARY](https://flowerui.com/) 开发。
 - 仅供学习交流，如作它用所承受的法律责任一概与作者无关。
 
 #### 致谢
