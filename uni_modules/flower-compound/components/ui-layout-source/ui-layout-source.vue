@@ -6,35 +6,19 @@
 		</template>
 		<!-- 顶部容器 -->
 		<template #header>
-			<slot name="header" />
+			<view v-if="getCurrentNetwork()">
+				<slot name="header" />
+			</view>
 		</template>
 		<!-- 无网络状态 -->
-		<ui-empty-network v-if="pageNetworkStatus" :offset="emptyOffset">
-			<!-- 跳转解决网络问题页面，待实现 -->
-			<view class="_ui-layout-sourec_network">当前网络不可用,请检查<text @tap="navigateTo"
-					:style="{color:getColors('primary')}">网络设置</text></view>
-		</ui-empty-network>
-		<view v-else>
+		<ui-no-network mode="page" :router="uiNoNetworkProps.router" />
+		<view v-if="getCurrentNetwork()">
 			<!-- 缺省页状态 -->
-			<ui-empty-loading v-if="!sourceWorkers.isReady" :offset="emptyOffset" />
-			<view v-else-if="!sourceWorkers.isData && sourceWorkers.isReady">
-				<view v-if="status== 200">
-					<ui-empty-data v-if="slotEmpty" :offset="emptyOffset" />
-					<view v-else :style="emptyStyle">
-						<slot name="empty" />
-					</view>
-				</view>
-				<!-- 403 -->
-				<ui-empty-permission v-else-if="status == 403" :offset="emptyOffset" />
-				<!-- 404 -->
-				<ui-empty-html v-else-if="status == 404" :offset="emptyOffset" />
-				<!-- 500 -->
-				<ui-empty-fail v-else-if="status == 500" :offset="emptyOffset" />
-			</view>
+			<ui-empty-status :statusCode="sourceWorkers.emptyStatusCode" :source="sourceWorkers.data" :mode="emptyMode" :offsetTop="emptyOffsetTop" :offsetBottom="emptyOffsetBottom" @change="onChangeUIEmptyStatus" />
 			<!-- 正常数据渲染 -->
-			<view v-else>
+			<view v-if="sourceWorkers.uiEmptyStatusShow">
 				<slot />
-				<ui-load-more v-if="isLoadmore && network.networkConnected" :status="sourceWorkers.loadMoreStatus" />
+				<ui-load-more v-if="props.isLoadmore && getCurrentNetwork()" :status="sourceWorkers.loadMoreStatus" />
 			</view>
 		</view>
 		<!-- 其它容器 -->
@@ -43,42 +27,38 @@
 		</template>
 		<!-- 底部容器 -->
 		<template #footer>
-			<ui-network :router="props.networkRouter" v-if="rowNetworkState" />
-			<slot name="footer" />
+			<view v-if="getCurrentNetwork()">
+				<slot name="footer" />
+			</view>
 		</template>
 	</ui-layout>
 </template>
 
-<script setup>
-	import {
-		useSlots,
-		reactive,
-		computed,
-		ref,
-		watch
-	} from "vue";
-	import {
-		onReachBottom,
-		onPullDownRefresh,
-		onShow,
-		onLoad
-	} from "@dcloudio/uni-app";
-	import {
-		getIsPullDownRefresh,
-		unitConversion,
-		getColors,
-		uiLayoutSourceProps,
-		uiNetworkProps,
-		uiLayoutProps
-	} from "@/uni_modules/flower-config";
-	import {
-		network
-	} from "@/uni_modules/flower-api";
+<script setup lang="ts">
+	import { reactive, watch } from "vue";
+	import { onReachBottom, onPullDownRefresh, onShow, onLoad } from "@dcloudio/uni-app";
+	import { getIsPullDownRefresh, uiLayoutSourceProps, uiNoNetworkProps, uiLayoutProps, getCurrentNetwork } from "@/uni_modules/flower-config";
 
-	// 判断插槽是否存在内容
-	const slotEmpty = !useSlots().empty;
 	// 属性
 	const props = defineProps({
+		source: {
+			type: [Array, Object],
+			default: () => {
+				return []
+			}
+		},
+		statusCode: {
+			type: Number,
+			default: 0
+		},
+		period: {
+			type: String,
+			default: uiLayoutSourceProps.period
+		},
+		emptyMode: {
+			type: String,
+			default: "data"
+		},
 		backdrop: {
 			type: String,
 			default: uiLayoutSourceProps.backdrop || uiLayoutProps.backdrop
@@ -91,84 +71,50 @@
 			type: Boolean,
 			default: uiLayoutSourceProps.isLoadmore
 		},
-		emptyOffset: {
+		emptyOffsetTop: {
 			type: [String, Number],
-			default: uiLayoutSourceProps.emptyOffset
+			default: uiLayoutSourceProps.emptyOffsetTop
 		},
-		networkRouter: {
-			type: String,
-			default: uiLayoutSourceProps.networkRouter || uiNetworkProps.router
-		},
-		period: {
-			type: String,
-			default: uiLayoutSourceProps.period
-		},
-		status: {
+		emptyOffsetBottom: {
 			type: [String, Number],
-			default: 200
-		},
-		source: {
-			type: [Array, Object],
-			default: () => {
-				return []
-			}
+			default: uiLayoutSourceProps.emptyOffsetBottom
 		}
 	});
 
 	const emits = defineEmits(['change']);
 	// 数据状态
 	const sourceWorkers = reactive({
-		isReady: false,
-		isData: false,
+		emptyStatusCode: 0,
+		data: [],
 		loadMoreStatus: "none",
 		loadmorePage: 1,
 		isRefresh: false,
 		isReachBottom: true,
-		onLoadValue: {}
+		onLoadValue: {},
+		networkStatus: true,
+		uiEmptyStatusShow: false
 	});
 
 	// 验证是否开启下拉刷新
 	const isPullDownRefresh = getIsPullDownRefresh();
-	// 存在已渲染数据时显示行网络状态
-	const rowNetworkState = computed(() => {
-		return sourceWorkers.isData && !network.networkConnected
+
+	// 监听网络状态
+	watch(() => getCurrentNetwork(), (newVal) => {
+		if (newVal) { refresh(); };
 	});
-	// 当不存在数据时显示页面网络状态
-	const pageNetworkStatus = computed(() => {
-		return !sourceWorkers.isData && !network.networkConnected
-	});
+
 	// 监听函数状态
-	watch(() => props.status, () => {
-		uni.stopPullDownRefresh();
-	});
-	watch(() => pageNetworkStatus.value, (newVal) => {
-		if (!newVal) {
-			refresh();
+	watch(() => props.statusCode, (newVal) => {
+		if (newVal != 200 && isPullDownRefresh) {
+			uni.stopPullDownRefresh();
 		};
 	});
-	// 自定义为空
-	const emptyStyle = computed(() => {
-		return {
-			marginTop: unitConversion(props.emptyOffset),
-			marginBottom: unitConversion(props.emptyOffset)
-		}
-	});
-	// 网络设置跳转路由
-	const navigateTo = () => {
-		if (!!props.networkRouter) {
-			uni.navigateTo({
-				url: props.networkRouter
-			})
-		} else {
-			console.error("未配置检查网络设置跳转路由");
-		}
-	}
 
-	watch(() => props.source, (newVal, oldVal) => {
+	watch(() => props.source, (newVal : any[], oldVal : any[]) => {
 		// 是否已加载
-		sourceWorkers.isReady = true;
+		sourceWorkers.emptyStatusCode = Number(props.statusCode);
 		// true ：存在数据，false：无数据
-		sourceWorkers.isData = newVal.length ? true : false;
+		sourceWorkers.data = newVal;
 		// 上拉加载更多
 		if (sourceWorkers.loadMoreStatus != "none") {
 			if (newVal.length >= oldVal.length) {
@@ -185,21 +131,17 @@
 		if (sourceWorkers.isRefresh) {
 			sourceWorkers.loadmorePage += 1;
 			sourceWorkers.isRefresh = false;
-			uni.pageScrollTo({
-				scrollTop: 0,
-				duration: 300
-			});
+			uni.pageScrollTo({ scrollTop: 0, duration: 300 });
+			// 关闭下拉刷新
+			if (isPullDownRefresh) { uni.stopPullDownRefresh(); };
 		};
 		// 解锁上拉加载
 		sourceWorkers.isReachBottom = true;
-		// 关闭下拉刷新
-		if (isPullDownRefresh) {
-			uni.stopPullDownRefresh();
-		};
+
 	});
 
 	const refresh = () => {
-		sourceWorkers.isReady = false;
+		sourceWorkers.emptyStatusCode = 0;
 		sourceWorkers.isRefresh = true;
 		sourceWorkers.loadmorePage = 1;
 		emits("change", {
@@ -210,20 +152,27 @@
 		});
 	};
 
-	// 触发上拉加载
-	onReachBottom(() => {
-		sourceWorkers.loadMoreStatus = "loading";
-		if(sourceWorkers.isReachBottom){
-			emits("change", {
-				"onPullDownRefresh": false,
-				"onReachBottom": true,
-				"loadmorePage": sourceWorkers.loadmorePage,
-				"onLoadValue": sourceWorkers.onLoadValue
-			});
-		};
-		// 锁定上拉加载
-		sourceWorkers.isReachBottom = false;
-	});
+	const onChangeUIEmptyStatus = (e : any) => {
+		sourceWorkers.uiEmptyStatusShow = e.isEmpty;
+	};
+
+	if (props.isLoadmore) {
+		// 触发上拉加载
+		onReachBottom(() => {
+			sourceWorkers.loadMoreStatus = "loading";
+			if (sourceWorkers.isReachBottom) {
+				emits("change", {
+					"onPullDownRefresh": false,
+					"onReachBottom": true,
+					"loadmorePage": sourceWorkers.loadmorePage,
+					"onLoadValue": sourceWorkers.onLoadValue
+				});
+			};
+			// 锁定上拉加载
+			sourceWorkers.isReachBottom = false;
+		});
+	};
+
 	// 下拉刷新
 	onPullDownRefresh(() => {
 		refresh();
@@ -252,8 +201,14 @@
 </script>
 
 <style scoped>
-	._ui-layout-sourec_network {
-		font-size: 28rpx;
-		color: #8c8c8c;
+	._ui-layout-source__empty-content {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 </style>

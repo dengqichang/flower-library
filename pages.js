@@ -1,5 +1,5 @@
-import index from "./pages_modules/index.js";
-import test from "./pages_modules/test.js";
+import index from "./pages_modules/index";
+import test from "./pages_modules/test";
 
 export default {
 	pages: index.concat(test),
@@ -9,5 +9,10 @@ export default {
 		navigationBarBackgroundColor: '#F2F2F2',
 		backgroundColor: '#F2F2F2'
 	},
-	entryPagePath: "pages/index/index"
+	entryPagePath: "pages/index/index",
+	flowerConfig: {
+		plugins: {
+
+		}
+	}
 }

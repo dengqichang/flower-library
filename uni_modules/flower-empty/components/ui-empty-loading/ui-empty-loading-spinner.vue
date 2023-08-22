@@ -2,13 +2,10 @@
 	<view :style="styles" class="_ui-empty-loading-spinner" />
 </template>
 
-<script setup>
-	import {
-		getColors
-	} from "@/uni_modules/flower-config";
-	import {
-		computed
-	} from "vue";
+<script setup lang="ts">
+	import { getColors } from "@/uni_modules/flower-config";
+	import { computed } from "vue";
+
 	const props = defineProps({
 		color: {
 			type: String,

@@ -7,8 +7,7 @@
         "flower-library",
         "配置文件"
     ],
-	"main": "./main/index.js",
-	"types": "./main/index.d.ts",
+	"main": "./main/index.ts",
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-config",
 	"engines": {
 		"HBuilderX": "^3.6.9"
