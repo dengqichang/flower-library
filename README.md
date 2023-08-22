@@ -3,12 +3,12 @@
 <p align="center">多平台 uni-app 生态组件库 ，孤之有 “ 孔明 ” ，犹鱼之有水也 。</p>
 <div align="center">
 
-[![stars](https://img.shields.io/github/stars/dengqichang/flower-ui?style=social)](https://github.com/dengqichang/flower-ui)
-[![forks](https://img.shields.io/github/forks/dengqichang/flower-ui?style=social)](https://github.com/dengqichang/flower-ui)
-[![watchers](https://img.shields.io/github/watchers/dengqichang/flower-ui?style=social)](https://github.com/dengqichang/flower-ui)
-[![license](https://img.shields.io/github/license/dengqichang/flower-ui?style=social)](https://github.com/dengqichang/flower-ui)
-[![star](https://gitee.com/dengqichang/flower-ui/badge/star.svg?theme=white)](https://gitee.com/dengqichang/flower-ui)
-[![fork](https://gitee.com/dengqichang/flower-ui/badge/fork.svg?theme=white)](https://gitee.com/dengqichang/flower-ui)
+[![stars](https://img.shields.io/github/stars/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library)
+[![forks](https://img.shields.io/github/forks/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library)
+[![watchers](https://img.shields.io/github/watchers/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library)
+[![license](https://img.shields.io/github/license/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library)
+[![star](https://gitee.com/dengqichang/flower-library/badge/star.svg?theme=white)](https://gitee.com/dengqichang/flower-library)
+[![fork](https://gitee.com/dengqichang/flower-library/badge/fork.svg?theme=white)](https://gitee.com/dengqichang/flower-library)
 
 </div>
 
@@ -21,15 +21,15 @@
 #### 反馈与交流
 官方QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_a2CXouL0H2OvaJ8vPalp3S6DABKIoCH&jump_from=webapi&authKey=riLWFXQamGAWrXQnBW0NCCFVeodvRvAEAooJNxuNybHBCOs9w0V9yR2F1NhVsZS/">654105306</a>  
 #### 插件列表
-##### [flower-ui 基础组件库](https://github.com/dengqichang/flower-ui/tree/main/uni_modules/flower-ui)
+##### [flower-ui 基础组件库](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-ui)
 全端兼容：APP-VUE、H5、快应用、各端小程序均支持。
-##### [flower-icons 图标库](https://github.com/dengqichang/flower-ui/tree/main/uni_modules/flower-icons)
+##### [flower-icons 图标库](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-icons)
 全端兼容：APP-VUE、APP-NVUE、H5、快应用、各端小程序均支持。
-##### [flower-api 工具库](https://github.com/dengqichang/flower-ui/tree/main/uni_modules/flower-api)
+##### [flower-api 工具库](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-api)
 全端兼容：vue3 版本
-##### [flower-empty 缺省库](https://github.com/dengqichang/flower-ui/tree/main/uni_modules/flower-empty)
+##### [flower-empty 缺省库](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-empty)
 全端兼容：APP-VUE、H5、快应用、各端小程序均支持。
-##### [flower-compound 复合组件库](https://github.com/dengqichang/flower-ui/tree/main/uni_modules/flower-compound)
+##### [flower-compound 复合组件库](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-compound)
 全端兼容：APP-VUE、H5、快应用、各端小程序均支持。
 #### 适用领域
 基于 `uni-app` 生态开发的组件库，`uni-app` 是一个使用 [Vue.js](https://vuejs.org/) 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/飞书/QQ/快手/钉钉/淘宝）、快应用等多个平台。
