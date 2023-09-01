@@ -17,6 +17,7 @@
 	 * @property {Boolean} isWeight = [true|false] 是否加粗字重，默认 fasle
 	 *  @value true 加粗字重
 	 *  @value false 正常字重
+	 * @property {Boolean} isAuto = [true|false] 是否图标自增长
 	 * @property {String} margin 外边距，参数同css margin一样，示例：16 24 或者 16,24
 	 * @property {String} padding 内边距，参数同css padding一样，示例：16 24 或者 16,24
 	 */
@@ -32,16 +33,17 @@
 	const props = defineProps({
 		isFill: { type: Boolean, default: uiIconsProps.isFill },
 		size: { type: [Number, String], default: uiIconsProps.size },
-		color: { type: String, default: uiIconsProps.color },
+		color: { type: [String, Array], default: () => { return uiIconsProps.color } },
 		lineHeight: { type: [Number, String], default: uiIconsProps.lineHeight },
 		isWeight: { type: Boolean, default: uiIconsProps.isWeight },
+		isAuto: { type: Boolean, default: true },
 		margin: { type: String, default: uiIconsProps.margin },
 		padding: { type: String, default: uiIconsProps.padding }
 	});
 
 	const iconStyle = computed(() => {
-		let style : any = {fontSize: unitConversion(props.size,true),color: getColors(props.color)};
-		if (!!props.lineHeight) {style.lineHeight = unitConversion(props.lineHeight,true)};
+		let style : any = {fontSize: unitConversion(props.size,props.isAuto),color: getColors(props.color)};
+		if (!!props.lineHeight) {style.lineHeight = unitConversion(props.lineHeight,props.isAuto)};
 		if (props.isWeight) {style.fontWeight = "bold";};
 		return style;
 	});

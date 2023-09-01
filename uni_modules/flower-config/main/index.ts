@@ -1,7 +1,7 @@
 /**
  * 主题
  */
-import { generate, setThemeModel, setThemeColor, restoreThemeColor, setFontSizeIncrease, restoreFontSizeIncrease, getColors, getTextColors, getBackgroundColors } from "../core/theme";
+import { generate, initThemeModel, setThemeModel, getThemeModel, getThemeModelBoolean, setThemeColor, getThemeColor, restoreThemeColor, setFontSizeIncrease, getFontSizeIncrease, restoreFontSizeIncrease, getColors, getTextColors, getBackgroundColors, setSacrificeMode, getSacrificeMode } from "../core/theme";
 /**
  * 配置文件
  */
@@ -9,11 +9,11 @@ import { defaultColors, defaultInternalSetup } from "../core/mergeConfiguration"
 /**
  * pages.json
  */
-import { getCurrentPageRoute, getCurrentPageTitle, getIsCustomNav, globalStyle, getCurrentPageBackground, getIsPullDownRefresh } from "../core/pages";
+import { getCurrentPageRoute, getCurrentPageTitle, getCurrentNavTextStyle, getIsCustomNav, globalStyle, pagesCombination, getCurrentPageBackground, getCurrentNavBackground, getIsPullDownRefresh } from "../core/pages";
 /**
  * flower-ui基础组件属性
  */
-import { uiLayoutProps, uiLoadMoreProps, uiSpinnerProps, uiTextProps, uiSpanProps,uiButtonProps } from "../core/defaultPluginsProps";
+import { uiLayoutProps, uiLoadMoreProps, uiSpinnerProps, uiTextProps, uiSpanProps, uiButtonProps } from "../core/defaultPluginsProps";
 /**
  * flower-compound复合组件库属性
  */
@@ -45,13 +45,17 @@ import { judgeNetworkError, getCurrentNetwork } from "../core/network";
 /**
  * 节流
  */
-import throttle from "../core/throttle"
+import throttle from "../core/throttle";
+/**
+ * app暗黑模式
+ */
+import { setModelLayout } from "../core/darkThemeModel";
 /**
  * ======== 初始化项目 ========
  */
 
 // 初始化模式
-setThemeModel();
+initThemeModel();
 // 初始化语言
 setLanguage();
 
@@ -60,9 +64,9 @@ setLanguage();
  */
 export {
 	// theme.ts
-	generate, setThemeModel, setThemeColor, restoreThemeColor, setFontSizeIncrease, restoreFontSizeIncrease, getColors, getTextColors, getBackgroundColors,
+	generate, initThemeModel, setThemeModel, getThemeModel, getThemeModelBoolean, setThemeColor, getThemeColor, restoreThemeColor, setFontSizeIncrease, getFontSizeIncrease, restoreFontSizeIncrease, getColors, getTextColors, getBackgroundColors, setSacrificeMode, getSacrificeMode,
 	// pages.ts
-	getCurrentPageRoute, getCurrentPageTitle, getIsCustomNav, globalStyle, getCurrentPageBackground, getIsPullDownRefresh,
+	getCurrentPageRoute, getCurrentPageTitle, getCurrentNavTextStyle, getIsCustomNav, globalStyle, pagesCombination, getCurrentPageBackground, getCurrentNavBackground, getIsPullDownRefresh,
 	// languageConfig.ts
 	getLanguage, setLanguage, getComponentLanguage, getLanguageCode,
 	// mergeConfiguration.ts
@@ -76,8 +80,9 @@ export {
 	// flower-empty
 	uiEmptyProps, svgToUrl,
 	// flower-ui
-	uiLayoutProps, uiLoadMoreProps, uiSpinnerProps, uiTextProps, uiSpanProps,uiButtonProps,
+	uiLayoutProps, uiLoadMoreProps, uiSpinnerProps, uiTextProps, uiSpanProps, uiButtonProps,
 	// flower-compound
 	uiLayoutSourceProps, uiNoNetworkProps, uiEmptyStatusProps,
-	throttle
+	throttle,
+	setModelLayout
 }

@@ -4,23 +4,24 @@
  * 描述：flower-library 获取pages.json进行处理
  */
 import pagesJson from "@/pages.json";
-import { globalStyle, pages } from "./pagesType";
-import { getColors } from "./theme"
+import { getColors, getThemeModelBoolean } from "./theme";
 
 // pages.json 拆分
-let pagesJs : pages;
+let pagesJs : any = {};
 try { pagesJs = import.meta.globEager('/pages.js')['/pages.js'].default; } catch (e) { };
 try { pagesJs = import.meta.globEager('/pages.ts')['/pages.ts'].default; } catch (e) { };
 // 最新 pages.json
-const pagesMerge : pages = Object.assign(pagesJson, pagesJs);
+const pagesMerge : any = Object.assign(pagesJson, pagesJs);
 // 全局配置
-const globalStyle : globalStyle = pagesMerge.globalStyle || {};
+const globalStyle : any = pagesMerge.globalStyle || {};
 // 页面配置
 let pagesCombination : object = {};
+// 路由数组
+let pagesRouteArray : string[] = [];
 // 未分包
-for (let i in pagesMerge.pages) { pagesCombination[pagesMerge.pages[i].path] = pagesMerge.pages[i].style; };
+for (let i in pagesMerge.pages) { pagesCombination[pagesMerge.pages[i].path] = pagesMerge.pages[i].style; pagesRouteArray.push(pagesMerge.pages[i].path) };
 // 分包
-for (let i in pagesMerge.subPackages) { for (let ii in pagesMerge.subPackages[i].pages) { pagesCombination[`${pagesMerge.subPackages[i].root}/${pagesMerge.subPackages[i].pages[ii].path}`] = pagesMerge.subPackages[i].pages[ii].style; } };
+for (let i in pagesMerge.subPackages) { for (let ii in pagesMerge.subPackages[i].pages) { pagesCombination[`${pagesMerge.subPackages[i].root}/${pagesMerge.subPackages[i].pages[ii].path}`] = pagesMerge.subPackages[i].pages[ii].style; pagesRouteArray.push(`${pagesMerge.subPackages[i].root}/${pagesMerge.subPackages[i].pages[ii].path}`) } };
 
 /**
  * 获取当前页面路由
@@ -28,8 +29,11 @@ for (let i in pagesMerge.subPackages) { for (let ii in pagesMerge.subPackages[i]
  */
 const getCurrentPageRoute = (pages : number = 1) : string => {
 	let routes = getCurrentPages();
-	let curRoute = routes[routes.length - pages].route;
-	return curRoute;
+	if (routes.length > 0) {
+		return routes[routes.length - pages].route;
+	} else {
+		return pagesRouteArray[0]
+	};
 };
 
 /**
@@ -40,14 +44,34 @@ const getCurrentPageTitle = () : string => {
 };
 
 /**
+ * 获取当前页面配置
+ */
+const getCurrentNavTextStyle = () : string => {
+	const currentStyle = pagesCombination[getCurrentPageRoute()];
+	return getThemeModelBoolean() ? currentStyle.navigationBarTextStyleDark || globalStyle.navigationBarTextStyleDark || "#ffffff" : currentStyle.navigationBarTextStyle || globalStyle.navigationBarTextStyle || "#000000";
+};
+
+/**
  * 获取当前页面背景色
  * @param {string} color 颜色值
  */
-const getCurrentPageBackground = (color ?: string) : object => {
+const getCurrentPageBackground = (color ?: string | [string, string]) : object => {
 	if (!!color) {
 		return { backgroundColor: getColors(color) };
 	} else {
-		return { backgroundColor: pagesCombination[getCurrentPageRoute()].backgroundColor || globalStyle.backgroundColor || "#f8f8f8" }
+		return { backgroundColor: getColors([pagesCombination[getCurrentPageRoute()].backgroundColor || globalStyle.backgroundColor || "#f0f0f0", pagesCombination[getCurrentPageRoute()].backgroundColorDark || globalStyle.backgroundColorDark || "#141414"]) }
+	}
+};
+
+/**
+ * 获取当前导航栏背景色
+ * @param {string} color 颜色值
+ */
+const getCurrentNavBackground = (color ?: string | [string, string]) : object => {
+	if (!!color) {
+		return { backgroundColor: getColors(color) };
+	} else {
+		return { backgroundColor: getColors([pagesCombination[getCurrentPageRoute()].navigationBarBackgroundColor || globalStyle.navigationBarBackgroundColor || "#ffffff", pagesCombination[getCurrentPageRoute()].navigationBarBackgroundColorDark || globalStyle.navigationBarBackgroundColorDark || "#262626"]) }
 	}
 };
 
@@ -74,8 +98,12 @@ const getIsPullDownRefresh = () : boolean => {
 export {
 	getCurrentPageRoute,
 	getCurrentPageTitle,
+	getCurrentNavTextStyle,
 	getIsCustomNav,
+	pagesRouteArray,
 	globalStyle,
+	pagesCombination,
 	getCurrentPageBackground,
+	getCurrentNavBackground,
 	getIsPullDownRefresh
 };

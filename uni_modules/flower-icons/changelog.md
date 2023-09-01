@@ -1,3 +1,5 @@
+## 1.0.11（2023-09-01）
+- 【新增】`isAuto` 属性，是否图标自增长，在 `flower-config` 下调用 `setFontSizeIncrease` API 时生效
 ## 1.0.10（2023-08-22）
 - 【优化】`flower-icons` 字体图标库
 ## 1.0.9（2023-05-30）

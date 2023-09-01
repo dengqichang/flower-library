@@ -17,6 +17,7 @@
 	 * @property {String,Number} width 文本宽度
 	 * @property {String,Number} lines = [1|2|3|4|5|6|7|8|9|10] 超出行省略
 	 * @property {Boolean} isIndent = [true|false] 是否首行缩进2个字符
+	 * @property {Boolean} isAuto = [true|false] 是否文本自增长
 	 * @property {Object} customStyle 自定义css样式
 	 * @property {Object} customClass 自定义class样式
 	 */
@@ -25,12 +26,13 @@
 
 	const props = defineProps({
 		size: { type: [Number, String], default: uiSpanProps.size },
-		color: { type: String, default: uiSpanProps.color },
+		color: { type: [String, Array], default: () => { return uiSpanProps.color } },
 		lineHeight: { type: [Number, String], default: uiSpanProps.lineHeight },
 		weight: { type: String, default: uiSpanProps.weight },
 		width: { type: [Number, String], default: uiSpanProps.width },
 		lines: { type: [Number, String], default: uiSpanProps.lines },
 		isIndent: { type: Boolean, default: uiSpanProps.isIndent },
+		isAuto: { type: Boolean, default: true },
 		offsetLeft: { type: [Number, String], default: uiSpanProps.offsetLeft },
 		offsetRight: { type: [Number, String], default: uiSpanProps.offsetRight },
 		customStyle: { type: Object, default: () => { return uiSpanProps.customStyle } }
@@ -38,13 +40,13 @@
 
 	const styles = computed(() => {
 		let style : any = {
-			fontSize: unitConversion(props.size, true),
+			fontSize: unitConversion(props.size, props.isAuto),
 			color: getColors(props.color),
 			...props.customStyle
 		};
 
 		if (!!props.lineHeight) {
-			style.lineHeight = unitConversion(props.lineHeight, true)
+			style.lineHeight = unitConversion(props.lineHeight, props.isAuto)
 		};
 		if (!!props.weight) {
 			style.fontWeight = props.weight;

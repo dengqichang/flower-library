@@ -1,3 +1,8 @@
+## 1.0.9（2023-09-01）
+-【新增】`ui-navigation` 自定义顶部导航栏组件
+-【优化】`ui-layout` 组件移除 `footerMode` 属性，新增 `isSignboard` 属性，是否显示标识牌，默认显示
+-【优化】`ui-text`、`ui-span` 组件新增 `isAuto` 属性，是否字号自增长，在 `flower-config` 下调用 `setFontSizeIncrease` API 时生效
+-【优化】`ui-image` 调整结构
 ## 1.0.8（2023-08-22）
 - 【新增】 `ui-button` 按钮组件
 - 【新增】 `ui-image` 图片组件

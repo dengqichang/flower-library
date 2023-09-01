@@ -18,19 +18,19 @@ const config = reactive({
 	// 预设颜色
 	presets: {
 		"gray": ["#8c8c8c", "#8c8c8c"],
-		"gray-1":["#ffffff","#000000"],
-		"gray-2":["#fafafa","#141414"],
-		"gray-3":["#f5f5f5","#1f1f1f"],
-		"gray-4":["#f0f0f0","#262626"],
-		"gray-5":["#d9d9d9","#434343"],
-		"gray-6":["#bfbfbf","#595959"],
-		"gray-7":["#8c8c8c","#8c8c8c"],
-		"gray-8":["#595959","#bfbfbf"],
-		"gray-9":["#434343","#d9d9d9"],
-		"gray-10":["#262626","#f0f0f0"],
-		"gray-11":["#1f1f1f","#f5f5f5"],
-		"gray-12":["#141414","#fafafa"],
-		"gray-13":["#000000","#ffffff"]
+		"gray-1": ["#ffffff", "#000000"],
+		"gray-2": ["#fafafa", "#141414"],
+		"gray-3": ["#f5f5f5", "#1f1f1f"],
+		"gray-4": ["#f0f0f0", "#262626"],
+		"gray-5": ["#d9d9d9", "#434343"],
+		"gray-6": ["#bfbfbf", "#595959"],
+		"gray-7": ["#8c8c8c", "#8c8c8c"],
+		"gray-8": ["#595959", "#bfbfbf"],
+		"gray-9": ["#434343", "#d9d9d9"],
+		"gray-10": ["#262626", "#f0f0f0"],
+		"gray-11": ["#1f1f1f", "#f5f5f5"],
+		"gray-12": ["#141414", "#fafafa"],
+		"gray-13": ["#000000", "#ffffff"]
 	},
 	// 国际化语言
 	language: {
@@ -48,7 +48,9 @@ const config = reactive({
 		// 字体大小
 		increase: uni.getStorageSync("flower-library-fontszie-increase") || 0,
 		// 暗黑模式
-		model: uni.getStorageSync("flower-library-theme-model") || "light"
+		model: uni.getStorageSync("flower-library-theme-model") || "light",
+		// 默哀模式
+		sacrifice: uni.getStorageSync("flower-library-sacrifice-model") || false
 	},
 	// 插件属性
 	plugins: props

@@ -19,6 +19,7 @@
 	 * @property {String} margin 外边距，参数同css margin一样，示例：16 24 或者 16,24
 	 * @property {String} padding 内边距，参数同css padding一样，示例：16 24 或者 16,24
 	 * @property {Boolean} isIndent = [true|false] 是否首行缩进2个字符
+	 * @property {Boolean} isAuto = [true|false] 是否文本自增长
 	 * @property {Object} customStyle 自定义css样式
 	 */
 	import { computed } from "vue";
@@ -26,7 +27,7 @@
 
 	const props = defineProps({
 		size: { type: [Number, String], default: uiTextProps.size },
-		color: { type: String, default: uiTextProps.color },
+		color: { type: [String, Array], default: () => { return uiTextProps.color } },
 		lineHeight: { type: [Number, String], default: uiTextProps.lineHeight },
 		weight: { type: String, default: uiTextProps.weight },
 		width: { type: [Number, String], default: uiTextProps.width },
@@ -34,18 +35,19 @@
 		margin: { type: String, default: uiTextProps.margin },
 		padding: { type: String, default: uiTextProps.padding },
 		isIndent: { type: Boolean, default: uiTextProps.isIndent },
+		isAuto: { type: Boolean, default: true },
 		customStyle: { type: Object, default: () => { return uiTextProps.customStyle } }
 	});
 
 	const styles = computed(() => {
 		let style : any = {
-			fontSize: unitConversion(props.size, true),
+			fontSize: unitConversion(props.size, props.isAuto),
 			color: getColors(props.color),
 			...props.customStyle
 		};
 
 		if (!!props.lineHeight) {
-			style.lineHeight = unitConversion(props.lineHeight, true)
+			style.lineHeight = unitConversion(props.lineHeight, props.isAuto)
 		};
 		if (!!props.weight) {
 			style.fontWeight = props.weight;

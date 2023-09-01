@@ -1,6 +1,6 @@
 <!-- 页面布局 -->
 <template>
-	<view class="_ui-layout" :style="getCurrentPageBackground(props.backgroundColor)">
+	<view class="_ui-layout" :style="layoutStyles">
 		<!-- 背景图 -->
 		<image v-if="props.backdrop" class="_ui-layout__backdrop" :mode="props.backdropMode" :src="backdrop" />
 		<!-- 顶栏容器 -->
@@ -15,21 +15,18 @@
 			</view>
 		</view>
 		<!-- 内容容器 -->
-		<view class="_ui-layout__main" :style="{paddingBottom:`${fixedFooterHeight}px`}">
+		<view class="_ui-layout__main">
 			<view class="_ui-layout__main-content">
 				<slot />
 			</view>
 			<!-- 标识牌 -->
-			<image v-if="props.signboard" class="_ui-layout__signboard" mode="widthFix" :src="props.signboard" />
+			<image v-if="props.signboard && isSignboard" class="_ui-layout__signboard" mode="widthFix"
+				:src="props.signboard" />
 		</view>
 		<!-- 其它容器 -->
 		<slot name="other" />
-		<!-- sticky 底部容器 -->
-		<view v-if="props.footerMode == 'sticky'" class="_ui-layout__footer-sticky">
-			<slot name="footer" />
-		</view>
-		<!-- fixed 底部容器 -->
-		<view v-if="props.footerMode == 'fixed'" class="_ui-layout__footer-fixed" id="footer">
+		<!-- 底部容器 -->
+		<view class="_ui-layout__footer">
 			<slot name="footer" />
 		</view>
 	</view>
@@ -58,12 +55,11 @@
 	 *  @value bottom left 不缩放图片，只显示图片的左下边区域
 	 *  @value bottom right 不缩放图片，只显示图片的右下边区域
 	 * @property {String} signboard 页面底部标识牌，图片地址
-	 * @property {String} footerMode = [sticky|fixed] 页面底部 footer 插槽显示模式
-	 *  @value sticky 粘性定位
-	 *  @value fixed 固定定位
+	 * @property {Boolean} isSignboard 是否显示标识牌，默认显示
 	 */
-	import { uiLayoutProps, getIsCustomNav, getCurrentPageBackground, defaultInternalSetup } from "@/uni_modules/flower-config";
-	import { ref, onMounted, getCurrentInstance, watch, useSlots } from "vue";
+	import { uiLayoutProps, getIsCustomNav, getSacrificeMode, setModelLayout, getCurrentPageBackground } from "@/uni_modules/flower-config";
+	import { computed } from "vue";
+	import { onShow } from "@dcloudio/uni-app";
 
 	// 处理H5端兼容nav、header的slot内容高度
 	// #ifdef H5
@@ -88,32 +84,34 @@
 			type: String,
 			default: uiLayoutProps.signboard
 		},
-		footerMode: {
-			type: String,
-			default: uiLayoutProps.footerMode
+		isSignboard: {
+			type: Boolean,
+			default: true
 		}
 	});
 
-	// footer插槽高度
-	const fixedFooterHeight = ref(0);
-	// 判断footer插槽是否存在内容
-	const fixedFooterSlot = useSlots().footer;
-	// 访问内部组件实例
-	const _this = getCurrentInstance();
-	// 当footer插槽存在内容，则获取高度
-	if (!!fixedFooterSlot && props.footerMode == "fixed") {
-		// 查询节点信息
-		const createSelectorQuery = () => { uni.createSelectorQuery().in(_this).select('#footer').boundingClientRect(res => { fixedFooterHeight.value = res.height; }).exec(); };
-		onMounted(() => { createSelectorQuery(); });
-		watch(() => defaultInternalSetup.increase, () => { createSelectorQuery(); }, { deep: true });
-	};
+	// #ifdef APP-PLUS
+
+	onShow(() => {
+		if (uni.getStorageSync("flower-library-theme-model")) {
+			setModelLayout();
+		};
+	});
+	// #endif
+
+	const layoutStyles = computed(() => {
+		let style : any = getCurrentPageBackground();
+		if (!!props.backgroundColor) { style = Object.assign(style, getCurrentPageBackground(props.backgroundColor)) };
+		if (getSacrificeMode()) { style.filter = `grayscale(1)` };
+		return style;
+	});
 </script>
 
 <style scoped>
 	._ui-layout__backdrop {
 		position: fixed;
-		width: 100vw;
-		height: 100vh;
+		width: 100%;
+		height: 100%;
 	}
 
 	._ui-layout__main {
@@ -129,29 +127,21 @@
 	}
 
 	._ui-layout__signboard {
-		width: 100vw;
+		width: 100%;
 	}
 
-	._ui-layout__footer-sticky {
+	._ui-layout__footer {
 		position: sticky;
 		bottom: 0;
 		z-index: 2;
 	}
 
-	._ui-layout__footer-fixed {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		z-index: 2;
-	}
-
 	._ui-layout {
 		/* #ifndef H5 */
-		min-height: 100vh;
+		min-height: 100%;
 		/* #endif */
 		/* #ifdef H5 */
-		min-height: calc(100vh - v-bind(isNavTop));
+		min-height: calc(100% - v-bind(isNavTop));
 		/* #endif */
 		display: flex;
 		flex-direction: column;

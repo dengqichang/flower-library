@@ -1,5 +1,5 @@
 <template>
-	<view class="__ui-image" :style="imageStyles">
+	<view class="__ui-image" :style="imageContentStyles">
 		<image v-show="!isLoadImage" @load="onLoad" :style="imageStyles" :src="src" :draggable="props.draggable"
 			:mode="props.mode" :lazy-load="props.lazyLoad" :show-menu-by-longpress="props.showMenuByLongpress" />
 		<image v-if="isLoadImage && !!props.placeholder" :style="imageStyles" :draggable="false" :src="placeholder" />
@@ -17,6 +17,7 @@
 			type: String,
 			default: "scaleToFill"
 		},
+		zIndex: [String, Number],
 		lazyLoad: Boolean,
 		showMenuByLongpress: Boolean,
 		draggable: Boolean,
@@ -30,7 +31,7 @@
 		},
 		margin: [String, Array],
 		borderRadius: [String, Array],
-		isWHAuto: {
+		isAuto: {
 			type: Boolean,
 			default: false
 		},
@@ -43,19 +44,30 @@
 		isLoadImage.value = false;
 	}
 
-	const imageStyles = computed(() => {
+	const imageContentStyles = computed(() => {
 		let style : any = {
-			width: unitConversion(props.width, props.isWHAuto),
-			height: unitConversion(props.height, props.isWHAuto),
-		};
-		if (!!props.borderRadius) {
-			style = Object.assign(style, uniBorderRadius(props.borderRadius));
+			width: unitConversion(props.width, props.isAuto),
+			height: unitConversion(props.height, props.isAuto),
 		};
 		if (!!props.margin) {
 			style = Object.assign(style, uniMargin(props.margin));
 		};
 		if (!!props.background && isLoadImage.value) {
 			style.background = props.background
+		};
+		return style;
+	});
+
+	const imageStyles = computed(() => {
+		let style : any = {
+			width: unitConversion(props.width, props.isAuto),
+			height: unitConversion(props.height, props.isAuto),
+		};
+		if (!!props.borderRadius) {
+			style = Object.assign(style, uniBorderRadius(props.borderRadius));
+		};
+		if (!!props.zIndex) {
+			style.zIndex = props.zIndex
 		};
 		return style;
 	});

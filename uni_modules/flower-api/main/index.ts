@@ -1,7 +1,4 @@
 import {
-	network,getNetwork
-} from "../core/network";
-import {
 	navigateTo,
 	redirectTo,
 	reLaunch,
@@ -15,9 +12,6 @@ import {formValidation,formCheckResult} from "../core/formValidation";
 
 
 export {
-	// network.ts
-	network,
-	getNetwork,
 	// jump.ts
 	navigateTo,
 	redirectTo,
