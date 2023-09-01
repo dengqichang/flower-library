@@ -1,11 +1,13 @@
+## 1.0.9（2023-09-01）
+- 【新增】index.scss 通用样式
 ## 1.0.8（2023-09-01）
--【优化】App 暗黑模式适配
--【新增】getThemeModel 获取当前暗黑模式API，返回 light 或 dark
--【新增】getThemeModelBoolean 获取当前暗黑模式API，返回 true 或 false
--【新增】setSacrificeMode 设置默哀模式API
--【新增】getSacrificeMode 获取默哀模式API，返回 true 或 false 
--【优化】getColors 获取颜色API，添加可传值数组模式，数组下标0为浅色模式颜色，下标1为暗黑模式颜色
--【新增】getFontSizeIncrease 获取字体增长值API，返回当前设置字体增长值
+- 【优化】App 暗黑模式适配
+- 【新增】getThemeModel 获取当前暗黑模式API，返回 light 或 dark
+- 【新增】getThemeModelBoolean 获取当前暗黑模式API，返回 true 或 false
+- 【新增】setSacrificeMode 设置默哀模式API
+- 【新增】getSacrificeMode 获取默哀模式API，返回 true 或 false 
+- 【优化】getColors 获取颜色API，添加可传值数组模式，数组下标0为浅色模式颜色，下标1为暗黑模式颜色
+- 【新增】getFontSizeIncrease 获取字体增长值API，返回当前设置字体增长值
 ## 1.0.7（2023-08-22）
 - 更新配置文件
 ## 1.0.6（2023-05-17）

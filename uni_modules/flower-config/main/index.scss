@@ -1,0 +1,216 @@
+/**
+ * ========================= 
+ * ====== 通用样式 =========
+ * ========================= 
+ */
+
+/* 边距 */
+$space-xs: 8rpx;
+$space-sm: 16rpx;
+$space-md: 24rpx;
+$space-lg: 32rpx;
+$space-xl: 40rpx;
+/* 圆角 */
+$radius-xs: 8rpx;
+$radius-sm: 12rpx;
+$radius-md: 16rpx;
+$radius-lg: 50rpx;
+$radius-xl: 100rpx;
+/* 文本 */
+$text-xs: 24rpx;
+$text-sm: 28rpx;
+$text-md: 32rpx;
+$text-lg: 36rpx;
+$text-xl: 40rpx;
+$text-2xl: 48rpx;
+$text-3xl: 56rpx;
+$text-4xl: 74rpx;
+/* 行高 */
+$leading-xs: 32rpx;
+$leading-sm: 48rpx;
+$leading-md: 56rpx;
+$leading-lg: 64rpx;
+$leading-xl: 80rpx;
+/* Flex Direction */
+.flex{display: flex;}
+.flex-row{display: flex;flex-direction: row;}
+.flex-column{display: flex;flex-direction: column;}
+.flex-row-reverse{display: flex;flex-direction: row-reverse;}
+.flex-column-reverse{display: flex;flex-direction: column-reverse;}
+/* Flex Wrap */
+.flex-nowrap{flex-wrap: nowrap;}
+.flex-wrap{flex-wrap: wrap;}
+.flex-wrap-reverse{flex-wrap: wrap-reverse;}
+/* Align Items */ 
+.items-stretch{align-items: stretch;}
+.items-start{align-items: flex-start;}
+.items-center{align-items: center;}
+.items-end{align-items: flex-end;}
+/* Justify Content */
+.justify-start{justify-content: flex-start;}
+.justify-center{justify-content: center;}
+.justify-end{justify-content: flex-end;}
+.justify-between{justify-content: space-between;}
+.justify-around{justify-content: space-around;}
+.justify-items{justify-content: center;align-items: center;}
+ /* Flex */
+.flex-1{flex: 1;}
+.flex-2{flex: 2;}
+.flex-3{flex: 3;}
+.flex-4{flex: 4;}
+.flex-5{flex: 5;}
+/* 文本字号 */
+.text-xs{font-size: $text-xs;}
+.text-sm{font-size: $text-sm;}
+.text-md{font-size: $text-md;}
+.text-lg{font-size: $text-lg;}
+.text-xl{font-size: $text-xl;}
+.text-2xl{font-size: $text-2xl;}
+.text-3xl{font-size: $text-3xl;}
+.text-4xl{font-size: $text-4xl;}
+/* 行高 */
+.leading-xs{line-height: $leading-xs;}
+.leading-sm{line-height: $leading-sm;}
+.leading-md{line-height: $leading-md;}
+.leading-lg{line-height: $leading-lg;}
+.leading-xl{line-height: $leading-xl;}
+/* 文本粗细 */
+.weight-xs{font-weight: 200;}
+.weight-sm{font-weight: 400;}
+.weight-md{font-weight: 500;}
+.weight-lg{font-weight: 600;}
+.weight-xl{font-weight: 800;}
+.weight-bold{font-weight: bold;}
+.weight-normal{font-weight: normal;}
+/* 文本装饰 */
+.underline{text-decoration: underline;}
+.overline{text-decoration: overline;}
+.line-through{text-decoration: line-through;}
+/* 文本位置 */
+.text-left{text-align: left;}
+.text-center{text-align: center;}
+.text-right{text-align: right;}
+/* 超出行隐藏省略 */
+.line-clamp{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.line-clamp-1{text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 1;line-clamp: 1;-webkit-box-orient: vertical;}
+.line-clamp-2{text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;line-clamp: 2;-webkit-box-orient: vertical;}
+.line-clamp-3{text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;line-clamp: 3;-webkit-box-orient: vertical;}
+.line-clamp-4{text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4;line-clamp: 4;-webkit-box-orient: vertical;}
+.line-clamp-5{text-overflow: -o-ellipsis-lastline;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 5;line-clamp: 5;-webkit-box-orient: vertical;}
+/* 外边距 */
+.margin {margin: 0;}
+.margin-xs {margin: $space-xs;}
+.margin-sm {margin: $space-sm;}
+.margin-md {margin: $space-md;}
+.margin-lg {margin: $space-lg;}
+.margin-xl {margin: $space-xl;}
+
+.margin-top-xs {margin-top: $space-xs;}
+.margin-top-sm {margin-top: $space-sm;}
+.margin-top-md {margin-top: $space-md;}
+.margin-top-lg {margin-top: $space-lg;}
+.margin-top-xl {margin-top: $space-xl;}
+
+.margin-right-xs {margin-right: $space-xs;}
+.margin-right-sm {margin-right: $space-sm;}
+.margin-right-md {margin-right: $space-md;}
+.margin-right-lg {margin-right: $space-lg;}
+.margin-right-xl {margin-right: $space-xl;}
+
+.margin-bottom-xs {margin-bottom: $space-xs;}
+.margin-bottom-sm {margin-bottom: $space-sm;}
+.margin-bottom-md {margin-bottom: $space-md;}
+.margin-bottom-lg {margin-bottom: $space-lg;}
+.margin-bottom-xl {margin-bottom: $space-xl;}
+
+.margin-left-xs {margin-left: $space-xs;}
+.margin-left-sm {margin-left: $space-sm;}
+.margin-left-md {margin-left: $space-md;}
+.margin-left-lg {margin-left: $space-lg;}
+.margin-left-xl {margin-left: $space-xl;}
+
+.margin-lr-xs {margin-left: $space-xs;margin-right: $space-xs;}
+.margin-lr-sm {margin-left: $space-sm;margin-right: $space-sm;}
+.margin-lr-md {margin-left: $space-md;margin-right: $space-md;}
+.margin-lr-lg {margin-left: $space-lg;margin-right: $space-lg;}
+.margin-lr-xl {margin-left: $space-xl;margin-right: $space-xl;}
+
+.margin-tb-xs {margin-top: $space-xs;margin-bottom: $space-xs;}
+.margin-tb-sm {margin-top: $space-sm;margin-bottom: $space-sm;}
+.margin-tb-md {margin-top: $space-md;margin-bottom: $space-md;}
+.margin-tb-lg {margin-top: $space-lg;margin-bottom: $space-lg;}
+.margin-tb-xl {margin-top: $space-xl;margin-bottom: $space-xl;}
+/* 内边距 */
+.padding {padding: 0;}
+.padding-xs {padding: $space-xs;}
+.padding-sm {padding: $space-sm;}
+.padding-md {padding: $space-md;}
+.padding-lg {padding: $space-lg;}
+.padding-xl {padding: $space-xl;}
+
+.padding-top-xs {padding-top: $space-xs;}
+.padding-top-sm {padding-top: $space-sm;}
+.padding-top-md {padding-top: $space-md;}
+.padding-top-lg {padding-top: $space-lg;}
+.padding-top-xl {padding-top: $space-xl;}
+
+.padding-right-xs {padding-right: $space-xs;}
+.padding-right-sm {padding-right: $space-sm;}
+.padding-right-md {padding-right: $space-md;}
+.padding-right-lg {padding-right: $space-lg;}
+.padding-right-xl {padding-right: $space-xl;}
+
+.padding-bottom-xs {padding-bottom: $space-xs;}
+.padding-bottom-sm {padding-bottom: $space-sm;}
+.padding-bottom-md {padding-bottom: $space-md;}
+.padding-bottom-lg {padding-bottom: $space-lg;}
+.padding-bottom-xl {padding-bottom: $space-xl;}
+
+.padding-left-xs {padding-left: $space-xs;}
+.padding-left-sm {padding-left: $space-sm;}
+.padding-left-md {padding-left: $space-md;}
+.padding-left-lg {padding-left: $space-lg;}
+.padding-left-xl {padding-left: $space-xl;}
+
+.padding-lr-xs {padding-left: $space-xs;padding-right: $space-xs;}
+.padding-lr-sm {padding-left: $space-sm;padding-right: $space-sm;}
+.padding-lr-md {padding-left: $space-md;padding-right: $space-md;}
+.padding-lr-lg {padding-left: $space-lg;padding-right: $space-lg;}
+.padding-lr-xl {padding-left: $space-xl;padding-right: $space-xl;}
+
+.padding-tb-xs {padding-top: $space-xs;padding-bottom: $space-xs;}
+.padding-tb-sm {padding-top: $space-sm;padding-bottom: $space-sm;}
+.padding-tb-md {padding-top: $space-md;padding-bottom: $space-md;}
+.padding-tb-lg {padding-top: $space-lg;padding-bottom: $space-lg;}
+.padding-tb-xl {padding-top: $space-xl;padding-bottom: $space-xl;}
+/* 圆角 */
+.radius {border-radius: 100%;}
+.radius-xs {border-radius: $radius-xs;}
+.radius-sm {border-radius: $radius-sm;}
+.radius-md {border-radius: $radius-md;}
+.radius-lg {border-radius: $radius-lg;}
+.radius-xl {border-radius: $radius-xl;}
+
+.radius-tl-xs {border-top-left-radius: $radius-xs;}
+.radius-tl-sm {border-top-left-radius: $radius-sm;}
+.radius-tl-md {border-top-left-radius: $radius-md;}
+.radius-tl-lg {border-top-left-radius: $radius-lg;}
+.radius-tl-xl {border-top-left-radius: $radius-xl;}
+
+.radius-tr-xs {border-top-right-radius: $radius-xs;}
+.radius-tr-sm {border-top-right-radius: $radius-sm;}
+.radius-tr-md {border-top-right-radius: $radius-md;}
+.radius-tr-lg {border-top-right-radius: $radius-lg;}
+.radius-tr-xl {border-top-right-radius: $radius-xl;}
+
+.radius-bl-xs {border-bottom-left-radius: $radius-xs;}
+.radius-bl-sm {border-bottom-left-radius: $radius-sm;}
+.radius-bl-md {border-bottom-left-radius: $radius-md;}
+.radius-bl-lg {border-bottom-left-radius: $radius-lg;}
+.radius-bl-xl {border-bottom-left-radius: $radius-xl;}
+
+.radius-br-xs {border-bottom-right-radius: $radius-xs;}
+.radius-br-sm {border-bottom-right-radius: $radius-sm;}
+.radius-br-md {border-bottom-right-radius: $radius-md;}
+.radius-br-lg {border-bottom-right-radius: $radius-lg;}
+.radius-br-xl {border-bottom-right-radius: $radius-xl;}
