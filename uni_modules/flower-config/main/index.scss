@@ -17,14 +17,16 @@ $radius-md: 16rpx;
 $radius-lg: 50rpx;
 $radius-xl: 100rpx;
 /* 文本 */
+$text-bxs: 20rpx;
+$text-axs: 22rpx;
 $text-xs: 24rpx;
-$text-sm: 28rpx;
-$text-md: 32rpx;
-$text-lg: 36rpx;
-$text-xl: 40rpx;
-$text-2xl: 48rpx;
-$text-3xl: 56rpx;
-$text-4xl: 74rpx;
+$text-sm: 26rpx;
+$text-md: 28rpx;
+$text-lg: 32rpx;
+$text-xl: 36rpx;
+$text-axl: 40rpx;
+$text-bxl: 48rpx;
+$text-cxl: 56rpx;
 /* 行高 */
 $leading-xs: 32rpx;
 $leading-sm: 48rpx;
@@ -61,14 +63,16 @@ $leading-xl: 80rpx;
 .flex-4{flex: 4;}
 .flex-5{flex: 5;}
 /* 文本字号 */
+.text-bxs{font-size: $text-axs;}
+.text-axs{font-size: $text-bxs;}
 .text-xs{font-size: $text-xs;}
 .text-sm{font-size: $text-sm;}
 .text-md{font-size: $text-md;}
 .text-lg{font-size: $text-lg;}
 .text-xl{font-size: $text-xl;}
-.text-2xl{font-size: $text-2xl;}
-.text-3xl{font-size: $text-3xl;}
-.text-4xl{font-size: $text-4xl;}
+.text-axl{font-size: $text-axl;}
+.text-bxl{font-size: $text-bxl;}
+.text-cxl{font-size: $text-cxl;}
 /* 行高 */
 .leading-xs{line-height: $leading-xs;}
 .leading-sm{line-height: $leading-sm;}
