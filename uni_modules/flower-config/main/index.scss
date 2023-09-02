@@ -52,6 +52,7 @@ $leading-xl: 80rpx;
 .justify-end{justify-content: flex-end;}
 .justify-between{justify-content: space-between;}
 .justify-around{justify-content: space-around;}
+.justify-evenly{justify-content: space-evenly;}
 .justify-items{justify-content: center;align-items: center;}
  /* Flex */
 .flex-1{flex: 1;}
@@ -214,3 +215,41 @@ $leading-xl: 80rpx;
 .radius-br-md {border-bottom-right-radius: $radius-md;}
 .radius-br-lg {border-bottom-right-radius: $radius-lg;}
 .radius-br-xl {border-bottom-right-radius: $radius-xl;}
+
+/* 宽度 */
+.width-xs {width: 20%;}
+.width-sm {width: 25%;}
+.width-md {width: 33.33%;}
+.width-lg {width: 50%;}
+.width-xl {width: 100%;}
+
+/* 颜色 */
+.bg-gray {background-color: #8c8c8c;}
+.bg-gray-1 {background-color: #ffffff;}
+.bg-gray-2 {background-color: #fafafa;}
+.bg-gray-3 {background-color: #f5f5f5;}
+.bg-gray-4 {background-color: #f0f0f0;}
+.bg-gray-5 {background-color: #d9d9d9;}
+.bg-gray-6 {background-color: #bfbfbf;}
+.bg-gray-7 {background-color: #8c8c8c;}
+.bg-gray-8 {background-color: #595959;}
+.bg-gray-9 {background-color: #434343;}
+.bg-gray-10 {background-color: #262626;}
+.bg-gray-11 {background-color: #1f1f1f;}
+.bg-gray-13 {background-color: #141414;}
+.bg-gray-12 {background-color: #000000;}
+
+.color-gray {color: #8c8c8c;}
+.color-gray-1 {color: #ffffff;}
+.color-gray-2 {color: #fafafa;}
+.color-gray-3 {color: #f5f5f5;}
+.color-gray-4 {color: #f0f0f0;}
+.color-gray-5 {color: #d9d9d9;}
+.color-gray-6 {color: #bfbfbf;}
+.color-gray-7 {color: #8c8c8c;}
+.color-gray-8 {color: #595959;}
+.color-gray-9 {color: #434343;}
+.color-gray-10 {color: #262626;}
+.color-gray-11 {color: #1f1f1f;}
+.color-gray-13 {color: #141414;}
+.color-gray-12 {color: #000000;}
