@@ -2,28 +2,34 @@
 	<view :style="styles" class="_ui-empty-loading-spinner" />
 </template>
 
-<script setup lang="ts">
-	import { getColors } from "@/uni_modules/flower-config";
-	import { computed } from "vue";
-
-	const props = defineProps({
-		color: {
-			type: String,
-			default: "primary"
+<script>
+	export default {
+		data() {
+			return {
+				
+			}
+		},
+		props: {
+			color: {
+				type: String,
+				default: ""
+			}
+		},
+		computed: {
+			styles() {
+				return {
+					borderTopColor: this.color
+				}
+			}
 		}
-	});
-	const styles = computed(() => {
-		let style = {
-			borderTopColor: getColors(props.color)
-		};
-		return style;
-	});
+	}
 </script>
 
 <style scoped>
 	._ui-empty-loading-spinner {
-		width: 24rpx;
-		height: 24rpx;
+		box-sizing: content-box;
+		width: 28rpx;
+		height: 28rpx;
 		border-width: 4rpx;
 		border-style: solid;
 		border-bottom-color: rgba(0, 0, 0, 0.1);

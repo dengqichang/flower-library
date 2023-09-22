@@ -1,0 +1,57 @@
+/* 文本字号 */
+.text-xs{font-size: $fr-font-size-xs;}
+.text-sm{font-size: $fr-font-size-sm;}
+.text-md{font-size: $fr-font-size-md;}
+.text-lg{font-size: $fr-font-size-lg;}
+.text-xl{font-size: $fr-font-size-xl;}
+/* 文本粗细 */
+.text-thin{font-weight: 100;font-family: PingFang SC;}
+.text-extralight{font-weight: 200;font-family: PingFang SC;}
+.text-light{font-weight: 300;font-family: PingFang SC;}
+.text-normal{font-weight: 400;font-family: PingFang SC;}
+.text-medium{font-weight: 500;font-family: PingFang SC;}
+.text-semibold{font-weight: 600;font-family: PingFang SC;}
+.text-bold{font-weight: 700;font-family: PingFang SC;}
+.text-extrabold{font-weight: 800;font-family: PingFang SC;}
+.text-black{font-weight: 900;font-family: PingFang SC;}
+/* 文本位置 */
+.text-left{text-align: left;}
+.text-center{text-align: center;}
+.text-right{text-align: right;}
+/* 超出行隐藏省略 */
+.line-clamp{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.line-clamp-1{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;}
+.line-clamp-2{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;}
+.line-clamp-3{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;}
+.line-clamp-4{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;}
+.line-clamp-5{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 5;}
+.line-clamp-6{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 6;}
+.line-clamp-7{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 7;}
+.line-clamp-8{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 8;}
+.line-clamp-9{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 9;}
+.line-clamp-10{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 10;}
+.line-clamp-11{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 11;}
+.line-clamp-12{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 12;}
+/* 文本装饰 */
+.underline{text-decoration: underline;}
+.overline{text-decoration: overline;}
+.line-through{text-decoration: line-through;}
+.no-underline{text-decoration: none;}
+/* 文本转换 */
+.uppercase{text-transform: uppercase;}
+.lowercase{text-transform: lowercase;}
+.capitalize{text-transform: capitalize;}
+.normal-case{text-transform: none;}
+/* 文本换行 */
+.break-normal{overflow-wrap: normal;word-break: normal;}
+.break-word{overflow-wrap: break-word;}
+.break-all{overflow-wrap: break-all;}
+
+@for $i from 0 to 101{
+	/* 字体大小 */
+	.text-#{$i * 2}{font-size: $i * 2 + rpx;}
+	/* 行高 */
+	.leading-#{$i * 2}{line-height: $i * 2 + rpx;}
+	/* 间距 */
+	.tracking-#{$i * 2}{letter-spacing: $i * 2 + rpx;}
+}

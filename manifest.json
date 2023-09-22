@@ -50,14 +50,9 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
-        "appid" : "wx6304b4c0fa232011",
+        "appid" : "",
         "setting" : {
-            "urlCheck" : false,
-            "postcss" : true,
-            "minified" : true,
-            /* 取消过滤无依赖文件 */
-            "ignoreDevUnusedFiles" : false,
-            "ignoreUploadUnusedFiles" : false
+            "urlCheck" : false
         },
         "usingComponents" : true
     },
@@ -73,10 +68,5 @@
     "uniStatistics" : {
         "enable" : false
     },
-    "vueVersion" : "3",
-    "mp-qq" : {
-        "appid" : "1110063284"
-    },
-    "locale" : "zh-Hans",
-    "fallbackLocale" : "zh-Hans"
+    "vueVersion" : "2"
 }

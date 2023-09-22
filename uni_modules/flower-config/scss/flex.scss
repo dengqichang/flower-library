@@ -1,0 +1,132 @@
+/* Flex Direction */
+.flex-row{display: flex;flex-direction: row;}
+.flex-col{display: flex;flex-direction: column;}
+.flex-row-reverse{display: flex;flex-direction: row-reverse;}
+.flex-col-reverse{display: flex;flex-direction: column-reverse;}
+/* Flex Wrap */
+.flex-nowrap{flex-wrap: nowrap;}
+.flex-wrap{flex-wrap: wrap;}
+.flex-wrap-reverse{flex-wrap: wrap-reverse;}
+ /* Flex */
+.flex-0{flex: 0;}
+.flex-1{flex: 1;}
+.flex-2{flex: 2;}
+.flex-3{flex: 3;}
+.flex-4{flex: 4;}
+.flex-5{flex: 5;}
+.flex-6{flex: 6;}
+.flex-7{flex: 7;}
+.flex-8{flex: 8;}
+.flex-9{flex: 9;}
+.flex-10{flex: 10;}
+.flex-11{flex: 11;}
+.flex-12{flex: 12;}
+/* Flex Grow */
+.flex-grow-0{flex-grow: 0;}
+.flex-grow-1{flex-grow: 1;}
+.flex-grow-2{flex-grow: 2;}
+.flex-grow-3{flex-grow: 3;}
+.flex-grow-4{flex-grow: 4;}
+.flex-grow-5{flex-grow: 5;}
+.flex-grow-6{flex-grow: 6;}
+.flex-grow-7{flex-grow: 7;}
+.flex-grow-8{flex-grow: 8;}
+.flex-grow-9{flex-grow: 9;}
+.flex-grow-10{flex-grow: 10;}
+.flex-grow-11{flex-grow: 11;}
+.flex-grow-12{flex-grow: 12;}
+/* Flex Shrink */
+.flex-shrink-0{flex-shrink: 0;}
+.flex-shrink-1{flex-shrink: 1;}
+.flex-shrink-2{flex-shrink: 2;}
+.flex-shrink-3{flex-shrink: 3;}
+.flex-shrink-4{flex-shrink: 4;}
+.flex-shrink-5{flex-shrink: 5;}
+.flex-shrink-6{flex-shrink: 6;}
+.flex-shrink-7{flex-shrink: 7;}
+.flex-shrink-8{flex-shrink: 8;}
+.flex-shrink-9{flex-shrink: 9;}
+.flex-shrink-10{flex-shrink: 10;}
+.flex-shrink-11{flex-shrink: 11;}
+.flex-shrink-12{flex-shrink: 12;}
+/* Order 设置弹性盒对象元素的顺序 */
+.order-0{order: 0;}
+.order-1{order: 1;}
+.order-2{order: 2;}
+.order-3{order: 3;}
+.order-4{order: 4;}
+.order-5{order: 5;}
+.order-6{order: 6;}
+.order-7{order: 7;}
+.order-8{order: 8;}
+.order-9{order: 9;}
+.order-10{order: 10;}
+.order-11{order: 11;}
+.order-12{order: 12;}
+.order-first{order: -9999;}
+.order-last{order: 9999;}
+/* Justify Content */
+.justify-normal{justify-content: normal;}
+.justify-start{justify-content: flex-start;}
+.justify-center{justify-content: center;}
+.justify-end{justify-content: flex-end;}
+.justify-between{justify-content: space-between;}
+.justify-around{justify-content: space-around;}
+.justify-evenly{justify-content: space-evenly;}
+.justify-stretch{justify-content: stretch;}
+.justify-items{justify-content: center;align-items: center;}
+/* Justify Items */
+.justify-items-start{justify-items: start;}
+.justify-items-end{justify-items: end;}
+.justify-items-center{justify-items: center;}
+.justify-items-stretch{justify-items: stretch;}
+/* Justify Self */
+.justify-self-auto{justify-self: auto;}
+.justify-self-start{justify-self: start;}
+.justify-self-end{justify-self: end;}
+.justify-self-center{justify-self: center;}
+.justify-self-stretch{justify-self: stretch;}
+/* Align Content */
+.content-normal{align-content: normal;}
+.content-center{align-content: center;}
+.content-start{align-content: flex-start;}
+.content-end{align-content: flex-end;}
+.content-between{align-content: space-between;}
+.content-around{align-content: space-around;}
+.content-evenly{align-content: space-evenly;}
+.content-baseline{align-content: baseline;}
+.content-stretch{align-content: stretch;}
+/* Align Items */ 
+.items-stretch{align-items: stretch;}
+.items-start{align-items: flex-start;}
+.items-center{align-items: center;}
+.items-end{align-items: flex-end;}
+.items-baseline{align-items: baseline;}
+/* Align Self */
+.self-auto{align-self: auto;}
+.self-start{align-self: flex-start;}
+.self-end{align-self: flex-end;}
+.self-center{align-self: center;}
+.self-stretch{align-self: stretch;}
+.self-baseline{align-self: baseline;}
+/* Place Content */
+.place-content-center{place-content: center;}
+.place-content-start{place-content: start;}
+.place-content-end{place-content: end;}
+.place-content-between{place-content: space-between;}
+.place-content-around{place-content: space-around;}
+.place-content-evenly{place-content: space-evenly;}
+.place-content-baseline{place-content: baseline;}
+.place-content-stretch{place-content: stretch;}
+/* Place Items */
+.place-items-start{place-items: start;}
+.place-items-end{place-items: end;}
+.place-items-center{place-items: center;}
+.place-items-baseline{place-items: baseline;}
+.place-items-stretch{place-items: stretch;}
+/* Place Self */
+.place-self-auto{place-self: auto;}
+.place-self-start{place-self: start;}
+.place-self-end{place-self: end;}
+.place-self-center{place-self: center;}
+.place-self-stretch{place-self: stretch;}

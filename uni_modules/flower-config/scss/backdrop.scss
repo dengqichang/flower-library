@@ -1,0 +1,37 @@
+/* 背景图像固定 */
+.bga-fixed{background-attachment: fixed;}
+.bga-local{background-attachment: local;}
+.bga-scroll{background-attachment: scroll;}
+/* 背景图像裁剪 */
+.bgc-clip-border{background-clip: border-box;}
+.bgc-clip-padding{background-clip: padding-box;}
+.bgc-clip-content{background-clip: content-box;}
+.bgc-clip-text{background-clip: text;}
+/* 背景图像定位 */
+.bgo-origin-border{background-origin: border-box;}
+.bgo-origin-padding{background-origin: padding-box;}
+.bgo-origin-content{background-origin: content-box;}
+/* 背景图像位置 */
+.bgp-bottom{background-position: bottom;}
+.bgp-center{background-position: center;}
+.bgp-left{background-position: left;}
+.bgp-left-bottom{background-position: left bottom;}
+.bgp-left-top{background-position: left top;}
+.bgp-right{background-position: right;}
+.bgp-right-bottom{background-position: right bottom;}
+.bgp-right-top{background-position: right top;}
+.bgp-top{background-position: top;}
+/* 背景图像重复 */
+.bgr-repeat{background-repeat: repeat;}
+.bgr-repeat-no{background-repeat: no-repeat;}
+.bgr-repeat-x{background-repeat: repeat-x;}
+.bgr-repeat-y{background-repeat: repeat-y;}
+.bgr-repeat-round{background-repeat: round;}
+.bgr-repeat-space{background-repeat: space;}
+/* 背景图像大小 */
+.bgs-auto{background-size: auto;}
+.bgs-cover{background-size: cover;}
+.bgs-contain{background-size: contain;}
+
+
+

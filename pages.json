@@ -1,9 +1,17 @@
-// #exec uniPagesJson('pages')
-{}
-/**
- * 说明:
- * pages.json中必须保留花括号"{}"是为了解决pages.json文件为空后会导致编译错误([plugin:vite:json] Failed to parse JSON file)、uni_modules插件库代码失效报错等问题。
- * 注意：
- * 1、项目目录右键选择【新建页面】操作时请注意：去除"在pages.json中注册"的选项，否则 HBuilderX 会出现闪退等情况。
- * 2、建议使用新建vue文件方式：项目目录右键 =》 新建 =》vue文件 =》vue文件命名 =》创建
- */
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "FLOWER",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}
