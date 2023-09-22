@@ -64,8 +64,8 @@
 			},
 			emptyStyle() {
 				return {
-					marginTop: `${this.offsetTop}rpx`,
-					marginBottom: `${this.offsetBottom}rpx`
+					paddingTop: `${this.offsetTop}rpx`,
+					paddingBottom: `${this.offsetBottom}rpx`
 				}
 			}
 		}
