@@ -31,7 +31,7 @@
 		"npmurl": ""
 	},
 	"uni_modules": {
-		"dependencies": ["flower-empty", "flower-ui", "flower-icons", "flower-api"],
+		"dependencies": [],
 		"encrypt": [],
 		"platforms": {
 			"cloud": {

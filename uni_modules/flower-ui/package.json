@@ -4,8 +4,8 @@
 	"version": "1.1.0",
 	"description": "温馨提示：组件库目前处于前期准备阶段，当前空项目，请勿下载！！！",
 	"keywords": [
-        "组件库,vue,vue2,vue3"
-    ],
+		"组件库,vue,vue2,vue3"
+	],
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-ui",
 	"engines": {
 		"HBuilderX": "^3.6.9"
@@ -31,7 +31,7 @@
 		"npmurl": ""
 	},
 	"uni_modules": {
-		"dependencies": ["flower-api", "flower-config"],
+		"dependencies": ["flower-config"],
 		"encrypt": [],
 		"platforms": {
 			"cloud": {
