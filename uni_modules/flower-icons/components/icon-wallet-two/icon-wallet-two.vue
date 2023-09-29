@@ -1,5 +1,5 @@
 <template>
-	<text :class="['flower-icons']" :style="iconStyle">{{showIcon}}</text>
+	<text :class="['flower-icons']" :style="[iconStyle]">{{showIcon}}</text>
 </template>
 <script>
 	// #ifdef APP-NVUE
