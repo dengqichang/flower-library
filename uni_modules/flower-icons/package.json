@@ -1,14 +1,14 @@
 {
 	"id": "flower-icons",
-	"displayName": "flower-icons 图标库",
+	"displayName": "flower-icons 图标库，全端支持",
 	"version": "1.1.2",
-	"description": "多平台 uni-app 生态 iconfont 字体图标库 ，5000+ 统一化高质量的图标资源。",
+	"description": "多平台 uni-app-x 生态 iconfont 字体图标库 ，5000+ 统一化高质量的图标资源。",
 	"keywords": [
         "字体图标,vue,nvue,uvue,uni-app-x,ttf"
     ],
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-icons",
 	"engines": {
-		"HBuilderX": "^3.6.9"
+		"HBuilderX": "^3.95"
 	},
 	"dcloudext": {
 		"type": "component-vue",
