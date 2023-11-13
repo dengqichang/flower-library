@@ -1,4 +1,4 @@
-## 1.1.2（2023-11-10）
+## 1.1.2（2023-11-13）
 - 【官方文档】[flower-empty 缺省库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
 - 【优化】全端兼容，支持uni-app-x
 ## 1.1.1（2023-09-22）

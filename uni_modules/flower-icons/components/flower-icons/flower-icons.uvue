@@ -1,0 +1,22 @@
+<template>
+	<view>
+		<text>多平台 uni-app-x 生态字体图标库 ，5000+ 统一化高质量的图标资源</text>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				
+			}
+		},
+		methods: {
+			
+		}
+	}
+</script>
+
+<style>
+
+</style>

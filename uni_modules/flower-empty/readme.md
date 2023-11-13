@@ -1,6 +1,6 @@
 <p align="center"><img alt="logo" src="https://www.flowerui.com/logo.png" width="123"></p>
 <h3 align="center">FLOWER EMPTY</h3>
-<p align="center">多平台 uni-app 生态缺省页组件库 ，根据异常的场景给予相关元素的缺省页。</p>
+<p align="center">多平台 uni-app-x 生态缺省页组件库 ，根据异常的场景给予相关元素的缺省页。</p>
 
 #### 简述
 缺省页是页面无内容或者异常的状态时展示的页面。
@@ -8,7 +8,7 @@
 根据异常的场景给予相关元素的缺省页，在产品页面相对应的场景特点来设计页面内容。
 
 #### 官方文档
-官网地址：<a target="_blank" href="https://flowerui.com/documents/flower-empty/guide/sketch.html">缺省页官方文档</a>  
+官网地址：<a target="_blank" href="https://flowerui.com/documents/flower-empty/guide/sketch.html">缺省组件库官方文档</a>  
 #### 交流反馈
 官方QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_a2CXouL0H2OvaJ8vPalp3S6DABKIoCH&jump_from=webapi&authKey=riLWFXQamGAWrXQnBW0NCCFVeodvRvAEAooJNxuNybHBCOs9w0V9yR2F1NhVsZS/">654105306</a>  
 #### 源码

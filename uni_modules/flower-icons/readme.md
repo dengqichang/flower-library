@@ -1,6 +1,6 @@
 <p align="center"><img alt="logo" src="https://www.flowerui.com/logo.png" width="123"></p>
 <h3 align="center">FLOWER ICONS</h3>
-<p align="center">多平台 uni-app 生态 iconfont 字体图标库 ，5000+ 统一化高质量的图标资源</p>
+<p align="center">多平台 uni-app-x 生态 iconfont 字体图标库 ，5000+ 统一化高质量的图标资源</p>
 
 #### 简述
 字体图标库具备丰富的分类、更轻量的代码和更灵活的使用场景。致力于构建高质量、统一化图标资源，实现产品、研发、设计师一站式对接，使用更高效。
@@ -14,7 +14,7 @@
 - 每个图标组件均小于5KB，图标库的实际大小取决于项目中使用到多少个图标组件。
 
 #### 官方文档
-官网地址：<a target="_blank" href="https://www.flowerui.com">https://www.flowerui.com</a>  
+官网地址：<a target="_blank" href="https://www.flowerui.com/documents/flower-icons/guide/sketch.html">字体图标库官方文档</a>  
 #### 交流反馈
 官方QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_a2CXouL0H2OvaJ8vPalp3S6DABKIoCH&jump_from=webapi&authKey=riLWFXQamGAWrXQnBW0NCCFVeodvRvAEAooJNxuNybHBCOs9w0V9yR2F1NhVsZS/">654105306</a>  
 #### 源码

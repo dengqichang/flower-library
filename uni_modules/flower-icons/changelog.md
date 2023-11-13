@@ -1,4 +1,4 @@
-## 1.1.2（2023-11-10）
+## 1.1.2（2023-11-13）
 - 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
 - 【新增】全端兼容，支持uni-app-x
 - 【优化】优化图标库使用方式，具体请查看图标库文档[flower-icons 图标库 - 快速上手](https://flowerui.com/documents/flower-icons/guide/install.html#使用方式)
