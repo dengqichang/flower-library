@@ -1,0 +1,39 @@
+<template>
+	<text :class="['fr-icon-cooperative-handshake',`fr-icon__${type}`]" :style="[iconStyle]">{{showIcon}}</text>
+</template>
+
+<script lang="uts">
+	// #ifdef APP-PLUS-NVUE
+	const domModule = weex.requireModule('dom');
+	domModule.addRule('fontFace', { 'fontFamily': 'icon-cooperative-handshake', 'src': `url('file:/${plus.io.convertLocalFileSystemURL("/static/iconfont/icon-cooperative-handshake.ttf")}')` });
+	// #endif
+	export default {
+		data() {return {}},
+		props: {
+			isFill: { type: Boolean, default: false },
+			type: { type: String, default: "" },
+			color: { type: String, default: "" },
+			size: { type: Number, default: 28 },
+			isWeight: { type: Boolean, default: false }
+		},
+		computed: {
+			iconStyle() : UTSJSONObject {
+				let style : UTSJSONObject = JSON.parse<UTSJSONObject>(`{"fontSize":"${this.size}rpx"}`)!;
+				if (this.color != "") { style['color'] = `${this.color}`; };
+				if (this.isWeight) { style['fontWeight'] = `bold`; };
+				return style;
+			},
+			showIcon() : string {
+				if (this.isFill) {return '\ue7a4' } else {return '\ue7a4'};
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+	@import "../../scss/var.scss";
+	/* #ifndef APP-PLUS-NVUE */
+	@font-face {font-family: "icon-cooperative-handshake";src: url('/static/iconfont/icon-cooperative-handshake.ttf');}
+	/* #endif */
+	.fr-icon-cooperative-handshake {font-family: icon-cooperative-handshake;}
+</style>

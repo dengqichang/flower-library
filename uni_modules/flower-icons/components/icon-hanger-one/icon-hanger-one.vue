@@ -1,37 +1,39 @@
 <template>
-	<text :class="['flower-icons']" :style="[iconStyle]">{{showIcon}}</text>
+	<text :class="['fr-icon-hanger-one',`fr-icon__${type}`]" :style="[iconStyle]">{{showIcon}}</text>
 </template>
-<script>
-	// #ifdef APP-NVUE
-	import iconUrl from './iconfont.ttf';
+
+<script lang="uts">
+	// #ifdef APP-PLUS-NVUE
 	const domModule = weex.requireModule('dom');
-	domModule.addRule('fontFace', {'fontFamily': "flower-icon-hanger-one",'src': "url('" + iconUrl + "')"});
+	domModule.addRule('fontFace', { 'fontFamily': 'icon-hanger-one', 'src': `url('file:/${plus.io.convertLocalFileSystemURL("/static/iconfont/icon-hanger-one.ttf")}')` });
 	// #endif
 	export default {
+		data() {return {}},
 		props: {
-			isFill: {type: Boolean,default: false},
-			color: {type: String,default: "#000000"},
-			size: {type: [String, Number],default: 28},
-			isWeight: {type: Boolean,default: false}
+			isFill: { type: Boolean, default: false },
+			type: { type: String, default: "" },
+			color: { type: String, default: "" },
+			size: { type: Number, default: 28 },
+			isWeight: { type: Boolean, default: false }
 		},
 		computed: {
-			iconStyle() {
-				let style = {fontSize:`${this.size}rpx`,color:this.color};
-				if (this.isWeight) {style.fontWeight = 'bold';};
+			iconStyle() : UTSJSONObject {
+				let style : UTSJSONObject = JSON.parse<UTSJSONObject>(`{"fontSize":"${this.size}rpx"}`)!;
+				if (this.color != "") { style['color'] = `${this.color}`; };
+				if (this.isWeight) { style['fontWeight'] = `bold`; };
 				return style;
 			},
-			showIcon() {
-				if (this.isFill) {return '\ue6f1'} else {return '\ue6f1'};
+			showIcon() : string {
+				if (this.isFill) {return '\ue6f1' } else {return '\ue6f1'};
 			}
 		}
 	}
 </script>
-<style scoped>
-	/* #ifndef APP-NVUE */
-	@font-face {font-family: flower-icon-hanger-one;src: url('iconfont.ttf') format('truetype');}
-	.flower-icons {font-family: flower-icon-hanger-one;}
+
+<style lang="scss">
+	@import "../../scss/var.scss";
+	/* #ifndef APP-PLUS-NVUE */
+	@font-face {font-family: "icon-hanger-one";src: url('/static/iconfont/icon-hanger-one.ttf');}
 	/* #endif */
-	/* #ifdef APP-NVUE */
-	.flower-icons {font-family: flower-icon-hanger-one;}
-	/* #endif */
+	.fr-icon-hanger-one {font-family: icon-hanger-one;}
 </style>

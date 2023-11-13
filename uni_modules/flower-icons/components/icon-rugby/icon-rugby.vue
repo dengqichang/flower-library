@@ -1,0 +1,39 @@
+<template>
+	<text :class="['fr-icon-rugby',`fr-icon__${type}`]" :style="[iconStyle]">{{showIcon}}</text>
+</template>
+
+<script lang="uts">
+	// #ifdef APP-PLUS-NVUE
+	const domModule = weex.requireModule('dom');
+	domModule.addRule('fontFace', { 'fontFamily': 'icon-rugby', 'src': `url('file:/${plus.io.convertLocalFileSystemURL("/static/iconfont/icon-rugby.ttf")}')` });
+	// #endif
+	export default {
+		data() {return {}},
+		props: {
+			isFill: { type: Boolean, default: false },
+			type: { type: String, default: "" },
+			color: { type: String, default: "" },
+			size: { type: Number, default: 28 },
+			isWeight: { type: Boolean, default: false }
+		},
+		computed: {
+			iconStyle() : UTSJSONObject {
+				let style : UTSJSONObject = JSON.parse<UTSJSONObject>(`{"fontSize":"${this.size}rpx"}`)!;
+				if (this.color != "") { style['color'] = `${this.color}`; };
+				if (this.isWeight) { style['fontWeight'] = `bold`; };
+				return style;
+			},
+			showIcon() : string {
+				if (this.isFill) {return '\ue785' } else {return '\ue785'};
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+	@import "../../scss/var.scss";
+	/* #ifndef APP-PLUS-NVUE */
+	@font-face {font-family: "icon-rugby";src: url('/static/iconfont/icon-rugby.ttf');}
+	/* #endif */
+	.fr-icon-rugby {font-family: icon-rugby;}
+</style>

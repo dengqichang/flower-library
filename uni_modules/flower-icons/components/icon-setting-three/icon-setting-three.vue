@@ -1,37 +1,39 @@
 <template>
-	<text :class="['flower-icons']" :style="[iconStyle]">{{showIcon}}</text>
+	<text :class="['fr-icon-setting-three',`fr-icon__${type}`]" :style="[iconStyle]">{{showIcon}}</text>
 </template>
-<script>
-	// #ifdef APP-NVUE
-	import iconUrl from './iconfont.ttf';
+
+<script lang="uts">
+	// #ifdef APP-PLUS-NVUE
 	const domModule = weex.requireModule('dom');
-	domModule.addRule('fontFace', {'fontFamily': "flower-icon-setting-three",'src': "url('" + iconUrl + "')"});
+	domModule.addRule('fontFace', { 'fontFamily': 'icon-setting-three', 'src': `url('file:/${plus.io.convertLocalFileSystemURL("/static/iconfont/icon-setting-three.ttf")}')` });
 	// #endif
 	export default {
+		data() {return {}},
 		props: {
-			isFill: {type: Boolean,default: false},
-			color: {type: String,default: "#000000"},
-			size: {type: [String, Number],default: 28},
-			isWeight: {type: Boolean,default: false}
+			isFill: { type: Boolean, default: false },
+			type: { type: String, default: "" },
+			color: { type: String, default: "" },
+			size: { type: Number, default: 28 },
+			isWeight: { type: Boolean, default: false }
 		},
 		computed: {
-			iconStyle() {
-				let style = {fontSize:`${this.size}rpx`,color:this.color};
-				if (this.isWeight) {style.fontWeight = 'bold';};
+			iconStyle() : UTSJSONObject {
+				let style : UTSJSONObject = JSON.parse<UTSJSONObject>(`{"fontSize":"${this.size}rpx"}`)!;
+				if (this.color != "") { style['color'] = `${this.color}`; };
+				if (this.isWeight) { style['fontWeight'] = `bold`; };
 				return style;
 			},
-			showIcon() {
-				if (this.isFill) {return '\ue6b4'} else {return '\ue68b'};
+			showIcon() : string {
+				if (this.isFill) {return '\ue6b4' } else {return '\ue68b'};
 			}
 		}
 	}
 </script>
-<style scoped>
-	/* #ifndef APP-NVUE */
-	@font-face {font-family: flower-icon-setting-three;src: url('iconfont.ttf') format('truetype');}
-	.flower-icons {font-family: flower-icon-setting-three;}
+
+<style lang="scss">
+	@import "../../scss/var.scss";
+	/* #ifndef APP-PLUS-NVUE */
+	@font-face {font-family: "icon-setting-three";src: url('/static/iconfont/icon-setting-three.ttf');}
 	/* #endif */
-	/* #ifdef APP-NVUE */
-	.flower-icons {font-family: flower-icon-setting-three;}
-	/* #endif */
+	.fr-icon-setting-three {font-family: icon-setting-three;}
 </style>

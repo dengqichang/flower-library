@@ -1,0 +1,39 @@
+<template>
+	<text :class="['fr-icon-chopping-board',`fr-icon__${type}`]" :style="[iconStyle]">{{showIcon}}</text>
+</template>
+
+<script lang="uts">
+	// #ifdef APP-PLUS-NVUE
+	const domModule = weex.requireModule('dom');
+	domModule.addRule('fontFace', { 'fontFamily': 'icon-chopping-board', 'src': `url('file:/${plus.io.convertLocalFileSystemURL("/static/iconfont/icon-chopping-board.ttf")}')` });
+	// #endif
+	export default {
+		data() {return {}},
+		props: {
+			isFill: { type: Boolean, default: false },
+			type: { type: String, default: "" },
+			color: { type: String, default: "" },
+			size: { type: Number, default: 28 },
+			isWeight: { type: Boolean, default: false }
+		},
+		computed: {
+			iconStyle() : UTSJSONObject {
+				let style : UTSJSONObject = JSON.parse<UTSJSONObject>(`{"fontSize":"${this.size}rpx"}`)!;
+				if (this.color != "") { style['color'] = `${this.color}`; };
+				if (this.isWeight) { style['fontWeight'] = `bold`; };
+				return style;
+			},
+			showIcon() : string {
+				if (this.isFill) {return '\ue803' } else {return '\ue779'};
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+	@import "../../scss/var.scss";
+	/* #ifndef APP-PLUS-NVUE */
+	@font-face {font-family: "icon-chopping-board";src: url('/static/iconfont/icon-chopping-board.ttf');}
+	/* #endif */
+	.fr-icon-chopping-board {font-family: icon-chopping-board;}
+</style>

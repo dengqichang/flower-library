@@ -1,0 +1,39 @@
+<template>
+	<text :class="['fr-icon-broadcast-radio',`fr-icon__${type}`]" :style="[iconStyle]">{{showIcon}}</text>
+</template>
+
+<script lang="uts">
+	// #ifdef APP-PLUS-NVUE
+	const domModule = weex.requireModule('dom');
+	domModule.addRule('fontFace', { 'fontFamily': 'icon-broadcast-radio', 'src': `url('file:/${plus.io.convertLocalFileSystemURL("/static/iconfont/icon-broadcast-radio.ttf")}')` });
+	// #endif
+	export default {
+		data() {return {}},
+		props: {
+			isFill: { type: Boolean, default: false },
+			type: { type: String, default: "" },
+			color: { type: String, default: "" },
+			size: { type: Number, default: 28 },
+			isWeight: { type: Boolean, default: false }
+		},
+		computed: {
+			iconStyle() : UTSJSONObject {
+				let style : UTSJSONObject = JSON.parse<UTSJSONObject>(`{"fontSize":"${this.size}rpx"}`)!;
+				if (this.color != "") { style['color'] = `${this.color}`; };
+				if (this.isWeight) { style['fontWeight'] = `bold`; };
+				return style;
+			},
+			showIcon() : string {
+				if (this.isFill) {return '\ue91d' } else {return '\ue83f'};
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+	@import "../../scss/var.scss";
+	/* #ifndef APP-PLUS-NVUE */
+	@font-face {font-family: "icon-broadcast-radio";src: url('/static/iconfont/icon-broadcast-radio.ttf');}
+	/* #endif */
+	.fr-icon-broadcast-radio {font-family: icon-broadcast-radio;}
+</style>

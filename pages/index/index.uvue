@@ -1,0 +1,25 @@
+<template>
+	<scroll-view>
+		<icon-all-application />
+	</scroll-view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				
+			}
+		},
+		onLoad() {
+
+		},
+		methods: {
+
+		}
+	}
+</script>
+
+<style>
+
+</style>

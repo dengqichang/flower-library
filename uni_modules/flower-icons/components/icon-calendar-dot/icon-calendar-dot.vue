@@ -1,0 +1,39 @@
+<template>
+	<text :class="['fr-icon-calendar-dot',`fr-icon__${type}`]" :style="[iconStyle]">{{showIcon}}</text>
+</template>
+
+<script lang="uts">
+	// #ifdef APP-PLUS-NVUE
+	const domModule = weex.requireModule('dom');
+	domModule.addRule('fontFace', { 'fontFamily': 'icon-calendar-dot', 'src': `url('file:/${plus.io.convertLocalFileSystemURL("/static/iconfont/icon-calendar-dot.ttf")}')` });
+	// #endif
+	export default {
+		data() {return {}},
+		props: {
+			isFill: { type: Boolean, default: false },
+			type: { type: String, default: "" },
+			color: { type: String, default: "" },
+			size: { type: Number, default: 28 },
+			isWeight: { type: Boolean, default: false }
+		},
+		computed: {
+			iconStyle() : UTSJSONObject {
+				let style : UTSJSONObject = JSON.parse<UTSJSONObject>(`{"fontSize":"${this.size}rpx"}`)!;
+				if (this.color != "") { style['color'] = `${this.color}`; };
+				if (this.isWeight) { style['fontWeight'] = `bold`; };
+				return style;
+			},
+			showIcon() : string {
+				if (this.isFill) {return '\ue75b' } else {return '\ue744'};
+			}
+		}
+	}
+</script>
+
+<style lang="scss">
+	@import "../../scss/var.scss";
+	/* #ifndef APP-PLUS-NVUE */
+	@font-face {font-family: "icon-calendar-dot";src: url('/static/iconfont/icon-calendar-dot.ttf');}
+	/* #endif */
+	.fr-icon-calendar-dot {font-family: icon-calendar-dot;}
+</style>

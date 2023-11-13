@@ -1,0 +1,10 @@
+/* 色相系 */
+$fr-color-primary: #296BEF !default; 	// 主题色
+$fr-color-success: #07C160 !default; 	// 成功
+$fr-color-warning: #EDA20C !default; 	// 警告
+$fr-color-danger: #D9514C !default;   	// 失败
+
+.fr-icon__primary{color: $fr-color-primary;}
+.fr-icon__success{color: $fr-color-success;}
+.fr-icon__warning{color: $fr-color-warning;}
+.fr-icon__danger{color: $fr-color-danger;}

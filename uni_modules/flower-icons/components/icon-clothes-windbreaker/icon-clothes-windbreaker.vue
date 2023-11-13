@@ -1,37 +1,39 @@
 <template>
-	<text :class="['flower-icons']" :style="[iconStyle]">{{showIcon}}</text>
+	<text :class="['fr-icon-clothes-windbreaker',`fr-icon__${type}`]" :style="[iconStyle]">{{showIcon}}</text>
 </template>
-<script>
-	// #ifdef APP-NVUE
-	import iconUrl from './iconfont.ttf';
+
+<script lang="uts">
+	// #ifdef APP-PLUS-NVUE
 	const domModule = weex.requireModule('dom');
-	domModule.addRule('fontFace', {'fontFamily': "flower-icon-clothes-windbreaker",'src': "url('" + iconUrl + "')"});
+	domModule.addRule('fontFace', { 'fontFamily': 'icon-clothes-windbreaker', 'src': `url('file:/${plus.io.convertLocalFileSystemURL("/static/iconfont/icon-clothes-windbreaker.ttf")}')` });
 	// #endif
 	export default {
+		data() {return {}},
 		props: {
-			isFill: {type: Boolean,default: false},
-			color: {type: String,default: "#000000"},
-			size: {type: [String, Number],default: 28},
-			isWeight: {type: Boolean,default: false}
+			isFill: { type: Boolean, default: false },
+			type: { type: String, default: "" },
+			color: { type: String, default: "" },
+			size: { type: Number, default: 28 },
+			isWeight: { type: Boolean, default: false }
 		},
 		computed: {
-			iconStyle() {
-				let style = {fontSize:`${this.size}rpx`,color:this.color};
-				if (this.isWeight) {style.fontWeight = 'bold';};
+			iconStyle() : UTSJSONObject {
+				let style : UTSJSONObject = JSON.parse<UTSJSONObject>(`{"fontSize":"${this.size}rpx"}`)!;
+				if (this.color != "") { style['color'] = `${this.color}`; };
+				if (this.isWeight) { style['fontWeight'] = `bold`; };
 				return style;
 			},
-			showIcon() {
-				if (this.isFill) {return '\ue70f'} else {return '\ue6d1'};
+			showIcon() : string {
+				if (this.isFill) {return '\ue70f' } else {return '\ue6d1'};
 			}
 		}
 	}
 </script>
-<style scoped>
-	/* #ifndef APP-NVUE */
-	@font-face {font-family: flower-icon-clothes-windbreaker;src: url('iconfont.ttf') format('truetype');}
-	.flower-icons {font-family: flower-icon-clothes-windbreaker;}
+
+<style lang="scss">
+	@import "../../scss/var.scss";
+	/* #ifndef APP-PLUS-NVUE */
+	@font-face {font-family: "icon-clothes-windbreaker";src: url('/static/iconfont/icon-clothes-windbreaker.ttf');}
 	/* #endif */
-	/* #ifdef APP-NVUE */
-	.flower-icons {font-family: flower-icon-clothes-windbreaker;}
-	/* #endif */
+	.fr-icon-clothes-windbreaker {font-family: icon-clothes-windbreaker;}
 </style>

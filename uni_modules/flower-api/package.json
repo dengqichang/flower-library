@@ -6,7 +6,7 @@
 	"keywords": [
         "api，vue3"
     ],
-	"main": "./main/index.js",
+	"main": "./main/index.uts",
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-api",
 	"engines": {
 		"HBuilderX": "^3.6.9"

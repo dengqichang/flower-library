@@ -8,7 +8,7 @@
 根据异常的场景给予相关元素的缺省页，在产品页面相对应的场景特点来设计页面内容。
 
 #### 官方文档
-官网地址：<a target="_blank" href="https://www.flowerui.com">https://www.flowerui.com</a>  
+官网地址：<a target="_blank" href="https://flowerui.com/documents/flower-empty/guide/sketch.html">缺省页官方文档</a>  
 #### 交流反馈
 官方QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_a2CXouL0H2OvaJ8vPalp3S6DABKIoCH&jump_from=webapi&authKey=riLWFXQamGAWrXQnBW0NCCFVeodvRvAEAooJNxuNybHBCOs9w0V9yR2F1NhVsZS/">654105306</a>  
 #### 源码
@@ -19,9 +19,9 @@
 [![star](https://gitee.com/dengqichang/flower-library/badge/star.svg?theme=white)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-empty)
 [![fork](https://gitee.com/dengqichang/flower-library/badge/fork.svg?theme=white)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-empty)
 #### 兼容性
-| APP-VUE	| APP-NVUE	| H5		| 小程序		|
-| :------:	| :------:	| :-------:	| :------:	|
-| 	√		| ×			| √			|  √		|
+| uni-app x	| app-vue	| app-nvue	| 各端小程序		| H5		|
+| :------:	| :------:	| :------:	| :-------:		| :-------:	|
+| √			| √			| √			| √				|√			|
 
 #### 适用领域
 基于 `uni-app` 生态开发的缺省页，`uni-app` 是一个使用 [Vue.js](https://vuejs.org/) 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/飞书/QQ/快手/钉钉/淘宝）、快应用等多个平台。

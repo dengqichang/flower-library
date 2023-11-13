@@ -1,3 +1,6 @@
+## 1.1.2（2023-11-10）
+- 【官方文档】[flower-empty 缺省库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
+- 【优化】全端兼容，支持uni-app-x
 ## 1.1.1（2023-09-22）
 - 【修复】组件属性`offsetTop` 和 `offsetBottom`问题。
 ## 1.1.0（2023-09-22）
