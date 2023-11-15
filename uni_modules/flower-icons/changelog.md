@@ -1,3 +1,7 @@
+## 1.1.3（2023-11-15）
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
+- 【温馨提示】初次使用图标库时请认真阅读图标使用方式，[快速上手-使用方式](https://www.flowerui.com/documents/flower-icons/guide/install.html#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F)。
+- 【修复】修复vue2版本编译出错问题。
 ## 1.1.2（2023-11-13）
 - 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
 - 【新增】全端兼容，支持uni-app-x
