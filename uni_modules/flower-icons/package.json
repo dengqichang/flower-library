@@ -1,7 +1,7 @@
 {
 	"id": "flower-icons",
 	"displayName": "flower-icons 图标库，全平台全版本兼容，最新支持 uni-app-x",
-	"version": "1.1.3",
+	"version": "1.1.4",
 	"description": "多平台 uni-app-x 生态 iconfont 字体图标库 ，5000+ 统一化高质量的图标资源。",
 	"keywords": [
         "vue,nvue,uvue,ttf,vue2版本,vue3版本,字体图标"
