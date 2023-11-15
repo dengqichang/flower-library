@@ -31,7 +31,7 @@
 *产品、研发、设计师如需要设计资源，需前往 [iconPark](https://iconpark.oceanengine.com) 获取。*
 
 #### 兼容性
-| uni-app x	| app-vue	| app-nvue	| 各端小程序		| H5		|
+| app-uvue	| app-vue	| app-nvue	| 各端小程序		| H5		|
 | :------:	| :------:	| :------:	| :-------:		| :-------:	|
 | √			| √			| √			| √				|√			|
 > 温馨提醒：`app-nvue` 和 `uni-app vue2项目` 页面使用组件后需重新运行项目才会生效
