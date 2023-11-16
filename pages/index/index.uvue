@@ -1,6 +1,6 @@
 <template>
 	<scroll-view>
-		<icon-all-application />
+		<ui-empty-agenda></ui-empty-agenda>
 	</scroll-view>
 </template>
 
