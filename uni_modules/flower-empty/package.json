@@ -1,7 +1,7 @@
 {
 	"id": "flower-empty",
 	"displayName": "flower-empty 缺省页，全平台全版本兼容，最新支持 uni-app-x",
-	"version": "1.1.4",
+	"version": "1.1.5",
 	"description": "多平台 uni-app-x 生态缺省页 ，根据异常的场景给予相关元素的缺省页。",
 	"keywords": [
         "vue,nvue,uvue,vue2版本,vue3版本,缺省页"

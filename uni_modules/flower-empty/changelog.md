@@ -1,3 +1,6 @@
+## 1.1.5（2023-11-16）
+- 【官方文档】[flower-empty 缺省库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
+- 【优化】优化组件结构
 ## 1.1.4（2023-11-16）
 - 【官方文档】[flower-empty 缺省库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
 - 【优化】优化组件结构

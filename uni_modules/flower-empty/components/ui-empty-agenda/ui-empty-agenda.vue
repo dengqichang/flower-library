@@ -38,7 +38,7 @@
 		},
 		methods: {
 			onErrorImage() {
-				this.isCustom = true;
+				this.isCustom = false;
 			}
 		}
 	}
