@@ -1,3 +1,6 @@
+## 1.1.3（2023-11-16）
+- 【官方文档】[flower-empty 缺省库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
+- 【修复】修复vue2版本编译出错问题。
 ## 1.1.2（2023-11-13）
 - 【官方文档】[flower-empty 缺省库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
 - 【优化】全端兼容，支持uni-app-x
