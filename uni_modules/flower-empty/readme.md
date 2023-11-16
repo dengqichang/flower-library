@@ -18,8 +18,13 @@
 [![license](https://img.shields.io/github/license/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-empty)
 [![star](https://gitee.com/dengqichang/flower-library/badge/star.svg?theme=white)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-empty)
 [![fork](https://gitee.com/dengqichang/flower-library/badge/fork.svg?theme=white)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-empty)
-#### 兼容性
-| uni-app x	| app-vue	| app-nvue	| 各端小程序		| H5		|
+
+#### 版本兼容
+| Vue2		| Vue3		|
+| :------:	| :------:	|
+| √			| √			|
+#### 平台兼容
+| app-uvue	| app-vue	| app-nvue	| 各端小程序		| H5		|
 | :------:	| :------:	| :------:	| :-------:		| :-------:	|
 | √			| √			| √			| √				|√			|
 

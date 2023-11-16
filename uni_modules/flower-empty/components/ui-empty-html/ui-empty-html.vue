@@ -1,6 +1,6 @@
 <template>
 	<view class="_ui-empty" :style="{paddingTop:`${this.offsetTop}rpx`,paddingBottom:`${this.offsetBottom}rpx`}">
-		<image class="_ui-empty__png" @error="onError" :src="isCustom?'/static/empty/html.png':base64" />
+		<image class="_ui-empty__png" @error="onErrorImage" :src="isCustom?'/static/empty/html.png':base64" />
 		<text class="_ui-empty__description">{{description}}</text>
 		<slot />
 	</view>
@@ -14,7 +14,6 @@
 	 * @property {String} description 缺省页描述文字
 	 * @property {Number} offsetTop 偏移向上距离
 	 * @property {Number} offsetBottom 偏移向下距离
-	 * @property {Boolean} isCustom 是否自定义缺省页图
 	 */
 	export default {
 		data() {
@@ -38,7 +37,7 @@
 			}
 		},
 		methods: {
-			onError() {
+			onErrorImage() {
 				this.isCustom = false;
 			}
 		}
