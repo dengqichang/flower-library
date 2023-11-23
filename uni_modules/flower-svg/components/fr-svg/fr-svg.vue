@@ -1,0 +1,119 @@
+<template>
+	<view class="__flower-svg">
+		<!-- #ifdef APP-PLUS-NVUE -->
+		<web-view v-if="isShow" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessage" src="/uni_modules/flower-svg/hybrid/html/index.html" />
+		<image :src="png" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
+			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
+			@error="changeError" @load="changeLoad" />
+		<!-- #endif -->
+		<!-- #ifndef APP-PLUS-NVUE -->
+		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`"
+			:style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
+			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
+			@error="changeError" @load="changeLoad" />
+		<!-- #endif -->
+	</view>
+</template>
+
+<script>
+	/**
+	 * flower-svg svg组件
+	 * @description 一款适用于 uni-app / uni-app-x 的 SVG 组件。全端全版本适配。
+	 * @tutorial 
+	 * @property {String} src svg资源参数
+	 * @property {Number} width 宽度
+	 * @property {Number} height 高度
+	 * @property {String} mode 图片裁剪、缩放的模式，默认值：scaleToFill
+	 * @property {Boolean} fadeShow 图片显示动画效果，默认值：false，App-nvue 2.3.4+ Android有效、uni-app-x
+	 * @property {Boolean} lazyLoad 图片懒加载。只针对page与scroll-view下的image有效，默认值：false，微信小程序、百度小程序、抖音小程序、飞书小程序
+	 * @property {Boolean} showMenuByLongpress 开启长按图片显示识别小程序码菜单，默认值：false，微信小程序2.7.0
+	 * @property {Boolean} draggable 是否能拖动图片，默认值：false，H5 3.1.1+、App（iOS15+）
+	 */
+	export default {
+		props: {
+			src: {
+				type: String,
+				default: ""
+			},
+			width: {
+				type: Number,
+				default: 48
+			},
+			height: {
+				type: Number,
+				default: 48
+			},
+			mode: {
+				type: String,
+				default: "scaleToFill"
+			},
+			fadeShow: {
+				type: Boolean,
+				default: false
+			},
+			lazyLoad: {
+				type: Boolean,
+				default: false
+			},
+			showMenuByLongpress: {
+				type: Boolean,
+				default: false
+			},
+			draggable: {
+				type: Boolean,
+				default: false
+			}
+		},
+		// #ifdef APP-PLUS-NVUE
+		data() {
+			return {
+				wv: this.uuid(32),
+				png: "",
+				isShow: true
+			}
+		},
+		watch: {
+			src() {
+				this.isShow = true;
+			}
+		},
+		// #endif
+		methods: {
+			// #ifdef APP-PLUS-NVUE
+			changeMessage(e) {
+				if (e.detail.data[0].isInitialize) {
+					this.$refs[this.wv].evalJS(`onReceiveSvg('${this.src}')`);
+				} else {
+					this.png = e.detail.data[0].png;
+					this.isShow = false;
+				};
+			},
+			uuid(length) {
+				let uuid = "";
+				let chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+				for (let i = 0; i < length; i++) {
+					uuid += chars[Math.floor(Math.random() * chars.length)];
+				};
+				return uuid
+			},
+			// #endif
+			changeError(event) {
+				this.$emit("error", event)
+			},
+			changeLoad(event) {
+				this.$emit("load", event)
+			}
+		}
+	}
+</script>
+
+<style scoped>
+	.__flower-svg {
+		display: flex;
+	}
+
+	.__flower-web-view {
+		width: 0rpx;
+		height: 0rpx;
+	}
+</style>
