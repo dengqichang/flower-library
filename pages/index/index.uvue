@@ -5,6 +5,7 @@
 </template>
 
 <script>
+	import { flowerEmptyConfig,funThemeColor } from "@/uni_modules/flower-empty/core/index.uts";
 	export default {
 		data() {
 			return {
@@ -12,7 +13,7 @@
 			}
 		},
 		onLoad() {
-
+			console.log(funThemeColor(1))
 		},
 		methods: {
 

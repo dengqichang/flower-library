@@ -11,7 +11,8 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#FFFFFF",
-		"backgroundColor": "#FFFFFF"
+		"backgroundColor": "#FFFFFF",
+		"flowerThemeColor":"#296BEF"
 	},
 	"uniIdRouter": {}
 }
