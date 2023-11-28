@@ -2,13 +2,19 @@ let flowerEmptyValue : UTSJSONObject = {
 	// 主题颜色
 	themeColor: "#296BEF",
 	// 头发颜色
-	hairColor: '#000000',
+	hairColor: '#483029',
 	// 衣服颜色
 	clothesColor: "#EDA20C",
 	// 裤子颜色
 	trousersColor: "#296BEF",
+	// 鞋子颜色
+	shoesColor: "#296BEF",
 	// 物品颜色
-	itemColor: "#000000"
+	itemColor: "#483029",
+	// 人物肤色
+	skinColor: "#ffdec4",
+	// 元素颜色
+	elementColor: "#ffffff"
 };
 
 /**
@@ -45,8 +51,8 @@ function funThemeColor(coefficient : number = 1) : string {
 /**
  * 头发颜色
  */
-function funHairColor(coefficient : number = 1) : string {
-	return generateMixedColor("#ffffff", `${flowerEmptyValue.getString("hairColor")}`, coefficient);
+function funHairColor() : string {
+	return `${flowerEmptyValue.getString("hairColor")}`;
 };
 
 /**
@@ -64,10 +70,31 @@ function funTrousersColor(coefficient : number = 1) : string {
 };
 
 /**
- * 物品颜色
+ * 鞋子颜色
  */
-function funItemColor(coefficient : number = 1) : string {
-	return generateMixedColor("#ffffff", `${flowerEmptyValue.getString("itemColor")}`, coefficient);
+function funShoesColor(coefficient : number = 1) : string {
+	return generateMixedColor("#ffffff", `${flowerEmptyValue.getString("shoesColor")}`, coefficient);
+};
+
+/**
+ * 人物肤色
+ */
+function funSkinColor(coefficient : number = 1) : string {
+	return generateMixedColor("#ffffff", `${flowerEmptyValue.getString("skinColor")}`, coefficient);
+};
+
+/**
+ * 元素颜色
+ */
+function funElementColor() : string {
+	return `${flowerEmptyValue.getString("elementColor")}`;
+};
+
+/**
+ * 元素颜色
+ */
+function funItemColor() : string {
+	return `${flowerEmptyValue.getString("itemColor")}`;
 };
 
 /**
@@ -79,5 +106,5 @@ const flowerEmptyConfig = (config : UTSJSONObject) : UTSJSONObject => {
 };
 
 export {
-	funThemeColor, funHairColor, funClothesColor, funTrousersColor, funItemColor, flowerEmptyConfig
+	funThemeColor, funHairColor, funClothesColor, funTrousersColor, funShoesColor, funSkinColor, funItemColor, funElementColor, flowerEmptyConfig
 }

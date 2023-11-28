@@ -1,6 +1,16 @@
 import App from './App'
 
-
+import { flowerEmptyConfig } from "@/uni_modules/flower-empty/core/index.uts"
+flowerEmptyConfig({
+	themeColor: "#f5222d",
+	hairColor: "#52c41a",
+	clothesColor: "#722ed1",
+	shoesColor: "#a0d911",
+	itemColor: "#eb2f96",
+	// 人物肤色
+	skinColor: "#000000",
+	elementColor: "#000000"
+});
 
 import { createSSRApp } from 'vue'
 export function createApp() {
