@@ -1,6 +1,7 @@
 <template>
 	<scroll-view>
-		<ui-empty-agenda></ui-empty-agenda>
+		<ui-empty-fail></ui-empty-fail>
+		<ui-empty-direction></ui-empty-direction>
 	</scroll-view>
 </template>
 

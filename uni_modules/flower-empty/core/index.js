@@ -12,7 +12,7 @@ let flowerEmptyValue = {
 	// 物品颜色
 	itemColor: "#483029",
 	// 人物肤色
-	skinColor: "#ffdec4",
+	skinColor: "#ffcda5",
 	// 元素颜色
 	elementColor: "#ffffff"
 };
