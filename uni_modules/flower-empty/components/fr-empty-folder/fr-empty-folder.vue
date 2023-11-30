@@ -1,7 +1,7 @@
 <template>
-	<view class="_ui-empty" :style="{paddingTop:`${offsetTop}rpx`,paddingBottom:`${offsetBottom}rpx`}">
+	<view class="_fr-empty" :style="{paddingTop:`${offsetTop}rpx`,paddingBottom:`${offsetBottom}rpx`}">
 		<fr-svg :width="500" :height="500" :src="earlySvg" />
-		<text class="_ui-empty__description">{{description}}</text>
+		<text class="_fr-empty__description">{{description}}</text>
 		<slot />
 	</view>
 </template>
@@ -14,7 +14,7 @@
 	import {funThemeColor,funHairColor,funClothesColor,funTrousersColor,funShoesColor,funSkinColor,funItemColor,funElementColor} from "@/uni_modules/flower-empty/core/config.js";
 	// #endif
 	/**
-	 * ui-empty-folder 文件夹空空如也
+	 * fr-empty-folder 文件夹空空如也
 	 * @description 《文件夹空空如也》，根据异常的场景给予相关元素的缺省页，在产品页面相对应的场景特点来设计页面内容。
 	 * @tutorial https://www.flowerui.com/documents/flower-empty/module/folder.html
 	 * @property {String} description 缺省页描述文字
@@ -48,7 +48,7 @@
 </script>
 
 <style scoped>
-	._ui-empty {
+	._fr-empty {
 		/* #ifndef APP-PLUS-NVUE || UNI-APP-X */
 		display: flex;
 		flex-direction: column;
@@ -56,12 +56,7 @@
 		align-items: center;
 	}
 
-	._ui-empty__png {
-		height: 500rpx;
-		width: 500rpx;
-	}
-
-	._ui-empty__description {
+	._fr-empty__description {
 		font-size: 28rpx;
 		width: 456rpx;
 		margin-bottom: 24rpx;
