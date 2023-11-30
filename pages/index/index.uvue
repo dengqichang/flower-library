@@ -1,7 +1,25 @@
 <template>
 	<scroll-view>
-		<ui-empty-fail></ui-empty-fail>
-		<ui-empty-direction></ui-empty-direction>
+		<fr-empty-agenda></fr-empty-agenda>
+		<fr-empty-card></fr-empty-card>
+		<fr-empty-collection></fr-empty-collection>
+		<fr-empty-coupon></fr-empty-coupon>
+		<fr-empty-data></fr-empty-data>
+		<fr-empty-direction></fr-empty-direction>
+		<fr-empty-fail></fr-empty-fail>
+		<fr-empty-folder></fr-empty-folder>
+		<fr-empty-html></fr-empty-html>
+		<fr-empty-loading></fr-empty-loading>
+		<fr-empty-message></fr-empty-message>
+		<fr-empty-null></fr-empty-null>
+		<fr-empty-page></fr-empty-page>
+		<fr-empty-permission></fr-empty-permission>
+		<fr-empty-record></fr-empty-record>
+		<fr-empty-search></fr-empty-search>
+		<fr-empty-server></fr-empty-server>
+		<fr-empty-shopping></fr-empty-shopping>
+		<fr-empty-signal></fr-empty-signal>
+		<fr-empty-slow></fr-empty-slow>
 	</scroll-view>
 </template>
 
