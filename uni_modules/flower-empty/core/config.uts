@@ -21,7 +21,7 @@ let emptyValue : UTSJSONObject = {
  * 参数合并
  */
 
-function emptyConfig(config : UTSJSONObject) : UTSJSONObject {
+function initEmptyConfig(config : UTSJSONObject) : UTSJSONObject {
 	// 当主题色不为空时，将裤子和鞋子的颜色同步
 	if (config.getString("themeColor") !== null) {
 		// 当裤子颜色为空时，默认主题色
@@ -114,5 +114,5 @@ function funItemColor() : string {
 };
 
 export {
-	funThemeColor, funHairColor, funClothesColor, funTrousersColor, funShoesColor, funSkinColor, funItemColor, funElementColor, emptyConfig
+	funThemeColor, funHairColor, funClothesColor, funTrousersColor, funShoesColor, funSkinColor, funItemColor, funElementColor, initEmptyConfig
 }

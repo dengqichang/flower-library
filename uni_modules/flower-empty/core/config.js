@@ -20,7 +20,7 @@ let emptyValue = {
 /**
  * 参数合并
  */
-function emptyConfig(config) {
+function initEmptyConfig(config) {
 	// 当主题色不为空时，将裤子和鞋子的颜色同步
 	if(config.themeColor !== undefined){
 		// 当裤子颜色为空时，默认主题色
@@ -121,5 +121,5 @@ export {
 	funSkinColor,
 	funItemColor,
 	funElementColor,
-	emptyConfig
+	initEmptyConfig
 }
