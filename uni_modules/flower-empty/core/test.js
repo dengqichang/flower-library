@@ -6,6 +6,7 @@
  * 裤子： funTrousersColor
  * 鞋子： funShoesColor
  * 物品： funHairColor => funItemColor
+ * 压缩svg网址：http://tool.mkblog.cn/svgo/
  */
 
 function test(svg) {
@@ -28,6 +29,7 @@ function test(svg) {
 		.replace(/#fafafa/g, "${funThemeColor(0.3)}");
 	console.log(encoded)
 };
+
 
 export {
 	test
