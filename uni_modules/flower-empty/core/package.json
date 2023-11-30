@@ -1,6 +1,0 @@
-{
-	"name": "EMPTY",
-	"version": "1.0.0",
-	"description": "处理 SVG 颜色，为了兼容 uni-app vue3 添加的此文件。",
-	"main": "./index.js"
-}

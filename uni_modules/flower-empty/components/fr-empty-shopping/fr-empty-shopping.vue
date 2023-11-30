@@ -7,7 +7,12 @@
 </template>
 
 <script>
-	import {funThemeColor,funHairColor,funClothesColor,funTrousersColor,funShoesColor,funSkinColor,funItemColor,funElementColor} from "@/uni_modules/flower-empty/core";
+	// #ifdef UNI-APP-X
+	import {funThemeColor,funHairColor,funClothesColor,funTrousersColor,funShoesColor,funSkinColor,funItemColor,funElementColor} from "@/uni_modules/flower-empty/core/config.uts";
+	// #endif
+	// #ifndef UNI-APP-X
+	import {funThemeColor,funHairColor,funClothesColor,funTrousersColor,funShoesColor,funSkinColor,funItemColor,funElementColor} from "@/uni_modules/flower-empty/core/config.js";
+	// #endif
 	/**
 	 * ui-empty-shopping 购物车空空如也
 	 * @description 《购物车空空如也》，根据异常的场景给予相关元素的缺省页，在产品页面相对应的场景特点来设计页面内容。

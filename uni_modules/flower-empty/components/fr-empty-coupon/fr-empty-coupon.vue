@@ -8,7 +8,12 @@
 
 
 <script>
-	import {funThemeColor,funHairColor,funClothesColor,funTrousersColor,funShoesColor,funSkinColor,funItemColor,funElementColor} from "@/uni_modules/flower-empty/core";
+	// #ifdef UNI-APP-X
+	import {funThemeColor,funHairColor,funClothesColor,funTrousersColor,funShoesColor,funSkinColor,funItemColor,funElementColor} from "@/uni_modules/flower-empty/core/config.uts";
+	// #endif
+	// #ifndef UNI-APP-X
+	import {funThemeColor,funHairColor,funClothesColor,funTrousersColor,funShoesColor,funSkinColor,funItemColor,funElementColor} from "@/uni_modules/flower-empty/core/config.js";
+	// #endif
 	/**
 	 * ui-empty-coupon 暂无优惠券
 	 * @description 《暂无优惠券》，根据异常的场景给予相关元素的缺省页，在产品页面相对应的场景特点来设计页面内容。

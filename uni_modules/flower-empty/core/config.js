@@ -1,4 +1,4 @@
-let flowerEmptyValue = {
+let emptyValue = {
 	// 主题颜色
 	themeColor: "#296BEF",
 	// 头发颜色
@@ -15,6 +15,21 @@ let flowerEmptyValue = {
 	skinColor: "#ffcda5",
 	// 元素颜色
 	elementColor: "#ffffff"
+};
+
+/**
+ * 参数合并
+ */
+function emptyConfig(config) {
+	// 当主题色不为空时，将裤子和鞋子的颜色同步
+	if(config.themeColor !== undefined){
+		// 当裤子颜色为空时，默认主题色
+		if(config.trousersColor == undefined){config.trousersColor = config.themeColor};
+		// 当鞋子颜色为空时，默认主题色
+		if(config.shoesColor == undefined){config.shoesColor = config.themeColor};
+	};
+	emptyValue = Object.assign(emptyValue, config);
+	return emptyValue;
 };
 
 /**
@@ -45,66 +60,57 @@ function generateMixedColor(c1, c2, weight) {
  * 主题颜色
  */
 function funThemeColor(coefficient = 1) {
-	return generateMixedColor("#ffffff", `${flowerEmptyValue.themeColor}`, coefficient);
+	return generateMixedColor("#ffffff", `${emptyValue.themeColor}`, coefficient);
 };
 
 /**
  * 头发颜色
  */
 function funHairColor() {
-	return `${flowerEmptyValue.hairColor}`;
+	return `${emptyValue.hairColor}`;
 };
 
 /**
  * 衣服颜色
  */
 function funClothesColor(coefficient = 1) {
-	return generateMixedColor("#ffffff", `${flowerEmptyValue.clothesColor}`, coefficient);
+	return generateMixedColor("#ffffff", `${emptyValue.clothesColor}`, coefficient);
 };
 
 /**
  * 裤子颜色
  */
 function funTrousersColor(coefficient = 1) {
-	return generateMixedColor("#ffffff", `${flowerEmptyValue.trousersColor}`, coefficient);
+	return generateMixedColor("#ffffff", `${emptyValue.trousersColor}`, coefficient);
 };
 
 /**
  * 鞋子颜色
  */
 function funShoesColor(coefficient = 1) {
-	return generateMixedColor("#ffffff", `${flowerEmptyValue.shoesColor}`, coefficient);
+	return generateMixedColor("#ffffff", `${emptyValue.shoesColor}`, coefficient);
 };
 
 /**
  * 人物肤色
  */
 function funSkinColor(coefficient = 1) {
-	return generateMixedColor("#ffffff", `${flowerEmptyValue.skinColor}`, coefficient);
+	return generateMixedColor("#ffffff", `${emptyValue.skinColor}`, coefficient);
 };
 
 /**
  * 元素颜色
  */
 function funElementColor() {
-	return `${flowerEmptyValue.elementColor}`;
+	return `${emptyValue.elementColor}`;
 };
 
 /**
  * 元素颜色
  */
 function funItemColor() {
-	return `${flowerEmptyValue.itemColor}`;
+	return `${emptyValue.itemColor}`;
 };
-
-/**
- * 参数合并
- */
-
-function flowerEmptyConfig(config) {
-	flowerEmptyValue = Object.assign(flowerEmptyValue, config);
-	return flowerEmptyValue;
-}
 
 export {
 	funThemeColor,
@@ -115,5 +121,5 @@ export {
 	funSkinColor,
 	funItemColor,
 	funElementColor,
-	flowerEmptyConfig
+	emptyConfig
 }
