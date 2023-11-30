@@ -32,13 +32,6 @@
 	}
 </script>
 
-<style>
-/*每个页面公共css */
-.uni-row {
-	flex-direction: row;
-}
-
-.uni-column {
-	flex-direction: column;
-}
+<style lang="scss">
+	@import "uni_modules/flower-scss";
 </style>

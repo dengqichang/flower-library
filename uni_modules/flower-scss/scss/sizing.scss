@@ -1,0 +1,28 @@
+/**
+ * 宽度
+ */
+.fr-width-xs{width: $fr-width-height-xs;}
+.fr-width-sm{width: $fr-width-height-sm;}
+.fr-width-md{width: $fr-width-height-md;}
+.fr-width-lg{width: $fr-width-height-lg;}
+.fr-width-xl{width: $fr-width-height-xl;}
+/**
+ * 高度
+ */
+.fr-height-xs{height: $fr-width-height-xs;}
+.fr-height-sm{height: $fr-width-height-sm;}
+.fr-height-md{height: $fr-width-height-md;}
+.fr-height-lg{height: $fr-width-height-lg;}
+.fr-height-xl{height: $fr-width-height-xl;}
+/**
+ * 循环
+ */
+// @for $i from 0 to 376{
+// 	.fr-width-#{$i * 2}{width: $i * 2 + rpx;}
+// 	.fr-min-width-#{$i * 2}{min-width: $i * 2 + rpx;}
+// 	.fr-max-width-#{$i * 2}{max-width: $i * 2 + rpx;}
+	
+// 	.fr-height-#{$i * 2}{height: $i * 2 + rpx;}
+// 	.fr-min-height-#{$i * 2}{min-height: $i * 2 + rpx;}
+// 	.fr-max-height-#{$i * 2}{max-height: $i * 2 + rpx;}
+// }

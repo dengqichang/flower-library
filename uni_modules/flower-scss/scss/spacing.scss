@@ -1,0 +1,95 @@
+/**
+ * ============== Spacing =================
+ */
+/* Margin */
+.fr-margin {margin: 0;}
+.fr-margin-xs {margin: $fr-margin-padding-xs;}
+.fr-margin-sm {margin: $fr-margin-padding-sm;}
+.fr-margin-md {margin: $fr-margin-padding-md;}
+.fr-margin-lg {margin: $fr-margin-padding-lg;}
+.fr-margin-xl {margin: $fr-margin-padding-xl;}
+
+.fr-margin-top-xs {margin-top: $fr-margin-padding-xs;}
+.fr-margin-top-sm {margin-top: $fr-margin-padding-sm;}
+.fr-margin-top-md {margin-top: $fr-margin-padding-md;}
+.fr-margin-top-lg {margin-top: $fr-margin-padding-lg;}
+.fr-margin-top-xl {margin-top: $fr-margin-padding-xl;}
+
+.fr-margin-right-xs {margin-right: $fr-margin-padding-xs;}
+.fr-margin-right-sm {margin-right: $fr-margin-padding-sm;}
+.fr-margin-right-md {margin-right: $fr-margin-padding-md;}
+.fr-margin-right-lg {margin-right: $fr-margin-padding-lg;}
+.fr-margin-right-xl {margin-right: $fr-margin-padding-xl;}
+
+.fr-margin-bottom-xs {margin-bottom: $fr-margin-padding-xs;}
+.fr-margin-bottom-sm {margin-bottom: $fr-margin-padding-sm;}
+.fr-margin-bottom-md {margin-bottom: $fr-margin-padding-md;}
+.fr-margin-bottom-lg {margin-bottom: $fr-margin-padding-lg;}
+.fr-margin-bottom-xl {margin-bottom: $fr-margin-padding-xl;}
+
+.fr-margin-left-xs {margin-left: $fr-margin-padding-xs;}
+.fr-margin-left-sm {margin-left: $fr-margin-padding-sm;}
+.fr-margin-left-md {margin-left: $fr-margin-padding-md;}
+.fr-margin-left-lg {margin-left: $fr-margin-padding-lg;}
+.fr-margin-left-xl {margin-left: $fr-margin-padding-xl;}
+
+.fr-margin-x-xs {margin-left: $fr-margin-padding-xs;margin-right: $fr-margin-padding-xs;}
+.fr-margin-x-sm {margin-left: $fr-margin-padding-sm;margin-right: $fr-margin-padding-sm;}
+.fr-margin-x-md {margin-left: $fr-margin-padding-md;margin-right: $fr-margin-padding-md;}
+.fr-margin-x-lg {margin-left: $fr-margin-padding-lg;margin-right: $fr-margin-padding-lg;}
+.fr-margin-x-xl {margin-left: $fr-margin-padding-xl;margin-right: $fr-margin-padding-xl;}
+
+.fr-margin-y-xs {margin-top: $fr-margin-padding-xs;margin-bottom: $fr-margin-padding-xs;}
+.fr-margin-y-sm {margin-top: $fr-margin-padding-sm;margin-bottom: $fr-margin-padding-sm;}
+.fr-margin-y-md {margin-top: $fr-margin-padding-md;margin-bottom: $fr-margin-padding-md;}
+.fr-margin-y-lg {margin-top: $fr-margin-padding-lg;margin-bottom: $fr-margin-padding-lg;}
+.fr-margin-y-xl {margin-top: $fr-margin-padding-xl;margin-bottom: $fr-margin-padding-xl;}
+/* Padding */
+.fr-padding {padding: 0;}
+.fr-padding-xs {padding: $fr-margin-padding-xs;}
+.fr-padding-sm {padding: $fr-margin-padding-sm;}
+.fr-padding-md {padding: $fr-margin-padding-md;}
+.fr-padding-lg {padding: $fr-margin-padding-lg;}
+.fr-padding-xl {padding: $fr-margin-padding-xl;}
+
+.fr-padding-top-xs {padding-top: $fr-margin-padding-xs;}
+.fr-padding-top-sm {padding-top: $fr-margin-padding-sm;}
+.fr-padding-top-md {padding-top: $fr-margin-padding-md;}
+.fr-padding-top-lg {padding-top: $fr-margin-padding-lg;}
+.fr-padding-top-xl {padding-top: $fr-margin-padding-xl;}
+
+.fr-padding-right-xs {padding-right: $fr-margin-padding-xs;}
+.fr-padding-right-sm {padding-right: $fr-margin-padding-sm;}
+.fr-padding-right-md {padding-right: $fr-margin-padding-md;}
+.fr-padding-right-lg {padding-right: $fr-margin-padding-lg;}
+.fr-padding-right-xl {padding-right: $fr-margin-padding-xl;}
+
+.fr-padding-bottom-xs {padding-bottom: $fr-margin-padding-xs;}
+.fr-padding-bottom-sm {padding-bottom: $fr-margin-padding-sm;}
+.fr-padding-bottom-md {padding-bottom: $fr-margin-padding-md;}
+.fr-padding-bottom-lg {padding-bottom: $fr-margin-padding-lg;}
+.fr-padding-bottom-xl {padding-bottom: $fr-margin-padding-xl;}
+
+.fr-padding-left-xs {padding-left: $fr-margin-padding-xs;}
+.fr-padding-left-sm {padding-left: $fr-margin-padding-sm;}
+.fr-padding-left-md {padding-left: $fr-margin-padding-md;}
+.fr-padding-left-lg {padding-left: $fr-margin-padding-lg;}
+.fr-padding-left-xl {padding-left: $fr-margin-padding-xl;}
+
+.fr-padding-x-xs {padding-left: $fr-margin-padding-xs;padding-right: $fr-margin-padding-xs;}
+.fr-padding-x-sm {padding-left: $fr-margin-padding-sm;padding-right: $fr-margin-padding-sm;}
+.fr-padding-x-md {padding-left: $fr-margin-padding-md;padding-right: $fr-margin-padding-md;}
+.fr-padding-x-lg {padding-left: $fr-margin-padding-lg;padding-right: $fr-margin-padding-lg;}
+.fr-padding-x-xl {padding-left: $fr-margin-padding-xl;padding-right: $fr-margin-padding-xl;}
+
+.fr-padding-y-xs {padding-top: $fr-margin-padding-xs;padding-bottom: $fr-margin-padding-xs;}
+.fr-padding-y-sm {padding-top: $fr-margin-padding-sm;padding-bottom: $fr-margin-padding-sm;}
+.fr-padding-y-md {padding-top: $fr-margin-padding-md;padding-bottom: $fr-margin-padding-md;}
+.fr-padding-y-lg {padding-top: $fr-margin-padding-lg;padding-bottom: $fr-margin-padding-lg;}
+.fr-padding-y-xl {padding-top: $fr-margin-padding-xl;padding-bottom: $fr-margin-padding-xl;}
+
+
+@for $i from 0 to 376{
+	.fr-margin-top--#{$i * 2}{margin-top: -$i * 2 + rpx;}
+	.fr-margin-top-#{$i * 2}{margin-top: $i * 2 + rpx;}
+}

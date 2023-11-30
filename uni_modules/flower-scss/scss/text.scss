@@ -1,0 +1,68 @@
+/* 文本字号 */
+.fr-text-xs{font-size: $fr-font-size-xs;}
+.fr-text-sm{font-size: $fr-font-size-sm;}
+.fr-text-md{font-size: $fr-font-size-md;}
+.fr-text-lg{font-size: $fr-font-size-lg;}
+.fr-text-xl{font-size: $fr-font-size-xl;}
+/* 文本粗细 */
+/* #ifdef APP-VUE */
+.fr-font-thin{font-weight: 100;font-family: PingFang SC;}
+.fr-font-extralight{font-weight: 200;font-family: PingFang SC;}
+.fr-font-light{font-weight: 300;font-family: PingFang SC;}
+.fr-font-medium{font-weight: 500;font-family: PingFang SC;}
+.fr-font-semibold{font-weight: 600;font-family: PingFang SC;}
+.fr-font-extrabold{font-weight: 800;font-family: PingFang SC;}
+.fr-font-black{font-weight: 900;font-family: PingFang SC;}
+/* #endif */
+/* #ifdef UNI-APP-X */
+.fr-font-normal{font-weight: 400;font-family: PingFang SC;}
+/* #endif */
+/* #ifdef UNI-APP-X */
+.fr-font-bold{font-weight: 700;font-family: PingFang SC;}
+/* #endif */
+/* 文本位置 */
+.fr-text-left{text-align: left;}
+.fr-text-center{text-align: center;}
+.fr-text-right{text-align: right;}
+/* 超出行隐藏省略 */
+/* #ifdef APP-VUE */
+.fr-line{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.fr-line-1{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;}
+.fr-line-2{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;}
+.fr-line-3{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;}
+.fr-line-4{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;}
+.fr-line-5{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 5;}
+.fr-line-6{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 6;}
+.fr-line-7{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 7;}
+.fr-line-8{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 8;}
+.fr-line-9{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 9;}
+.fr-line-10{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 10;}
+.fr-line-11{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 11;}
+.fr-line-12{overflow: hidden;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 12;}
+/* #endif */
+/* #ifdef UNI-APP-X || APP-NVUE */
+.fr-line{text-overflow: ellipsis;lines: 1;}
+.fr-line-1{text-overflow: ellipsis;lines: 1;}
+.fr-line-2{text-overflow: ellipsis;lines: 2;}
+.fr-line-3{text-overflow: ellipsis;lines: 3;}
+.fr-line-4{text-overflow: ellipsis;lines: 4;}
+.fr-line-5{text-overflow: ellipsis;lines: 5;}
+.fr-line-6{text-overflow: ellipsis;lines: 6;}
+.fr-line-7{text-overflow: ellipsis;lines: 7;}
+.fr-line-8{text-overflow: ellipsis;lines: 8;}
+.fr-line-9{text-overflow: ellipsis;lines: 9;}
+.fr-line-10{text-overflow: ellipsis;lines: 10;}
+.fr-line-11{text-overflow: ellipsis;lines: 11;}
+.fr-line-12{text-overflow: ellipsis;lines: 12;}
+/* #endif */
+/* 文本装饰 */
+.fr-text-underline{text-decoration-line: underline;}
+.fr-text-line-through{text-decoration-line: line-through;}
+@for $i from 0 to 101{
+	/* 字体大小 */
+	.fr-text-#{$i * 2}{font-size: $i * 2 + rpx;}
+	/* 行高 */
+	.fr-leading-#{$i * 2}{line-height: $i * 2 + rpx;}
+	/* 间距 */
+	.fr-tracking-#{$i * 2}{letter-spacing: $i * 2 + rpx;}
+}
