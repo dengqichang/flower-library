@@ -10,9 +10,20 @@
 
 
 /* #ifdef APP-VUE */
-view,text{
+text{
 	overflow-wrap: break-word;
+}
+view{
 	box-sizing: border-box;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	flex: none;
+	position: relative;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
 }
 
 ::v-deep .uni-page-refresh__icon{

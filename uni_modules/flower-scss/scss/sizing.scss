@@ -17,12 +17,12 @@
 /**
  * 循环
  */
-// @for $i from 0 to 376{
-// 	.fr-width-#{$i * 2}{width: $i * 2 + rpx;}
-// 	.fr-min-width-#{$i * 2}{min-width: $i * 2 + rpx;}
-// 	.fr-max-width-#{$i * 2}{max-width: $i * 2 + rpx;}
+@for $i from 0 to 376{
+	.fr-width-#{$i * 2}{width: $i * 2 + rpx;}
+	.fr-min-width-#{$i * 2}{min-width: $i * 2 + rpx;}
+	.fr-max-width-#{$i * 2}{max-width: $i * 2 + rpx;}
 	
-// 	.fr-height-#{$i * 2}{height: $i * 2 + rpx;}
-// 	.fr-min-height-#{$i * 2}{min-height: $i * 2 + rpx;}
-// 	.fr-max-height-#{$i * 2}{max-height: $i * 2 + rpx;}
-// }
+	.fr-height-#{$i * 2}{height: $i * 2 + rpx;}
+	.fr-min-height-#{$i * 2}{min-height: $i * 2 + rpx;}
+	.fr-max-height-#{$i * 2}{max-height: $i * 2 + rpx;}
+}
