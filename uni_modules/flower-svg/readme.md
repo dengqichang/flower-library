@@ -27,7 +27,7 @@
 ```vue
 <template>
 	<view>
-		<fr-svg :src="svg" :width="100" :height="100" />
+		<fr-svg :src="svg" width="100" height="100" />
 	</view>
 </template>
 
@@ -44,7 +44,9 @@
 #### Props
 |  属性					|  类型			|  默认值		|  说明																												|  兼容性										|
 |  :----:				| :----:		| :----:		|  :----:																											|  :----:										|
-| src					| String		| -				|SVG 资源，只支持svg资源，不支持文件、地址																				|												|
+| src					| String		| -				|SVG 资源，只支持svg资源，不支持文件、网络及本地路径																				|												|
+| width					| String		| 48			|宽度																												|												|
+| height				| String		| 48			|高度																												|												|
 | mode					| String		| scaleToFill	|图片裁剪、缩放的模式，[有效值](https://uniapp.dcloud.net.cn/component/image.html#mode-%E6%9C%89%E6%95%88%E5%80%BC)	|												|
 | lazyLoad				| Boolean		| false			|图片懒加载。只针对page与scroll-view下的image有效																		|微信小程序、百度小程序、抖音小程序、飞书小程序	|
 | fadeShow				| Boolean		| false			|图片显示动画效果																									|App-nvue 2.3.4+ Android、uni-app-x				|

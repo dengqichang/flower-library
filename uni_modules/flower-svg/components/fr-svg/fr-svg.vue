@@ -21,8 +21,8 @@
 	 * @description 一款适用于 uni-app / uni-app-x 的 SVG 组件。全端全版本适配。
 	 * @tutorial 
 	 * @property {String} src svg资源参数
-	 * @property {Number} width 宽度
-	 * @property {Number} height 高度
+	 * @property {String} width 宽度
+	 * @property {String} height 高度
 	 * @property {String} mode 图片裁剪、缩放的模式，默认值：scaleToFill
 	 * @property {Boolean} fadeShow 图片显示动画效果，默认值：false，App-nvue 2.3.4+ Android有效、uni-app-x
 	 * @property {Boolean} lazyLoad 图片懒加载。只针对page与scroll-view下的image有效，默认值：false，微信小程序、百度小程序、抖音小程序、飞书小程序
@@ -36,12 +36,12 @@
 				default: ""
 			},
 			width: {
-				type: Number,
-				default: 48
+				type: String,
+				default: "48"
 			},
 			height: {
-				type: Number,
-				default: 48
+				type: String,
+				default: "48"
 			},
 			mode: {
 				type: String,
