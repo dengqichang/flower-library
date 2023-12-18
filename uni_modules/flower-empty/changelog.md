@@ -1,3 +1,7 @@
+## 1.1.6（2023-12-18）
+- 【官方文档】[flower-empty 缺省库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
+- 【调整】调整组件的前缀，前缀 `ui` 调整为 `fr`
+- 【新增】可自定义配置主题色彩
 ## 1.1.5（2023-11-16）
 - 【官方文档】[flower-empty 缺省库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
 - 【优化】优化组件结构
