@@ -1,6 +1,6 @@
 <template>
 	<view class="_fr-empty" :style="{paddingTop:`${offsetTop}rpx`,paddingBottom:`${offsetBottom}rpx`}">
-		<fr-svg :width="500" :height="500" :src="earlySvg" />
+		<fr-svg width="500" height="500" :src="earlySvg" />
 		<text class="_fr-empty__description">{{description}}</text>
 		<slot />
 	</view>
