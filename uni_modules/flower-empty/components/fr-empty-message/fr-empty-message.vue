@@ -18,8 +18,8 @@
 	 * @description 《暂无消息》，根据异常的场景给予相关元素的缺省页，在产品页面相对应的场景特点来设计页面内容。
 	 * @tutorial https://www.flowerui.com/documents/flower-empty/module/message.html
 	 * @property {String} description 缺省页描述文字
-	 * @property {Number} offsetTop 偏移向上距离
-	 * @property {Number} offsetBottom 偏移向下距离
+	 * @property {String} offsetTop 偏移向上距离
+	 * @property {String} offsetBottom 偏移向下距离
 	 */
 	export default {
 		data() {
@@ -33,12 +33,12 @@
 				default: "暂无消息"
 			},
 			offsetTop: {
-				type: Number,
-				default: 0
+				type: String,
+				default: "0"
 			},
 			offsetBottom: {
-				type: Number,
-				default: 0
+				type: String,
+				default: "0"
 			}
 		},
 		methods: {

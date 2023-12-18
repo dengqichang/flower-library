@@ -4,8 +4,8 @@
 	"version": "1.1.5",
 	"description": "多平台 uni-app-x 生态缺省页 ，根据异常的场景给予相关元素的缺省页。",
 	"keywords": [
-        "vue,nvue,uvue,vue2版本,vue3版本,缺省页"
-    ],
+		"vue,nvue,uvue,vue2版本,vue3版本,缺省页"
+	],
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-empty",
 	"engines": {
 		"HBuilderX": "^3.96"
@@ -31,7 +31,7 @@
 		"npmurl": ""
 	},
 	"uni_modules": {
-		"dependencies": [],
+		"dependencies": ["flower-svg"],
 		"encrypt": [],
 		"platforms": {
 			"cloud": {

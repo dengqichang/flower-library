@@ -33,12 +33,12 @@
 				default: "加载失败"
 			},
 			offsetTop: {
-				type: Number,
-				default: 0
+				type: String,
+				default: "0"
 			},
 			offsetBottom: {
-				type: Number,
-				default: 0
+				type: String,
+				default: "0"
 			}
 		},
 		methods: {
