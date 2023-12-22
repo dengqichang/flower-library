@@ -1,8 +1,9 @@
 <template>
 	<scroll-view>
-		<text class="fr-lines">
-			啊实打实打赏打赏啊实打实打赏打赏啊实打实打赏打赏啊实打实打赏打赏啊实打实打赏打赏
-		</text>
+		<fr-empty-agenda></fr-empty-agenda>
+		<fr-empty-card></fr-empty-card>
+		<fr-empty-collection></fr-empty-collection>
+		<fr-empty-coupon></fr-empty-coupon>
 	</scroll-view>
 </template>
 
