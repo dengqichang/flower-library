@@ -1,3 +1,6 @@
+## 1.1.7（2024-01-10）
+- 【iconPark官方文档】[图标文档传送门](https://iconpark.oceanengine.com/official)：https://iconpark.oceanengine.com/official
+- 【优化】调整初始化默认值
 ## 1.1.6（2024-01-10）
 - 【重大更新】图标库由使用 `ttf` 修改成使用 `svg` ，文档使用请使用 `iconPark` 官方文档。
 - 【iconPark官方文档】[图标文档传送门](https://iconpark.oceanengine.com/official)：https://iconpark.oceanengine.com/official

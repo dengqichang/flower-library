@@ -1,5 +1,4 @@
-<p align="center"><img alt="logo" src="https://lf1-cdn2-tos.bytegoofy.com/bydesign/iconparksite/static/media/logo_with_name.598fc011.svg" width="123"></p>
-<h3 align="center">FLOWER ICONS</h3>
+<p align="center"><img alt="logo" src="https://lf1-cdn2-tos.bytegoofy.com/bydesign/iconparksite/static/media/logo_with_name.598fc011.svg" width="400"></p>
 <p align="center">多平台 uni-app 生态 iconPark 图标库 ，构建高质量、统一化、可定义的图标资源。</p>
 
 #### 关于IconPark图标库

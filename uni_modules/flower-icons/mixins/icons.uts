@@ -13,7 +13,7 @@ export default defineMixin({
 		// 图标风格（颜色）
 		theme: {
 			type: String,
-			default: "two-tone"
+			default: "outline"
 		},
 		// 图标颜色["外部描边颜色","外部填充颜色","内部描边颜色","内部填充颜色"]
 		fill: {
