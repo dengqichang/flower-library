@@ -1,3 +1,7 @@
+## 1.1.6（2024-01-10）
+- 【重大更新】图标库由使用 `ttf` 修改成使用 `svg` ，文档使用请使用 `iconPark` 官方文档。
+- 【iconPark官方文档】[图标文档传送门](https://iconpark.oceanengine.com/official)：https://iconpark.oceanengine.com/official
+- 【图标库介绍】IconPark图标库是一个通过技术驱动矢量图标样式的开源图标库，可以实现根据单一SVG源文件变换出多种主题， 具备丰富的分类、更轻量的代码和更灵活的使用场景；致力于构建高质量、统一化、可定义的图标资源，让大多数人都能够选择适合自己的风格图标。
 ## 1.1.5（2023-11-15）
 - 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/guide/sketch.html)
 - 【温馨提示】初次使用图标库时请认真阅读图标使用方式，[快速上手-使用方式](https://www.flowerui.com/documents/flower-icons/guide/install.html#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F)。
