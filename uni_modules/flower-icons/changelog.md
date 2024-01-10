@@ -1,3 +1,8 @@
+## 1.1.8（2024-01-10）
+- 【官方文档】[iconPark图标库](https://iconpark.oceanengine.com/official)：[https://iconpark.oceanengine.com/official](https://iconpark.oceanengine.com/official)
+- 【使用方式】在[iconPark图标库](https://iconpark.oceanengine.com/official)中的图标的右侧点击 `···` 后，选择 `复制Vue代码` 即可，然后粘贴在页面代码中使用。
+- 【版本兼容】全平台全版本兼容(uni-app / uni-app-x / vue2 / vue3)
+- 【开发工具】HBuilderX - ^3.99
 ## 1.1.7（2024-01-10）
 - 【iconPark官方文档】[图标文档传送门](https://iconpark.oceanengine.com/official)：https://iconpark.oceanengine.com/official
 - 【优化】调整初始化默认值
