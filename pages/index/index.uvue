@@ -1,21 +1,21 @@
 <template>
 	<scroll-view>
-		<fr-empty-agenda></fr-empty-agenda>
-		<fr-empty-card></fr-empty-card>
-		<fr-empty-collection></fr-empty-collection>
-		<fr-empty-coupon></fr-empty-coupon>
+
 	</scroll-view>
 </template>
 
 <script>
+	import { colorPaletteDark } from "@/uni_modules/flower-config/uni-app-x/arco-design-color/palette-dark.uts"
+	import { colorPalette } from "@/uni_modules/flower-config/uni-app-x/arco-design-color/palette.uts"
 	export default {
 		data() {
 			return {
-			
+
 			}
 		},
 		onLoad() {
-
+			console.log(colorPaletteDark("#F53F3F",10))
+			console.log(colorPalette("#F53F3F",10))
 		},
 		methods: {
 

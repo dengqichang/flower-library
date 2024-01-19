@@ -33,5 +33,5 @@
 </script>
 
 <style lang="scss">
-	@import "uni_modules/flower-scss";
+	// @import "uni_modules/flower-scss";
 </style>
