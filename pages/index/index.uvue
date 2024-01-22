@@ -1,24 +1,38 @@
 <template>
 	<scroll-view>
-
+		{{colorList[0]}}
+		{{ globalNum }}
+		<button @tap="plus">跳转测试页面</button>
 	</scroll-view>
 </template>
 
 <script>
-	import { colorPaletteDark } from "@/uni_modules/flower-config/uni-app-x/arco-design-color/palette-dark.uts"
-	import { colorPalette } from "@/uni_modules/flower-config/uni-app-x/arco-design-color/palette.uts"
+	import mixins from "@/uni_modules/flower-config/mixins"
+	import { state, setGlobalNum } from "@/uni_modules/flower-config/mixins/test.uts"
 	export default {
+		mixins: [mixins],
 		data() {
 			return {
 
 			}
 		},
 		onLoad() {
-			console.log(colorPaletteDark("#F53F3F",10))
-			console.log(colorPalette("#F53F3F",10))
+			// console.log(externalVar.getString("value"))
+		},
+		computed: {
+			globalNum() : number { //定义可绑定在界面上的globalNum
+				return state.globalNum
+			}
 		},
 		methods: {
-
+			onTap() {
+				uni.navigateTo({
+					url: '/pages/test/test'
+				});
+			},
+			plus() {
+				setGlobalNum(state.globalNum + 1)
+			}
 		}
 	}
 </script>

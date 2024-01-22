@@ -5,6 +5,13 @@
 			"style": {
 				"navigationBarTitleText": "FLOWER EMPTY"
 			}
+		},
+		{
+			"path" : "pages/test/test",
+			"style" : 
+			{
+				"navigationBarTitleText" : "测试"
+			}
 		}
 	],
 	"globalStyle": {

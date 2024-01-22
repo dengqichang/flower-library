@@ -1,0 +1,29 @@
+<template>
+	<scroll-view>
+		{{colorList[0]}}
+	</scroll-view>
+</template>
+
+<script>
+	import mixins from "@/uni_modules/flower-config/mixins"
+	export default {
+		mixins: [mixins],
+		data() {
+			return {
+				
+			}
+		},
+		onLoad() {
+			setTimeout(function() {
+				setThemeColor();
+			}, 3000);
+		},
+		methods: {
+
+		}
+	}
+</script>
+
+<style>
+
+</style>

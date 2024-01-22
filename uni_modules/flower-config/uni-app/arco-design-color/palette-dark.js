@@ -1,12 +1,12 @@
-import { colorPalette } from './palette.uts';
-import { hexToRgb, hsvToHex, rgbToHsv } from '@/uni_modules/flower-api/uni-app-x/color.uts';
+import {colorPalette} from './palette.js';
+import {hexToRgb,hsvToHex,rgbToHsv} from '@/uni_modules/flower-api/uni-app/color.js';
 
 /**
  * 暗黑模式动态梯度算法，参考 [Arco Design色彩算法](https://arco.design/palette/list)
  * @param primaryColor 基础色，仅支持hex十六进制格式
  * @returns string
  */
-export const colorPaletteDark = (primaryColor : string, i : number) : string => {
+export const colorPaletteDark = (primaryColor, i) => {
 	const lightColor = colorPalette(primaryColor, 10 - i + 1);
 	const lightColorRGB = hexToRgb(lightColor);
 	const lightColorHSV = rgbToHsv(lightColorRGB.r, lightColorRGB.g, lightColorRGB.b);
@@ -16,7 +16,7 @@ export const colorPaletteDark = (primaryColor : string, i : number) : string => 
 	const originBaseHue = colorHSV.h;
 	const originBaseSaturation = colorHSV.s * 100;
 
-	function getNewSaturationIndexSix() : number {
+	function getNewSaturationIndexSix() {
 		if (originBaseHue >= 50 && originBaseHue < 191) {
 			return originBaseSaturation - 20;
 		} else {
@@ -29,7 +29,7 @@ export const colorPaletteDark = (primaryColor : string, i : number) : string => 
 	const step = Math.ceil((baseSaturation - 9) / 4);
 	const step1to5 = Math.ceil((100 - baseSaturation) / 5);
 
-	function getNewSaturation(_index : number) : number {
+	function getNewSaturation(_index) {
 		if (_index < 6) {
 			return baseSaturation + (6 - _index) * step1to5;
 		}
