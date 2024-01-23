@@ -1,5 +1,11 @@
-import {colorPalette} from './palette.js';
-import {hexToRgb,hsvToHex,rgbToHsv} from '@/uni_modules/flower-api/uni-app/color.js';
+import {
+	colorPalette
+} from './palette.js';
+import {
+	hexToRgb,
+	hsvToHex,
+	rgbToHsv
+} from '@/uni_modules/flower-api/uni-app/color.js';
 
 /**
  * 暗黑模式动态梯度算法，参考 [Arco Design色彩算法](https://arco.design/palette/list)
@@ -17,15 +23,22 @@ export const colorPaletteDark = (primaryColor, i) => {
 	const originBaseSaturation = colorHSV.s * 100;
 
 	function getNewSaturationIndexSix() {
+		let tobs = 0;
 		if (originBaseHue >= 50 && originBaseHue < 191) {
-			return originBaseSaturation - 20;
+			tobs = originBaseSaturation - 20;
 		} else {
-			return originBaseSaturation - 15;
-		}
+			tobs = originBaseSaturation - 15;
+		};
+		if (tobs >= 1) {
+			return 1;
+		} else if (tobs <= 0) {
+			return 0;
+		} else {
+			return tobs;
+		};
 	};
 
 	const baseSaturation = getNewSaturationIndexSix();
-
 	const step = Math.ceil((baseSaturation - 9) / 4);
 	const step1to5 = Math.ceil((100 - baseSaturation) / 5);
 
@@ -34,20 +47,17 @@ export const colorPaletteDark = (primaryColor, i) => {
 			return baseSaturation + (6 - _index) * step1to5;
 		}
 		if (_index == 6) {
-			if (originBaseHue >= 50 && originBaseHue < 191) {
-				return originBaseSaturation - 20;
-			} else {
-				return originBaseSaturation - 15;
-			}
+			getNewSaturationIndexSix();
 		}
 		return baseSaturation - step * (_index - 6);
 	};
 
-	const newSaturation = getNewSaturation(i) / 100;
-
+	let newSaturation = getNewSaturation(i) / 100;
+	if (newSaturation >= 1) { newSaturation = 1 } else if (newSaturation <= 0) { newSaturation = 0; };
+	
 	const retColor = hsvToHex(
 		lightColorHSV.h,
-		newSaturation > 1 ? 1 : newSaturation,
+		newSaturation,
 		lightColorHSV.v
 	);
 

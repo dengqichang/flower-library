@@ -1,7 +1,51 @@
-export let initTheme = {
+import { generate } from "@/uni_modules/flower-config/uni-app-x/arco-design-color/generate.uts"
+/**
+ * 初始化主题色彩
+ */
+let initThemeColor = {
 	primary: "#296BEF",
-	success: "#296BEF",
-	warning: "#296BEF",
-	danger: "#296BEF",
-	info: "#296BEF"
-}
+	success: "#07C160",
+	warning: "#EDA20C",
+	danger: "#D9514C"
+};
+
+const initGreyColorLight = ["#f7f8fa", "#f2f3f5", "#e5e6eb", "#c9cdd4", "#a9aeb8", "#86909c", "#6b7785", "#4e5969", "#272e3b", "#1d2129"];
+const initGreyColorDark = ["#17171a", "#2e2e30", "#484849", "#5f5f60", "#78787a", "#929293", "#ababac", "#c5c5c5", "#dfdfdf", "#f6f6f6"];
+
+let initThemeColorMap = new Map<string, string>();
+
+
+initThemeColor.toMap().forEach((v, k) => {
+	generate(v as string).map((v1, i) => {
+		initThemeColorMap.set(`${k}-${i + 1}`, v1)
+	})
+})
+
+console.log(initThemeColorMap)
+
+// const tempColorList = generate(initThemeColor['danger'] as string);
+// tempColorList.map((v) => {
+// 	console.log(v)
+// });
+
+/**
+ * 初始化缺省页色彩
+ */
+let initEmptyColor = {
+	// 主题颜色
+	themeColor: initThemeColor['primary'],
+	// 头发颜色
+	hairColor: '#483029',
+	// 衣服颜色
+	clothesColor: initThemeColor['warning'],
+	// 裤子颜色
+	trousersColor: initThemeColor['primary'],
+	// 鞋子颜色
+	shoesColor: initThemeColor['primary'],
+	// 物品颜色
+	itemColor: "#483029",
+	// 人物肤色
+	skinColor: "#ffcda5",
+	// 元素颜色
+	elementColor: "#ffffff"
+};

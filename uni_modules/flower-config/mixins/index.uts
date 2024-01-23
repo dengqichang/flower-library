@@ -2,12 +2,10 @@ import { generate } from "@/uni_modules/flower-config/uni-app-x/arco-design-colo
 export default defineMixin({
 	data() {
 		return {
-			colorList: generate() as string[]
+			
 		}
 	},
 	methods: {
-		setThemeColor(){
-			this.colorList = generate("#F76965")
-		}
+		
 	}
 })

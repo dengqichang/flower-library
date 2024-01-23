@@ -1,15 +1,15 @@
 <template>
 	<scroll-view>
-		{{colorList[0]}}
 		{{testArr['dqc']}}
 		<button @tap="onTap">跳转测试页面</button>
 	</scroll-view>
 </template>
 
 <script>
-	import mixins from "@/uni_modules/flower-config/mixins"
+	// import mixins from "@/uni_modules/flower-config/mixins"
+	import "@/uni_modules/flower-config/uni-app-x.uts"
 	export default {
-		mixins: [mixins],
+		// mixins: [mixins],
 		data() {
 			return {
 				testArr:{
@@ -18,8 +18,7 @@
 			}
 		},
 		onLoad() {
-			this.testArr['lq'] = "liuqi"; 
-			console.log(this.testArr['lq'])
+			
 		},
 		methods: {
 			onTap() {
