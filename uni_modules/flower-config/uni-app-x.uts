@@ -1,0 +1,7 @@
+export let initTheme = {
+	primary: "#296BEF",
+	success: "#296BEF",
+	warning: "#296BEF",
+	danger: "#296BEF",
+	info: "#296BEF"
+}

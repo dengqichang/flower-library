@@ -1,28 +1,25 @@
 <template>
 	<scroll-view>
 		{{colorList[0]}}
-		{{ globalNum }}
-		<button @tap="plus">跳转测试页面</button>
+		{{testArr['dqc']}}
+		<button @tap="onTap">跳转测试页面</button>
 	</scroll-view>
 </template>
 
 <script>
 	import mixins from "@/uni_modules/flower-config/mixins"
-	import { state, setGlobalNum } from "@/uni_modules/flower-config/mixins/test.uts"
 	export default {
 		mixins: [mixins],
 		data() {
 			return {
-
+				testArr:{
+					"dqc":"dengqichang"
+				}
 			}
 		},
 		onLoad() {
-			// console.log(externalVar.getString("value"))
-		},
-		computed: {
-			globalNum() : number { //定义可绑定在界面上的globalNum
-				return state.globalNum
-			}
+			this.testArr['lq'] = "liuqi"; 
+			console.log(this.testArr['lq'])
 		},
 		methods: {
 			onTap() {
@@ -30,9 +27,7 @@
 					url: '/pages/test/test'
 				});
 			},
-			plus() {
-				setGlobalNum(state.globalNum + 1)
-			}
+			
 		}
 	}
 </script>
