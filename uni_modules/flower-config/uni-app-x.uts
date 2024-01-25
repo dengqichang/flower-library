@@ -1,47 +1,81 @@
-import { generate } from "@/uni_modules/flower-config/uni-app-x/arco-design-color/generate.uts"
+import { generate } from "@/uni_modules/flower-config/uni-app-x/arco-design-color/generate.uts";
+import { isHEX } from "@/uni_modules/flower-api/uni-app-x/color.uts"
+/**
+ * 是否暗黑模式
+ */
+// let isDark : boolean = typeof uni.getStorageSync("FLOWER__IS_DARK") == "string" ? false : uni.getStorageSync("FLOWER__IS_DARK") as boolean;
+
 /**
  * 初始化主题色彩
  */
-let initThemeColor = {
+let initThemeColor : UTSJSONObject = {
 	primary: "#296BEF",
 	success: "#07C160",
 	warning: "#EDA20C",
-	danger: "#D9514C"
+	danger: "#D9514C",
+	dark: false
 };
 
-const initGreyColorLight = ["#f7f8fa", "#f2f3f5", "#e5e6eb", "#c9cdd4", "#a9aeb8", "#86909c", "#6b7785", "#4e5969", "#272e3b", "#1d2129"];
-const initGreyColorDark = ["#17171a", "#2e2e30", "#484849", "#5f5f60", "#78787a", "#929293", "#ababac", "#c5c5c5", "#dfdfdf", "#f6f6f6"];
-
-let initThemeColorMap = new Map<string, string>();
 
 
-initThemeColor.toMap().forEach((v, k) => {
-	generate(v as string).map((v1, i) => {
-		initThemeColorMap.set(`${k}-${i + 1}`, v1)
-	})
-})
+/**
+ * 初始化主题
+ */
+export function initTheme(options : UTSJSONObject = initThemeColor) : Map<string, string> {
+	let initThemeColorMap = new Map<string, string>();
+	const isDark : boolean = typeof options['dark'] == "boolean" ? options['dark'] as boolean : false;
+	const initGreyColorLight = ["#f7f8fa", "#f2f3f5", "#e5e6eb", "#c9cdd4", "#a9aeb8", "#86909c", "#6b7785", "#4e5969", "#272e3b", "#1d2129"];
+	const initGreyColorDark = ["#17171a", "#2e2e30", "#484849", "#5f5f60", "#78787a", "#929293", "#ababac", "#c5c5c5", "#dfdfdf", "#f6f6f6"];
+	// 合并
+	initThemeColor = Object.assign(initThemeColor, options);
+	// 初始化主色和辅色
+	initThemeColor.toMap().forEach((v, k) => {
+		if (typeof v == "string" && k != "dark") {
+			if (isHEX(v as string)) {
+				generate(v, isDark).map((v1, i) => {
+					initThemeColorMap.set(`${k}-${i + 1}`, v1);
+					if (i == 5) {
+						initThemeColorMap.set(`${k}`, v1);
+					};
+				});
+			} else {
+				console.error(`【flower:initTheme】当前${k}的值为${v}，不符合参数 HEX 要求。`);
+			};
+		};
+	});
+	// 初始化灰色
+	(isDark ? initGreyColorDark : initGreyColorLight).map((v, i) => {
+		initThemeColorMap.set(`grey-${i + 1}`, v);
+		if (i == 5) {
+			initThemeColorMap.set(`grey`, v);
+		};
+	});
+	return initThemeColorMap
+};
 
-console.log(initThemeColorMap)
+export function testColorFun():string{
+	return "测试"
+}
 
-// const tempColorList = generate(initThemeColor['danger'] as string);
-// tempColorList.map((v) => {
-// 	console.log(v)
-// });
+/**
+ * 初始化
+ */
+export const testColor = initTheme();
 
 /**
  * 初始化缺省页色彩
  */
 let initEmptyColor = {
 	// 主题颜色
-	themeColor: initThemeColor['primary'],
+	themeColor: testColor['primary'],
 	// 头发颜色
 	hairColor: '#483029',
 	// 衣服颜色
-	clothesColor: initThemeColor['warning'],
+	clothesColor: testColor['warning'],
 	// 裤子颜色
-	trousersColor: initThemeColor['primary'],
+	trousersColor: testColor['primary'],
 	// 鞋子颜色
-	shoesColor: initThemeColor['primary'],
+	shoesColor: testColor['primary'],
 	// 物品颜色
 	itemColor: "#483029",
 	// 人物肤色
@@ -49,3 +83,7 @@ let initEmptyColor = {
 	// 元素颜色
 	elementColor: "#ffffff"
 };
+
+export {
+	initThemeColorMap
+}

@@ -36,7 +36,7 @@ const RGB_UNIT = 255;
  * @param b 蓝色
  * @returns boolean
  */
-function isRGB(r : number, g : number, b : number) : boolean {
+export function isRGB(r : number, g : number, b : number) : boolean {
 	// 检查输入的 RGB 值是否有效
 	if (
 		isNaN(r) ||
@@ -62,7 +62,7 @@ function isRGB(r : number, g : number, b : number) : boolean {
  * @param v [0, 1]
  * @returns boolean
  */
-function isHSV(h : number, s : number, v : number) : boolean {
+export function isHSV(h : number, s : number, v : number) : boolean {
 	// 检查输入的 HSV 值是否有效
 	if (
 		isNaN(h) ||
@@ -88,7 +88,7 @@ function isHSV(h : number, s : number, v : number) : boolean {
  * @param l [0, 1]
  * @returns boolean
  */
-function isHSL(h : number, s : number, l : number) : boolean {
+export function isHSL(h : number, s : number, l : number) : boolean {
 	// 检查输入的 HSV 值是否有效
 	if (
 		isNaN(h) ||
@@ -105,6 +105,16 @@ function isHSL(h : number, s : number, l : number) : boolean {
 	}
 
 	return true;
+}
+
+/**
+ * 检查HEX颜色值是否有效
+ * @param hex HEX颜色值
+ * @returns boolean
+ */
+export function isHEX(hex : string) : boolean {
+	const hexRegex = /^#?([a-fA-F0-9]{6})$/;
+	return hexRegex.test(hex);
 }
 
 /**
@@ -210,7 +220,7 @@ export function rgbToHsv(r : number, g : number, b : number) : HSV {
 	const saturation = max == 0 ? 0 : delta / max;
 	const value = max;
 	let hue = h * 60;
-	
+
 	// 处理负数情况
 	if (hue < 0) {
 		hue += 360
@@ -221,7 +231,7 @@ export function rgbToHsv(r : number, g : number, b : number) : HSV {
 		s: saturation,
 		v: value
 	};
-	
+
 	return hsv;
 };
 

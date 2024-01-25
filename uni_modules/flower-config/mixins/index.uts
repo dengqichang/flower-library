@@ -1,8 +1,8 @@
-import { generate } from "@/uni_modules/flower-config/uni-app-x/arco-design-color/generate.uts"
+import { testColor,initTheme } from "@/uni_modules/flower-config/uni-app-x.uts"
 export default defineMixin({
 	data() {
 		return {
-			
+			initThemeColor: testColor
 		}
 	},
 	methods: {

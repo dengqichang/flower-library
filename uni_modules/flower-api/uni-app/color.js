@@ -10,7 +10,7 @@ const RGB_UNIT = 255;
  * @param b 蓝色
  * @returns boolean
  */
-function isRGB(r, g, b) {
+export function isRGB(r, g, b) {
 	// 检查输入的 RGB 值是否有效
 	if (
 		isNaN(r) ||
@@ -36,7 +36,7 @@ function isRGB(r, g, b) {
  * @param v [0, 1]
  * @returns boolean
  */
-function isHSV(h, s, v) {
+export function isHSV(h, s, v) {
 	// 检查输入的 HSV 值是否有效
 	if (
 		isNaN(h) ||
@@ -62,7 +62,7 @@ function isHSV(h, s, v) {
  * @param l [0, 1]
  * @returns boolean
  */
-function isHSL(h, s, l) {
+export function isHSL(h, s, l) {
 	// 检查输入的 HSV 值是否有效
 	if (
 		isNaN(h) ||
@@ -79,6 +79,16 @@ function isHSL(h, s, l) {
 	}
 
 	return true;
+}
+
+/**
+ * 检查是否为HEX值
+ * @param hex HEX颜色值
+ * @returns boolean
+ */
+export function isHEX(hex) {
+	const hexRegex = /^#?([a-fA-F0-9]{6})$/;
+	return hexRegex.test(hex);
 }
 
 /**
@@ -190,7 +200,7 @@ export function rgbToHsv(r, g, b) {
 		hue += 360
 	};
 
-	const hsv : HSV = {
+	const hsv: HSV = {
 		h: hue,
 		s: saturation,
 		v: value
@@ -210,7 +220,7 @@ export function rgbToHsv(r, g, b) {
  * const rgbColor: RGBColor = hsvToRgb(hsvColor);
  * console.log(rgbColor); // 输出：{ r: 0, g: 189, b: 123 }
  */
-export function hsvToRgb(h, s, v) : RGB {
+export function hsvToRgb(h, s, v): RGB {
 	// 检查hsv颜色值是否有效
 	if (!isHSV(h, s, v)) {
 		throw new Error('【color:hsvToRgb】hsv颜色值无效，请检查hsv单个颜色值是否在指定范围内，h->0-360，s->0-1，v->0-1');
@@ -434,7 +444,11 @@ export function rgbToHex(r, g, b) {
  * console.log(hexColor); // 输出：#342673
  */
 export function hslToHex(h, s, l) {
-	const { r, g, b } = hslToRgb(h, s, l);
+	const {
+		r,
+		g,
+		b
+	} = hslToRgb(h, s, l);
 
 	return rgbToHex(r, g, b).toUpperCase();
 };
@@ -451,7 +465,11 @@ export function hslToHex(h, s, l) {
  * console.log(hexColor); // 输出 #0ac785
  */
 export function hsvToHex(h, s, v) {
-	const { r, g, b } = hsvToRgb(h, s, v);
+	const {
+		r,
+		g,
+		b
+	} = hsvToRgb(h, s, v);
 
 	return rgbToHex(r, g, b).toUpperCase();
 };

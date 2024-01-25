@@ -1,24 +1,23 @@
 <template>
 	<scroll-view>
-		{{testArr['dqc']}}
+		{{testArr['success-1']}}
 		<button @tap="onTap">跳转测试页面</button>
 	</scroll-view>
 </template>
 
 <script>
-	// import mixins from "@/uni_modules/flower-config/mixins"
-	import "@/uni_modules/flower-config/uni-app-x.uts"
+	import mixins from "@/uni_modules/flower-config/mixins"
+	import { testColor,initTheme,testColorFun } from "@/uni_modules/flower-config/uni-app-x.uts"
 	export default {
-		// mixins: [mixins],
+		mixins: [mixins],
 		data() {
 			return {
-				testArr:{
-					"dqc":"dengqichang"
-				}
+				testArr:initTheme()
 			}
 		},
 		onLoad() {
 			
+			console.log(this.testArr)
 		},
 		methods: {
 			onTap() {
