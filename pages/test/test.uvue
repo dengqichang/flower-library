@@ -1,13 +1,13 @@
 <template>
 	<scroll-view>
-		
+		{{initThemeColor['success-1']}}
 	</scroll-view>
 </template>
 
 <script>
-	// import mixins from "@/uni_modules/flower-config/mixins"
+	import mixins from "@/uni_modules/flower-config/mixins"
 	export default {
-		// mixins: [mixins],
+		mixins: [mixins],
 		data() {
 			return {
 				
