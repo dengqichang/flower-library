@@ -1,9 +1,18 @@
 <template>
 	<view class="__flower-svg">
-		<web-view v-if="isShow" class="__flower-web-view" :id="wv" @message="changeMessage" src="/uni_modules/flower-svg/hybrid/html/index.html" />
+		<!-- #ifdef APP -->
+		<web-view v-if="isShow" class="__flower-web-view" :id="wv" @message="changeMessage"
+			src="/uni_modules/flower-svg/hybrid/html/index.html" />
 		<image :src="png" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
 			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
 			@error="changeError" @load="changeLoad" />
+		<!-- #endif -->
+		<!-- #ifndef APP -->
+		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`"
+			:style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
+			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
+			@error="changeError" @load="changeLoad" />
+		<!-- #endif -->
 	</view>
 </template>
 
