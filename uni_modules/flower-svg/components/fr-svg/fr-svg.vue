@@ -2,15 +2,10 @@
 	<view class="__flower-svg">
 		<!-- #ifdef APP-PLUS-NVUE -->
 		<web-view v-if="isShow" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessage" src="/uni_modules/flower-svg/hybrid/html/index.html" />
-		<image :src="png" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
-			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
-			@error="changeError" @load="changeLoad" />
+		<image :src="png" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 		<!-- #ifndef APP-PLUS-NVUE -->
-		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`"
-			:style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
-			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
-			@error="changeError" @load="changeLoad" />
+		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 	</view>
 </template>

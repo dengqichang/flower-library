@@ -1,7 +1,7 @@
 {
 	"id": "flower-svg",
 	"displayName": "flower-svg 图组件，全平台全版本兼容，最新支持 uni-app-x",
-	"version": "1.0.1",
+	"version": "1.0.3",
 	"description": "一款适用于 uni-app / uni-app-x 的 SVG 组件，全端全版本适配",
 	"keywords": [
         "vue,nvue,uvue,vue2版本,vue3版本,svg"

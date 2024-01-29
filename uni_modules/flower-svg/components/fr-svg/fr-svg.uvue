@@ -1,17 +1,13 @@
 <template>
 	<view class="__flower-svg">
 		<!-- #ifdef APP -->
-		<web-view v-if="isShow" class="__flower-web-view" :id="wv" @message="changeMessage"
-			src="/uni_modules/flower-svg/hybrid/html/index.html" />
-		<image :src="png" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
-			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
-			@error="changeError" @load="changeLoad" />
+		<web-view v-if="isShow" class="__flower-web-view" :id="wv" @message="changeMessage" src="/uni_modules/flower-svg/hybrid/html/index.html" />
+		<!-- @load="changeLoad" uni-app-x 4.0 版本后添加-->
+		<image :src="png" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" />
 		<!-- #endif -->
 		<!-- #ifndef APP -->
-		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`"
-			:style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
-			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
-			@error="changeError" @load="changeLoad" />
+		<!-- @load="changeLoad" uni-app-x 4.0 版本后添加-->
+		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" />
 		<!-- #endif -->
 	</view>
 </template>
@@ -97,7 +93,7 @@
 			changeError(event : ImageErrorEvent) {
 				this.$emit("error", event)
 			},
-			changeLoad(event : ImageLoadEvent) {
+			changeLoad(event : ImageErrorEvent) {
 				this.$emit("load", event)
 			}
 		}
