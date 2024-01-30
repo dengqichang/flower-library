@@ -1,15 +1,28 @@
 <template>
-    <view>
-        <fr-svg :src="svg" width="100" height="100" />
-    </view>
+	<scroll-view>
+		
+	</scroll-view>
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                svg: '<?xml version="1.0" encoding="UTF-8"?><svg width="200" height="200" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 6C10 4.89543 10.8954 4 12 4H36C37.1046 4 38 4.89543 38 6V44L31 39L24 44L17 39L10 44V6Z" fill="#2F88FF" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 22L30 22" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 30L30 30" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 14L30 14" stroke="#FFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-            }
-        }
-    }
+	import mixins from "@/uni_modules/flower-config/mixins"
+	import "@/uni_modules/flower-config/uni-app-x.uts"
+	export default {
+		mixins: [mixins],
+		data() {
+			return {
+				
+			}
+		},
+		onLoad() {
+			
+		},
+		methods: {
+			
+		}
+	}
 </script>
+
+<style>
+
+</style>

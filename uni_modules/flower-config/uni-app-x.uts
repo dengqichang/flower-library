@@ -22,9 +22,6 @@ export function setFlowerConfig(options : UTSJSONObject){
 	console.log(options['theme']??"123")
 };
 
-setFlowerConfig({
-	
-})
 
 /**
  * 初始化主题
@@ -66,7 +63,7 @@ export function initTheme(options : UTSJSONObject = initThemeColor) : Map<string
  * 初始化
  */
 export const testColor = initTheme();
-
+console.log(initTheme())
 /**
  * 初始化缺省页色彩
  */
@@ -88,7 +85,3 @@ let initEmptyColor = {
 	// 元素颜色
 	elementColor: "#ffffff"
 };
-
-export {
-	initThemeColorMap
-}
