@@ -11,7 +11,7 @@
 		mixins: [mixins],
 		data() {
 			return {
-				
+				test:"deng"
 			}
 		},
 		onLoad() {
