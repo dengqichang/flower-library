@@ -1,16 +1,33 @@
 <template>
 	<view class="__flower-svg">
 		<!-- #ifdef APP-PLUS-NVUE -->
-		<web-view v-if="isShow" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessage" src="/uni_modules/flower-svg/hybrid/html/index.html" />
-		<image :src="png" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
+		<web-view v-if="isShowWV" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessage"
+			src="/uni_modules/flower-svg/hybrid/html/index.html" />
+		<!-- #ifdef VUE3 -->
+		<image :src="store[getIsStoreId()]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode"
+			:fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress"
+			:draggable="draggable" @error="changeError" @load="changeLoad" />
+		<!-- #endif -->
+		<!-- #ifdef VUE2 -->
+		<image :src="png" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
+			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
+			@error="changeError" @load="changeLoad" />
+		<!-- #endif -->
 		<!-- #endif -->
 		<!-- #ifndef APP-PLUS-NVUE -->
-		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
+		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`"
+			:style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
+			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
+			@error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 	</view>
 </template>
 
 <script>
+	import {
+		store,
+		uuid
+	} from "../../core/store.js";
 	/**
 	 * flower-svg svg组件
 	 * @description 一款适用于 uni-app / uni-app-x 的 SVG 组件。全端全版本适配。
@@ -26,6 +43,10 @@
 	 */
 	export default {
 		props: {
+			svgId: { // 唯一标识
+				type: String,
+				default: ""
+			},
 			src: {
 				type: String,
 				default: ""
@@ -62,16 +83,30 @@
 		// #ifdef APP-PLUS-NVUE
 		data() {
 			return {
-				wv: this.uuid(32),
+				// #ifdef VUE3
+				store: store,
+				isShowWV: false,
+				// #endif
+				wv: uuid(32),
+				// #ifdef VUE2
 				png: "",
-				isShow: true
+				isShowWV: true,
+				// #endif
 			}
 		},
 		watch: {
 			src() {
-				this.isShow = true;
+				this.isShowWV = true;
 			}
 		},
+		// #ifdef VUE3
+		created() {
+			if (this.store[this.getIsStoreId()] == undefined) {
+				this.store[this.getIsStoreId()] = "";
+				this.isShowWV = true;
+			};
+		},
+		// #endif
 		// #endif
 		methods: {
 			// #ifdef APP-PLUS-NVUE
@@ -79,18 +114,21 @@
 				if (e.detail.data[0].isInitialize) {
 					this.$refs[this.wv].evalJS(`onReceiveSvg('${this.src}')`);
 				} else {
+					// #ifdef VUE3
+					this.store[this.getIsStoreId()] = e.detail.data[0].png;
+					// #endif
+					// #ifdef VUE2
 					this.png = e.detail.data[0].png;
-					this.isShow = false;
+					// #endif
+					this.isShowWV = false;
 				};
 			},
-			uuid(length) {
-				let uuid = "";
-				let chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
-				for (let i = 0; i < length; i++) {
-					uuid += chars[Math.floor(Math.random() * chars.length)];
-				};
-				return uuid
+			// #ifdef VUE3
+			// 获取当前的id标识
+			getIsStoreId() {
+				return this.svgId === "" ? this.wv : this.svgId
 			},
+			// #endif
 			// #endif
 			changeError(event) {
 				this.$emit("error", event)
