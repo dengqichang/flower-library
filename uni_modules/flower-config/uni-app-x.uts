@@ -63,7 +63,7 @@ export function initTheme(options : UTSJSONObject = initThemeColor) : Map<string
  * 初始化
  */
 export const testColor = initTheme();
-console.log(initTheme())
+// console.log(initTheme())
 /**
  * 初始化缺省页色彩
  */

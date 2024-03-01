@@ -1,0 +1,62 @@
+<template>
+	<web-view v-show="false" :id="wv" @message="changeMessageWv"
+		src="/uni_modules/flower-config/hybrid/html/index.html" />
+</template>
+
+<script>
+	import { store, uuid } from "../../store/wvStore.uts";
+	export default {
+		data() {
+			return {
+				store: store as UTSJSONObject,
+				wv: uuid(32) as string,
+				webviewContext: null as WebviewContext | null,
+			}
+		},
+		props: {
+			type: {
+				type: String,
+				default: "svg"
+			},
+			resourceId: {
+				type: String,
+				default: ""
+			},
+			resource: {
+				type: String,
+				default: `<?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 37V44V37Z" fill="none"/><path d="M24 37V44" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M36 24H44H36Z" fill="none"/><path d="M36 24H44" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M4 24H11H4Z" fill="none"/><path d="M4 24H11" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 11V4V11Z" fill="none"/><path d="M24 11V4" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+			}
+		},
+		beforeCreate() {
+			if(this.store.get(this.getCurrentPagesRoute()) == null){
+				this.store.set(this.getCurrentPagesRoute(), true);
+			}else{
+				console.log("存在")
+			}
+		},
+		watch: {
+			resource() {
+				this.webviewContext?.evalJS(`onPostMessage('${this.type}','${this.resource}')`);
+			}
+		},
+		methods: {
+			changeMessageWv(event : UniWebViewMessageEvent) {
+				if ((event.detail.data?.get("isInitialize") ?? false) == true) {
+					this.webviewContext = uni.createWebviewContext(this.wv, this);
+					this.webviewContext?.evalJS(`onPostMessage('${this.type}','${this.resource}')`);
+				} else {
+					// this.store.set(this.resourceId, event.detail.data?.get("png"));
+					console.log(event.detail.data?.get("result"))
+				};
+			},
+			getCurrentPagesRoute():string{
+				const _pages = getCurrentPages();
+				return _pages[_pages.length - 1].route;
+			}
+		}
+	}
+</script>
+
+<style>
+
+</style>

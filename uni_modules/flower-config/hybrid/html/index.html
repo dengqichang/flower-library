@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>wvjs</title>
+	</head>
+	<body>
+		<script type="text/javascript" src="./uni.webview.1.5.5.js"></script>
+		<script type="text/javascript">
+			// 初始化时候抛送
+			uni.webView.postMessage({data: {isInitialize: true}});
+			/**
+			 * 响应 web-view png 数据
+			 * @param {Object} svg svg格式参数，不能是svg图片
+			 */
+			function onPostMessage(type, resource) {
+				// 转化svg为png时的类型
+				if (type == "svg") {
+					svgTurnPng(resource);
+				};
+			};
+			/**
+			 * svg转png
+			 * @param {Object} svg vg格式参数，不能是svg图片
+			 */
+			let initImage = null;
+			let initCanvas = null;
+			function svgTurnPng(svg) {
+				const src = `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(svg)))}`;
+				if (initImage == null) {initImage = new Image();};
+				initImage.src = src;
+				// svg图片加载后再执行，转Base64过程
+				initImage.onload = () => {
+					if (initCanvas == null) {initCanvas = document.createElement('canvas');};
+					initCanvas.width = initImage.width;
+					initCanvas.height = initImage.height;
+					const context = initCanvas.getContext('2d');
+					context.drawImage(initImage, 0, 0);
+					uni.webView.postMessage({data: {result: initCanvas.toDataURL('image/png')}});
+				};
+			};
+		</script>
+	</body>
+</html>
