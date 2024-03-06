@@ -1,6 +1,5 @@
 <template>
-	<web-view v-show="false" :id="wv" @message="changeMessageWv"
-		src="/uni_modules/flower-config/hybrid/html/index.html" />
+	<web-view v-if="isInit" class="__flower-web-view" :id="wv" @message="changeMessageWv" src="/uni_modules/flower-config/hybrid/html/index.html" />
 </template>
 
 <script>
@@ -11,6 +10,7 @@
 				store: store as UTSJSONObject,
 				wv: uuid(32) as string,
 				webviewContext: null as WebviewContext | null,
+				isInit: false as Boolean
 			}
 		},
 		props: {
@@ -28,11 +28,10 @@
 			}
 		},
 		beforeCreate() {
-			if(this.store.get(this.getCurrentPagesRoute()) == null){
-				this.store.set(this.getCurrentPagesRoute(), true);
-			}else{
-				console.log("存在")
-			}
+			if (this.store.get(this.getCurrentPagesRoute()) == null) {
+				this.isInit = true;
+				this.store.set(this.getCurrentPagesRoute(), this.wv);
+			};
 		},
 		watch: {
 			resource() {
@@ -42,14 +41,14 @@
 		methods: {
 			changeMessageWv(event : UniWebViewMessageEvent) {
 				if ((event.detail.data?.get("isInitialize") ?? false) == true) {
-					this.webviewContext = uni.createWebviewContext(this.wv, this);
+					this.webviewContext = uni.createWebviewContext(this.store.get(this.getCurrentPagesRoute()) as string, this);
 					this.webviewContext?.evalJS(`onPostMessage('${this.type}','${this.resource}')`);
 				} else {
 					// this.store.set(this.resourceId, event.detail.data?.get("png"));
 					console.log(event.detail.data?.get("result"))
 				};
 			},
-			getCurrentPagesRoute():string{
+			getCurrentPagesRoute() : string {
 				const _pages = getCurrentPages();
 				return _pages[_pages.length - 1].route;
 			}
@@ -58,5 +57,9 @@
 </script>
 
 <style>
-
+	.__flower-web-view {
+		display: none;
+		width: 0rpx;
+		height: 0rpx;
+	}
 </style>
