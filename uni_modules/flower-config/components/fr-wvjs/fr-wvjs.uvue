@@ -1,13 +1,15 @@
 <template>
-	<web-view v-if="isInit" class="__flower-web-view" :id="wv" @message="changeMessageWv" src="/uni_modules/flower-config/hybrid/html/index.html" />
+	<web-view v-if="isInit" class="__flower-web-view" :id="wv" @message="changeMessageWv"
+		src="/uni_modules/flower-config/hybrid/html/index.html" />
 </template>
 
 <script>
-	import { store, uuid } from "../../store/wvStore.uts";
+	import { cacheStore, pageStore, pageIsStore, webviewContextStore, uuid, getCurrentPagesRoute } from "../../store/wvStore.uts";
 	export default {
 		data() {
 			return {
-				store: store as UTSJSONObject,
+				cacheStore: cacheStore as UTSJSONObject,
+				pageIsStore: pageIsStore as UTSJSONObject,
 				wv: uuid(32) as string,
 				webviewContext: null as WebviewContext | null,
 				isInit: false as Boolean
@@ -16,41 +18,51 @@
 		props: {
 			type: {
 				type: String,
-				default: "svg"
+				default: "svg",
 			},
 			resourceId: {
 				type: String,
-				default: ""
+				default: "",
+				required: true
 			},
 			resource: {
 				type: String,
-				default: `<?xml version="1.0" encoding="UTF-8"?><svg width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 37V44V37Z" fill="none"/><path d="M24 37V44" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M36 24H44H36Z" fill="none"/><path d="M36 24H44" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M4 24H11H4Z" fill="none"/><path d="M4 24H11" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path fill-rule="evenodd" clip-rule="evenodd" d="M24 11V4V11Z" fill="none"/><path d="M24 11V4" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+				default: ``
 			}
 		},
 		beforeCreate() {
-			if (this.store.get(this.getCurrentPagesRoute()) == null) {
+			if (pageStore.get(getCurrentPagesRoute()) == null) {
 				this.isInit = true;
-				this.store.set(this.getCurrentPagesRoute(), this.wv);
-			};
+				pageStore.set(getCurrentPagesRoute(), this.wv);
+				this.pageIsStore.set(getCurrentPagesRoute(), false);
+			}else{
+				
+			}
+		},
+		mounted() {
+			this.$watch(this.pageIsStore, function (newValue : UTSJSONObject) {
+				console.log("1")
+				if (newValue.getBoolean(getCurrentPagesRoute()) as boolean && this.cacheStore.get(this.resourceId) == null) {
+					webviewContextStore.get(getCurrentPagesRoute())?.evalJS(`onPostMessage('${this.type}','${this.resourceId}','${this.resource}')`);
+				};
+			});
+		},
+		unmounted() {
+			
 		},
 		watch: {
 			resource() {
-				this.webviewContext?.evalJS(`onPostMessage('${this.type}','${this.resource}')`);
+				webviewContextStore.get(getCurrentPagesRoute())?.evalJS(`onPostMessage('${this.type}','${this.resourceId}','${this.resource}')`);
 			}
 		},
 		methods: {
 			changeMessageWv(event : UniWebViewMessageEvent) {
 				if ((event.detail.data?.get("isInitialize") ?? false) == true) {
-					this.webviewContext = uni.createWebviewContext(this.store.get(this.getCurrentPagesRoute()) as string, this);
-					this.webviewContext?.evalJS(`onPostMessage('${this.type}','${this.resource}')`);
+					webviewContextStore.set(getCurrentPagesRoute(), uni.createWebviewContext(pageStore.get(getCurrentPagesRoute()) as string, this) as WebviewContext);
+					this.pageIsStore.set(getCurrentPagesRoute(), true);
 				} else {
-					// this.store.set(this.resourceId, event.detail.data?.get("png"));
-					console.log(event.detail.data?.get("result"))
+					this.cacheStore.set(event.detail.data?.get("id") as string, event.detail.data?.get("result") as string);
 				};
-			},
-			getCurrentPagesRoute() : string {
-				const _pages = getCurrentPages();
-				return _pages[_pages.length - 1].route;
 			}
 		}
 	}

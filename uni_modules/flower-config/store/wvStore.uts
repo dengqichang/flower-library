@@ -1,8 +1,14 @@
 import { reactive } from "vue";
 
-let store = reactive({
-	
-});
+// 缓存
+let cacheStore = reactive({});
+// 缓存
+let pageIsStore = reactive({});
+// 页面
+let pageStore = new Map<string, string>();
+// webviewContext
+let webviewContextStore = new Map<string, WebviewContext>();
+
 
 function uuid(length : number) : string {
 	let uuid : string = "";
@@ -11,6 +17,11 @@ function uuid(length : number) : string {
 	return uuid;
 };
 
+function getCurrentPagesRoute() : string {
+	const _pages = getCurrentPages();
+	return _pages[_pages.length - 1].route;
+}
+
 export {
-	store, uuid
+	cacheStore, pageStore, pageIsStore, webviewContextStore, uuid, getCurrentPagesRoute
 }

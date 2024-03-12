@@ -1,0 +1,23 @@
+<template>
+	<view>
+		<abdominal></abdominal>
+		<a-cane></a-cane>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				
+			}
+		},
+		methods: {
+			
+		}
+	}
+</script>
+
+<style>
+
+</style>

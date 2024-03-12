@@ -1,9 +1,8 @@
 <template>
 	<view class="__flower-svg">
 		<!-- #ifdef APP -->
-		<web-view v-if="isShowWV" class="__flower-web-view" :id="wv" @message="changeMessage"
-			src="/uni_modules/flower-svg/hybrid/html/index.html" />
-		<image :src="store[getIsStoreId()]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode"
+		<fr-wvjs :resourceId="svgId" :resource="src" />
+		<image :src="cacheStore[svgId]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode"
 			:fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress"
 			:draggable="draggable" @error="changeError" @load="changeLoad" />
 		<!-- #endif -->
@@ -17,7 +16,7 @@
 </template>
 
 <script>
-	import { store, uuid } from "../../core/store.uts"
+	import { cacheStore } from "@/uni_modules/flower-config/store/wvStore.uts"
 	/**
 	 * flower-svg svg组件
 	 * @description 一款适用于 uni-app / uni-app-x 的 SVG 组件。全端全版本适配。
@@ -73,40 +72,11 @@
 		// #ifdef APP
 		data() {
 			return {
-				store: store as UTSJSONObject,
-				wv: uuid(32) as string,
-				webviewContext: null as WebviewContext | null,
-				isShowWV: false as boolean
+				cacheStore: cacheStore as UTSJSONObject,
 			}
-		},
-		watch: {
-			src() {
-				this.isShowWV = true;
-			}
-		},
-		created() {
-			if (this.store[this.getIsStoreId()] == null) {
-				this.store[this.getIsStoreId()] = "";
-				this.isShowWV = true;
-			};
 		},
 		// #endif
 		methods: {
-			// #ifdef APP
-			changeMessage(event : UniWebViewMessageEvent) {
-				if ((event.detail.data?.get("isInitialize") ?? false) == true) {
-					this.webviewContext = uni.createWebviewContext(this.wv, this);
-					this.webviewContext?.evalJS(`onReceiveSvg('${this.src}')`);
-				} else {
-					this.store.set(this.getIsStoreId(), event.detail.data?.get("png"));
-					this.isShowWV = false;
-				};
-			},
-			// 获取当前的id标识
-			getIsStoreId() : string {
-				return this.svgId === "" ? this.wv : this.svgId
-			},
-			// #endif
 			changeError(event : UniImageErrorEvent) {
 				this.$emit("error", event)
 			},
@@ -118,12 +88,5 @@
 </script>
 
 <style scoped>
-	.__flower-svg {
-		display: flex;
-	}
 
-	.__flower-web-view {
-		width: 0rpx;
-		height: 0rpx;
-	}
 </style>

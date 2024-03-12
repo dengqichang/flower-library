@@ -14,30 +14,28 @@
 			 * 响应 web-view png 数据
 			 * @param {Object} svg svg格式参数，不能是svg图片
 			 */
-			function onPostMessage(type, resource) {
+			function onPostMessage(type,resourceId,resource) {
 				// 转化svg为png时的类型
 				if (type == "svg") {
-					svgTurnPng(resource);
+					svgTurnPng(resourceId,resource);
 				};
 			};
 			/**
 			 * svg转png
 			 * @param {Object} svg vg格式参数，不能是svg图片
 			 */
-			let initImage = null;
-			let initCanvas = null;
-			function svgTurnPng(svg) {
+			function svgTurnPng(id,svg) {
 				const src = `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(svg)))}`;
-				if (initImage == null) {initImage = new Image();};
-				initImage.src = src;
+				const img = new Image();
+				img.src = src;
 				// svg图片加载后再执行，转Base64过程
-				initImage.onload = () => {
-					if (initCanvas == null) {initCanvas = document.createElement('canvas');};
-					initCanvas.width = initImage.width;
-					initCanvas.height = initImage.height;
-					const context = initCanvas.getContext('2d');
-					context.drawImage(initImage, 0, 0);
-					uni.webView.postMessage({data: {result: initCanvas.toDataURL('image/png')}});
+				img.onload = () => {
+					const canvas = document.createElement('canvas');
+					canvas.width = img.width;
+					canvas.height = img.height;
+					const context = canvas.getContext('2d');
+					context.drawImage(img, 0, 0);
+					uni.webView.postMessage({data: {id: id,result: canvas.toDataURL('image/png')}});
 				};
 			};
 		</script>
