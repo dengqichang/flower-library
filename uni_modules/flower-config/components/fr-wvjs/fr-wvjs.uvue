@@ -4,15 +4,14 @@
 </template>
 
 <script>
-	import { cacheStore, pageStore, pageIsStore, webviewContextStore, uuid, getCurrentPagesRoute } from "../../store/wvStore.uts";
+	import { cacheStore, pageStoreMap, tempStoreMap, webviewContextStoreMap, uuid, getCurrentPagesRoute } from "../../store/wvStore.uts";
 	export default {
 		data() {
 			return {
 				cacheStore: cacheStore as UTSJSONObject,
-				pageIsStore: pageIsStore as UTSJSONObject,
 				wv: uuid(32) as string,
-				webviewContext: null as WebviewContext | null,
-				isInit: false as Boolean
+				isInit: false as Boolean,
+				getCurrentPagesRoute: getCurrentPagesRoute()
 			}
 		},
 		props: {
@@ -27,43 +26,50 @@
 			},
 			resource: {
 				type: String,
-				default: ``
+				default: "",
+				required: true
 			}
 		},
 		beforeCreate() {
-			if (pageStore.get(getCurrentPagesRoute()) == null) {
-				this.isInit = true;
-				pageStore.set(getCurrentPagesRoute(), this.wv);
-				this.pageIsStore.set(getCurrentPagesRoute(), false);
-			}else{
-				
-			}
-		},
-		mounted() {
-			this.$watch(this.pageIsStore, function (newValue : UTSJSONObject) {
-				console.log("1")
-				if (newValue.getBoolean(getCurrentPagesRoute()) as boolean && this.cacheStore.get(this.resourceId) == null) {
-					webviewContextStore.get(getCurrentPagesRoute())?.evalJS(`onPostMessage('${this.type}','${this.resourceId}','${this.resource}')`);
+			if (webviewContextStoreMap.get(this.getCurrentPagesRoute) == null) {
+				if (this.cacheStore.get(this.resourceId) == null) {
+					tempStoreMap.set(this.resourceId, this.resource);
 				};
-			});
-		},
-		unmounted() {
-			
+			} else {
+				this.getwebviewContext(this.resourceId, this.resource);
+			};
+
+			if (pageStoreMap.get(this.getCurrentPagesRoute) == null) {
+				this.isInit = true;
+				pageStoreMap.set(this.getCurrentPagesRoute as string, this.wv);
+			};
 		},
 		watch: {
 			resource() {
-				webviewContextStore.get(getCurrentPagesRoute())?.evalJS(`onPostMessage('${this.type}','${this.resourceId}','${this.resource}')`);
+				this.getwebviewContext(this.resourceId, this.resource);
 			}
 		},
 		methods: {
 			changeMessageWv(event : UniWebViewMessageEvent) {
 				if ((event.detail.data?.get("isInitialize") ?? false) == true) {
-					webviewContextStore.set(getCurrentPagesRoute(), uni.createWebviewContext(pageStore.get(getCurrentPagesRoute()) as string, this) as WebviewContext);
-					this.pageIsStore.set(getCurrentPagesRoute(), true);
+					webviewContextStoreMap.set(this.getCurrentPagesRoute as string, uni.createWebviewContext(pageStoreMap.get(this.getCurrentPagesRoute) as string, this) as WebviewContext);
+					tempStoreMap.forEach(function (value : string, key : string) {
+						this.getwebviewContext(key, value);
+					});
 				} else {
 					this.cacheStore.set(event.detail.data?.get("id") as string, event.detail.data?.get("result") as string);
+					tempStoreMap.delete(event.detail.data?.get("id") as string);
+				};
+			},
+			getwebviewContext(resourceId : string, resource : string) {
+				if (this.cacheStore.get(resourceId) == null) {
+					webviewContextStoreMap.get(this.getCurrentPagesRoute)?.evalJS(`onPostMessage('${this.type}','${resourceId}','${resource}')`);
 				};
 			}
+		},
+		unmounted() {
+			webviewContextStoreMap.delete(this.getCurrentPagesRoute as string);
+			pageStoreMap.delete(this.getCurrentPagesRoute as string);
 		}
 	}
 </script>

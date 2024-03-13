@@ -2,13 +2,12 @@ import { reactive } from "vue";
 
 // 缓存
 let cacheStore = reactive({});
-// 缓存
-let pageIsStore = reactive({});
 // 页面
-let pageStore = new Map<string, string>();
+let pageStoreMap = new Map<string, string>();
 // webviewContext
-let webviewContextStore = new Map<string, WebviewContext>();
-
+let webviewContextStoreMap = new Map<string, WebviewContext>();
+// 临时存储
+let tempStoreMap = new Map<string, string>();
 
 function uuid(length : number) : string {
 	let uuid : string = "";
@@ -23,5 +22,5 @@ function getCurrentPagesRoute() : string {
 }
 
 export {
-	cacheStore, pageStore, pageIsStore, webviewContextStore, uuid, getCurrentPagesRoute
+	cacheStore, pageStoreMap, tempStoreMap, webviewContextStoreMap, uuid, getCurrentPagesRoute
 }

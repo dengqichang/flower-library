@@ -1,5 +1,5 @@
 <template>
-	<fr-svg :width="size" :height="size" :src="iconSvg" />
+	<fr-svg :svgId="`acceleration-${size}${strokeWidth}${theme}${fill}${strokeLinecap}${strokeLinejoin}`" :width="size" :height="size" :src="iconSvg" />
 </template>
 <script>
 	// #ifdef UNI-APP-X
