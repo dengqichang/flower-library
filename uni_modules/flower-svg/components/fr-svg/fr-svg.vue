@@ -2,7 +2,7 @@
 	<view class="__flower-svg">
 		<!-- #ifdef APP-PLUS-NVUE -->
 		<fr-wvjs :resourceId="svgId" :resource="src" />
-		<image :src="deepComputed[svgId]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode"
+		<image :src="cacheStore[svgId]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode"
 			:fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress"
 			:draggable="draggable" @error="changeError" @load="changeLoad" />
 		<!-- #endif -->
@@ -75,10 +75,10 @@
 		data() {
 			return {
 				// #ifdef VUE2
-				cacheStores: cacheStore.state,
+				cacheStore: cacheStore.state,
 				// #endif
 				// #ifdef VUE3
-				cacheStores: cacheStore,
+				cacheStore: cacheStore,
 				// #endif
 			}
 		},
