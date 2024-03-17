@@ -74,12 +74,7 @@
 		// #ifdef APP-PLUS-NVUE
 		data() {
 			return {
-				// #ifdef VUE2
-				cacheStore: cacheStore.state,
-				// #endif
-				// #ifdef VUE3
-				cacheStore: cacheStore,
-				// #endif
+				cacheStore: cacheStore
 			}
 		},
 		// #endif

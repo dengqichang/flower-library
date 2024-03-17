@@ -1,19 +1,11 @@
 // #ifdef VUE2
-import Vue from 'vue'
-import Vuex from 'vuex'
-Vue.use(Vuex);
-const cacheStore = new Vuex.Store({
-	state: {
-		
-	}
-});
-
-Vue.prototype.$store = cacheStore
+let cacheStore = {};
 // #endif
 // #ifdef VUE3
 import { reactive } from "vue";
 let cacheStore = reactive({});
 // #endif
+
 // 页面
 let pageStoreMap = {};
 // webviewContext

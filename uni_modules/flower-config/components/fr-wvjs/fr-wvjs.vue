@@ -15,12 +15,7 @@
 	export default {
 		data() {
 			return {
-				// #ifdef VUE2
-				cacheStore: cacheStore.state,
-				// #endif
-				// #ifdef VUE3
 				cacheStore: cacheStore,
-				// #endif
 				wv: uuid(32),
 				isInit: false,
 				getCurrentPagesRoute: getCurrentPagesRoute()
@@ -69,7 +64,12 @@
 						this.getwebviewContext(i, tempStoreMap[i]);
 					};
 				} else {
+					// #ifdef VUE3
 					this.cacheStore[event.detail.data[0].id] = event.detail.data[0].result;
+					// #endif
+					// #ifdef VUE2
+					Vue.set(this.cacheStore, event.detail.data[0].id, event.detail.data[0].result);
+					// #endif
 					delete tempStoreMap[event.detail.data[0].id];
 				};
 			},
