@@ -200,7 +200,7 @@ export function rgbToHsv(r, g, b) {
 		hue += 360
 	};
 
-	const hsv: HSV = {
+	const hsv = {
 		h: hue,
 		s: saturation,
 		v: value
@@ -220,7 +220,7 @@ export function rgbToHsv(r, g, b) {
  * const rgbColor: RGBColor = hsvToRgb(hsvColor);
  * console.log(rgbColor); // 输出：{ r: 0, g: 189, b: 123 }
  */
-export function hsvToRgb(h, s, v): RGB {
+export function hsvToRgb(h, s, v) {
 	// 检查hsv颜色值是否有效
 	if (!isHSV(h, s, v)) {
 		throw new Error('【color:hsvToRgb】hsv颜色值无效，请检查hsv单个颜色值是否在指定范围内，h->0-360，s->0-1，v->0-1');
