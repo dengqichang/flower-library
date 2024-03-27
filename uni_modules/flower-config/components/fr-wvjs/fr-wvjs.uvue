@@ -30,18 +30,18 @@
 				required: true
 			}
 		},
-		beforeCreate() {
+		created() {
+			if (pageStoreMap.get(this.getCurrentPagesRoute) == null) {
+				this.isInit = true;
+				pageStoreMap.set(this.getCurrentPagesRoute as string, this.wv);
+			};
+			
 			if (webviewContextStoreMap.get(this.getCurrentPagesRoute) == null) {
 				if (this.cacheStore.get(this.resourceId) == null) {
 					tempStoreMap.set(this.resourceId, this.resource);
 				};
 			} else {
 				this.getwebviewContext(this.resourceId, this.resource);
-			};
-
-			if (pageStoreMap.get(this.getCurrentPagesRoute) == null) {
-				this.isInit = true;
-				pageStoreMap.set(this.getCurrentPagesRoute as string, this.wv);
 			};
 		},
 		watch: {

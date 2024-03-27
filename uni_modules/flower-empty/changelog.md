@@ -1,3 +1,8 @@
+## 1.1.7（2024-03-27）
+- 【官方文档】[flower-empty 缺省库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
+- 【调整】`offsetTop` 和 `offsetBottom` 属性类型：String => Number
+- 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
+- 【开发版本】HBuilderX - ^4.0+
 ## 1.1.6（2023-12-18）
 - 【官方文档】[flower-empty 缺省库](https://flowerui.com/documents/flower-empty/guide/sketch.html)
 - 【调整】调整组件的前缀，前缀 `ui` 调整为 `fr`

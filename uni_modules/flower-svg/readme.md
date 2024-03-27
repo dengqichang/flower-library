@@ -27,7 +27,8 @@
 ```vue
 <template>
 	<view>
-		<fr-svg :src="svg" width="100" height="100" />
+		<!-- id属性为必填项，全局唯一uuid值 -->
+		<fr-svg id="uuid" :src="svg" :width="100" :height="100" />
 	</view>
 </template>
 
@@ -47,16 +48,17 @@
 #### Props
 |  属性					|  类型			|  默认值		|  说明																												|  兼容性										|
 |  :----:				| :----:		| :----:		|  :----:																											|  :----:										|
+| id					| String		| -				|唯一标识id，**必填**																								|												|
 | src					| String		| -				|SVG 资源，只支持svg资源，不支持文件、网络及本地路径																	|												|
-| width					| String		| 48			|宽度																												|												|
-| height				| String		| 48			|高度																												|												|
+| width					| Number		| 48			|宽度																												|												|
+| height				| Number		| 48			|高度																												|												|
 | mode					| String		| scaleToFill	|图片裁剪、缩放的模式，[有效值](https://uniapp.dcloud.net.cn/component/image.html#mode-%E6%9C%89%E6%95%88%E5%80%BC)	|												|
 | lazyLoad				| Boolean		| false			|图片懒加载。只针对page与scroll-view下的image有效																		|微信小程序、百度小程序、抖音小程序、飞书小程序	|
 | fadeShow				| Boolean		| false			|图片显示动画效果																									|App-nvue 2.3.4+ Android、uni-app-x				|
 | showMenuByLongpress	| Boolean		| false			|开启长按图片显示识别小程序码菜单																						|微信小程序2.7.0									|
 | draggable				| Boolean		| false			|是否能拖动图片																										|H5 3.1.1+、App（iOS15+）						|
 | @error				| HandleEvent	| false			|当错误发生时																										|												|
-| @load					| HandleEvent	| false			|当图片载入完毕时																									|uni-app-x 暂不支持，正式版 uni-app-x 4.0 后将会支持		|
+| @load					| HandleEvent	| false			|当图片载入完毕时																									|												|
 
 #### 适用领域
 基于 `uni-app-x` 生态开发的 `SVG` 组件，`uni-app` 是一个使用 [Vue.js](https://vuejs.org/) 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/飞书/QQ/快手/钉钉/淘宝）、快应用等多个平台。

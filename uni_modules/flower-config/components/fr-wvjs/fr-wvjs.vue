@@ -38,17 +38,17 @@
 			}
 		},
 		created() {
+			if (pageStoreMap[this.getCurrentPagesRoute] == undefined) {
+				this.isInit = true;
+				pageStoreMap[this.getCurrentPagesRoute] = this.wv;
+			};
+			
 			if (webviewContextStoreMap[this.getCurrentPagesRoute] == undefined) {
 				if (this.cacheStore[this.resourceId] == undefined) {
 					tempStoreMap[this.resourceId] = this.resource;
 				};
 			} else {
 				this.getwebviewContext(this.resourceId, this.resource);
-			};
-
-			if (pageStoreMap[this.getCurrentPagesRoute] == undefined) {
-				this.isInit = true;
-				pageStoreMap[this.getCurrentPagesRoute] = this.wv;
 			};
 		},
 		watch: {

@@ -4,8 +4,8 @@
 	"version": "1.0.3",
 	"description": "一款适用于 uni-app / uni-app-x 的 SVG 组件，全端全版本适配",
 	"keywords": [
-        "vue,nvue,uvue,vue2版本,vue3版本,svg"
-    ],
+		"vue,nvue,uvue,vue2版本,vue3版本,svg"
+	],
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-svg",
 	"engines": {
 		"HBuilderX": "^3.96"
@@ -31,7 +31,7 @@
 		"npmurl": ""
 	},
 	"uni_modules": {
-		"dependencies": [],
+		"dependencies": ["flower-config"],
 		"encrypt": [],
 		"platforms": {
 			"cloud": {

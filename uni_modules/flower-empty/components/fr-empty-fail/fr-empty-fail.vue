@@ -1,6 +1,6 @@
 <template>
 	<view class="_fr-empty" :style="{paddingTop:`${offsetTop}rpx`,paddingBottom:`${offsetBottom}rpx`}">
-		<fr-svg width="500" height="500" :src="earlySvg" />
+		<fr-svg id="fr-empty-fail-60fb05ba" :width="500" :height="500" :src="earlySvg" />
 		<text class="_fr-empty__description">{{description}}</text>
 		<slot />
 	</view>
@@ -33,12 +33,12 @@
 				default: "加载失败"
 			},
 			offsetTop: {
-				type: String,
-				default: "0"
+				type: Number,
+				default: 0
 			},
 			offsetBottom: {
-				type: String,
-				default: "0"
+				type: Number,
+				default: 0
 			}
 		},
 		methods: {
