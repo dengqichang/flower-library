@@ -16,9 +16,7 @@
 </template>
 
 <script>
-	import {
-		cacheStore
-	} from "@/uni_modules/flower-config/store/wvStore.js"
+	import {cacheStore} from "@/uni_modules/flower-config/uni-app/store/wvStore.js"
 	/**
 	 * flower-svg svg组件
 	 * @description 一款适用于 uni-app / uni-app-x 的 SVG 组件。全端全版本适配。
