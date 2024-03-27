@@ -1,5 +1,5 @@
 <template>
-	<web-view v-if="isInit" class="__flower-web-view" :id="wv" @message="changeMessageWv"
+	<web-view v-if="isInit" class="__flower-web-view" :id="wv" @message="changeMessageWv" @load="webviewLoad"
 		src="/uni_modules/flower-config/hybrid/html/index.html" />
 </template>
 
@@ -35,7 +35,7 @@
 				this.isInit = true;
 				pageStoreMap.set(this.getCurrentPagesRoute as string, this.wv);
 			};
-			
+
 			if (webviewContextStoreMap.get(this.getCurrentPagesRoute) == null) {
 				if (this.cacheStore.get(this.resourceId) == null) {
 					tempStoreMap.set(this.resourceId, this.resource);
@@ -51,15 +51,14 @@
 		},
 		methods: {
 			changeMessageWv(event : UniWebViewMessageEvent) {
-				if ((event.detail.data?.get("isInitialize") ?? false) == true) {
-					webviewContextStoreMap.set(this.getCurrentPagesRoute as string, uni.createWebviewContext(pageStoreMap.get(this.getCurrentPagesRoute) as string, this) as WebviewContext);
-					tempStoreMap.forEach(function (value : string, key : string) {
-						this.getwebviewContext(key, value);
-					});
-				} else {
-					this.cacheStore.set(event.detail.data?.get("id") as string, event.detail.data?.get("result") as string);
-					tempStoreMap.delete(event.detail.data?.get("id") as string);
-				};
+				this.cacheStore.set(event.detail.data?.get("id") as string, event.detail.data?.get("result") as string);
+				tempStoreMap.delete(event.detail.data?.get("id") as string);
+			},
+			webviewLoad() {
+				webviewContextStoreMap.set(this.getCurrentPagesRoute as string, uni.createWebviewContext(pageStoreMap.get(this.getCurrentPagesRoute) as string, this) as WebviewContext);
+				tempStoreMap.forEach(function (value : string, key : string) {
+					this.getwebviewContext(key, value);
+				});
 			},
 			getwebviewContext(resourceId : string, resource : string) {
 				if (this.cacheStore.get(resourceId) == null) {

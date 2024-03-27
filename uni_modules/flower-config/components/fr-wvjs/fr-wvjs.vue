@@ -1,5 +1,5 @@
 <template>
-	<web-view v-if="isInit" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessageWv"
+	<web-view v-if="isInit" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessageWv" @load="webviewLoad"
 		src="/uni_modules/flower-config/hybrid/html/index.html" />
 </template>
 
@@ -42,7 +42,7 @@
 				this.isInit = true;
 				pageStoreMap[this.getCurrentPagesRoute] = this.wv;
 			};
-			
+
 			if (webviewContextStoreMap[this.getCurrentPagesRoute] == undefined) {
 				if (this.cacheStore[this.resourceId] == undefined) {
 					tempStoreMap[this.resourceId] = this.resource;
@@ -58,24 +58,24 @@
 		},
 		methods: {
 			changeMessageWv(event) {
-				if (event.detail.data[0].isInitialize) {
-					webviewContextStoreMap[this.getCurrentPagesRoute] = this.wv;
-					for (let i in tempStoreMap) {
-						this.getwebviewContext(i, tempStoreMap[i]);
-					};
-				} else {
-					// #ifdef VUE3
-					this.cacheStore[event.detail.data[0].id] = event.detail.data[0].result;
-					// #endif
-					// #ifdef VUE2
-					Vue.set(this.cacheStore, event.detail.data[0].id, event.detail.data[0].result);
-					// #endif
-					delete tempStoreMap[event.detail.data[0].id];
+				// #ifdef VUE3
+				this.cacheStore[event.detail.data[0].id] = event.detail.data[0].result;
+				// #endif
+				// #ifdef VUE2
+				Vue.set(this.cacheStore, event.detail.data[0].id, event.detail.data[0].result);
+				// #endif
+				delete tempStoreMap[event.detail.data[0].id];
+			},
+			webviewLoad() {
+				webviewContextStoreMap[this.getCurrentPagesRoute] = this.wv;
+				for (let i in tempStoreMap) {
+					this.getwebviewContext(i, tempStoreMap[i]);
 				};
 			},
 			getwebviewContext(resourceId, resource) {
 				if (this.cacheStore[resourceId] == undefined) {
-					this.$refs[webviewContextStoreMap[this.getCurrentPagesRoute]].evalJS(`onPostMessage('${this.type}','${resourceId}','${resource}')`);
+					this.$refs[webviewContextStoreMap[this.getCurrentPagesRoute]].evalJS(
+						`onPostMessage('${this.type}','${resourceId}','${resource}')`);
 				};
 			}
 		},
