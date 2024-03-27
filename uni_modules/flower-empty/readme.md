@@ -1,4 +1,4 @@
-<p align="center"><img alt="logo" src="https://www.flowerui.com/logo.png" width="123"></p>
+<p align="center"><img alt="logo" src="https://www.flowerui.com/logo/empty.png" width="128"></p>
 <h3 align="center">FLOWER EMPTY</h3>
 <p align="center">多平台 uni-app-x 生态缺省页组件库 ，根据异常的场景给予相关元素的缺省页。</p>
 
