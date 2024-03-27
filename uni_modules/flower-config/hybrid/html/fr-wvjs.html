@@ -8,6 +8,8 @@
 	<body>
 		<script type="text/javascript" src="./uni.webview.1.5.5.js"></script>
 		<script type="text/javascript">
+			// 初始化时候抛送
+			uni.webView.postMessage({data: {isInitialize: true}});
 			/**
 			 * 响应 web-view png 数据
 			 * @param {Object} svg svg格式参数，不能是svg图片

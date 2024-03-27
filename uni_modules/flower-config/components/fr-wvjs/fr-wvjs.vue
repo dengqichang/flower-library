@@ -1,6 +1,5 @@
 <template>
-	<web-view v-if="isInit" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessageWv" @load="webviewLoad"
-		src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
+	<web-view v-if="isInit" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessageWv" src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
 </template>
 
 <script>
@@ -51,18 +50,19 @@
 		},
 		methods: {
 			changeMessageWv(event) {
-				// #ifdef VUE3
-				this.cacheStore[event.detail.data[0].id] = event.detail.data[0].result;
-				// #endif
-				// #ifdef VUE2
-				Vue.set(this.cacheStore, event.detail.data[0].id, event.detail.data[0].result);
-				// #endif
-				delete tempStoreMap[event.detail.data[0].id];
-			},
-			webviewLoad() {
-				webviewContextStoreMap[this.getCurrentPagesRoute] = this.wv;
-				for (let i in tempStoreMap) {
-					this.getwebviewContext(i, tempStoreMap[i]);
+				if (event.detail.data[0].isInitialize) {
+					webviewContextStoreMap[this.getCurrentPagesRoute] = this.wv;
+					for (let i in tempStoreMap) {
+						this.getwebviewContext(i, tempStoreMap[i]);
+					};
+				} else {
+					// #ifdef VUE3
+					this.cacheStore[event.detail.data[0].id] = event.detail.data[0].result;
+					// #endif
+					// #ifdef VUE2
+					Vue.set(this.cacheStore, event.detail.data[0].id, event.detail.data[0].result);
+					// #endif
+					delete tempStoreMap[event.detail.data[0].id];
 				};
 			},
 			getwebviewContext(resourceId, resource) {
