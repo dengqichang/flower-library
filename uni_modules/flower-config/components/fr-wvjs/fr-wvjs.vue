@@ -1,17 +1,10 @@
 <template>
 	<web-view v-if="isInit" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessageWv" @load="webviewLoad"
-		src="/uni_modules/flower-config/hybrid/html/index.html" />
+		src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
 </template>
 
 <script>
-	import {
-		cacheStore,
-		pageStoreMap,
-		tempStoreMap,
-		webviewContextStoreMap,
-		uuid,
-		getCurrentPagesRoute
-	} from "../../store/wvStore.js";
+	import {cacheStore,pageStoreMap,tempStoreMap,webviewContextStoreMap,uuid,getCurrentPagesRoute} from "@/uni_modules/flower-config/uni-app/store/wvStore.js";
 	export default {
 		data() {
 			return {

@@ -1,15 +1,14 @@
 {
 	"id": "flower-config",
-	"displayName": "flower-config 配置文件",
-	"version": "1.1.2",
-	"description": "flower-library 项目下所有插件配置文件。",
+	"displayName": "flower-config 公共配置",
+	"version": "1.1.3",
+	"description": "flower-library 库下所有插件公共配置",
 	"keywords": [
-        "flower-library",
-        "配置文件"
+        "公共配置,主题"
     ],
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-config",
 	"engines": {
-		"HBuilderX": "^3.6.9"
+		"HBuilderX": "^4.0"
 	},
 	"dcloudext": {
 		"type": "sdk-js",
@@ -37,7 +36,8 @@
 		"platforms": {
 			"cloud": {
 				"tcb": "y",
-				"aliyun": "y"
+                "aliyun": "y",
+                "alipay": "n"
 			},
 			"client": {
 				"Vue": {
