@@ -1,8 +1,8 @@
 <template>
 	<view class="__flower-svg">
 		<!-- #ifdef APP -->
-		<fr-wvjs :resourceId="id" :resource="src" />
-		<image :src="cacheStore[id]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode"
+		<fr-wvjs :resourceId="uuid" :resource="src" />
+		<image :src="cacheStore[uuid]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode"
 			:fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress"
 			:draggable="draggable" @error="changeError" @load="changeLoad" />
 		<!-- #endif -->
@@ -21,7 +21,7 @@
 	 * flower-svg svg组件
 	 * @description 一款适用于 uni-app / uni-app-x 的 SVG 组件。全端全版本适配。
 	 * @tutorial 
-	 * @property {String} id 唯一标识id，必填
+	 * @property {String} uuid 唯一标识uuid，必填
 	 * @property {String} src svg资源参数
 	 * @property {Number} width 宽度
 	 * @property {Number} height 高度
@@ -33,7 +33,7 @@
 	 */
 	export default {
 		props: {
-			id: {
+			uuid: {
 				type: String,
 				default: ""
 			},

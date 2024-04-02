@@ -27,8 +27,8 @@
 ```vue
 <template>
 	<view>
-		<!-- id属性为必填项，全局唯一uuid值 -->
-		<fr-svg id="uuid" :src="svg" :width="100" :height="100" />
+		<!-- uuid属性为必填项，全局唯一id值 -->
+		<fr-svg uuid="id" :src="svg" :width="100" :height="100" />
 	</view>
 </template>
 
@@ -48,7 +48,7 @@
 #### Props
 |  属性					|  类型			|  默认值		|  说明																												|  兼容性										|
 |  :----:				| :----:		| :----:		|  :----:																											|  :----:										|
-| id					| String		| -				|唯一标识id，**必填**																								|												|
+| uuid					| String		| -				|唯一标识id，**必填**																								|												|
 | src					| String		| -				|SVG 资源，只支持svg资源，不支持文件、网络及本地路径																	|												|
 | width					| Number		| 48			|宽度																												|												|
 | height				| Number		| 48			|高度																												|												|
