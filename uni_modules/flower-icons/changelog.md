@@ -1,3 +1,8 @@
+## 1.1.10（2024-04-02）
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【优化】优化结构
+- 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
+- 【开发版本】HBuilderX - ^4.0+
 ## 1.1.9（2024-03-27）
 - 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
 - 【调整】官方文档由[iconPark图标库](https://iconpark.oceanengine.com/official)转变为[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)，小伙伴们请勿迷路。
