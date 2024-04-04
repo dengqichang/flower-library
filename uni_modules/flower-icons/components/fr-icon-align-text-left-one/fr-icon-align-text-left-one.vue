@@ -1,5 +1,5 @@
 <template>
-	<fr-svg :uuid="`fr-icon-align-text-left-one-${size}${strokeWidth}${theme}${fill}${strokeLinecap}${strokeLinejoin}`" :width="size" :height="size" :src="iconSvg || ''" />
+	<fr-svg :uuid="`fr-icon-align-text-left-one-${size}${strokeWidth}${theme}${fill}${strokeLinecap}${strokeLinejoin}`" :width="size" :height="size" :src="iconSvg" />
 </template>
 <script>
 	// #ifdef UNI-APP-X

@@ -1,5 +1,5 @@
 <template>
-	<fr-svg :uuid="`fr-icon-golf-course-${size}${strokeWidth}${theme}${fill}${strokeLinecap}${strokeLinejoin}`" :width="size" :height="size" :src="iconSvg || ''" />
+	<fr-svg :uuid="`fr-icon-golf-course-${size}${strokeWidth}${theme}${fill}${strokeLinecap}${strokeLinejoin}`" :width="size" :height="size" :src="iconSvg" />
 </template>
 <script>
 	// #ifdef UNI-APP-X
