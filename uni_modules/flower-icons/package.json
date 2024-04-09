@@ -1,7 +1,7 @@
 {
 	"id": "flower-icons",
-	"displayName": "flower-icons（iconPark） 图标库，全平台全版本兼容，最新支持 uni-app-x",
-	"version": "1.1.11",
+	"displayName": "flower-icons（iconPark） 图标库，全平台全版本兼容，最新支持 uni-app-x 编译 ios 端",
+	"version": "1.1.12",
 	"description": "2600+基础图标，29种图标分类，通过技术驱动矢量图标样式的图标库产品，可以实现根据单一SVG源文件变换出多种主题，具备丰富的分类、更轻量的代码和更灵活的使用场景。",
 	"keywords": [
         "iconPark,icon,图标库"

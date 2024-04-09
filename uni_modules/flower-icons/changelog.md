@@ -1,4 +1,4 @@
-## 1.1.12（2024-04-09）
+## 1.1.12（2024-04-10）
 - 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
 - 【新增】支持ios编译
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
