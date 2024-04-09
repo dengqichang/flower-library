@@ -7,7 +7,6 @@
 	export default {
 		data() {
 			return {
-				cacheStore: cacheStore as UTSJSONObject,
 				wv: uuid(32) as string,
 				isInit: false as Boolean,
 				getCurrentPagesRoute: getCurrentPagesRoute()
@@ -36,7 +35,7 @@
 			};
 
 			if (webviewContextStoreMap.get(this.getCurrentPagesRoute) == null) {
-				if (this.cacheStore.get(this.resourceId) == null) {
+				if (cacheStore[this.resourceId] == null) {
 					tempStoreMap.set(this.resourceId, this.resource);
 				};
 			} else {
@@ -50,18 +49,33 @@
 		},
 		methods: {
 			changeMessageWv(event : UniWebViewMessageEvent) {
+				const _this = this;
+				// #ifdef APP-IOS
+				/* 暂时这样处理，需要等官方ios对齐android后再进行适配 */
+				if (event.detail.isInitialize) {
+					webviewContextStoreMap.set(this.getCurrentPagesRoute as string, uni.createWebviewContext(pageStoreMap.get(this.getCurrentPagesRoute) as string, this) as WebviewContext);
+					tempStoreMap.forEach(function (value : string, key : string) {
+						_this.getwebviewContext(key, value);
+					});
+				} else {
+					cacheStore[event.detail.id] = event.detail.result;
+					tempStoreMap.delete(event.detail.id as string);
+				};
+				// #endif
+				// #ifdef APP-ANDROID
 				if ((event.detail.data?.get("isInitialize") ?? false) == true) {
 					webviewContextStoreMap.set(this.getCurrentPagesRoute as string, uni.createWebviewContext(pageStoreMap.get(this.getCurrentPagesRoute) as string, this) as WebviewContext);
 					tempStoreMap.forEach(function (value : string, key : string) {
-						this.getwebviewContext(key, value);
+						_this.getwebviewContext(key, value);
 					});
 				} else {
-					this.cacheStore.set(event.detail.data?.get("id") as string, event.detail.data?.get("result") as string);
+					cacheStore[event.detail.data?.get("id") as string] = event.detail.data?.get("result") as string;
 					tempStoreMap.delete(event.detail.data?.get("id") as string);
 				};
+				// #endif
 			},
 			getwebviewContext(resourceId : string, resource : string) {
-				if (this.cacheStore.get(resourceId) == null) {
+				if (cacheStore[resourceId] == null) {
 					webviewContextStoreMap.get(this.getCurrentPagesRoute)?.evalJS(`onPostMessage('${this.type}','${resourceId}','${resource}')`);
 				};
 			}

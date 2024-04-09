@@ -1,9 +1,17 @@
 <template>
-	<web-view v-if="isInit" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessageWv" src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
+	<web-view v-if="isInit" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessageWv"
+		src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
 </template>
 
 <script>
-	import {cacheStore,pageStoreMap,tempStoreMap,webviewContextStoreMap,uuid,getCurrentPagesRoute} from "@/uni_modules/flower-config/uni-app/store/wvStore.js";
+	import {
+		cacheStore,
+		pageStoreMap,
+		tempStoreMap,
+		webviewContextStoreMap,
+		uuid,
+		getCurrentPagesRoute
+	} from "@/uni_modules/flower-config/uni-app/store/wvStore.js";
 	export default {
 		data() {
 			return {
@@ -83,5 +91,6 @@
 	.__flower-web-view {
 		width: 0rpx;
 		height: 0rpx;
+		opacity: 0;
 	}
 </style>

@@ -2,15 +2,10 @@
 	<view class="__flower-svg">
 		<!-- #ifdef APP-PLUS-NVUE -->
 		<fr-wvjs :resourceId="uuid" :resource="src" />
-		<image :src="cacheStore[uuid]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode"
-			:fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress"
-			:draggable="draggable" @error="changeError" @load="changeLoad" />
+		<image :src="cacheStore[uuid]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 		<!-- #ifndef APP-PLUS-NVUE -->
-		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`"
-			:style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
-			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
-			@error="changeError" @load="changeLoad" />
+		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 	</view>
 </template>

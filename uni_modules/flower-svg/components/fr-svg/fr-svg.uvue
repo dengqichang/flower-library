@@ -2,21 +2,16 @@
 	<view class="__flower-svg">
 		<!-- #ifdef APP -->
 		<fr-wvjs :resourceId="uuid" :resource="src" />
-		<image :src="cacheStore[uuid]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode"
-			:fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress"
-			:draggable="draggable" @error="changeError" @load="changeLoad" />
+		<image :src="cacheStore[uuid]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 		<!-- #ifndef APP -->
-		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`"
-			:style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
-			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
-			@error="changeError" @load="changeLoad" />
+		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 	</view>
 </template>
 
-<script>
-	import { cacheStore } from "@/uni_modules/flower-config/uni-app-x/store/wvStore.uts"
+<script setup>
+	import { cacheStore } from "@/uni_modules/flower-config/uni-app-x/store/wvStore.uts";
 	/**
 	 * flower-svg svg组件
 	 * @description 一款适用于 uni-app / uni-app-x 的 SVG 组件。全端全版本适配。
@@ -31,63 +26,61 @@
 	 * @property {Boolean} showMenuByLongpress 开启长按图片显示识别小程序码菜单，默认值：false，微信小程序2.7.0
 	 * @property {Boolean} draggable 是否能拖动图片，默认值：false，H5 3.1.1+、App（iOS15+）
 	 */
-	export default {
-		props: {
-			uuid: {
-				type: String,
-				default: ""
-			},
-			src: {
-				type: String,
-				default: ""
-			},
-			width: {
-				type: Number,
-				default: 48
-			},
-			height: {
-				type: Number,
-				default: 48
-			},
-			mode: {
-				type: String,
-				default: "scaleToFill"
-			},
-			fadeShow: {
-				type: Boolean,
-				default: false
-			},
-			lazyLoad: {
-				type: Boolean,
-				default: false
-			},
-			showMenuByLongpress: {
-				type: Boolean,
-				default: false
-			},
-			draggable: {
-				type: Boolean,
-				default: false
-			}
+	defineProps({
+		uuid: {
+			type: String,
+			default: ""
 		},
-		// #ifdef APP
-		data() {
-			return {
-				cacheStore: cacheStore as UTSJSONObject,
-			}
+		src: {
+			type: String,
+			default: ""
 		},
-		// #endif
-		methods: {
-			changeError(event : UniImageErrorEvent) {
-				this.$emit("error", event)
-			},
-			changeLoad(event : UniImageLoadEvent) {
-				this.$emit("load", event)
-			}
+		width: {
+			type: Number,
+			default: 48
+		},
+		height: {
+			type: Number,
+			default: 48
+		},
+		mode: {
+			type: String,
+			default: "scaleToFill"
+		},
+		fadeShow: {
+			type: Boolean,
+			default: false
+		},
+		lazyLoad: {
+			type: Boolean,
+			default: false
+		},
+		showMenuByLongpress: {
+			type: Boolean,
+			default: false
+		},
+		draggable: {
+			type: Boolean,
+			default: false
 		}
-	}
+	});
+
+	// 使用泛型参数提供类型注解
+	const emit = defineEmits<{
+		"error" : UniImageErrorEvent,
+		"load" : UniImageLoadEvent
+	}>();
+
+	const changeError = (event : UniImageErrorEvent) : void => {
+		emit("error", event)
+	};
+	const changeLoad = (event : UniImageLoadEvent) : void => {
+		emit("load", event)
+	};
 </script>
 
 <style scoped>
-
+	.__flower-svg {
+		display: flex;
+	}
 </style>

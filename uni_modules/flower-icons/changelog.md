@@ -1,3 +1,8 @@
+## 1.1.12（2024-04-09）
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【新增】支持ios编译
+- 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
+- 【开发版本】HBuilderX - ^4.11+
 ## 1.1.11（2024-04-04）
 - 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
 - 【修复】编译失败error: 类型不匹配: 推断类型是String，但预期的是Boolean的BUG

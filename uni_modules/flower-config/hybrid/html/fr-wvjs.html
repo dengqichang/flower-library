@@ -25,10 +25,9 @@
 			 * @param {Object} svg vg格式参数，不能是svg图片
 			 */
 			function svgTurnPng(id,svg) {
-				const src = `data:image/svg+xml;base64,${window.btoa(unescape(encodeURIComponent(svg)))}`;
+				const src = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 				const img = new Image();
 				img.src = src;
-				// svg图片加载后再执行，转Base64过程
 				img.onload = () => {
 					const canvas = document.createElement('canvas');
 					canvas.width = img.width;

@@ -17,8 +17,10 @@ export default {
 		},
 		// 图标颜色["外部描边颜色","外部填充颜色","内部描边颜色","内部填充颜色"]
 		fill: {
-			type: [String, Array],
-			default: "#333"
+			type: Array,
+			default: () => {
+				return ["#000000"]
+			}
 		},
 		// 端点类型
 		strokeLinecap: {
@@ -33,58 +35,39 @@ export default {
 	},
 	methods: {
 		/**
-		 * 颜色转化为数组
+		 * 获取当前颜色
 		 */
-		fillColor() {
-			if (typeof this.fill == "string") {
-				return [`${this.fill}`];
-			} else {
-				return this.fill;
-			};
+		currentColor(index, defaultColor) {
+			const isExistence = this.fill.length >= (index + 1) ? true : false;
+			return isExistence ? this.fill[index] : defaultColor
 		},
 		/**
 		 * 多色
 		 */
 		multiColor() {
-			const colorArray = this.fillColor();
-			if (colorArray.length == 4) {
-				return [colorArray[0], colorArray[1], colorArray[2], colorArray[3]];
-			} else {
-				return ["#333", "#2F88FF", "#FFF", "#43CCF8"];
-			};
+			return [this.currentColor(0, "#000000"), this.currentColor(1, "#2F88FF"), this.currentColor(2, "#FFFFFF"),
+				this.currentColor(3, "#43CCF8")
+			];
 		},
 		/**
 		 * 双色
 		 */
 		twoTone() {
-			const colorArray = this.fillColor();
-			if (colorArray.length == 2) {
-				return [colorArray[0], colorArray[1], colorArray[0], colorArray[1]];
-			} else {
-				return ["#333", "#2F88FF", "#333", "#2F88FF"];
-			};
+			return [this.currentColor(0, "#000000"), this.currentColor(1, "#2F88FF"), this.currentColor(0, "#000000"),
+				this.currentColor(1, "#2F88FF")
+			];
 		},
 		/**
 		 * 填充
 		 */
 		filled() {
-			const colorArray = this.fillColor();
-			if (colorArray.length == 1) {
-				return [colorArray[0], colorArray[0], '#FFF', '#FFF'];
-			} else {
-				return ["#333", "#333", "#FFF", "#FFF"];
-			};
+			return [this.currentColor(0, "#000000"), this.currentColor(0, "#000000"), "#FFFFFF", "#FFFFFF"];
 		},
 		/**
 		 * 线性
 		 */
 		outline() {
-			const colorArray = this.fillColor();
-			if (colorArray.length == 1) {
-				return [colorArray[0], 'none', colorArray[0], 'none'];
-			} else {
-				return ["#333", "none", "#333", "none"];
-			};
+			return [this.currentColor(0, "#000000"), "none", this.currentColor(0, "#000000"), "none"];
 		},
 		/**
 		 * 根据主题取色彩
