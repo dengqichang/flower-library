@@ -1,4 +1,4 @@
-<p align="center"><img alt="logo" src="https://www.flowerui.com/logo/config.png" width="128"></p>
+<p align="center"><img alt="logo" src="https://www.flowerui.com/resource/logo/config.png" width="128"></p>
 <h3 align="center">FLOWER CONFIG</h3>
 <p align="center">多平台 uni-app 生态 flower-library 项目配置库</p>
 

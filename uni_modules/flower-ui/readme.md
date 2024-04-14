@@ -1,4 +1,4 @@
-<p align="center"><img alt="logo" src="https://www.flowerui.com/logo.png" width="123"></p>
+<p align="center"><img alt="logo" src="https://www.flowerui.com/resource/logo/ui.png" width="123"></p>
 <h3 align="center">FLOWER UI</h3>
 <p align="center">多平台 uni-app 生态 ui 组件库 ，孤之有 “ 孔明 ” ，犹鱼之有水也 。</p>
 

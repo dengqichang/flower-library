@@ -1,4 +1,4 @@
-<p align="center"><img alt="logo" src="https://www.flowerui.com/logo/svg.png" width="128"></p>
+<p align="center"><img alt="logo" src="https://www.flowerui.com/resource/logo/svg.png" width="128"></p>
 <h3 align="center">FLOWER SVG</h3>
 <p align="center">多平台 uni-app / uni-app-x 生态 SVG 组件，全平台全版本适配</p>
 

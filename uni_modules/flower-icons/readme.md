@@ -1,4 +1,4 @@
-<p align="center"><img alt="logo" src="https://www.flowerui.com/logo/icons.png" width="128"></p>
+<p align="center"><img alt="logo" src="https://www.flowerui.com/resource/logo/icons.png" width="128"></p>
 <p align="center">多平台 uni-app 生态 iconPark 图标库 ，构建高质量、统一化、可定义的图标资源。</p>
 
 #### 关于

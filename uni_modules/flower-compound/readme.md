@@ -1,4 +1,4 @@
-<p align="center"><img alt="logo" src="https://www.flowerui.com/logo/compound.png" width="128"></p>
+<p align="center"><img alt="logo" src="https://www.flowerui.com/resource/logo/compound.png" width="128"></p>
 <h3 align="center">FLOWER COMPOUND</h3>
 <p align="center">多平台 uni-app 生态复合型组件库组件库 ，孤之有 “ 孔明 ” ，犹鱼之有水也 。</p>
 
