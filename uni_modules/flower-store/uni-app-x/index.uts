@@ -1,0 +1,26 @@
+import vuex from "./main.uts";
+
+class state {
+	static getStore(key : string) : any {
+		return vuex[key] == null ? "" : vuex[key] as any
+	};
+	static setStore(key : string, value : any) : void {
+		vuex[key] = value
+	};
+};
+
+const mixinState = defineMixin({
+	methods: {
+		getStore(key : string) : any {
+			return state.getStore(key) as any
+		},
+		setStore(key : string, value : any) : void {
+			vuex[key] = value
+		}
+	}
+});
+
+export {
+	state,
+	mixinState
+}
