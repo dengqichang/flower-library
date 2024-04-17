@@ -1,5 +1,5 @@
 <template>
-	<fr-svg :uuid="`fr-icon-loudly-crying-face-whit-open-mouth-${size}${strokeWidth}${theme}${fill}${strokeLinecap}${strokeLinejoin}`" :width="size" :height="size" :src="iconSvg" />
+	<fr-svg :uuid="`fr-icon-loudly-crying-face-whit-open-mouth-${size}${strokeWidth}${theme}${fill}${strokeLinecap}${strokeLinejoin}`" :width="size" :height="size" :isCache="true" :src="iconSvg" />
 </template>
 <script>
 	// #ifdef UNI-APP-X
