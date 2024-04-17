@@ -37,7 +37,14 @@ flower-icons (IconPark) 图标库是一个通过技术驱动矢量图标样式�
 #### 图标预览
 图标预览地址：<a target="_blank" href="https://www.flowerui.com/documents/flower-icons/icons.html">flower-icons 图标预览</a>  
 #### 使用方式
-在[图标预览](https://www.flowerui.com/documents/flower-icons/icons.html)中 `点击图标` 即可复制，然后粘贴在页面代码中使用。
+在[图标预览](https://www.flowerui.com/documents/flower-icons/icons.html)中 `点击图标` 即可复制，然后粘贴在页面代码中使用。  
+  
+**注意： uni-app 项目需要在 main.js 中引入下面代码块中的js**
+```js
+// uni-app 项目需引入，uni-app-x 项目无需引入
+// main.js
+import '@/uni_modules/flower-store/uni-app/main.js';
+```
 #### 图标示例
 ```vue
 <fr-icon-aiming theme="outline" :size="24" :fill="['#000000']" />
