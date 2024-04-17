@@ -1,4 +1,10 @@
-## 1.1.13（2024-04-17）
+## 1.1.14（2024-04-18）
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【修复】修复nvue页面图标显示缓慢Bug
+- 【优化】优化图标显示性能
+- 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
+- 【开发版本】HBuilderX - ^4.11+
+## 1.1.13（2024-04-18）
 - 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
 - 【修复】修复nvue页面图标显示缓慢Bug
 - 【优化】优化图标显示性能
