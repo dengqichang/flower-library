@@ -1,26 +1,63 @@
 import vuex from "./main.uts";
 
-class state {
+class store {
+	static getState(key : string) : any {
+		return getData(key);
+	};
+	static setState(key : string, value : any) : void {
+		vuex[key] = value;
+	};
 	static getStore(key : string) : any {
-		return vuex[key] == null ? "" : vuex[key] as any
+		return getStorageSync(key);
 	};
 	static setStore(key : string, value : any) : void {
-		vuex[key] = value
+		vuex[key] = value;
+		uni.setStorageSync(key, value);
 	};
 };
 
-const mixinState = defineMixin({
+function getStorageSync(key : string) : any {
+	const temp = uni.getStorageSync(key);
+	if (temp == "") {
+		return getData(key);
+	} else {
+		return temp as any;
+	};
+};
+
+function getData(key : string) : any {
+	if (vuex[key] == null) {
+		return "";
+	};
+	// #ifndef APP-ANDROID 
+	if (vuex[key] == undefined) {
+		return "";
+	};
+	// #endif
+	if (vuex[key] == "") {
+		return "";
+	};
+	return vuex[key] as any;
+};
+
+const mixinStore = defineMixin({
 	methods: {
+		getState(key : string) : any {
+			return store.getState(key);
+		},
+		setState(key : string, value : any) : void {
+			store.setState(key, value);
+		},
 		getStore(key : string) : any {
-			return state.getStore(key) as any
+			return store.getStore(key);
 		},
 		setStore(key : string, value : any) : void {
-			vuex[key] = value
+			store.setStore(key, value);
 		}
 	}
 });
 
 export {
-	state,
-	mixinState
+	store,
+	mixinStore
 }
