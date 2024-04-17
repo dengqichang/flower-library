@@ -1,8 +1,8 @@
 <template>
 	<view class="__flower-svg">
 		<!-- #ifdef APP -->
-		<fr-wvjs :resourceId="uuid" :resource="src" />
-		<image :src="cacheStore[uuid]" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
+		<fr-wvjs type="svg" :isCache="isCache" :resourceId="uuid" :resource="src" />
+		<image :src="isCache?getStore(uuid):getState(uuid)" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 		<!-- #ifndef APP -->
 		<image :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
@@ -10,8 +10,8 @@
 	</view>
 </template>
 
-<script setup>
-	import { cacheStore } from "@/uni_modules/flower-config/uni-app-x/store/wvStore.uts";
+<script>
+	import { mixinStore } from "@/uni_modules/flower-store/uni-app-x";
 	/**
 	 * flower-svg svg组件
 	 * @description 一款适用于 uni-app / uni-app-x 的 SVG 组件。全端全版本适配。
@@ -25,58 +25,61 @@
 	 * @property {Boolean} lazyLoad 图片懒加载。只针对page与scroll-view下的image有效，默认值：false，微信小程序、百度小程序、抖音小程序、飞书小程序
 	 * @property {Boolean} showMenuByLongpress 开启长按图片显示识别小程序码菜单，默认值：false，微信小程序2.7.0
 	 * @property {Boolean} draggable 是否能拖动图片，默认值：false，H5 3.1.1+、App（iOS15+）
+	 * @property {Boolean} isCache 是否图片缓存，默认值：false，nvue、uvue-app
 	 */
-	defineProps({
-		uuid: {
-			type: String,
-			default: ""
+	export default {
+		mixins: [mixinStore],
+		props: {
+			uuid: {
+				type: String,
+				default: ""
+			},
+			src: {
+				type: String,
+				default: ""
+			},
+			width: {
+				type: Number,
+				default: 48
+			},
+			height: {
+				type: Number,
+				default: 48
+			},
+			mode: {
+				type: String,
+				default: "scaleToFill"
+			},
+			fadeShow: {
+				type: Boolean,
+				default: false
+			},
+			lazyLoad: {
+				type: Boolean,
+				default: false
+			},
+			showMenuByLongpress: {
+				type: Boolean,
+				default: false
+			},
+			draggable: {
+				type: Boolean,
+				default: false
+			},
+			isCache: {
+				type: Boolean,
+				default: false
+			}
 		},
-		src: {
-			type: String,
-			default: ""
-		},
-		width: {
-			type: Number,
-			default: 48
-		},
-		height: {
-			type: Number,
-			default: 48
-		},
-		mode: {
-			type: String,
-			default: "scaleToFill"
-		},
-		fadeShow: {
-			type: Boolean,
-			default: false
-		},
-		lazyLoad: {
-			type: Boolean,
-			default: false
-		},
-		showMenuByLongpress: {
-			type: Boolean,
-			default: false
-		},
-		draggable: {
-			type: Boolean,
-			default: false
+		methods: {
+			changeError(event : UniImageErrorEvent) {
+				this.$emit("error", event)
+			},
+			changeLoad(event : UniImageLoadEvent) {
+				this.$emit("load", event)
+			}
 		}
-	});
-
-	// 使用泛型参数提供类型注解
-	const emit = defineEmits<{
-		"error" : UniImageErrorEvent,
-		"load" : UniImageLoadEvent
-	}>();
-
-	const changeError = (event : UniImageErrorEvent) : void => {
-		emit("error", event)
-	};
-	const changeLoad = (event : UniImageLoadEvent) : void => {
-		emit("load", event)
-	};
+	}
 </script>
 
 <style scoped>
