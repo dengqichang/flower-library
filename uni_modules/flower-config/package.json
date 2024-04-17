@@ -4,8 +4,8 @@
 	"version": "1.1.5",
 	"description": "flower-library 库下所有插件公共配置",
 	"keywords": [
-        "公共配置,主题"
-    ],
+		"公共配置,主题"
+	],
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-config",
 	"engines": {
 		"HBuilderX": "^4.0"
@@ -31,13 +31,13 @@
 		"npmurl": ""
 	},
 	"uni_modules": {
-		"dependencies": [],
+		"dependencies": ["flower-store"],
 		"encrypt": [],
 		"platforms": {
 			"cloud": {
 				"tcb": "y",
-                "aliyun": "y",
-                "alipay": "n"
+				"aliyun": "y",
+				"alipay": "n"
 			},
 			"client": {
 				"Vue": {
