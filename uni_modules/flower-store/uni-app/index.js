@@ -1,56 +1,41 @@
 class store {
-	/**
-	 * state 当前状态
-	 */
-	// #ifdef VUE2
 	static getState = (key) => {
-		return uni.store.state[key]
+		return getData(key);
 	};
 	static setState = (key, value) => {
-		Vue.set(uni.store.state, key, value);
+		setData(key, value);
 	};
-	// #endif
-	// #ifdef VUE3
-	static getState = (key) => {
-		return uni.store[key]
-	};
-	static setState = (key, value) => {
-		uni.store[key] = value;
-	};
-	// #endif
-	/**
-	 * store 缓存状态
-	 */
-	// #ifdef VUE2
+
 	static getStore = (key) => {
 		return getStorageSync(key);
 	};
 	static setStore = (key, value) => {
-		Vue.set(uni.store.state, key, value);
+		setData(key, value);
 		uni.setStorageSync(key, value);
 	};
-	// #endif
-	// #ifdef VUE3
-	static getStore = (key) => {
-		return getStorageSync(key);
+
+	static getStoreState = (key, isCache) => {
+		return isCache ? getStorageSync(key) : getData(key);
 	};
-	static setStore = (key, value) => {
-		uni.store[key] = value;
-		uni.setStorageSync(key, value);
+	static setStoreState = (key, value, isCache) => {
+		setData(key, value);
+		if (isCache) {
+			uni.setStorageSync(key, value);
+		};
 	};
-	// #endif
+
 };
 
 function getStorageSync(key) {
 	const temp = uni.getStorageSync(key);
-	
+
 	if (temp === "") {
 		return getData(key);
 	};
 	if (getData(key) !== "") {
 		return getData(key);
 	};
-	
+
 	return temp;
 };
 
@@ -69,6 +54,15 @@ function getData(key) {
 	// #endif
 };
 
+function setData(key, value) {
+	// #ifdef VUE2
+	Vue.set(uni.store.state, key, value);
+	// #endif
+	// #ifdef VUE3
+	uni.store[key] = value;
+	// #endif
+}
+
 const mixinStore = {
 	methods: {
 		getState(key) {
@@ -82,6 +76,12 @@ const mixinStore = {
 		},
 		setStore(key, value) {
 			store.setStore(key, value);
+		},
+		getStoreState(key, isCache) {
+			return store.getStoreState(key, isCache);
+		},
+		setStoreState(key, value, isCache) {
+			store.setStoreState(key, value, isCache);
 		}
 	}
 };

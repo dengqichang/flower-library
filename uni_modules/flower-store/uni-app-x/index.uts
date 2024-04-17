@@ -5,14 +5,25 @@ class store {
 		return getData(key);
 	};
 	static setState(key : string, value : any) : void {
-		vuex[key] = value;
+		setData(key, value);
 	};
+
 	static getStore(key : string) : any {
 		return getStorageSync(key);
 	};
 	static setStore(key : string, value : any) : void {
-		vuex[key] = value;
+		setData(key, value);
 		uni.setStorageSync(key, value);
+	};
+
+	static getStoreState(key : string, isCache : boolean) : any {
+		return isCache ? getStorageSync(key) : getData(key);
+	};
+	static setStoreState(key : string, value : any, isCache : boolean) : void {
+		setData(key, value);
+		if (isCache) {
+			uni.setStorageSync(key, value);
+		};
 	};
 };
 
@@ -44,6 +55,10 @@ function getData(key : string) : any {
 	return vuex[key] as any;
 };
 
+function setData(key : string, value : any) : void {
+	vuex[key] = value;
+};
+
 const mixinStore = defineMixin({
 	methods: {
 		getState(key : string) : any {
@@ -57,6 +72,12 @@ const mixinStore = defineMixin({
 		},
 		setStore(key : string, value : any) : void {
 			store.setStore(key, value);
+		},
+		getStoreState(key : string, isCache : boolean) : any {
+			return store.getStoreState(key, isCache);
+		},
+		setStoreState(key : string, value : any, isCache : boolean) : void {
+			store.setStoreState(key, value, isCache);
 		}
 	}
 });

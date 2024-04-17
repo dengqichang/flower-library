@@ -35,14 +35,14 @@
 <template>
 	<view>
 		<button @tap="onTap">点击设置</button>
-		<view>{{getStore("test")}}</view>
+		<view>{{getState("test")}}</view>
 	</view>
 </template>
 
 <script>
-	import {mixinState} from "@/uni_modules/flower-store/uni-app-x";
+	import {mixinStore} from "@/uni_modules/flower-store/uni-app-x";
 	export default {
-		mixins: [mixinState],
+		mixins: [mixinStore],
 		data() {
 			return {
 				
@@ -50,7 +50,7 @@
 		},
 		methods: {
 			onTap() {
-				this.setStore("test", "测试值")
+				this.setState("test", "测试值")
 			}
 		}
 	}
@@ -65,15 +65,15 @@
 <template>
 	<view>
 		<button @tap="onTap">点击设置</button>
-		<view>{{state.getStore("test")}}</view>
+		<view>{{store.getState("test")}}</view>
 	</view>
 </template>
 
 <script setup>
-	import {state} from "@/uni_modules/flower-store/uni-app-x";
+	import {store} from "@/uni_modules/flower-store/uni-app-x";
 
 	const onTap = () => {
-		state.setStore("test", "测试值")
+		store.setState("test", "测试值")
 	};
 </script>
 
@@ -92,14 +92,14 @@ import '@/uni_modules/flower-store/uni-app/main.js';
 <template>
 	<view>
 		<button @tap="onTap">点击设置</button>
-		<view>{{getStore("test")}}</view>
+		<view>{{getState("test")}}</view>
 	</view>
 </template>
 
 <script>
-	import {mixinState} from "@/uni_modules/flower-store/uni-app";
+	import {mixinStore} from "@/uni_modules/flower-store/uni-app";
 	export default {
-		mixins: [mixinState],
+		mixins: [mixinStore],
 		data() {
 			return {
 				
@@ -107,7 +107,7 @@ import '@/uni_modules/flower-store/uni-app/main.js';
 		},
 		methods: {
 			onTap() {
-				this.setStore("test", "测试值")
+				this.setState("test", "测试值")
 			}
 		}
 	}
@@ -122,15 +122,15 @@ import '@/uni_modules/flower-store/uni-app/main.js';
 <template>
 	<view>
 		<button @tap="onTap">点击设置</button>
-		<view>{{state.getStore("test")}}</view>
+		<view>{{store.getState("test")}}</view>
 	</view>
 </template>
 
 <script setup>
-	import {state} from "@/uni_modules/flower-store/uni-app";
+	import {store} from "@/uni_modules/flower-store/uni-app";
 
 	const onTap = () => {
-		state.setStore("test", "测试值")
+		store.setState("test", "测试值")
 	};
 </script>
 
