@@ -1,6 +1,5 @@
 <template>
-	<web-view v-if="isInit" class="__flower-web-view" :id="wv" @message="changeMessageWv"
-		src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
+	<web-view v-if="isInit" class="__flower-web-view" :id="wv" @message="changeMessageWv" src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
 </template>
 
 <script>
@@ -42,15 +41,9 @@
 			};
 
 			if (webviewContextStoreMap.get(this.getCurrentPagesRoute) == null) {
-				if (this.isCache) {
-					if (this.getStore(this.resourceId) == "") {
-						tempStoreMap.set(this.resourceId, this.resource);
-					};
-				} else {
-					if (this.getState(this.resourceId) == "") {
-						tempStoreMap.set(this.resourceId, this.resource);
-					};
-				}
+				if (this.getStoreState(this.resourceId, this.isCache) == "") {
+					tempStoreMap.set(this.resourceId, this.resource);
+				};
 			} else {
 				this.getwebviewContext(this.resourceId, this.resource);
 			};
@@ -71,11 +64,7 @@
 						_this.getwebviewContext(key, value);
 					});
 				} else {
-					if (this.isCache) {
-						this.setStore(event.detail.id, event.detail.result);
-					} else {
-						this.setState(event.detail.id, event.detail.result);
-					};
+					this.setStoreState(event.detail.id, event.detail.result, this.isCache);
 					tempStoreMap.delete(event.detail.id as string);
 				};
 				// #endif
@@ -86,24 +75,14 @@
 						_this.getwebviewContext(key, value);
 					});
 				} else {
-					if (this.isCache) {
-						this.setStore(event.detail.data?.get("id") as string, event.detail.data?.get("result") as string);
-					} else {
-						this.setState(event.detail.data?.get("id") as string, event.detail.data?.get("result") as string);
-					};
+					this.setStoreState(event.detail.data?.get("id") as string, event.detail.data?.get("result") as string, this.isCache);
 					tempStoreMap.delete(event.detail.data?.get("id") as string);
 				};
 				// #endif
 			},
 			getwebviewContext(resourceId : string, resource : string) {
-				if (this.isCache) {
-					if (this.getStore(resourceId) == "") {
-						webviewContextStoreMap.get(this.getCurrentPagesRoute)?.evalJS(`onPostMessage('${this.type}','${resourceId}','${resource}')`);
-					};
-				} else {
-					if (this.getState(resourceId) == "") {
-						webviewContextStoreMap.get(this.getCurrentPagesRoute)?.evalJS(`onPostMessage('${this.type}','${resourceId}','${resource}')`);
-					};
+				if (this.getStoreState(resourceId, this.isCache) == "") {
+					webviewContextStoreMap.get(this.getCurrentPagesRoute)?.evalJS(`onPostMessage('${this.type}','${resourceId}','${resource}')`);
 				};
 			}
 		},

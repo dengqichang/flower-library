@@ -1,19 +1,10 @@
 <template>
-	<web-view v-if="isInit" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessageWv"
-		src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
+	<web-view v-if="isInit" class="__flower-web-view" :ref="wv" @onPostMessage="changeMessageWv" src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
 </template>
 
 <script>
-	import {
-		pageStoreMap,
-		tempStoreMap,
-		webviewContextStoreMap,
-		uuid,
-		getCurrentPagesRoute
-	} from "@/uni_modules/flower-config/uni-app/store/wvStore.js";
-	import {
-		mixinStore
-	} from "@/uni_modules/flower-store/uni-app";
+	import {pageStoreMap,tempStoreMap,webviewContextStoreMap,uuid,getCurrentPagesRoute} from "@/uni_modules/flower-config/uni-app/store/wvStore.js";
+	import {mixinStore} from "@/uni_modules/flower-store/uni-app";
 	export default {
 		mixins: [mixinStore],
 		data() {
@@ -50,14 +41,8 @@
 			};
 
 			if (webviewContextStoreMap[this.getCurrentPagesRoute] == undefined) {
-				if (this.isCache) {
-					if (this.getStore(this.resourceId) == "") {
-						tempStoreMap[this.resourceId] = this.resource;
-					};
-				} else {
-					if (this.getState(this.resourceId) == "") {
-						tempStoreMap[this.resourceId] = this.resource;
-					};
+				if (this.getStoreState(this.resourceId, this.isCache) == "") {
+					tempStoreMap[this.resourceId] = this.resource;
 				};
 			} else {
 				this.getwebviewContext(this.resourceId, this.resource);
@@ -76,25 +61,14 @@
 						this.getwebviewContext(i, tempStoreMap[i]);
 					};
 				} else {
-					if (this.isCache) {
-						this.setStore(event.detail.data[0].id, event.detail.data[0].result);
-					} else {
-						this.setState(event.detail.data[0].id, event.detail.data[0].result);
-					};
+					this.setStoreState(event.detail.data[0].id, event.detail.data[0].result, this.isCache);
 					delete tempStoreMap[event.detail.data[0].id];
 				};
 			},
 			getwebviewContext(resourceId, resource) {
-				if (this.isCache) {
-					if (this.getStore(resourceId) == "") {
-						this.$refs[webviewContextStoreMap[this.getCurrentPagesRoute]].evalJS(
-							`onPostMessage('${this.type}','${resourceId}','${resource}')`);
-					};
-				} else {
-					if (this.getState(resourceId) == "") {
-						this.$refs[webviewContextStoreMap[this.getCurrentPagesRoute]].evalJS(
-							`onPostMessage('${this.type}','${resourceId}','${resource}')`);
-					};
+				if (this.getStoreState(resourceId, this.isCache) == "") {
+					this.$refs[webviewContextStoreMap[this.getCurrentPagesRoute]].evalJS(
+						`onPostMessage('${this.type}','${resourceId}','${resource}')`);
 				};
 			};
 		},
