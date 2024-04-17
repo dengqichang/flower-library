@@ -43,11 +43,15 @@ class store {
 
 function getStorageSync(key) {
 	const temp = uni.getStorageSync(key);
-	if (temp == "") {
+	
+	if (temp === "") {
 		return getData(key);
-	} else {
-		return temp;
 	};
+	if (getData(key) !== "") {
+		return getData(key);
+	};
+	
+	return temp;
 };
 
 function getData(key) {
