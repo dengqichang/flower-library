@@ -34,6 +34,9 @@ export default {
 		}
 	},
 	methods: {
+		onClick(){
+			this.$emit("click");
+		},
 		/**
 		 * 获取当前颜色
 		 */
