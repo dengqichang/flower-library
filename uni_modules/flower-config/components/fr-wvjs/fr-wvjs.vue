@@ -70,7 +70,7 @@
 					this.$refs[webviewContextStoreMap[this.getCurrentPagesRoute]].evalJS(
 						`onPostMessage('${this.type}','${resourceId}','${resource}')`);
 				};
-			};
+			}
 		},
 		destroyed() {
 			delete webviewContextStoreMap[this.getCurrentPagesRoute];
