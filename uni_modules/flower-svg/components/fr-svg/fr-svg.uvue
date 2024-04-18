@@ -26,6 +26,8 @@
 	 * @property {Boolean} showMenuByLongpress 开启长按图片显示识别小程序码菜单，默认值：false，微信小程序2.7.0
 	 * @property {Boolean} draggable 是否能拖动图片，默认值：false，H5 3.1.1+、App（iOS15+）
 	 * @property {Boolean} isCache 是否图片缓存，默认值：false，nvue-app、uvue-app
+	 * @event {Function} click 点击事件
+	 * @event {Function} longpress 长按事件
 	 */
 	export default {
 		mixins: [mixinStore],
