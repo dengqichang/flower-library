@@ -1,5 +1,5 @@
 <template>
-	<fr-svg :uuid="`fr-icon-alarm-clock-${size}${strokeWidth}${theme}${fill}${strokeLinecap}${strokeLinejoin}`" :width="size" :height="size" :isCache="true" :src="iconSvg" />
+	<fr-svg @click="onClick" :uuid="`fr-icon-alarm-clock-${size}${strokeWidth}${theme}${fill}${strokeLinecap}${strokeLinejoin}`" :width="size" :height="size" :isCache="true" :src="iconSvg" />
 </template>
 <script>
 	// #ifdef UNI-APP-X
