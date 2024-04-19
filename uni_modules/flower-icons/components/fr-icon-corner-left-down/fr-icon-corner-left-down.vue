@@ -8,6 +8,17 @@
 	// #ifndef UNI-APP-X
 	import icons from "../../mixins/icons.js";
 	// #endif
+	/**
+	 * @description 《左角向下》图标
+	 * @tutorial https://www.flowerui.com/documents/flower-icons/icons.html
+	 * @property {Number} size 图标大小
+	 * @property {Number} strokeWidth 线段粗细
+	 * @property {String} theme 图标大小
+	 * @property {Array} fill 图标颜色，["外部描边颜色","外部填充颜色","内部描边颜色","内部填充颜色"]
+	 * @property {String} strokeLinecap 图标大小
+	 * @property {String} strokeLinejoin 图标大小
+	 * @event {Function} click 图标点击事件
+	 */
 	export default {
 		mixins: [icons],
 		computed: {

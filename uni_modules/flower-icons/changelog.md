@@ -1,3 +1,9 @@
+## 1.1.16（2024-04-19）
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
+- 【开发版本】HBuilderX - ^4.11+
+- 【重要更新】`uni-app` 版本需在 `main.js` 中引入 `import '@/uni_modules/flower-store/uni-app/main.js';`，`uni-app-x` 版本无需引入。
+- 【功能新增】添加图标HBuilderX代码块提示
 ## 1.1.15（2024-04-18）
 - 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
 - 【新增】 `@click` 点击事件
