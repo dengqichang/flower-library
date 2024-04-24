@@ -1,5 +1,6 @@
 <template>
-	<web-view v-if="isInit" class="__flower-web-view" :id="wv" @message="changeMessageWv" src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
+	<web-view v-if="isInit" class="__flower-web-view" :id="wv" @message="changeMessageWv"
+		src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
 </template>
 
 <script>
@@ -56,29 +57,15 @@
 		methods: {
 			changeMessageWv(event : UniWebViewMessageEvent) {
 				const _this = this;
-				// #ifdef APP-IOS
-				/* 暂时这样处理，需要等官方ios对齐android后再进行适配 */
-				if (event.detail.isInitialize) {
-					webviewContextStoreMap.set(this.getCurrentPagesRoute as string, uni.createWebviewContext(pageStoreMap.get(this.getCurrentPagesRoute) as string, this) as WebviewContext);
+				if (event.detail.data[0]['isInitialize'] ?? false == true) {
+					webviewContextStoreMap.set(_this.getCurrentPagesRoute as string, uni.createWebviewContext(pageStoreMap.get(_this.getCurrentPagesRoute) as string, _this) as WebviewContext);
 					tempStoreMap.forEach(function (value : string, key : string) {
 						_this.getwebviewContext(key, value);
 					});
 				} else {
-					this.setStoreState(event.detail.id, event.detail.result, this.isCache);
-					tempStoreMap.delete(event.detail.id as string);
+					_this.setStoreState(event.detail.data[0]['id'] as string, event.detail.data[0]['result'] as string, _this.isCache);
+					tempStoreMap.delete(event.detail.data[0]['id'] as string);
 				};
-				// #endif
-				// #ifdef APP-ANDROID
-				if ((event.detail.data?.get("isInitialize") ?? false) == true) {
-					webviewContextStoreMap.set(this.getCurrentPagesRoute as string, uni.createWebviewContext(pageStoreMap.get(this.getCurrentPagesRoute) as string, this) as WebviewContext);
-					tempStoreMap.forEach(function (value : string, key : string) {
-						_this.getwebviewContext(key, value);
-					});
-				} else {
-					this.setStoreState(event.detail.data?.get("id") as string, event.detail.data?.get("result") as string, this.isCache);
-					tempStoreMap.delete(event.detail.data?.get("id") as string);
-				};
-				// #endif
 			},
 			getwebviewContext(resourceId : string, resource : string) {
 				if (this.getStoreState(resourceId, this.isCache) == "") {
