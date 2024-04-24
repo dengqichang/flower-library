@@ -1,3 +1,9 @@
+## 1.1.17（2024-04-24）
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
+- 【开发版本】HBuilderX - ^4.13+
+- 【重要更新】`uni-app` 版本需在 `main.js` 中引入 `import '@/uni_modules/flower-store/uni-app/main.js';`，`uni-app-x` 版本无需引入。
+- 【问题修复】由 `HBuilder X 4.13-alpha` 版本修复的 `BUG` 而进行调整。
 ## 1.1.16（2024-04-19）
 - 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
