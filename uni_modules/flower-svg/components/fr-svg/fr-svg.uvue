@@ -2,10 +2,17 @@
 	<view class="__flower-svg" :style="{width:`${width}rpx`,height:`${height}rpx`}">
 		<!-- #ifdef APP -->
 		<fr-wvjs type="svg" :isCache="isCache" :resourceId="uuid" :resource="src" />
-		<image @click="onClick" @longpress="onLongpress" :src="getStoreState(uuid,isCache)" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
+		<image @click="onClick" @longpress="onLongpress" :src="getStoreState(uuid,isCache)"
+			:style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
+			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
+			@error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 		<!-- #ifndef APP -->
-		<image @click="onClick" @longpress="onLongpress" :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
+		<image @click="onClick" @longpress="onLongpress"
+			:src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`"
+			:style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
+			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
+			@error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 	</view>
 </template>
@@ -28,9 +35,12 @@
 	 * @property {Boolean} isCache 是否图片缓存，默认值：false，nvue-app、uvue-app
 	 * @event {Function} click 点击事件
 	 * @event {Function} longpress 长按事件
+	 * @event {Function} error 图片加载错误时触发，event.detail = { errMsg }
+	 * @event {Function} load 图片加载完成时触发，event.detail = { width: '图片宽度px', height: '图片高度px' }
 	 */
 	export default {
 		mixins: [mixinStore],
+		emits: ['click', 'longpress', 'error', 'load'],
 		props: {
 			uuid: {
 				type: String,
@@ -74,10 +84,10 @@
 			}
 		},
 		methods: {
-			onClick(){
+			onClick() {
 				this.$emit("click");
 			},
-			onLongpress(){
+			onLongpress() {
 				this.$emit("longpress");
 			},
 			changeError(event : UniImageErrorEvent) {

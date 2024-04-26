@@ -50,14 +50,16 @@ import '@/uni_modules/flower-store/uni-app/main.js';
 <fr-icon-aiming theme="outline" :size="24" :fill="['#000000']" />
 ```
 #### Props
-|  属性			|  类型	|  可选值																|  默认值	|  说明		|
-|  :----:		| :----:|  :----																| :----:	|  :----:	|
-| size			| Number| -																		| 24		|图标大小	|
-| strokeWidth	| Number| -																		| 4			|线段粗细	|
-| theme			| String| 线性：outline<br/>填充：filled<br>双色：two-tone<br>多色：multi-color	| outline	|图标风格	|
-| fill			| Array	| -																		| ['#333']	|图标颜色	|
-| strokeLinecap	| String| round、butt、square													| round		|端点类型	|
-| strokeLinejoin| String| round、miter、bevel													| round		|拐点类型	|
+|  属性			|  类型			|  可选值																|  默认值	|  说明		|
+|  :----:		| :----:		|  :----																| :----:	|  :----:	|
+| size			| Number		| -																		| 24		|图标大小	|
+| strokeWidth	| Number		| -																		| 4			|线段粗细	|
+| theme			| String		| 线性：outline<br/>填充：filled<br>双色：two-tone<br>多色：multi-color	| outline	|图标风格	|
+| fill			| Array			| -																		| ['#333']	|图标颜色	|
+| strokeLinecap	| String		| round、butt、square													| round		|端点类型	|
+| strokeLinejoin| String		| round、miter、bevel													| round		|拐点类型	|
+| @click		| HandleEvent	| -																		|-			|点击事件	|
+
 #### 适用领域
 基于 `uni-app` 生态开发的组件库，`uni-app` 是一个使用 [Vue.js](https://vuejs.org/) 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/飞书/QQ/快手/钉钉/淘宝）、快应用等多个平台。
 #### 版权信息

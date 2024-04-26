@@ -1,3 +1,8 @@
+## 1.1.18（2024-04-26）
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
+- 【开发版本】HBuilderX - ^4.13+
+- 【问题修复】抛出事件重复触发的Bug
 ## 1.1.17（2024-04-24）
 - 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)

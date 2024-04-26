@@ -1,4 +1,5 @@
 export default defineMixin({
+	emits: ['click'],
 	props: {
 		// 图标大小
 		size: {
@@ -17,7 +18,7 @@ export default defineMixin({
 		},
 		// 图标颜色["外部描边颜色","外部填充颜色","内部描边颜色","内部填充颜色"]
 		fill: {
-			type: Array as string[],
+			type: Array,
 			default: ["#000000"]
 		},
 		// 端点类型
@@ -32,15 +33,16 @@ export default defineMixin({
 		}
 	},
 	methods: {
-		onClick(){
+		onClick() {
 			this.$emit("click");
 		},
 		/**
 		 * 获取当前颜色
 		 */
 		currentColor(index : number, defaultColor : string) : string {
-			const isExistence : boolean = this.fill.length >= (index + 1) ? true : false;
-			return isExistence ? this.fill[index] : defaultColor
+			const fill = this.fill as string[];
+			const isExistence : boolean = fill.length >= (index + 1) ? true : false;
+			return isExistence ? fill[index] : defaultColor;
 		},
 		/**
 		 * 多色

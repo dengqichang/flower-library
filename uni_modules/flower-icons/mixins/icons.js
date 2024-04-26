@@ -1,4 +1,5 @@
 export default {
+	emits: ['click'],
 	props: {
 		// 图标大小
 		size: {
@@ -34,7 +35,7 @@ export default {
 		}
 	},
 	methods: {
-		onClick(){
+		onClick() {
 			this.$emit("click");
 		},
 		/**
@@ -42,7 +43,7 @@ export default {
 		 */
 		currentColor(index, defaultColor) {
 			const isExistence = this.fill.length >= (index + 1) ? true : false;
-			return isExistence ? this.fill[index] : defaultColor
+			return isExistence ? this.fill[index] : defaultColor;
 		},
 		/**
 		 * 多色

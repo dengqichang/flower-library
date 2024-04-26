@@ -2,16 +2,25 @@
 	<view class="__flower-svg" :style="{width:`${width}rpx`,height:`${height}rpx`}">
 		<!-- #ifdef APP-PLUS-NVUE -->
 		<fr-wvjs type="svg" :isCache="isCache" :resourceId="uuid" :resource="src" />
-		<image  @click="onClick" @longpress="onLongpress" :src="getStoreState(uuid,isCache)" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
+		<image @click="onClick" @longpress="onLongpress" :src="getStoreState(uuid,isCache)"
+			:style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
+			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
+			@error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 		<!-- #ifndef APP-PLUS-NVUE -->
-		<image  @click="onClick" @longpress="onLongpress" :src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`" :style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow" :lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable" @error="changeError" @load="changeLoad" />
+		<image @click="onClick" @longpress="onLongpress"
+			:src="`data:image/svg+xml;charset=utf-8,${encodeURIComponent(src)}`"
+			:style="{width:`${width}rpx`,height:`${height}rpx`}" :mode="mode" :fade-show="fadeShow"
+			:lazy-load="lazyLoad" :show-menu-by-longpress="showMenuByLongpress" :draggable="draggable"
+			@error="changeError" @load="changeLoad" />
 		<!-- #endif -->
 	</view>
 </template>
 
 <script>
-	import { mixinStore } from "@/uni_modules/flower-store/uni-app";
+	import {
+		mixinStore
+	} from "@/uni_modules/flower-store/uni-app";
 	/**
 	 * flower-svg svg组件
 	 * @description 一款适用于 uni-app / uni-app-x 的 SVG 组件。全端全版本适配。
@@ -28,9 +37,12 @@
 	 * @property {Boolean} isCache 是否图片缓存，默认值：false，nvue-app、uvue-app
 	 * @event {Function} click 点击事件
 	 * @event {Function} longpress 长按事件
+	 * @event {Function} error 当错误发生时，发布到 AppService 的事件名，事件对象event.detail = {errMsg: 'something wrong'}
+	 * @event {Function} load 当图片载入完毕时，发布到 AppService 的事件名，事件对象event.detail = {height:'图片高度px', width:'图片宽度px'}
 	 */
 	export default {
 		mixins: [mixinStore],
+		emits: ['click', 'longpress', 'error', 'load'],
 		props: {
 			uuid: { // 唯一标识
 				type: String,
@@ -74,10 +86,10 @@
 			}
 		},
 		methods: {
-			onClick(){
+			onClick() {
 				this.$emit("click");
 			},
-			onLongpress(){
+			onLongpress() {
 				this.$emit("longpress");
 			},
 			changeError(event) {

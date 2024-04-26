@@ -1,14 +1,14 @@
 {
 	"id": "flower-svg",
 	"displayName": "flower-svg 图组件，全平台全版本兼容，最新支持 uni-app-x",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"description": "一款适用于 uni-app / uni-app-x 的 SVG 组件，全端全版本适配",
 	"keywords": [
         "svg"
     ],
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-svg",
 	"engines": {
-		"HBuilderX": "^4.11"
+		"HBuilderX": "^4.13"
 	},
 	"dcloudext": {
 		"type": "component-vue",
