@@ -1,4 +1,4 @@
-import {rgbToHsv,hexToRgb,rgbToHex,hsvToRgb} from "@/uni_modules/flower-api/uni-app/color.js";
+import {rgbToHsv,hexToRgb,rgbToHex,hsvToRgb} from "./color.js";
 
 /**
  * 动态梯度算法，参考 [Arco Design色彩算法](https://arco.design/palette/list)

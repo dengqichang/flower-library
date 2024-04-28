@@ -1,5 +1,5 @@
 import { colorPalette } from './palette.js';
-import { hexToRgb, hsvToHex, rgbToHsv } from '@/uni_modules/flower-api/uni-app/color.js';
+import { hexToRgb, hsvToHex, rgbToHsv } from './color.js';
 
 /**
  * 暗黑模式动态梯度算法，参考 [Arco Design色彩算法](https://arco.design/palette/list)
