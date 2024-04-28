@@ -1,0 +1,81 @@
+import { rgbToHsv, hexToRgb, rgbToHex, hsvToRgb } from "@/uni_modules/flower-api/uni-app-x/color.uts"
+
+/**
+ * 动态梯度算法，参考 [Arco Design色彩算法](https://arco.design/palette/list)
+ * @param primaryColor 基础色，仅支持hex十六进制格式
+ * @returns string
+ */
+export const colorPalette = (primaryColor : string, i : number) : string => {
+	const colorRGB = hexToRgb(primaryColor);
+	const colorHSV = rgbToHsv(colorRGB.r, colorRGB.g, colorRGB.b);
+	const h = colorHSV.h;
+	const s = colorHSV.s * 100;
+	const v = colorHSV.v * 100;
+
+	const hStep = 2;
+	const maxSStep = 100;
+	const minSStep = 9;
+
+	const maxV = 100;
+	const minV = 30;
+
+	function getNewHue(isLight : boolean, i : number) : number {
+		let hue : number;
+		if (h >= 60 && h <= 240) {
+			hue = isLight ? h - hStep * i : h + hStep * i;
+		} else {
+			hue = isLight ? h + hStep * i : h - hStep * i;
+		}
+
+		if (hue < 0) {
+			hue += 360;
+		} else if (hue >= 360) {
+			hue -= 360;
+		}
+
+		return Math.round(hue);
+	}
+
+	function getNewSaturation(isLight : boolean, i : number) : number {
+		let newSaturation : number;
+
+		if (isLight) {
+			newSaturation = s <= minSStep ? s : s - ((s - minSStep) / 5) * i;
+		} else {
+			newSaturation = s + ((maxSStep - s) / 4) * i;
+		}
+
+		return newSaturation;
+	}
+
+	function getNewLight(isLight : boolean, i : number) : number {
+		return isLight ? v + ((maxV - v) / 5) * i : (v <= minV ? v : v - ((v - minV) / 4) * i);
+	}
+
+	function getNewValue(isLight : boolean, i : number) : number {
+		return getNewLight(isLight, i);
+	}
+
+	const isLight = i < 6;
+	const index = isLight ? 6 - i : i - 6;
+
+	if (i == 6) {
+		return primaryColor;
+	}
+
+	const hsv = {
+		h: getNewHue(isLight, index),
+		s: getNewSaturation(isLight, index) / 100,
+		v: getNewValue(isLight, index) / 100
+	};
+
+	const rgb = hsvToRgb(hsv.h, hsv.s, hsv.v);
+
+	const retColor = rgbToHex(
+		rgb.r,
+		rgb.g,
+		rgb.b
+	);
+
+	return retColor;
+};
