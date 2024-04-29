@@ -15,12 +15,12 @@ flower-icons (IconPark) 图标库是一个通过技术驱动矢量图标样式�
 #### 交流反馈
 官方QQ群：<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=_a2CXouL0H2OvaJ8vPalp3S6DABKIoCH&jump_from=webapi&authKey=riLWFXQamGAWrXQnBW0NCCFVeodvRvAEAooJNxuNybHBCOs9w0V9yR2F1NhVsZS/">654105306</a>  
 #### 源码
-[![stars](https://img.shields.io/github/stars/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-icons)
-[![forks](https://img.shields.io/github/forks/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-icons)
-[![watchers](https://img.shields.io/github/watchers/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-icons)
-[![license](https://img.shields.io/github/license/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-icons)
-[![star](https://gitee.com/dengqichang/flower-library/badge/star.svg?theme=white)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-icons)
-[![fork](https://gitee.com/dengqichang/flower-library/badge/fork.svg?theme=white)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-icons)
+[![stars](https://img.shields.io/github/stars/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-iconPark)
+[![forks](https://img.shields.io/github/forks/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-iconPark)
+[![watchers](https://img.shields.io/github/watchers/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-iconPark)
+[![license](https://img.shields.io/github/license/dengqichang/flower-library?style=social)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-iconPark)
+[![star](https://gitee.com/dengqichang/flower-library/badge/star.svg?theme=white)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-iconPark)
+[![fork](https://gitee.com/dengqichang/flower-library/badge/fork.svg?theme=white)](https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-iconPark)
 
 #### Vue 版本
 | Vue2		| Vue3		|
@@ -35,9 +35,9 @@ flower-icons (IconPark) 图标库是一个通过技术驱动矢量图标样式�
 | :------:	| :------:	| :------:	|
 | √			| √			| √			|
 #### 图标预览
-图标预览地址：<a target="_blank" href="https://www.flowerui.com/documents/flower-icons/icons.html">flower-icons 图标预览</a>  
+图标预览地址：<a target="_blank" href="https://www.flowerui.com/documents/flower-iconPark/preview.html">flower-iconPark 图标预览</a>  
 #### 使用方式
-在[图标预览](https://www.flowerui.com/documents/flower-icons/icons.html)中 `点击图标` 即可复制，然后粘贴在页面代码中使用。  
+在[图标预览](https://www.flowerui.com/documents/flower-iconPark/preview.html)中 `点击图标` 即可复制，然后粘贴在页面代码中使用。  
   
 **注意： uni-app 项目需要在 main.js 中引入下面代码块中的js**
 ```js
@@ -50,15 +50,15 @@ import '@/uni_modules/flower-store/uni-app/main.js';
 <fr-icon-aiming theme="outline" :size="24" :fill="['#000000']" />
 ```
 #### Props
-|  属性			|  类型			|  可选值																|  默认值	|  说明		|
-|  :----:		| :----:		|  :----																| :----:	|  :----:	|
-| size			| Number		| -																		| 24		|图标大小	|
-| strokeWidth	| Number		| -																		| 4			|线段粗细	|
-| theme			| String		| 线性：outline<br/>填充：filled<br>双色：two-tone<br>多色：multi-color	| outline	|图标风格	|
-| fill			| Array			| -																		| ['#333']	|图标颜色	|
-| strokeLinecap	| String		| round、butt、square													| round		|端点类型	|
-| strokeLinejoin| String		| round、miter、bevel													| round		|拐点类型	|
-| @click		| HandleEvent	| -																		|-			|点击事件	|
+|  属性			|  类型			|  可选值																|  默认值		|  说明		|
+|  :----:		| :----:		|  :----																| :----:		|  :----:	|
+| size			| Number		| -																		| 24			|图标大小	|
+| strokeWidth	| Number		| -																		| 4				|线段粗细	|
+| theme			| String		| 线性：outline<br/>填充：filled<br>双色：two-tone<br>多色：multi-color	| outline		|图标风格	|
+| fill			| Array			| -																		| ['#000000']	|图标颜色	|
+| strokeLinecap	| String		| round、butt、square													| round			|端点类型	|
+| strokeLinejoin| String		| round、miter、bevel													| round			|拐点类型	|
+| @click		| HandleEvent	| -																		|-				|点击事件	|
 
 #### 适用领域
 基于 `uni-app` 生态开发的组件库，`uni-app` 是一个使用 [Vue.js](https://vuejs.org/) 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/飞书/QQ/快手/钉钉/淘宝）、快应用等多个平台。
