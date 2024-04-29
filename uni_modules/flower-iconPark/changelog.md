@@ -1,4 +1,4 @@
-## 1.1.18（2024-04-29）
+## 1.1.19（2024-04-29）
 - 【官方文档】[flower-iconPark 图标库](https://flowerui.com/documents/flower-iconPark/icons.html)
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
 - 【开发版本】HBuilderX - ^4.13+
