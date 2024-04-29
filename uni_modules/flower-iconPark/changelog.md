@@ -1,60 +1,65 @@
+## 1.1.20（2024-04-29）
+- 【官方文档】[flower-iconPark 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
+- 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
+- 【开发版本】HBuilderX - ^4.13+
+- 【文档更新】文档地址变更，小伙伴使用[flower-iconPark 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 ## 1.1.19（2024-04-29）
-- 【官方文档】[flower-iconPark 图标库](https://flowerui.com/documents/flower-iconPark/icons.html)
+- 【官方文档】[flower-iconPark 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
 - 【开发版本】HBuilderX - ^4.13+
 - 【重要更新】插件 `id` 名称调整，由 `flower-icons` 改 `flower-iconPark`，小伙伴们需要重新下载插件使用。
 ## 1.1.18（2024-04-26）
-- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
 - 【开发版本】HBuilderX - ^4.13+
 - 【问题修复】抛出事件重复触发的Bug
 ## 1.1.17（2024-04-24）
-- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
 - 【开发版本】HBuilderX - ^4.13+
 - 【重要更新】`uni-app` 版本需在 `main.js` 中引入 `import '@/uni_modules/flower-store/uni-app/main.js';`，`uni-app-x` 版本无需引入。
 - 【问题修复】由 `HBuilder X 4.13-alpha` 版本修复的 `BUG` 而进行调整。
 ## 1.1.16（2024-04-19）
-- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
 - 【开发版本】HBuilderX - ^4.11+
 - 【重要更新】`uni-app` 版本需在 `main.js` 中引入 `import '@/uni_modules/flower-store/uni-app/main.js';`，`uni-app-x` 版本无需引入。
 - 【功能新增】添加图标HBuilderX代码块提示
 ## 1.1.15（2024-04-18）
-- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 - 【新增】 `@click` 点击事件
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
 - 【开发版本】HBuilderX - ^4.11+
 ## 1.1.14（2024-04-18）
-- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 - 【修复】修复nvue页面图标显示缓慢Bug
 - 【优化】优化图标显示性能
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
 - 【开发版本】HBuilderX - ^4.11+
 ## 1.1.13（2024-04-18）
-- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 - 【修复】修复nvue页面图标显示缓慢Bug
 - 【优化】优化图标显示性能
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
 - 【开发版本】HBuilderX - ^4.11+
 ## 1.1.12（2024-04-10）
-- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 - 【新增】支持ios编译
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
 - 【开发版本】HBuilderX - ^4.11+
 ## 1.1.11（2024-04-04）
-- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 - 【修复】编译失败error: 类型不匹配: 推断类型是String，但预期的是Boolean的BUG
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
 - 【开发版本】HBuilderX - ^4.0+
 ## 1.1.10（2024-04-02）
-- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 - 【优化】优化结构
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
 - 【开发版本】HBuilderX - ^4.0+
 ## 1.1.9（2024-03-27）
-- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)
-- 【调整】官方文档由[iconPark图标库](https://iconpark.oceanengine.com/official)转变为[flower-icons 图标库](https://flowerui.com/documents/flower-icons/icons.html)，小伙伴们请勿迷路。
+- 【官方文档】[flower-icons 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
+- 【调整】官方文档由[iconPark图标库](https://iconpark.oceanengine.com/official)转变为[flower-icons 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)，小伙伴们请勿迷路。
 - 【调整】`size` 修改属性类型：String => Number
 - 【优化】svg图标显示结构性能优化
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
