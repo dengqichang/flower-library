@@ -1,95 +1,15 @@
 /**
- * 定义RGB最大值
+ * 当数值大于1时为1，小于0时为0，1与0之间原值
  */
-const RGB_UNIT = 255;
-
-/**
- * 检查是否为正确的 RGB 颜色值
- * @param r 红色
- * @param g 绿色
- * @param b 蓝色
- * @returns boolean
- */
-export function isRGB(r, g, b) {
-	// 检查输入的 RGB 值是否有效
-	if (
-		isNaN(r) ||
-		isNaN(g) ||
-		isNaN(b) ||
-		r < 0 ||
-		r > 255 ||
-		g < 0 ||
-		g > 255 ||
-		b < 0 ||
-		b > 255
-	) {
-		return false;
+function isThresholdValue(num) {
+	if (num > 1) {
+		return 1;
+	} else if (num < 0) {
+		return 0;
+	} else {
+		return num;
 	}
-
-	return true;
 };
-
-/**
- * 检查是否为正确的 HSV 颜色值
- * @param h [0, 360]
- * @param s [0, 1]
- * @param v [0, 1]
- * @returns boolean
- */
-export function isHSV(h, s, v) {
-	// 检查输入的 HSV 值是否有效
-	if (
-		isNaN(h) ||
-		isNaN(s) ||
-		isNaN(v) ||
-		h < 0 ||
-		h > 360 ||
-		s < 0 ||
-		s > 1 ||
-		v < 0 ||
-		v > 1
-	) {
-		return false;
-	}
-
-	return true;
-}
-
-/**
- * 检查是否为正确的 HSL 颜色值
- * @param h [0, 360]
- * @param s [0, 1]
- * @param l [0, 1]
- * @returns boolean
- */
-export function isHSL(h, s, l) {
-	// 检查输入的 HSV 值是否有效
-	if (
-		isNaN(h) ||
-		isNaN(s) ||
-		isNaN(l) ||
-		h < 0 ||
-		h > 360 ||
-		s < 0 ||
-		s > 1 ||
-		l < 0 ||
-		l > 1
-	) {
-		return false;
-	}
-
-	return true;
-}
-
-/**
- * 检查是否为HEX值
- * @param hex HEX颜色值
- * @returns boolean
- */
-export function isHEX(hex) {
-	const hexRegex = /^#?([a-fA-F0-9]{6})$/;
-	return hexRegex.test(hex);
-}
 
 /**
  * RGB颜色值转HSL颜色值
@@ -104,10 +24,6 @@ export function isHEX(hex) {
  * console.log(hslColor); // 输出：{ h: 0, s: 1, l: 0.5 }
  */
 export function rgbToHsl(r, g, b) {
-	// 检查rgb颜色值是否有效
-	if (!isRGB(r, g, b)) {
-		throw new Error('【color:rgbToHsl】rgb颜色值无效，请检查rgb单个颜色值是否在0-255范围内');
-	}
 	const hsl = {
 		h: 0,
 		s: 0,
@@ -115,9 +31,9 @@ export function rgbToHsl(r, g, b) {
 	};
 
 	// 计算rgb基数
-	r = r / RGB_UNIT;
-	g = g / RGB_UNIT;
-	b = b / RGB_UNIT;
+	r = r / 255;
+	g = g / 255;
+	b = b / 255;
 	const max = Math.max(r, g, b);
 	const min = Math.min(r, g, b);
 	const delta = max - min;
@@ -143,11 +59,6 @@ export function rgbToHsl(r, g, b) {
 		saturation = delta / (1 - Math.abs(2 * lightness - 1));
 	}
 
-	// 将 hue 值转换为度数
-	// hue = Math.round(hue * 60);
-	// saturation = parseFloat(saturation.toFixed(2));
-	// lightness = parseFloat(lightness.toFixed(2));
-
 	// 返回 HSL 颜色值
 	hsl.h = hue * 60;
 	hsl.s = saturation;
@@ -168,10 +79,6 @@ export function rgbToHsl(r, g, b) {
  * console.log(hsvColor); // 输出：{ h: 159, s: 1.0, v: 0.74 }
  */
 export function rgbToHsv(r, g, b) {
-	// 检查rgb颜色值是否有效
-	if (!isRGB(r, g, b)) {
-		throw new Error('【color:rgbToHsv】rgb颜色值无效，请检查rgb单个颜色值是否在0-255范围内');
-	}
 	const r1 = r / 255;
 	const g1 = g / 255;
 	const b1 = b / 255;
@@ -208,7 +115,6 @@ export function rgbToHsv(r, g, b) {
 
 	return hsv;
 };
-
 /**
  * HSV颜色值转RGB颜色值
  * @param h [0, 360]
@@ -221,13 +127,9 @@ export function rgbToHsv(r, g, b) {
  * console.log(rgbColor); // 输出：{ r: 0, g: 189, b: 123 }
  */
 export function hsvToRgb(h, s, v) {
-	// 检查hsv颜色值是否有效
-	if (!isHSV(h, s, v)) {
-		throw new Error('【color:hsvToRgb】hsv颜色值无效，请检查hsv单个颜色值是否在指定范围内，h->0-360，s->0-1，v->0-1');
-	}
 	const hue = h / 60;
-	const saturation = s;
-	const value = v;
+	const saturation = isThresholdValue(s);
+	const value = isThresholdValue(v);
 
 	const chroma = value * saturation;
 	const x = chroma * (1 - Math.abs((hue % 2) - 1));
@@ -282,29 +184,11 @@ export function hsvToRgb(h, s, v) {
  * console.log(rgbColor); // 输出：{ r: 255, g: 0, b: 0 }
  */
 export function hslToRgb(h, s, l) {
-	// 检查rgb颜色值是否有效
-	if (!isHSL(h, s, l)) {
-		throw new Error('【color:hslToRgb】hsl颜色值无效，请检查hsl单个颜色值是否在指定范围内，h->0-360，s->0-1，l->0-1');
-	}
-	let rgb = {
-		r: 0,
-		g: 0,
-		b: 0
-	};
+	let rgb = { r: 0, g: 0, b: 0 };
 
-	// 判断格式是否正确
-	if (h > 360 || h < 0) {
-		throw new Error('【color:hslToRgb】h值范围错误，请输入0-360的值');
-	}
-	if (s > 1 || s < 0) {
-		throw new Error('【color:hslToRgb】s值范围错误，请输入0-1的值');
-	}
-	if (l > 1 || l < 0) {
-		throw new Error('【color:hslToRgb】l值范围错误，请输入0-1的值');
-	}
 	const hue = h / 360;
-	const saturation = s;
-	const lightness = l;
+	const saturation = isThresholdValue(s);
+	const lightness = isThresholdValue(l);
 
 	// 计算相关值
 	const chroma = (1 - Math.abs(2 * lightness - 1)) * saturation;
@@ -339,9 +223,9 @@ export function hslToRgb(h, s, l) {
 	}
 
 	// 将 RGB 值转换为 0 到 255 的范围值
-	r = Math.round((r + m) * RGB_UNIT);
-	g = Math.round((g + m) * RGB_UNIT);
-	b = Math.round((b + m) * RGB_UNIT);
+	r = Math.round((r + m) * 255);
+	g = Math.round((g + m) * 255);
+	b = Math.round((b + m) * 255);
 
 	rgb.r = r;
 	rgb.g = g;
@@ -390,20 +274,7 @@ export function hexToRgb(hex) {
  * @returns string
  */
 function rgbToHexValue(value) {
-	// return value.toString(16).padStart(2, '0');
-	const hexCharts = '0123456789abcdef';
-	let hex = '';
-
-	while (value > 0) {
-		// 计算当前位的十六进制数字
-		const remainder = value % 16;
-		hex = hexCharts[remainder] + hex;
-
-		// 更新十进制数字
-		value = Math.floor(value / 16);
-	}
-
-	return hex.padStart(2, '0');
+	return value.toString(16).padStart(2, '0');
 };
 
 /**
@@ -418,10 +289,6 @@ function rgbToHexValue(value) {
  * console.log(hexColor); // 输出：#ff5733
  */
 export function rgbToHex(r, g, b) {
-	if (!isRGB(r, g, b)) {
-		throw new Error(`【color:rgbToHex】rgb值无效，请检查是否为正确的 RGB 颜色值`);
-	}
-
 	// 将 RGB 值转换为 HEX 十六进制颜色值
 	const hexR = rgbToHexValue(r);
 	const hexG = rgbToHexValue(g);
@@ -444,11 +311,7 @@ export function rgbToHex(r, g, b) {
  * console.log(hexColor); // 输出：#342673
  */
 export function hslToHex(h, s, l) {
-	const {
-		r,
-		g,
-		b
-	} = hslToRgb(h, s, l);
+	const { r, g, b } = hslToRgb(h, s, l);
 
 	return rgbToHex(r, g, b).toUpperCase();
 };
@@ -465,11 +328,20 @@ export function hslToHex(h, s, l) {
  * console.log(hexColor); // 输出 #0ac785
  */
 export function hsvToHex(h, s, v) {
-	const {
-		r,
-		g,
-		b
-	} = hsvToRgb(h, s, v);
-
+	const { r, g, b } = hsvToRgb(h, s, v);
 	return rgbToHex(r, g, b).toUpperCase();
+};
+
+/**
+ * HEX 颜色值转为 HSV 十六进制颜色值
+ * @param hex hex颜色值
+ * @returns HSV
+ * @example
+ * const hexColor = '#F76965';
+ * const hsvColor = hexToHsv(hexColor);
+ * console.log(hsvColor); // 输出：{h: 1.6438356164383563, s: 0.5910931174089068, v: 0.9686274509803922}
+ */
+export function hexToHsv(hex) {
+	const { r, g, b } = hexToRgb(hex);
+	return rgbToHsv(r, g, b);
 };

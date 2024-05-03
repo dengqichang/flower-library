@@ -26,6 +26,19 @@ type HSV = {
 };
 
 /**
+ * 当数值大于1时为1，小于0时为0，1与0之间原值
+ */
+function isThresholdValue(num : number) : number {
+	if (num > 1) {
+		return 1;
+	} else if (num < 0) {
+		return 0;
+	} else {
+		return num;
+	}
+};
+
+/**
  * RGB颜色值转HSL颜色值
  * @param r 红色
  * @param g 绿色
@@ -129,7 +142,6 @@ export function rgbToHsv(r : number, g : number, b : number) : HSV {
 
 	return hsv;
 };
-
 /**
  * HSV颜色值转RGB颜色值
  * @param h [0, 360]
@@ -143,8 +155,8 @@ export function rgbToHsv(r : number, g : number, b : number) : HSV {
  */
 export function hsvToRgb(h : number, s : number, v : number) : RGB {
 	const hue = h / 60;
-	const saturation = s;
-	const value = v;
+	const saturation = isThresholdValue(s);
+	const value = isThresholdValue(v);
 
 	const chroma = value * saturation;
 	const x = chroma * (1 - Math.abs((hue % 2) - 1));
@@ -199,26 +211,11 @@ export function hsvToRgb(h : number, s : number, v : number) : RGB {
  * console.log(rgbColor); // 输出：{ r: 255, g: 0, b: 0 }
  */
 export function hslToRgb(h : number, s : number, l : number) : RGB {
-	let rgb : RGB = {
-		r: 0,
-		g: 0,
-		b: 0
-	};
+	let rgb : RGB = { r: 0, g: 0, b: 0 };
 
-	// 判断格式是否正确
-	if (h > 360 || h < 0) {
-		throw new Error('【color:hslToRgb】h值范围错误，请输入0-360的值');
-	}
-	if (s > 1 || s < 0) {
-		throw new Error('【color:hslToRgb】s值范围错误，请输入0-1的值');
-	}
-	if (l > 1 || l < 0) {
-		throw new Error('【color:hslToRgb】l值范围错误，请输入0-1的值');
-	}
-	
 	const hue = h / 360;
-	const saturation = s;
-	const lightness = l;
+	const saturation = isThresholdValue(s);
+	const lightness = isThresholdValue(l);
 
 	// 计算相关值
 	const chroma = (1 - Math.abs(2 * lightness - 1)) * saturation;
@@ -304,20 +301,7 @@ export function hexToRgb(hex : string) : RGB {
  * @returns string
  */
 function rgbToHexValue(value : number) : string {
-	// return value.toString(16).padStart(2, '0');
-	const hexCharts = '0123456789abcdef';
-	let hex = '';
-
-	while (value > 0) {
-		// 计算当前位的十六进制数字
-		const remainder = value % 16;
-		hex = hexCharts[remainder] + hex;
-
-		// 更新十进制数字
-		value = Math.floor(value / 16);
-	}
-
-	return hex.padStart(2, '0');
+	return value.toString(16).padStart(2, '0');
 };
 
 /**
@@ -372,6 +356,19 @@ export function hslToHex(h : number, s : number, l : number) : string {
  */
 export function hsvToHex(h : number, s : number, v : number) : string {
 	const { r, g, b } = hsvToRgb(h, s, v);
-
 	return rgbToHex(r, g, b).toUpperCase();
+};
+
+/**
+ * HEX 颜色值转为 HSV 十六进制颜色值
+ * @param hex hex颜色值
+ * @returns HSV
+ * @example
+ * const hexColor = '#F76965';
+ * const hsvColor = hexToHsv(hexColor);
+ * console.log(hsvColor); // 输出：{h: 1.6438356164383563, s: 0.5910931174089068, v: 0.9686274509803922}
+ */
+export function hexToHsv(hex : string) : HSV {
+	const { r, g, b } = hexToRgb(hex);
+	return rgbToHsv(r, g, b);
 };
