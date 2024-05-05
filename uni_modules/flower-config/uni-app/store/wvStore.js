@@ -1,11 +1,3 @@
-// #ifdef VUE2
-let cacheStore = {};
-// #endif
-// #ifdef VUE3
-import { reactive } from "vue";
-let cacheStore = reactive({});
-// #endif
-
 // 页面
 let pageStoreMap = {};
 // webviewContext

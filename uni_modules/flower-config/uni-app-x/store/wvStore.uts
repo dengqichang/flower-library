@@ -1,7 +1,3 @@
-import { reactive } from "vue";
-
-// 缓存
-let cacheStore = reactive({});
 // 页面
 let pageStoreMap = new Map<string, string>();
 // webviewContext
