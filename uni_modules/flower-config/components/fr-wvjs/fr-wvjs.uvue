@@ -1,10 +1,9 @@
 <template>
-	<web-view v-if="isInit" class="__flower-web-view" :id="wv" @message="changeMessageWv"
-		src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
+	<web-view v-if="isInit" class="__flower-web-view" :id="wv" @message="changeMessageWv" src="/uni_modules/flower-config/hybrid/html/fr-wvjs.html" />
 </template>
 
 <script>
-	import { pageStoreMap, tempStoreMap, webviewContextStoreMap, uuid, getCurrentPagesRoute } from "@/uni_modules/flower-config/uni-app-x/store/wvStore.uts";
+	import { pageStoreMap, tempStoreMap, webviewContextStoreMap, uuid, getCurrentPagesRoute } from "./store/wvStore.uts";
 	import { mixinStore } from "@/uni_modules/flower-store/uni-app-x";
 	export default {
 		mixins: [mixinStore],

@@ -1,81 +1,57 @@
-import {rgbToHsv,hexToRgb,rgbToHex,hsvToRgb} from "@/uni_modules/flower-api/uni-app/color.js";
+import { hsvToHex, hexToHsv } from "./color.js";
 
 /**
  * 动态梯度算法，参考 [Arco Design色彩算法](https://arco.design/palette/list)
  * @param primaryColor 基础色，仅支持hex十六进制格式
  * @returns string
  */
-export const colorPalette = (primaryColor, i) => {
-	const colorRGB = hexToRgb(primaryColor);
-	const colorHSV = rgbToHsv(colorRGB.r, colorRGB.g, colorRGB.b);
-	const h = colorHSV.h;
-	const s = colorHSV.s * 100;
-	const v = colorHSV.v * 100;
+export function colorPalette(originColor, i) {
+	const color = hexToHsv(originColor);
 
-	const hStep = 2;
-	const maxSStep = 100;
-	const minSStep = 9;
+	const h = color.h;
+	const s = color.s * 100;
+	const v = color.v * 100;
 
-	const maxV = 100;
-	const minV = 30;
+	const hueStep = 2;
+	const maxSaturationStep = 100;
+	const minSaturationStep = 9;
+
+	const maxValue = 100;
+	const minValue = 30;
 
 	function getNewHue(isLight, i) {
 		let hue;
 		if (h >= 60 && h <= 240) {
-			hue = isLight ? h - hStep * i : h + hStep * i;
+			hue = isLight ? h - hueStep * i : h + hueStep * i;
 		} else {
-			hue = isLight ? h + hStep * i : h - hStep * i;
+			hue = isLight ? h + hueStep * i : h - hueStep * i;
 		}
-
 		if (hue < 0) {
 			hue += 360;
 		} else if (hue >= 360) {
 			hue -= 360;
 		}
-
-		return Math.round(hue);
+		return Math.round(hue) == 360 ? 0 : Math.round(hue);
 	}
 
 	function getNewSaturation(isLight, i) {
 		let newSaturation;
 
 		if (isLight) {
-			newSaturation = s <= minSStep ? s : s - ((s - minSStep) / 5) * i;
+			newSaturation = s <= minSaturationStep ? s : s - ((s - minSaturationStep) / 5) * i;
 		} else {
-			newSaturation = s + ((maxSStep - s) / 4) * i;
+			newSaturation = s + ((maxSaturationStep - s) / 4) * i;
 		}
-
 		return newSaturation;
 	}
 
-	function getNewLight(isLight, i) {
-		return isLight ? v + ((maxV - v) / 5) * i : (v <= minV ? v : v - ((v - minV) / 4) * i);
-	}
-
 	function getNewValue(isLight, i) {
-		return getNewLight(isLight, i);
+		return isLight ? v + ((maxValue - v) / 5) * i : (v <= minValue ? v : v - ((v - minValue) / 4) * i);
 	}
 
 	const isLight = i < 6;
 	const index = isLight ? 6 - i : i - 6;
 
-	if (i == 6) {
-		return primaryColor;
-	}
-
-	const hsv = {
-		h: getNewHue(isLight, index),
-		s: getNewSaturation(isLight, index) / 100,
-		v: getNewValue(isLight, index) / 100
-	};
-
-	const rgb = hsvToRgb(hsv.h, hsv.s, hsv.v);
-
-	const retColor = rgbToHex(
-		rgb.r,
-		rgb.g,
-		rgb.b
-	);
-
-	return retColor;
+	return i == 6 ? originColor : hsvToHex(getNewHue(isLight, index), getNewSaturation(isLight, index) / 100,
+		getNewValue(isLight, index) / 100);
 };
