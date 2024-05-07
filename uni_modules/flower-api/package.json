@@ -2,14 +2,14 @@
 	"id": "flower-api",
 	"displayName": "flower-api 工具库",
 	"version": "1.1.1",
-	"description": "温馨提示：组件库目前处于前期准备阶段，当前空项目，请勿下载！！！",
+	"description": "打造一致性、模块化、高性能的多功能工具库",
 	"keywords": [
         "api,js,uts"
     ],
 	"main": "./main/index.uts",
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-api",
 	"engines": {
-		"HBuilderX": "^3.6.9"
+		"HBuilderX": "^4.14"
 	},
 	"dcloudext": {
 		"type": "sdk-js",
