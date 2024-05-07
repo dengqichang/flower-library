@@ -1,14 +1,14 @@
 {
 	"id": "flower-iconPark",
 	"displayName": "flower-iconPark 图标库，全平台全版本兼容",
-	"version": "1.1.20",
+	"version": "1.1.21",
 	"description": "2600+基础图标，39种图标分类，通过技术驱动矢量图标样式的图标库产品，可以实现根据单一SVG源文件变换出多种主题，具备丰富的分类、更轻量的代码和更灵活的使用场景。",
 	"keywords": [
         "iconPark,icon,图标库"
     ],
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-iconPark",
 	"engines": {
-		"HBuilderX": "^4.13"
+		"HBuilderX": "^4.14"
 	},
 	"dcloudext": {
 		"type": "component-vue",
@@ -36,8 +36,8 @@
 		"platforms": {
 			"cloud": {
 				"tcb": "y",
-                "aliyun": "y",
-                "alipay": "n"
+				"aliyun": "y",
+				"alipay": "n"
 			},
 			"client": {
 				"Vue": {

@@ -1,3 +1,9 @@
+## 1.1.21（2024-05-07）
+- 【官方文档】[flower-iconPark 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
+- 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
+- 【开发版本】HBuilderX - 4.14+
+- 【组件说明】图标库遵循 `uni_modules`规范按需打包，每个图标均在1.5KB左右，图标库打包的实际大小取决于项目中使用到图标组件个数
+- 【更新内容】同步uni-app / uni-app-x 使用方式
 ## 1.1.20（2024-04-29）
 - 【官方文档】[flower-iconPark 图标库](https://flowerui.com/documents/flower-iconPark/preview.html)
 - 【版本兼容】全平台全版本兼容(uni-app / uni-app-x)
