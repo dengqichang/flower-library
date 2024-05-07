@@ -3,8 +3,8 @@
 </template>
 
 <script>
-	import {pageStoreMap,tempStoreMap,webviewContextStoreMap,uuid,getCurrentPagesRoute} from "./store/wvStore.js";
-	import {mixinStore} from "@/uni_modules/flower-store/uni-app";
+	import {pageStoreMap,tempStoreMap,webviewContextStoreMap} from "./store/wvStore.js";
+	import {uuid,getCurrentPagesRoute,mixinStore} from "@/uni_modules/flower-api/uni-app"
 	export default {
 		mixins: [mixinStore],
 		data() {

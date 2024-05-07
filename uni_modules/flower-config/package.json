@@ -1,14 +1,14 @@
 {
 	"id": "flower-config",
-	"displayName": "flower-config 公共配置",
-	"version": "1.1.8",
-	"description": "flower-library 库下所有插件公共配置",
+	"displayName": "flower-config 公共配置库",
+	"version": "1.1.9",
+	"description": "flower-library 系列组件库公共配置库",
 	"keywords": [
-        "公共配置,主题"
+        "公共配置,config"
     ],
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-config",
 	"engines": {
-		"HBuilderX": "^4.0"
+		"HBuilderX": "^4.14"
 	},
 	"dcloudext": {
 		"type": "sdk-js",
@@ -31,7 +31,7 @@
 		"npmurl": ""
 	},
 	"uni_modules": {
-		"dependencies": ["flower-store"],
+		"dependencies": ["flower-api"],
 		"encrypt": [],
 		"platforms": {
 			"cloud": {
