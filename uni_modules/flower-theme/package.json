@@ -8,7 +8,7 @@
 ],
   "repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-theme",
   "engines": {
-    "HBuilderX": "^4.13"
+    "HBuilderX": "^4.14"
   },
   "dcloudext": {
     "type": "sdk-js",
