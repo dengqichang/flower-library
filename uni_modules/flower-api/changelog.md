@@ -1,3 +1,6 @@
+## 1.1.1（2024-05-07）
+- 【新增函数】添加 `uuid`、`getCurrentPagesRoute`、`useStore`、`mixinStore`、`generate`函数
+- 【开发版本】HBuilderX - 4.14+
 ## 1.1.0（2023-09-22）
 - 【重置】调整结构重置所有API
 ## 1.0.6（2023-08-22）

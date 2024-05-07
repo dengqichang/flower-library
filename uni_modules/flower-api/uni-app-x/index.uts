@@ -1,8 +1,15 @@
 // 基础
-export * from "./basics";
+import { uuid } from "./basics";
 // 页面
-export * from "./getCurrentPages";
+import { getCurrentPagesRoute } from "./getCurrentPages";
 // flower-store
-export * from "@/uni_modules/flower-store/uni-app-x"
+import { useStore, mixinStore } from "@/uni_modules/flower-store/uni-app-x"
 // flower-theme
-export * from "@/uni_modules/flower-theme/uni-app-x";
+import { generate } from "@/uni_modules/flower-theme/uni-app-x";
+
+export {
+	uuid,
+	getCurrentPagesRoute,
+	useStore, mixinStore,
+	generate
+}

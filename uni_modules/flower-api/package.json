@@ -1,10 +1,10 @@
 {
 	"id": "flower-api",
 	"displayName": "flower-api 工具库",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "温馨提示：组件库目前处于前期准备阶段，当前空项目，请勿下载！！！",
 	"keywords": [
-        "api，vue3"
+        "api,js,uts"
     ],
 	"main": "./main/index.uts",
 	"repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-api",
@@ -32,12 +32,13 @@
 		"npmurl": ""
 	},
 	"uni_modules": {
-		"dependencies": [],
+		"dependencies": ["flower-store", "flower-theme"],
 		"encrypt": [],
 		"platforms": {
 			"cloud": {
 				"tcb": "y",
-				"aliyun": "y"
+                "aliyun": "y",
+                "alipay": "n"
 			},
 			"client": {
 				"Vue": {
