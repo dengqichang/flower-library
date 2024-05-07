@@ -1,3 +1,5 @@
+import "./main.js";
+
 class useStore {
 	static getState = (key) => {
 		return getData(key);

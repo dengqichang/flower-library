@@ -1,14 +1,14 @@
 {
   "id": "flower-store",
-  "displayName": "flower-store 状态管理库，全平台全版本兼容",
-  "version": "1.0.1",
+  "displayName": "flower-store 状态管理库",
+  "version": "1.0.2",
   "description": "是一个专为 uni-app / uni-app-x 应用程序开发的状态管理模式，它采用集中式存储管理应用的所有变量的状态，并以相应的规则保证状态以一种可预测的方式发生变化。",
   "keywords": [
-    "store,状态管理"
+    "state,全局状态管理"
 ],
   "repository": "https://github.com/dengqichang/flower-library/tree/main/uni_modules/flower-store",
   "engines": {
-    "HBuilderX": "^4.0"
+    "HBuilderX": "^4.14"
   },
   "dcloudext": {
     "type": "sdk-js",
