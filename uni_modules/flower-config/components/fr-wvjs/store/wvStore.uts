@@ -18,5 +18,5 @@ function getCurrentPagesRoute() : string {
 }
 
 export {
-	cacheStore, pageStoreMap, tempStoreMap, webviewContextStoreMap, uuid, getCurrentPagesRoute
+	pageStoreMap, tempStoreMap, webviewContextStoreMap, uuid, getCurrentPagesRoute
 }

@@ -1,4 +1,4 @@
-class store {
+class useStore {
 	static getState = (key) => {
 		return getData(key);
 	};
@@ -66,27 +66,27 @@ function setData(key, value) {
 const mixinStore = {
 	methods: {
 		getState(key) {
-			return store.getState(key);
+			return useStore.getState(key);
 		},
 		setState(key, value) {
-			store.setState(key, value);
+			useStore.setState(key, value);
 		},
 		getStore(key) {
-			return store.getStore(key);
+			return useStore.getStore(key);
 		},
 		setStore(key, value) {
-			store.setStore(key, value);
+			useStore.setStore(key, value);
 		},
 		getStoreState(key, isCache) {
-			return store.getStoreState(key, isCache);
+			return useStore.getStoreState(key, isCache);
 		},
 		setStoreState(key, value, isCache) {
-			store.setStoreState(key, value, isCache);
+			useStore.setStoreState(key, value, isCache);
 		}
 	}
 };
 
 export {
-	store,
+	useStore,
 	mixinStore
 }

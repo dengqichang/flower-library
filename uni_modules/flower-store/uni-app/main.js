@@ -1,11 +1,16 @@
 // #ifdef VUE2
 import Vue from 'vue';
 import Vuex from 'vuex';
-Vue.use(Vuex);
-const store = new Vuex.Store({state: {}});
+if (uni.store == undefined) {
+	Vue.use(Vuex);
+	const store = new Vuex.Store({state: {}});
+	uni.store = store;
+};
 // #endif
 // #ifdef VUE3
 import {reactive} from "vue";
-const store = reactive({});
+if (uni.store == undefined) {
+	const store = reactive({});
+	uni.store = store;
+};
 // #endif
-uni.store = store;

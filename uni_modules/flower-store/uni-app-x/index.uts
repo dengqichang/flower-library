@@ -1,6 +1,6 @@
 import vuex from "./main.uts";
 
-class store {
+class useStore {
 	static getState(key : string) : any {
 		return getData(key);
 	};
@@ -62,27 +62,27 @@ function setData(key : string, value : any) : void {
 const mixinStore = defineMixin({
 	methods: {
 		getState(key : string) : any {
-			return store.getState(key);
+			return useStore.getState(key);
 		},
 		setState(key : string, value : any) : void {
-			store.setState(key, value);
+			useStore.setState(key, value);
 		},
 		getStore(key : string) : any {
-			return store.getStore(key);
+			return useStore.getStore(key);
 		},
 		setStore(key : string, value : any) : void {
-			store.setStore(key, value);
+			useStore.setStore(key, value);
 		},
 		getStoreState(key : string, isCache : boolean) : any {
-			return store.getStoreState(key, isCache);
+			return useStore.getStoreState(key, isCache);
 		},
 		setStoreState(key : string, value : any, isCache : boolean) : void {
-			store.setStoreState(key, value, isCache);
+			useStore.setStoreState(key, value, isCache);
 		}
 	}
 });
 
 export {
-	store,
+	useStore,
 	mixinStore
 }

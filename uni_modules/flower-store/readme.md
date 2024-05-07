@@ -22,9 +22,9 @@
 | :------:	| :------:	|
 | √			| √			|
 #### uni-app 版本
-| app-vue	| app-nvue	| 各端小程序		| H5		|
-| :------:	| :------:	| :-------:		| :-------:	|
-| √			| √			| √				|√			|
+| app-uvue	| app-vue	| app-nvue	| 各端小程序		| H5		|
+| :------:	| :------:	| :------:	| :-------:		| :-------:	|
+| √			| √			| √			| √				|√			|
 #### uni-app-x 版本
 | android	| ios		| web		|
 | :------:	| :------:	| :------:	|
@@ -65,15 +65,15 @@
 <template>
 	<view>
 		<button @tap="onTap">点击设置</button>
-		<view>{{store.getState("test")}}</view>
+		<view>{{useStore.getState("test")}}</view>
 	</view>
 </template>
 
 <script setup>
-	import {store} from "@/uni_modules/flower-store/uni-app-x";
+	import { useStore } from "@/uni_modules/flower-store/uni-app-x";
 
 	const onTap = () => {
-		store.setState("test", "测试值")
+		useStore.setState("test", "测试值")
 	};
 </script>
 

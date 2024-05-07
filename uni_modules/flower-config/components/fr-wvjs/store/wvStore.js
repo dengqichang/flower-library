@@ -20,7 +20,6 @@ function getCurrentPagesRoute() {
 }
 
 export {
-	cacheStore,
 	pageStoreMap,
 	tempStoreMap,
 	webviewContextStoreMap,
